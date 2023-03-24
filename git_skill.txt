@@ -1,0 +1,15 @@
+身分登入：
+$ git config --global user.name "名字"
+$ git config --global user.email 信箱
+
+PUSH：
+$ git clone https://github.com/IMD112502/112502case.git (複製HTTP網址)
+$ cd 資料夾名稱
+$ ls -->會顯示資料夾裡有的檔案
+$ git status -->看到紅色還沒上傳的檔案
+$ git add 檔名
+$ git status -->看到檔案變綠色
+$ git commit -m "備註"
+$ git log -->檢查剛才的備註
+$ git push -u origin master
+---完成---
