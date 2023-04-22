@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "註冊介面";
+    /*Layout = "~/Views/Home/Index.cshtml";*/
+}
+
+<h1 align="center">記帳趣</h1>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <style type="text/css">
+            body {
+                background-color: beige;
+                font-family: Verdana, Arial;
+                margin: 50px;
+            }
+
+            form {
+                padding: 20px;
+                border-style: solid;
+                width: 400px;
+                margin: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form action="" method="post">
+            <p>
+                <label type="email" class="label_input">帳號：</label>
+                <input type="text" name="account" placeholder="請輸入帳號" style="width: 250px; height: 30px" required />
+            </p>
+            <p>
+                <label class="label_input">密碼：</label>
+                <input type="password" name="password" placeholder="請輸入密碼" style="width:250px;height:30px" required />
+            </p>
+            <p>
+                <label class="label_input">確認密碼：</label>
+                <input type="password" name="passwordcheck" placeholder="請再次輸入密碼" style="width:250px;height:30px" required />
+            </p>
+            <p>
+                <label for="name">名字/小名：</label>
+                <input type="text" name="name" placeholder="請輸入您的姓名或小名 ex.王小明" style="width:250px;height:30px" required />
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="Radio1" type="radio" name="gender" value="male">男生
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="Radio1" type="radio" name="gender" value="female">女生
+            </p>
+            <p>
+                &nbsp;&nbsp;<input type="submit" value="註冊" style="width:160px;height:30px" />&nbsp;
+                <input type="submit" value="取消" style="width:160px;height:30px" />
+            </p>
+            
+        </form>
+    </body>
+</html>
