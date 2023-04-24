@@ -11,6 +11,10 @@
 <body>
     <form id="form1" runat="server">
         <section>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+
             <div class="box">
                 <div class="container">
                     <div class="form">
@@ -50,6 +54,12 @@
                             <asp:TextBox ID="TextBox6" runat="server" Width="150px"
                                 PlaceHolder="請輸入暱稱"></asp:TextBox>
                         </div>
+                        <div>
+                            <p>暱稱(Nickname):</p>
+                            <asp:TextBox ID="TextBox7" runat="server" Width="150px"
+                                PlaceHolder="請輸入暱稱"></asp:TextBox>
+                        </div>
+
                     </div>
                 </div>
             </div>

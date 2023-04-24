@@ -7,7 +7,7 @@
 
 body{
     overflow:hidden;
-    background:#0094ff;
+
 }
 
 section{
@@ -17,9 +17,24 @@ section{
     min-height:100vh;
 }
 
-.box{
-    position:absolute;
-}
+    section .color{
+        position:relative;
+    }
+
+    section .color:nth-child(1){
+        top:-350px;
+        width:600px;
+        height:600px;
+        background:red;
+    }
+
+        section .color:nth-child(2) {
+            bottom:-150px;
+              left:100px;
+              width:800px;
+              height:800px;
+              background:orange;
+        }
 
 .container{
     position:relative;
