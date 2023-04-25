@@ -7,7 +7,7 @@
 
 body{
     overflow:hidden;
-
+    background:rgb(74, 132, 189)
 }
 
 section{
@@ -17,7 +17,7 @@ section{
     min-height:100vh;
 }
 
-    section .color{
+    /*section .color{
         position:relative;
     }
 
@@ -34,15 +34,49 @@ section{
               width:800px;
               height:800px;
               background:orange;
-        }
+        }*/
 
-.container{
-    position:relative;
-    width:400px;
-    min-height:400px;
-    background:rgba(255,255,255,0.1);
-    border-radius:5px;
-    justify-content:center;
-    align-items:center;
+.container {
+    position: relative;
+    width: 800px;
+    min-height: 680px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.p{
+    margin-bottom:200px;
+}
+
+h1{
+    font-size:50px;
+    padding-left:10px;
+    text-align:center;
+}
+
+p{
+    padding-left:10px;
+    font-size:20px;
+}
+
+h2{
+    padding-left:10px;
+}
+
+button{
+    padding-left:100px;
+}
+
+div.button{
+    padding-left:100px;
+}
+
+div.check{
+    font-size:20px;
+    padding-left:10px;
 }
 
