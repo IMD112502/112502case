@@ -1,0 +1,115 @@
+﻿body {
+    position: center;
+    background-image: url('images/ach_bg.png');
+    background-position: center;
+    background-size: 851.4px 872.4px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0 auto;
+}
+
+.ach_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.tit { /* 頁面標題 */
+    position: fixed;
+    color: darkcyan;
+    font-size: 60px;
+    left: 46%;
+    top: 60px;
+}
+
+.ach_top_button { /* 成就頂端按鈕 */
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ach_top_button:hover { /* 鼠標放在按鈕上 */
+    color: aliceblue;
+    background-color: lightseagreen;
+}
+
+.ach_top_button2 { /* 成就頂端按鈕區塊 */
+    position: fixed;
+    top: 160px;
+    left: 50%;
+}
+
+.ach_button_get { /* 成就領取紐 */
+    Height: 50px;
+    Width: 50px;
+    margin-top: -20px;
+    margin-left: 300px;
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ach_button_get:hover { /* 鼠標放在按鈕上 */
+    color: aliceblue;
+    background-color: lightseagreen;
+}
+
+.ach_content { /* 成就區塊 */
+    margin-top: 200px; /* 留出標題欄的高度 */
+    margin-left: 35%;
+    padding: 20px;
+    height: 550px; /* 設定內容區域的高度，使其可以出現滾動條 */
+    overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
+}
+
+.ach_tit { /* 成就標題 */
+    font-size: xx-large;
+    font-weight: bold;
+    color: teal;
+    margin-left: 50px;
+}
+
+.ach_con { /* 成就內容 */
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.literal { /* 進度條 */
+    margin-top: -15px;
+}
+
+.ach_content ul li { /* 清單(單項成就) */
+    list-style: none;
+    width: 100%;
+    height: 150px;
+}
+
+.ach_content ul li img { /* 成就圖片 */
+    Height: 130px; 
+    Width: 130px;
+    float: left;
+    margin-left: -10px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+back { /* 返回按鈕的區塊 */
+    position: relative;
+    border: 1px solid;
+    width: 851.4px;
+    height: 80px;
+}
+
+.back1 { /* 返回按鈕 */
+    position: fixed;
+    bottom: 3px;
+    right: 6px;
+}
