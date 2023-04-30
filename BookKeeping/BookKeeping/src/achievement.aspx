@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>成就</title>
 </head>
-<body>
+<body class="ach_body">
     <form id="form1" runat="server">
         <div class="ach_header">
             <h1><asp:Label class="tit" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
@@ -72,8 +72,7 @@
         </div>
         <div class="back">
               <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
-        </div>
-         
+        </div> 
     </form>
 </body>
 </html>

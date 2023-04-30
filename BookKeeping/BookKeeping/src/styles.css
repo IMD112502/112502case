@@ -1,12 +1,242 @@
-﻿body {
+﻿* {
+    margin: 0;
+    padding: 0;
+    color: teal;
+}
+
+body {
     position: center;
-    background-image: url('images/ach_bg.png');
+    background-color: beige;
+    font-family: Verdana, Arial;
     background-position: center;
-    background-size: 851.4px 872.4px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0 auto;
 }
+
+/*
+form {
+    padding-top: 10px;
+    padding-left: 100px;
+}
+*/
+
+.ach_body {
+    background-image: url('images/ach_bg.png');
+    background-size: 851.4px 872.4px;
+}
+
+.boo_body {
+    background-image: url('images/boo_bg.png');
+    background-size: 1093.8px 753.6px;
+}
+
+.log_body {
+    background-image: url('images/log_c_door.png');
+}
+
+.log_form {
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    width: 350px;
+    margin: auto;
+}
+
+.book_content { /* 記帳區塊 */
+    position: center;
+    width: 1093.8px;
+    height: 753.6px;
+    padding: 20px;
+}
+
+.boo_left { /* 記帳左 */
+    position: fixed;
+    top: 100px; /* 留出標題欄的高度 */
+    left: 22.8%;
+    padding: 20px;
+    width: 475px;
+    height: 680px;
+}
+
+.boo_right { /* 記帳右 */
+    position: fixed;
+    top: 100px; /* 留出標題欄的高度 */
+    left: 51.3%;
+    padding: 20px;
+    width: 475px;
+    height: 680px;
+}
+
+.boo_date {
+    font-weight: bold;
+    margin-top: 20px;
+    height: 80px;
+    text-align: center;
+}
+
+.boo_date_button { /* 記帳按鈕 */
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.boo_date_button:hover { /* 鼠標放在按鈕上 */
+    background-color: lightseagreen;
+}
+
+.boo_table_block {
+    margin-left: -20px;
+    position: center;
+    padding: 20px;
+    height: 480px; /* 設定內容區域的高度，使其可以出現滾動條 */
+    width: 455px;
+    overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
+}
+
+.boo_table {
+    border-collapse: collapse;
+    width: 395px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+tr {
+    text-align: center;
+}
+
+th, td {
+    border-top: 1px solid teal; /* 设置上边框为1像素实线 */
+    border-bottom: 1px solid teal; /* 设置下边框为1像素实线 */
+    padding: 8px; /* 设置单元格内边距 */
+    text-align: center; /* 设置单元格文本居中对齐 */
+}
+
+add_date button, p {
+    display: inline-block;
+    vertical-align: middle; /* 垂直置中 */
+}
+
+.boo_total {
+    font-size: 25px;
+    margin-bottom: 3px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.boo_add {
+    text-align: center;
+    margin-top: 65px;
+    margin-left: 5px;
+}
+
+input[type="date"] {
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+input[type="submit"], input[type="reset"] {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: lightseagreen;
+}
+
+/* 類別 */
+
+.main-container {
+    display: flex;
+    align-items: center; /* 在主軸上居中對齊flex子元素 */
+    justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
+    flex-direction: column; /* 將flex子元素的排列方向設置為垂直排列 */
+}
+
+.radio-buttons {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.custom-radio input { 
+    display: none; /* 隱藏radio button輸入框 */
+}
+
+.radio-btn {
+    margin: 2px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid aliceblue;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 20px #c3c3c367; /* 陰影 */
+    cursor: pointer;
+}
+
+.radio-btn > i { /* 勾勾 */
+    color: #ffffff;
+    background-color: teal;
+    font-size: 15px;
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%) scale(4); /* 向左平移50%，並放大4倍 */
+    border-radius: 50px;
+    padding: 4px; /* 內邊距 */
+    transition: 0.2s; /* 過渡效果秒數 */
+    pointer-events: none; /* 設鼠標事件不可用 */
+    opacity: 0; /* 透明度 */
+}
+
+.radio-btn .hobbies-icon { /* 類別圖片 */
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
+}
+
+.radio-btn .hobbies-icon i {
+    line-height: 80px;
+    font-size: 60px;
+}
+
+.radio-btn h3 { /* 類別文字 */
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.custom-radio input:checked + .radio-btn { /* 如果選取類別 */
+    border: 3px solid teal;
+}
+
+.custom-radio input:checked + .radio-btn > i {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/*---------*/
 
 .ach_header {
     position: fixed;
@@ -30,10 +260,10 @@
     color: aliceblue;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
 }
 
 .ach_top_button:hover { /* 鼠標放在按鈕上 */
-    color: aliceblue;
     background-color: lightseagreen;
 }
 
@@ -53,10 +283,10 @@
     color: aliceblue;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
 }
 
 .ach_button_get:hover { /* 鼠標放在按鈕上 */
-    color: aliceblue;
     background-color: lightseagreen;
 }
 
