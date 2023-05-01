@@ -1,5 +1,5 @@
 ﻿* {
-    margin: 0;
+    margin: 0px 0 0px 0px;
     padding: 0;
     color: teal;
 }
@@ -11,8 +11,16 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0 auto;
+    margin: 147px 0px 0px 0px;
+    height: 595px;
 }
+
+/*
+form {
+    padding-top: 10px;
+    padding-left: 100px;
+}
+*/
 
 .ach_body {
     background-image: url('images/ach_bg.png');
@@ -354,4 +362,69 @@ back { /* 返回按鈕的區塊 */
     position: fixed;
     bottom: 3px;
     right: 6px;
+}
+
+/*願望清單*/
+/*.buc_body {
+    background-image: url('images/dre_bg.png');
+    background-size: 1088.4px 904.2px;
+}*/
+
+/*願望清單-新增*/
+.buc_add_body {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 500px 500px;
+}
+
+.bucket_add {
+    padding-top: 120px;
+    padding-left: 640px;
+}
+
+#wish_textbox {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.buc_add_button {
+    margin-top: 60px;
+    margin-left: 780px;
+}
+
+/*願望清單-垃圾桶*/
+.trashcan_body {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 500px 500px;
+}
+
+.trashcan {
+    padding-top: 100px;
+    padding-left: 650px;
+}
+
+.trashcan_button {
+    margin-top: 60px;
+    margin-left: 820px;
+}
+
+/*願望清單-審核區*/
+.review_body {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 500px 500px;
+}
+
+.review {
+    padding-top: 110px;
+    padding-left: 630px;
+}
+
+.review_button {
+    margin-top: 40px;
+    margin-left: 620px;
+    font-size: x-large;
+}
+
+#review_Submit1 {
+    margin-top: 30px;
+    margin-left: 850px;
 }
