@@ -1,175 +1,67 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="edit.aspx.cs" Inherits="_BookKeeping.edit" %>
 
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Add Form</title>
-	<style>
-        body {
-            background-color: beige;
-            font-family: Verdana, Arial;
-            margin: 50px;
-        }
-        form {
-            padding-top: 10px;
-            padding-left: 100px;
-        }
-        .date {
-            margin-left: 325px;
-            margin-top: 100px;
-            width: 184px;
-        }
-        .record {
-            width: 400px;
-            height: 50px;
-            margin: 30px;
-            margin-left: 100px;
-            margin-top: 10px;
-            border-top: 2px #003153 solid;
-            border-bottom: 2px #003153 solid;
-        }
-        tr {
-            letter-spacing: 10px;
-        }
-        .total {
-            margin-top: 200px;
-            margin-left: 450px;
-        }
-        .v-line {
-            border-left: thick solid #000;
-            height: 500px;
-            left: 50%;
-            margin-top: -20px;
-            position: absolute;
-        }
-        .setting {
-            margin-left: 1200px;
-            margin-top: -450px;
-        }
-        .add {
-            margin-left: 700px;
-            margin-top: -30px;
-        }
-        #submit-button {
-            margin-left: 2px;
-        }
-        #back-button {
-            margin-left: 500px;
-        }
-        #add-button {
-            width: 100px;
-            height: 100px;
-            background-image: url(C:\Users\user\OneDrive\桌面\專題112502\112502\小雞.jpg);
-        }
-        #reset-button {
-            width: 150px;
-        }
-        #total-expenses-label {
-            font-weight: bold;
-        }
-        #total-income-label {
-            font-weight: bold;
-        }
-		table {
-			border-collapse: collapse;
-		}
-		td {
-			height: 100px;
-			width: 100px;
-			border: 1px solid black;
-		}
-		input[type="submit"] {
-			width: 100px;
-			height: 100px;
-			background-image: url(C:\Users\user\OneDrive\桌面\專題112502\112502\小雞.jpg);
-			border: none;
-		}
-		input[type="date"] {
-			width: 150px;
-			height: 25px;
-			font-size: 16px;
-			border-radius: 5px;
-			border: none;
-			padding: 5px;
-			box-shadow: 1px 1px 3px gray;
-		}
-		input[type="reset"], input[type="submit"], input[type="button"] {
-			width: 150px;
-			height: 40px;
-			font-size: 16px;
-			color: white;
-			background-color: #2196F3;
-			border-radius: 5px;
-			border: none;
-			cursor: pointer;
-			box-shadow: 1px 1px 3px gray;
-		}
-		input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:hover {
-			background-color: #0D47A1;
-		}
-	</style>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="bookkeeping.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>記帳-編輯</title>
+    <style type="text/css">
+    </style>
 </head>
 
-<body>
-    <div class="v-line"></div>
-    <div class="date">
-        <button> </button>
-        <font size="4">2023年4月</font>
-        <button> </button>
-    </div>
-    <div>
-        <form action="" method="post">
-            <table class="record" cellpadding="8" border="0">
-                <tr>
-                    <th>日期</th>
-                    <th>類別</th>
-                    <th>金額</th>
-                </tr>
-            </table>
-        </form>
-    </div>
-    <div class="total">
-        <p><label id="total-expenses-label" for="total-expenses">總收入：</label></p>
-        <p><label id="total-income-label" for="total-income">總支出：</label></p>
-    </div>
-    <div class="setting">
-        <p><button>設定</button></p>
-        <p><button>任務</button></p>
-    </div>
-	<div class="add">
-		<h1>編輯</h1>
-		<form>
-			<table>
-				<tr>
-					<td><input type="submit" value=" "></td>
-					<td><input type="submit" value=" "></td>
-					<td><input type="submit" value=" "></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value=" "></td>
-					<td><input type="submit" value=" "></td>
-					<td><input type="submit" value=" "></td>
-				</tr>
-			</table>
-			<p>
-				<label for="start">日期：</label>
-				<input type="date" id="start" name="trip-start"
-				       value="2023-04-20"
-				       min="2022-01-01" max="2024-12-31">
-			</p>
-			<p>
-				<label for="cost">金額：</label>
-				<input type="text" id="cost" name="cost" required>
-			</p>
-			<p>
-				<input type="reset" value="修改" />
-				<input type="submit" value="取消" />
-			</p>
-			<p>
-				<input type="button" value="返回" onclick="history.back()">
-			</p>
-		</form>
-	</div>
+<body style="height: 574px; margin-bottom: 0px;">
+    <form id="form1" runat="server">
+        <div class="book_left">
+            <asp:Button ID="date_left2" runat="server" Height="30px" Width="20px" OnClick="date_left2_Click" />
+            <asp:Label ID="date" runat="server" Text="2023年4月" Font-Bold="True"></asp:Label>
+            <asp:Button ID="date_right2" runat="server" Height="30px" Width="20px" />
+
+            <div class="total">
+                <asp:Label ID="Label5" runat="server" Text="總收入"></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:Label ID="Label6" runat="server" Text="元"></asp:Label>
+                <br />
+                <asp:Label ID="Label7" runat="server" Text="總支出"></asp:Label>
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:Label ID="Label8" runat="server" Text="元"></asp:Label>
+            </div>
+        </div>
+        <div class="book_edit">
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="編輯"></asp:Label>
+            <br />
+            <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" style="margin-left: 245px" Width="40px" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            &nbsp;&nbsp;
+            <asp:Label ID="Label2" runat="server" Font-Size="Large" Text="日期："></asp:Label>
+            <asp:TextBox ID="startDate" runat="server" type="date" min="2022-01-01" max="2024-12-31"></asp:TextBox>
+            <br />
+            &nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server" Font-Size="Large" Text="金額："></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+            <asp:Label ID="Label4" runat="server" Font-Size="Large" Text="元"></asp:Label>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <input id="Reset1" type="reset" value="修改" />
+            <input id="Submit1" type="submit" value="取消" />
+        </div>
+        <asp:ImageButton ID="back" runat="server" Height="50px" Width="50px" />
+    </form>
 </body>
 </html>
 

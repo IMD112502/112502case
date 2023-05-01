@@ -5,222 +5,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-	<link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="bookkeeping.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>記帳 新增</title>
-	<style>
-        
-	</style>
+    <title>記帳-新增</title>
+    <style type="text/css">
+    </style>
 </head>
 
-<body class="boo_body">
-	<form runat="server">
-	<div class="book_content">
-		<div class="boo_left">
-			<div class="boo_date">
-				<button class="boo_date_button" style="width: 20px; height: 20px;"><</button>
-				<p style="font-size:30px;">2023年4月</p>
-				<button class="boo_date_button" style="width: 20px; height: 20px;">></button>
-			</div>
-			<div class="boo_table_block">
-					<table class="boo_table" cellpadding="8" border="0">
-						<tr>
-							<th>日期</th>
-							<th>類別</th>
-							<th>金額</th>
-							<th>備註</th>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr><tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr><tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr><tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-					</table>
-			</div>
-			<div class="boo_total">
-				<p><label id="total-expenses-label" for="total-expenses">總收入__元</label></p>
-				<p><label id="total-income-label" for="total-income">總支出__元</label></p>
-			</div>
-		</div>
+<body style="height: 572px">
+    <form id="form1" runat="server">
+        <div class="book_left">
+            <asp:Button ID="date_left1" runat="server" Height="30px" Width="20px" OnClick="date_left1_Click" />
+            <asp:Label ID="date" runat="server" Text="2023年4月" Font-Bold="True"></asp:Label>
+            <asp:Button ID="date_right1" runat="server" Height="30px" Width="20px" />
+            
+            <div class="total">
+                <asp:Label ID="Label5" runat="server" Text="總收入"></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:Label ID="Label6" runat="server" Text="元"></asp:Label>
+                <br />
+                <asp:Label ID="Label7" runat="server" Text="總支出"></asp:Label>
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:Label ID="Label8" runat="server" Text="元"></asp:Label>
+            </div>
+        </div>
 
-		<div class="boo_right">
-		<h1 style="text-align: center; margin-top: 20px;">新增</h1>
-		<div class="boo_add">
-			<div class="main-container">
-				<p>選擇類別</p>
-				<br />
-				<div class="radio-buttons">
-					<label class="custom-radio">
-						<input type="radio" name="radio" checked />
-						<span class="radio-btn">
-							<i class="las la-check">v</i>
-							<div class="hobbies-icon" style="background:url('images/c_dre.png');">
-								<i class="las la-biking"></i>
-								<h3>願望</h3>
-							</div>
-						</span>
-					</label>
-					<label class="custom-radio">
-						<input type="radio" name="radio" />
-						<span class="radio-btn"
-							><i class="las la-check">v</i>
-							<div class="hobbies-icon">
-								<i class="las la-futbol"></i>
-								<h3>飲食</h3>
-							</div>
-						</span>
-					</label>
-					<label class="custom-radio">
-						<input type="radio" name="radio" />
-						<span class="radio-btn"
-							><i class="las la-check">v</i>
-							<div class="hobbies-icon">
-								<i class="las la-table-tennis"></i>
-								<h3>娛樂</h3>
-							</div>
-						</span>
-					</label>
-					<label class="custom-radio">
-						<input type="radio" name="radio" />
-						<span class="radio-btn"
-							><i class="las la-check">v</i>
-							<div class="hobbies-icon">
-								<i class="las la-ellipsis-h"></i>
-								<h3>其他</h3>
-							</div>
-						</span>
-					</label>
-				</div>
-			</div>
-			<br />
-			<br />
-			<label for="start">日期：</label>
-			<input type="date" id="start" name="trip-start" value="2023-04-20" min="2022-01-01" max="2024-12-31">
-			<br />
-			<br />
-			<label for="cost">金額：</label>
-			<input type="text" id="cost" name="cost" required>
-			<br />
-			<br />
-			<br />
-			<input type="reset" value="重置" />
-			<input type="submit" value="新增" />
-		</div>
-		</div>
-	</div>
-	</form>
+        <div class="book_add">
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="新增"></asp:Label>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            &nbsp;&nbsp;
+            <asp:Label ID="Label2" runat="server" Font-Size="Large" Text="日期："></asp:Label>
+            <asp:TextBox ID="startDate" runat="server" type="date" min="2022-01-01" max="2024-12-31"></asp:TextBox>
+            <br />
+            &nbsp;&nbsp;
+            <asp:Label ID="Label3" runat="server" Font-Size="Large" Text="金額："></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" Height="24px" style="margin-top: 5px" Width="150px"></asp:TextBox>
+            <asp:Label ID="Label4" runat="server" Font-Size="Large" Text="元"></asp:Label>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <input id="Reset1" type="reset" value="取消" />
+            <input id="Submit1" type="submit" value="新增" />
+        </div>
+        <asp:ImageButton ID="back" runat="server" Height="50px" Width="50px" />
+    </form>
 </body>
 </html>
 

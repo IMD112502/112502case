@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace _BookKeeping
 {
-    public partial class add : System.Web.UI.Page
+    public partial class forget_pw : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void date_left_Click(object sender, EventArgs e)
         {
 
         }
