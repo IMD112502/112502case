@@ -31,16 +31,33 @@ form {
     background-size: 1093.8px 753.6px;
 }
 
-.log_body {
+.b_log_body {
     background-image: url('images/log_c_door.png');
+    background-size: 727.2px 656.4px;
+}
+
+.log_body {
+    background-image: url('images/log_o_door.png');
+    background-size: 1416px 730.8px;
+}
+
+.b_log_body:hover {
+    box-shadow: 0 0 10px #fff; /* 設定發光效果 */
 }
 
 .log_form {
     text-align: center;
     padding: 20px;
     border-style: solid;
-    width: 350px;
+    width: 670px;
+    height: 580px;
     margin: auto;
+    margin-top: 90px;
+}
+
+.log_body {
+    background-image: url('images/log_o_door.png');
+    background-size: 1416px 730.8px;
 }
 
 .book_content { /* 記帳區塊 */
@@ -144,7 +161,7 @@ input[type="date"] {
     box-shadow: 1px 1px 3px gray;
 }
 
-input[type="submit"], input[type="reset"] {
+.reset, .add {
     width: 150px;
     height: 40px;
     font-size: 16px;
@@ -154,9 +171,9 @@ input[type="submit"], input[type="reset"] {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 1px 1px 3px gray;
-}
+}   
 
-input[type="submit"]:hover, input[type="reset"]:hover {
+.reset:hover, .add:hover {
     background-color: lightseagreen;
 }
 
@@ -291,10 +308,12 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 }
 
 .ach_content { /* 成就區塊 */
+    position: fixed;
+    margin: 35%;
     margin-top: 200px; /* 留出標題欄的高度 */
-    margin-left: 35%;
     padding: 20px;
     height: 550px; /* 設定內容區域的高度，使其可以出現滾動條 */
+    width: 510px;
     overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
 }
 

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace _BookKeeping
+namespace BookKeeping
 {
-    public partial class add : System.Web.UI.Page
+    public partial class b_login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
