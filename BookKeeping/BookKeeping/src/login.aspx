@@ -21,7 +21,7 @@
             <asp:TextBox ID="user_pwd" runat="server" Width="250" TextMode="Password" placeholder="請輸入密碼" required="required"></asp:TextBox>
         </p>
         <br />
-        <a href="forget_pwd.aspx">忘記密碼?</a>
+        <a href="forget_pwd.aspx">忘記密碼</a>
         <br />
         <p>&nbsp;&nbsp;<asp:Button ID="forget_pwd" runat="server" Text="登入" Width="290" Height="30" /></p>
         <br />

@@ -24,7 +24,7 @@
                   <asp:Image ID="Image1" runat="server" ImageUrl="images/clothing1.png" />
                   <asp:Label class="ach_tit" runat="server" Text="記帳小達人" ></asp:Label>
                   <br />
-                  <asp:Label class="ach_con" runat="server" Text="累計記帳10次" ></asp:Label>
+                  <asp:Label class="ach_con" runat="server" Text="累計記帳11次" ></asp:Label>
                   <br />
                   <asp:Button class="ach_button_get" ID="Button3" runat="server" Text="領取" />
                   <br />
