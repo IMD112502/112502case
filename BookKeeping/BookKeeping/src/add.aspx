@@ -163,7 +163,7 @@
 				<br />
 				<div class="radio-buttons">
 					<label class="custom-radio">
-						<input type="radio" name="radio" checked />
+						<input type="radio" name="radio" value="願望" checked="checked" />
 						<span class="radio-btn">
 							<i class="las la-check">v</i>
 							<div class="hobbies-icon" style="background:url('images/c_dre.png');">
@@ -173,7 +173,7 @@
 						</span>
 					</label>
 					<label class="custom-radio">
-						<input type="radio" name="radio" />
+						<input type="radio" name="radio" value="飲食" />
 						<span class="radio-btn"
 							><i class="las la-check">v</i>
 							<div class="hobbies-icon">
@@ -183,7 +183,7 @@
 						</span>
 					</label>
 					<label class="custom-radio">
-						<input type="radio" name="radio" />
+						<input type="radio" name="radio" value="娛樂"/>
 						<span class="radio-btn"
 							><i class="las la-check">v</i>
 							<div class="hobbies-icon">
@@ -193,7 +193,7 @@
 						</span>
 					</label>
 					<label class="custom-radio">
-						<input type="radio" name="radio" />
+						<input type="radio" name="radio" value="其他"/>
 						<span class="radio-btn"
 							><i class="las la-check">v</i>
 							<div class="hobbies-icon">
@@ -207,16 +207,18 @@
 			<br />
 			<br />
 			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
-			<input type="date" id="start" name="trip-start" value="2023-04-20" min="2022-01-01" max="2024-12-31" />
+			<input type="date" id="start" name="date"
+               value="2023-04-20"
+               min="2022-01-01" max="2024-12-31" />
 			<br />
 			<br />
 			<asp:Label ID="Label5" runat="server" Text="金額："></asp:Label>
-			<input type="text" id="cost" name="cost" required="required" />
+			<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 			<br />
 			<br />
 			<br />
 			<input class="reset" type="reset" value="重置" />
-			<input class="add" type="submit" value="新增" />
+			<asp:Button ID="Button3" runat="server" Text="新增" OnClick="submit_Click" />
 		</div>
 		</div>
 	</div>
