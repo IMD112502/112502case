@@ -355,3 +355,62 @@ back { /* 返回按鈕的區塊 */
     bottom: 3px;
     right: 6px;
 }
+
+/*願望清單-新增*/
+.buc_add_body {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 500px 500px;
+}
+
+.bucket_add {
+    padding-top: 120px;
+    padding-left: 640px;
+}
+
+#wish_textbox {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.buc_add_button {
+    margin-top: 60px;
+    margin-left: 780px;
+}
+
+/*願望清單-垃圾桶*/
+.trashcan_body {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 500px 500px;
+}
+
+.trashcan {
+    padding-top: 100px;
+    padding-left: 650px;
+}
+
+.trashcan_button {
+    margin-top: 60px;
+    margin-left: 820px;
+}
+
+/*願望清單-審核區*/
+.review_body {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 500px 500px;
+}
+
+.review {
+    padding-top: 110px;
+    padding-left: 630px;
+}
+
+.review_button {
+    margin-top: 40px;
+    margin-left: 620px;
+    font-size: x-large;
+}
+
+#review_Submit1 {
+    margin-top: 30px;
+    margin-left: 850px;
+}
