@@ -13,10 +13,5 @@ namespace _BookKeeping
         {
 
         }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-
-        }
     }
 }

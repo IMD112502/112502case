@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="review.aspx.cs" Inherits="_BookKeeping.review" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="review.aspx.cs" Inherits="BookKeeping.src.review" %>
 
 <!DOCTYPE html>
 

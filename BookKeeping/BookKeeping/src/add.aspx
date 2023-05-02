@@ -207,11 +207,11 @@
 			<br />
 			<br />
 			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
-			<input type="date" id="start" name="trip-start" value="2023-04-20" min="2022-01-01" max="2024-12-31">
+			<input type="date" id="start" name="trip-start" value="2023-04-20" min="2022-01-01" max="2024-12-31" />
 			<br />
 			<br />
 			<asp:Label ID="Label5" runat="server" Text="金額："></asp:Label>
-			<input type="text" id="cost" name="cost" required>
+			<input type="text" id="cost" name="cost" required="required" />
 			<br />
 			<br />
 			<br />
