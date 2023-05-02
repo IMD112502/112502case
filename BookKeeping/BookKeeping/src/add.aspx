@@ -22,136 +22,19 @@
 				<asp:Label ID="Label1" runat="server" Text="2023年4月" style="font-size:30px;"></asp:Label>
 				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
 			</div>
-			<div class="boo_table_block">
-					<table class="boo_table" cellpadding="8" border="0">
-						<tr>
-							<th>日期</th>
-							<th>類別</th>
-							<th>金額</th>
-							<th>備註</th>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/03</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/01</td>
-							<td>願望</td>
-							<td>+$20</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr><tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr><tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-						<tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr><tr>
-							<td>04/02</td>
-							<td>娛樂</td>
-							<td>-$100</td>
-							<td>湯姆熊</td>
-						</tr>
-					</table>
-			</div>
+
 			<div class="boo_total">
 				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
 				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
+
+			    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="date" HeaderText="date" DataFormatString="{0:yyyy-MM-dd}"/>
+						<asp:BoundField DataField="class" HeaderText="class" />
+						<asp:BoundField DataField="cost" HeaderText="cost" />
+					</Columns>
+				</asp:GridView>
+				
 			</div>
 		</div>
 
@@ -210,6 +93,9 @@
 			<input type="date" id="start" name="date"
                value="2023-04-20"
                min="2022-01-01" max="2024-12-31" />
+			<script>
+				document.getElementById("start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
+            </script>
 			<br />
 			<br />
 			<asp:Label ID="Label5" runat="server" Text="金額："></asp:Label>
@@ -218,7 +104,7 @@
 			<br />
 			<br />
 			<input class="reset" type="reset" value="重置" />
-			<asp:Button ID="Button3" runat="server" Text="新增" OnClick="submit_Click" />
+			<asp:Button ID="Button3" runat="server" Text="新增" OnClick="Submit_Click" />
 		</div>
 		</div>
 	</div>
