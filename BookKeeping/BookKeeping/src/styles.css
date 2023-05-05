@@ -356,6 +356,54 @@ back { /* 返回按鈕的區塊 */
     right: 6px;
 }
 
+/*願望清單*/
+.buc_body {
+    /*background-image: url('images/dre_bg.png');
+    background-size: 1088.4px 904.2px;*/
+    text-align: center;
+}
+
+.wishes1 {
+    margin-left: 250px;
+    margin-top: 100px;
+    border: 2px solid black;
+}
+
+.wishes2 {
+    margin-left: 250px;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+.wishes3 {
+    margin-left: 250px;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+.wishes4 {
+    margin-left: 450px;
+    margin-top: -300px;
+    border: 2px solid black;
+}
+
+.b_Label1 {
+    padding-top: 20px;
+}
+
+.b_Label2 {
+    padding-top: 50px;
+}
+
+#ImageButton2 { /*願望垃圾桶*/
+    margin-left: -100px;
+}
+
+.review { /*審核區*/
+    margin-left: 400px;
+    margin-top: -400px;
+}
+
 /*願望清單-新增*/
 .buc_add_body {
     background-image: url('images/dre_rev_button.png');
