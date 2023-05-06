@@ -23,18 +23,19 @@
 				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
 			</div>
 
+			<div class="boo_table_block">
+				<asp:GridView class="gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
+						<asp:BoundField DataField="class" HeaderText="類別" />
+						<asp:BoundField DataField="cost" HeaderText="金額" />
+					</Columns>
+				</asp:GridView>
+			</div>
+
 			<div class="boo_total">
 				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
 				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
-
-			    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-					<Columns>
-						<asp:BoundField DataField="date" HeaderText="date" DataFormatString="{0:yyyy-MM-dd}"/>
-						<asp:BoundField DataField="class" HeaderText="class" />
-						<asp:BoundField DataField="cost" HeaderText="cost" />
-					</Columns>
-				</asp:GridView>
-				
 			</div>
 		</div>
 
@@ -104,7 +105,7 @@
 			<br />
 			<br />
 			<input class="reset" type="reset" value="重置" />
-			<asp:Button ID="Button3" runat="server" Text="新增" OnClick="Submit_Click" />
+			<asp:Button class="add" ID="Button3" runat="server" Text="新增" OnClick="Submit_Click" />
 		</div>
 		</div>
 	</div>
