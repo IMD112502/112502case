@@ -17,7 +17,7 @@
             <asp:TextBox ID="wish_textbox" PlaceHolder="請輸入您的願望" runat="server" Height="40px" Width="230px"></asp:TextBox>
         </div>
         <div class="buc_add_button">
-            <input id="Submit1" type="submit" value="確認" style="height: 50px; width: 50px;" />
+            <asp:Button ID="Submit" runat="server" Text="確認" style="height: 50px; width: 50px;" OnClick="Submit_Click"/>
             <input id="Reset1" type="reset" value="取消" style="height: 50px; width: 50px;" />
         </div>
         <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" />
