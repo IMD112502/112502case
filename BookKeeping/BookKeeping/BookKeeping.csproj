@@ -108,7 +108,6 @@
   <ItemGroup>
     <Content Include="src\achievement.aspx" />
     <Content Include="src\add.aspx" />
-    <Content Include="src\bookkeeping.css" />
     <Content Include="src\bucket_list.aspx" />
     <Content Include="src\bucket_list_add.aspx" />
     <Content Include="src\buc_trashcan.aspx" />
@@ -120,7 +119,6 @@
     <Content Include="src\review.aspx" />
     <Content Include="src\search.aspx" />
     <Content Include="src\styles.css" />
-    <Content Include="src\StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
