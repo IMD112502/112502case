@@ -38,6 +38,11 @@ body {
     box-shadow: 0 0 10px #fff; /* 設定發光效果 */
 }
 
+.log_tit {
+    margin-top: 20px;
+    font-size: 60px;
+}
+
 .log_form {
     text-align: center;
     padding: 20px;
@@ -48,9 +53,43 @@ body {
     margin-top: 90px;
 }
 
-.log_body {
-    background-image: url('images/log_o_door.png');
-    background-size: 1416px 730.8px;
+.log_text {
+    margin-top: 80px;
+}
+
+.log_button_block {
+    margin-top: 80px;
+}
+
+.log_button { /* 登入/註冊按鈕 */
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.log_button:hover { /* 鼠標放在按鈕上 */
+    background-color: lightseagreen;
+}
+
+.reg_text {
+    margin-left: 50%;
+    margin-top: 40px;
+    transform: translate(-50%, 0);
+}
+
+.reg_text_block {
+    text-align: right;
+    width: 365px;
+    height: 400px;
+    font-size: 20px;
+}
+
+.reg_gender {
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
 .book_content { /* 記帳區塊 */
@@ -107,28 +146,25 @@ body {
     overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
 }
 
-.boo_table {
-    border-collapse: collapse;
+table.gridview {
     width: 395px;
     height: 50px;
     margin-top: 5px;
     margin-left: 30px;
+    border: none;
 }
 
-tr {
+table.gridview tr {
     text-align: center;
 }
 
-th, td {
-    border-top: 1px solid teal; /* 设置上边框为1像素实线 */
-    border-bottom: 1px solid teal; /* 设置下边框为1像素实线 */
-    padding: 8px; /* 设置单元格内边距 */
-    text-align: center; /* 设置单元格文本居中对齐 */
+table.gridview th, table.gridview td {
+  border-left: none;
+  border-right: none;
 }
 
-add_date button, p {
-    display: inline-block;
-    vertical-align: middle; /* 垂直置中 */
+table.gridview th:first-child, table.gridview td:first-child {
+  border-left: none;
 }
 
 .boo_total {
@@ -256,7 +292,7 @@ input[type="date"] {
     padding: 10px;
 }
 
-.tit { /* 頁面標題 */
+.ach_top_tit { /* 頁面標題 */
     position: fixed;
     color: darkcyan;
     font-size: 60px;
@@ -431,14 +467,21 @@ back { /* 返回按鈕的區塊 */
     background-size: 500px 500px;
 }
 
+.tra_form {
+    text-align: center;
+    padding: 20px;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: 350px;
+}
+
 .trashcan {
-    padding-top: 100px;
-    padding-left: 650px;
+    padding-top: 20px;
 }
 
 .trashcan_button {
     margin-top: 60px;
-    margin-left: 820px;
 }
 
 /*願望清單-審核區*/
@@ -447,18 +490,30 @@ back { /* 返回按鈕的區塊 */
     background-size: 500px 500px;
 }
 
-.review {
-    padding-top: 110px;
-    padding-left: 630px;
+.rev_form {
+    text-align: center;
+    padding: 20px;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: 350px;
 }
 
 .review_button {
     margin-top: 40px;
-    margin-left: 620px;
     font-size: x-large;
 }
 
-#review_Submit1 {
-    margin-top: 30px;
-    margin-left: 850px;
+.dre_button { /* 願望功能確認按鈕 */
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+    margin-top: 10px;
+}
+
+.dre_button:hover { /* 鼠標放在按鈕上 */
+    background-color: lightseagreen;
 }
