@@ -14,11 +14,13 @@
     <form id="form1" runat="server">
         <div class="bucket_add">
             <asp:Label ID="wish_user" runat="server" Text="______想要" font-size="XX-Large" ></asp:Label><br />
-            <asp:TextBox ID="wish_textbox" PlaceHolder="請輸入您的願望" runat="server" Height="40px" Width="230px"></asp:TextBox>
+            <asp:TextBox ID="wish_textbox" PlaceHolder="請輸入您的願望" runat="server" Height="40px" Width="230px"></asp:TextBox><br/>
+            
         </div>
         <div class="buc_add_button">
-            <input id="Submit1" type="submit" value="確認" style="height: 50px; width: 50px;" />
-            <input id="Reset1" type="reset" value="取消" style="height: 50px; width: 50px;" />
+            <asp:Button ID="submit" runat="server" Text="確認" style="height:50px; width:70px;"  Onclick="Submit_Click"/>
+            <asp:Button ID="reset" runat="server" Text="取消" style="margin-left:50px; height:50px; width:70px;" />
+         
         </div>
         <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" />
     </form>

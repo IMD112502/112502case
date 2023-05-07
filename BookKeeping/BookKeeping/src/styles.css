@@ -408,11 +408,19 @@ back { /* 返回按鈕的區塊 */
 .buc_add_body {
     background-image: url('images/dre_rev_button.png');
     background-size: 500px 500px;
+    position:center; /*絕對位置置中*/
+    height:500px;
+    width:500px;
+    text-align:center;
 }
 
 .bucket_add {
-    padding-top: 120px;
-    padding-left: 640px;
+    
+    /*padding-top: 120px;
+    padding-left: 640px;*/
+    /*修改後*/
+    padding-top: 200px; 
+    padding-left: 0px;
 }
 
 #wish_textbox {
@@ -421,8 +429,12 @@ back { /* 返回按鈕的區塊 */
 }
 
 .buc_add_button {
-    margin-top: 60px;
-    margin-left: 780px;
+
+    /*margin-top: 60px;
+    margin-left: 780px;*/
+    /*修改後*/
+    padding-top: 50px;
+    margin-left:30px;
 }
 
 /*願望清單-垃圾桶*/
@@ -443,6 +455,9 @@ back { /* 返回按鈕的區塊 */
 
 /*願望清單-審核區*/
 .review_body {
+    position: absolute; /*指定絕對位置*/
+    top: 250px;
+    left: 350px;
     background-image: url('images/dre_rev_button.png');
     background-size: 500px 500px;
 }
@@ -455,6 +470,7 @@ back { /* 返回按鈕的區塊 */
 .review_button {
     margin-top: 40px;
     margin-left: 620px;
+
     font-size: x-large;
 }
 
