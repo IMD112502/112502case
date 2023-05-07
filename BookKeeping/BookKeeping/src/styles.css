@@ -520,14 +520,7 @@ back { /* 返回按鈕的區塊 */
     height: 400px;
     margin: auto;
     margin-top: 350px;
-.rev_form {
-    text-align: center;
-    padding: 20px;
-    width: 400px;
-    height: 400px;
-    margin: auto;
-    margin-top: 350px;
-}
+
 
 .review_button {
     margin-top: 40px;
@@ -542,10 +535,6 @@ back { /* 返回按鈕的區塊 */
     border-radius: 5px;
     box-shadow: 1px 1px 3px gray;
     margin-top: 10px;
-}
-
-.dre_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
 }
 
 .dre_button:hover { /* 鼠標放在按鈕上 */
