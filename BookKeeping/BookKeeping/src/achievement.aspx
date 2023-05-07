@@ -11,7 +11,7 @@
 <body class="ach_body">
     <form id="form1" runat="server">
         <div class="ach_header">
-            <h1><asp:Label class="tit" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
+            <h1><asp:Label class="ach_top_tit" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
             <div class="ach_top_button2">
                 <asp:Button class="ach_top_button" ID="Button1" runat="server" Text="已完成" style="width:150px;height:30px;margin-left:-160px;"/>
                 <asp:Button class="ach_top_button" ID="Button2" runat="server" Text="未完成" style="width:150px;height:30px;"/>

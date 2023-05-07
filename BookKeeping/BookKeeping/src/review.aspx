@@ -9,7 +9,7 @@
     <title>審核區</title>
 </head>
 <body class="review_body">
-    <form id="form1" runat="server">
+    <form class="rev_form" id="form1" runat="server">
         <div class="review">
             <asp:Label ID="cant_buy" runat="server" Text="______想要" font-size="X-Large" ></asp:Label><br />
             <asp:Label ID="because" runat="server" Text="___________, 可以嗎><？" font-size="X-Large" ></asp:Label><br />
@@ -22,7 +22,7 @@
             
             <asp:TextBox ID="TextBox1" placeholder="請輸入審核不通過的原因" runat="server" height="30px" width="250px"></asp:TextBox>
         </div>
-        <input id="review_Submit1" type="submit" value="確認" style="height: 50px; width: 50px;" />
+        <input class="dre_button" id="review_Submit1" type="submit" value="確認" style="height: 50px; width: 50px;" />
         <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" />
     </form>
 </body>
