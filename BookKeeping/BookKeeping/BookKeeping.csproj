@@ -115,6 +115,7 @@
     <Content Include="src\edit.aspx" />
     <Content Include="src\forget_pw.aspx" />
     <Content Include="src\login.aspx" />
+    <Content Include="src\main.aspx" />
     <Content Include="src\register.aspx" />
     <Content Include="src\review.aspx" />
     <Content Include="src\search.aspx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="src\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>

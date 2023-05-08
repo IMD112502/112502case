@@ -1,5 +1,54 @@
-﻿* {
-    margin: 0;
+﻿/*--------------------------------主畫面---------------------------------------*/
+.main {/*主畫面背景*/
+    background-image: url('images/home_bg.png');
+    background-size: 1416px 984px;
+    height: 900px;
+    width: 1600px;
+}
+
+#closet{/*衣櫥*/
+    padding-left: 350px;
+    padding-top: 150px;
+}
+
+.wishes {
+    float: right;
+    padding-top: 100px;
+    padding-right: 0px;
+}
+
+.bookkeeping {
+    float: right;
+    margin-top: 500px;
+}
+
+#bookkeeping {
+    padding-top: 50px;
+    padding-left: 30px;
+}
+
+#pig {
+    padding-top: -300px;
+    padding-left: 50px;
+}
+ /*主畫面end*/
+ /*--------------------------------任務&設定------------------------------------*/
+.setting {
+    float: right;
+    margin-right: -120px;
+}
+
+#setting { /*設定*/
+
+}
+
+#ach { /*任務*/
+
+}
+/*任務&設定end*/
+
+* {
+    margin: 0px 0px 0 0px;
     padding: 0;
     color: teal;
 }
@@ -11,7 +60,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0 auto;
+    margin: 0 479px 0 0px;
 }
 
 .ach_body {
@@ -206,7 +255,7 @@ input[type="date"] {
     background-color: lightseagreen;
 }
 
-/* 類別 */
+/*---------------------------------類別---------------------------------------------*/
 
 .main-container {
     display: flex;
@@ -392,7 +441,7 @@ back { /* 返回按鈕的區塊 */
     right: 6px;
 }
 
-/*願望清單*/
+/*--------------------------------------願望清單----------------------------------------*/
 .buc_body {
     /*background-image: url('images/dre_bg.png');
     background-size: 1088.4px 904.2px;*/
@@ -504,7 +553,7 @@ back { /* 返回按鈕的區塊 */
     */
 }
 
-/*願望清單-審核區*/
+/*------------------------------------願望清單-審核區------------------------------------*/
 .review_body {
     position: absolute; /*指定絕對位置*/
     top: 250px;
