@@ -1,12 +1,31 @@
-﻿/*--------------------------------主畫面---------------------------------------*/
-.main {/*主畫面背景*/
+﻿* {
+    margin: 0px 0px 0 0px;
+    padding: 0;
+    color: teal;
+}
+
+body {
+    position: center;
+    background-color: beige;
+    font-family: Verdana, Arial;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0 479px 0 0px;
+}
+
+/*--------------------------------主畫面---------------------------------------*/
+.main_body {
     background-image: url('images/home_bg.png');
     background-size: 1416px 984px;
     height: 900px;
     width: 1600px;
+    /*background-size: cover;
+    background-position: center;    
+    background-repeat: no-repeat;*/
 }
 
-#closet{/*衣櫥*/
+#closet{ /* 衣櫥 */
     padding-left: 350px;
     padding-top: 150px;
 }
@@ -28,11 +47,19 @@
 }
 
 #pig {
-    padding-top: -300px;
-    padding-left: 50px;
+    position: fixed;
+    bottom: -150px;
+    left: 180px;
 }
- /*主畫面end*/
- /*--------------------------------任務&設定------------------------------------*/
+
+.back { /* 返回按鈕 */
+    position: fixed;
+    bottom: 3px;
+    right: 6px;
+}
+/*--------------------------------主畫面結束---------------------------------------*/
+
+/*---------------------------------任務/設定---------------------------------------*/
 .setting {
     float: right;
     margin-right: -120px;
@@ -45,42 +72,17 @@
 #ach { /*任務*/
 
 }
-/*任務&設定end*/
+/*--------------------------------任務/設定結束------------------------------------*/
 
-* {
-    margin: 0px 0px 0 0px;
-    padding: 0;
-    color: teal;
-}
-
-body {
-    position: center;
-    background-color: beige;
-    font-family: Verdana, Arial;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0 479px 0 0px;
-}
-
-.ach_body {
-    background-image: url('images/ach_bg.png');
-    background-size: 851.4px 872.4px;
-}
-
-.boo_body {
-    background-image: url('images/boo_bg.png');
-    background-size: 1093.8px 753.6px;
+/*-------------------------------------登入----------------------------------------*/
+.log_body {
+    background-image: url('images/log_o_door.png');
+    background-size: 1416px 730.8px;
 }
 
 .b_log_body {
     background-image: url('images/log_c_door.png');
     background-size: 727.2px 656.4px;
-}
-
-.log_body {
-    background-image: url('images/log_o_door.png');
-    background-size: 1416px 730.8px;
 }
 
 .b_log_body:hover {
@@ -100,6 +102,8 @@ body {
     height: 580px;
     margin: auto;
     margin-top: 90px;
+    margin-left: 50%;
+    transform: translate(-16.5%);
 }
 
 .log_text {
@@ -123,10 +127,22 @@ body {
     background-color: lightseagreen;
 }
 
+#user_acc, #user_pwd { /* 輸入框 */
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+/*--------------------------------登入結束------------------------------------*/
+
+/*----------------------------------註冊--------------------------------------*/
 .reg_text {
     margin-left: 50%;
     margin-top: 40px;
-    transform: translate(-50%, 0);
+    transform: translate(-60%, 0);
 }
 
 .reg_text_block {
@@ -137,8 +153,28 @@ body {
 }
 
 .reg_gender {
-    margin-top: -10px;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
+}
+
+.reg_button_block {
+    transform: translate(10%, 0);
+}
+
+#acc, #name, #nickname, #pwd, #c_pwd { /* 輸入框 */
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+/*--------------------------------註冊結束------------------------------------*/
+
+/*----------------------------------記帳--------------------------------------*/
+.boo_body {
+    background-image: url('images/boo_bg.png');
+    background-size: 1093.8px 753.6px;
 }
 
 .book_content { /* 記帳區塊 */
@@ -148,19 +184,11 @@ body {
     padding: 20px;
 }
 
-.boo_left { /* 記帳左 */
+/*---------------記帳左---------------*/
+.boo_left { 
     position: fixed;
     top: 100px; /* 留出標題欄的高度 */
     left: 22.8%;
-    padding: 20px;
-    width: 475px;
-    height: 680px;
-}
-
-.boo_right { /* 記帳右 */
-    position: fixed;
-    top: 100px; /* 留出標題欄的高度 */
-    left: 51.3%;
     padding: 20px;
     width: 475px;
     height: 680px;
@@ -173,7 +201,7 @@ body {
     text-align: center;
 }
 
-.boo_date_button { /* 記帳按鈕 */
+.boo_date_button { /* 日期按鈕 */
     border: 0;
     background-color: teal;
     color: aliceblue;
@@ -216,11 +244,22 @@ table.gridview th:first-child, table.gridview td:first-child {
   border-left: none;
 }
 
-.boo_total {
+.boo_total { /* 總收入、總支出 */
     font-size: 25px;
     margin-bottom: 3px;
-    text-align: right;
+    text-align: center;
     font-weight: bold;
+}
+/*-------------記帳左結束-------------*/
+
+/*---------------記帳右---------------*/
+.boo_right { 
+    position: fixed;
+    top: 100px; /* 留出標題欄的高度 */
+    left: 51.3%;
+    padding: 20px;
+    width: 475px;
+    height: 680px;
 }
 
 .boo_add {
@@ -229,35 +268,8 @@ table.gridview th:first-child, table.gridview td:first-child {
     margin-left: 5px;
 }
 
-input[type="date"] {
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-.reset, .add {
-    width: 150px;
-    height: 40px;
-    font-size: 16px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}   
-
-.reset:hover, .add:hover {
-    background-color: lightseagreen;
-}
-
-/*---------------------------------類別---------------------------------------------*/
-
-.main-container {
+/*---類別---*/
+.c_container {
     display: flex;
     align-items: center; /* 在主軸上居中對齊flex子元素 */
     justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
@@ -330,8 +342,41 @@ input[type="date"] {
     opacity: 1;
     transform: translateX(-50%) scale(1);
 }
+/*---類別結束---*/
 
-/*---------*/
+input[type="date"], input[type="money"], input[type="memo"], input[type="keyword"] { /* 輸入框 */
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.reset, .add { /* 重新輸入、確定新增 */
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}   
+
+.reset:hover, .add:hover {
+    background-color: lightseagreen;
+}
+/*-------------記帳右結束--------------*/
+/*--------------------------------記帳結束------------------------------------*/
+
+/*----------------------------------成就--------------------------------------*/
+.ach_body {
+    background-image: url('images/ach_bg.png');
+    background-size: 851.4px 872.4px;
+}
 
 .ach_header {
     position: fixed;
@@ -427,21 +472,9 @@ input[type="date"] {
     left: 0;
     object-fit: cover;
 }
+/*--------------------------------成就結束------------------------------------*/
 
-back { /* 返回按鈕的區塊 */
-    position: relative;
-    border: 1px solid;
-    width: 851.4px;
-    height: 80px;
-}
-
-.back1 { /* 返回按鈕 */
-    position: fixed;
-    bottom: 3px;
-    right: 6px;
-}
-
-/*--------------------------------------願望清單----------------------------------------*/
+/*--------------------------------願望清單------------------------------------*/
 .buc_body {
     /*background-image: url('images/dre_bg.png');
     background-size: 1088.4px 904.2px;*/
@@ -493,33 +526,49 @@ back { /* 返回按鈕的區塊 */
 .buc_add_body {
     background-image: url('images/dre_rev_button.png');
     background-size: 500px 500px;
-    position:center; /*絕對位置置中*/
-    height:500px;
-    width:500px;
-    text-align:center;
 }
 
-.bucket_add {
-    
-    /*padding-top: 120px;
-    padding-left: 640px;*/
-    /*修改後*/
-    padding-top: 200px; 
-    padding-left: 0px;
+.buc_add_form {
+    text-align: center;
+    padding: 20px;
+    width: 350px;
+    height: 350px;
+    margin-top: 350px;
+    margin-left: 50%;
+    transform: translate(13%, -5%);
+}
+
+.buc_add {
+    padding-top: 60px;
 }
 
 #wish_textbox {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 30px;
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
 }
 
 .buc_add_button {
+    font-size: large;
+    Height: 60px;
+    Width: 80px;
+    margin-top: 60px;
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
 
-    /*margin-top: 60px;
-    margin-left: 780px;*/
-    /*修改後*/
-    padding-top: 50px;
-    margin-left:30px;
+.buc_add_button:hover { /* 鼠標放在按鈕上 */
+    background-color: lightseagreen;
 }
 
 /*願望清單-垃圾桶*/
@@ -531,33 +580,50 @@ back { /* 返回按鈕的區塊 */
 .tra_form {
     text-align: center;
     padding: 20px;
-    width: 400px;
-    height: 400px;
-    margin: auto;
+    width: 350px;
+    height: 350px;
     margin-top: 350px;
+    margin-left: 50%;
+    transform: translate(13%, -5%);
 }
 
 .trashcan {
-    /*
-    padding-top: 100px;
-    padding-left: 650px;
-    */
-    /*修改後*/
     padding-top: 20px;
 }
 
+.textarea {
+    width: 250px;
+    height: 150px;
+    border: transparent;
+    font-size: xx-large;
+    line-height: 1.5;
+    padding: 10px;
+}
+
 .trashcan_button {
-    margin-top: 60px;
-    /*
-    margin-left: 820px;
-    */
+    margin-top: 20px;
+}
+
+.trashcan_button { /* 成就領取紐 */
+    font-size: large;
+    Height: 60px;
+    Width: 80px;
+    margin-top: 20px;
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.trashcan_button:hover { /* 鼠標放在按鈕上 */
+    background-color: lightseagreen;
 }
 
 /*------------------------------------願望清單-審核區------------------------------------*/
 .review_body {
     position: absolute; /*指定絕對位置*/
-    top: 250px;
-    left: 350px;
     background-image: url('images/dre_rev_button.png');
     background-size: 500px 500px;
 }
@@ -569,7 +635,9 @@ back { /* 返回按鈕的區塊 */
     height: 400px;
     margin: auto;
     margin-top: 350px;
-
+    margin-left: 50%;
+    background-color: blueviolet;
+}
 
 .review_button {
     margin-top: 40px;

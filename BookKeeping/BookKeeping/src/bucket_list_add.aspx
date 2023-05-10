@@ -11,18 +11,16 @@
     </style>
 </head>
 <body class="buc_add_body">
-    <form id="form1" runat="server">
-        <div class="bucket_add">
+    <form class="buc_add_form" id="form1" runat="server">
+        <div class="buc_add">
             <asp:Label ID="wish_user" runat="server" Text="______想要" font-size="XX-Large" ></asp:Label><br />
             <asp:TextBox ID="wish_textbox" PlaceHolder="請輸入您的願望" runat="server" Height="40px" Width="230px"></asp:TextBox><br/>
             
         </div>
-        <div class="buc_add_button">
-            <asp:Button ID="submit" runat="server" Text="確認" style="height:50px; width:70px;"  Onclick="Submit_Click"/>
-            <asp:Button ID="reset" runat="server" Text="取消" style="margin-left:50px; height:50px; width:70px;" />
-         
-        </div>
-        <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" />
+        <asp:Button class="buc_add_button" ID="submit" runat="server" Text="確認" Onclick="Submit_Click"/>
+        <asp:Button class="buc_add_button" ID="reset" runat="server" Text="取消" />
+
+        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
     </form>
 </body>
 </html>

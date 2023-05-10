@@ -13,8 +13,8 @@
         <h1 class="log_tit">註冊帳號</h1>
         <div class="reg_text">
             <div class="reg_text_block">
-                        <p>使用者ID
-                            <asp:TextBox ID="TextBox1" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px; padding-left:10px;" PlaceHolder="請輸入ID" ValidationGroup="register"></asp:TextBox>
+                        <p>帳號
+                            <asp:TextBox ID="acc" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px; padding-left:10px;" PlaceHolder="請輸入帳號" ValidationGroup="register"></asp:TextBox>
                             <%--<asp:requiredfieldvalidator id="RequiredFieldValidator3"
                                 controltovalidate="TextBox1"
                                 validationgroup="register"
@@ -22,13 +22,12 @@
                                 runat="Server">
                             </asp:requiredfieldvalidator>--%>
                         </p>
-
                         <p>姓名
-                            <asp:TextBox ID="TextBox2" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px; padding-left:10px;" PlaceHolder="請輸入姓名"></asp:TextBox>
+                            <asp:TextBox ID="name" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px; padding-left:10px;" PlaceHolder="請輸入姓名"></asp:TextBox>
                         </p>
 
                         <p>暱稱
-                            <asp:TextBox ID="TextBox7" runat="server" Width="250px" Height="30px" style ="margin-bottom:15px;  padding-left:10px;" PlaceHolder="請輸入暱稱"></asp:TextBox>
+                            <asp:TextBox ID="nickname" runat="server" Width="250px" Height="30px" style ="margin-bottom:15px;  padding-left:10px;" PlaceHolder="請輸入暱稱"></asp:TextBox>
                         </p>
 
                         <div class="reg_gender">
@@ -38,20 +37,12 @@
                         </p>
                         </div>
 
-                        <p>電子信箱
-                            <asp:TextBox ID="TextBox3" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px; padding-left:10px;" required="required" PlaceHolder="請輸入電子信箱"></asp:TextBox>
-                        </p>
-
-                        <p>密碼<asp:Label ID="Label1" runat="server"></asp:Label>
-                            <asp:TextBox ID="TextBox4" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入密碼" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
+                        <p>密碼
+                            <asp:TextBox ID="pwd" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入密碼" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
                         </p>
 
                         <p>確認密碼
-                            <asp:TextBox ID="TextBox6" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請再次輸入密碼"></asp:TextBox>
-                        </p>
-
-                        <p>審核密碼
-                            <asp:TextBox ID="TextBox5" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入審核密碼"></asp:TextBox>
+                            <asp:TextBox ID="c_pwd" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請再次輸入密碼"></asp:TextBox>
                         </p>
             </div>       
             <div class="reg_button_block">

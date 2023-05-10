@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>主畫面</title>
 </head>
-<body class="main">
+<body class="main_body">
     <form id="form1" runat="server">
         <div class="setting" style="height: 200px; width: 100px;"><%--任務&設定--%>
             <asp:ImageButton ID="setting" runat="server" ImageUrl="images/setting.png" Height="100px" Width="100px" />
@@ -22,7 +22,7 @@
         <p style="width: 390px">
             <asp:ImageButton ID="closet" runat="server" ImageUrl="images/h_b_clo.png" Height="700px" Width="470px" /><%--衣櫥--%>
         </p>
-        <%--<asp:Image ID="pig" runat="server" ImageUrl="images/20%.png" Height="350px" Width="500px"/>--%>
+        <asp:Image ID="pig" runat="server" ImageUrl="images/pig20.png" Height="525px" Width="750px"/>
     </form>
 </body>
 </html>

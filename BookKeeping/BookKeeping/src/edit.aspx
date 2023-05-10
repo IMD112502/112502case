@@ -5,63 +5,117 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <link rel="stylesheet" type="text/css" href="bookkeeping.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>記帳-編輯</title>
     <style type="text/css">
     </style>
 </head>
 
-<body style="height: 574px; margin-bottom: 0px;">
-    <form id="form1" runat="server">
-        <div class="book_left">
-            <asp:Button ID="date_left2" runat="server" Height="30px" Width="20px" OnClick="date_left2_Click" />
-            <asp:Label ID="date" runat="server" Text="2023年4月" Font-Bold="True"></asp:Label>
-            <asp:Button ID="date_right2" runat="server" Height="30px" Width="20px" />
+<body class="boo_body">
+	<form runat="server">
+	<div class="book_content">
+		<div class="boo_left">
+			<div class="boo_date">
+				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
+				<asp:Label ID="Label1" runat="server" Text="2023年5月" style="font-size:30px;"></asp:Label>
+				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
+			</div>
 
-            <div class="total">
-                <asp:Label ID="Label5" runat="server" Text="總收入"></asp:Label>
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                <asp:Label ID="Label6" runat="server" Text="元"></asp:Label>
-                <br />
-                <asp:Label ID="Label7" runat="server" Text="總支出"></asp:Label>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                <asp:Label ID="Label8" runat="server" Text="元"></asp:Label>
-            </div>
-        </div>
-        <div class="book_edit">
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="編輯"></asp:Label>
-            <br />
-            <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" style="margin-left: 245px" Width="40px" />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            &nbsp;&nbsp;
-            <asp:Label ID="Label2" runat="server" Font-Size="Large" Text="日期："></asp:Label>
-            <asp:TextBox ID="startDate" runat="server" type="date" min="2022-01-01" max="2024-12-31"></asp:TextBox>
-            <br />
-            &nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Font-Size="Large" Text="金額："></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
-            <asp:Label ID="Label4" runat="server" Font-Size="Large" Text="元"></asp:Label>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <input id="Reset1" type="reset" value="修改" />
-            <input id="Submit1" type="submit" value="取消" />
-        </div>
-        <asp:ImageButton ID="back" runat="server" Height="50px" Width="50px" />
-    </form>
+			<div class="boo_table_block">
+				<asp:GridView class="gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
+						<asp:BoundField DataField="class" HeaderText="類別" />
+						<asp:BoundField DataField="cost" HeaderText="金額" />
+					</Columns>
+				</asp:GridView>
+			</div>
+
+			<div class="boo_total">
+				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
+				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
+			</div>
+		</div>
+
+		<div class="boo_right">
+		<h1 style="text-align: center; margin-top: 20px;">編輯</h1>
+		<div class="boo_add">
+			<div class="c_container">
+				<p>選擇類別</p>
+				<br />
+				<div class="radio-buttons">
+					<label class="custom-radio">
+						<input type="radio" name="radio" value="願望" checked="checked" />
+						<span class="radio-btn">
+							<i class="las la-check">v</i>
+							<div class="hobbies-icon" style="background:url('images/c_dre.png');">
+								<i class="las la-biking"></i>
+								<h3>願望</h3>
+							</div>
+						</span>
+					</label>
+					<label class="custom-radio">
+						<input type="radio" name="radio" value="飲食" />
+						<span class="radio-btn"
+							><i class="las la-check">v</i>
+							<div class="hobbies-icon">
+								<i class="las la-futbol"></i>
+								<h3>飲食</h3>
+							</div>
+						</span>
+					</label>
+					<label class="custom-radio">
+						<input type="radio" name="radio" value="娛樂"/>
+						<span class="radio-btn"
+							><i class="las la-check">v</i>
+							<div class="hobbies-icon">
+								<i class="las la-table-tennis"></i>
+								<h3>娛樂</h3>
+							</div>
+						</span>
+					</label>
+					<label class="custom-radio">
+						<input type="radio" name="radio" value="其他"/>
+						<span class="radio-btn"
+							><i class="las la-check">v</i>
+							<div class="hobbies-icon">
+								<i class="las la-ellipsis-h"></i>
+								<h3>其他</h3>
+							</div>
+						</span>
+					</label>
+				</div>
+			</div>
+			<br />
+			<br />
+			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
+			<input type="date" id="start" name="date"
+               value="2023-04-20"
+               min="2022-01-01" max="" />
+			<script>
+				document.getElementById("start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
+                var today = new Date().toISOString().split('T')[0];
+                document.getElementById("start").max = today;
+            </script>
+			<br />
+			<br />
+			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
+			<asp:TextBox type="money" ID="TextBox1" runat="server"></asp:TextBox>
+			<br />
+			<br />
+			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
+			<asp:TextBox type="memo" ID="TextBox2" runat="server"></asp:TextBox>
+			<br />
+			<br />
+			<br />
+			<input class="reset" type="reset" value="重新輸入" />
+			<asp:Button class="add" ID="Button4" runat="server" Text="確定修改" />
+		</div>
+		</div>
+	</div>
+		<asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
+	</form>
 </body>
 </html>
 

@@ -70,9 +70,7 @@
                 </li>
             </ul>
         </div>
-        <div class="back">
-              <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
-        </div> 
+        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
     </form>
 </body>
 </html>

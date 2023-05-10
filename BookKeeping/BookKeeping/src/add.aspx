@@ -8,9 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>記帳 新增</title>
-	<style>
-        
-	</style>
 </head>
 
 <body class="boo_body">
@@ -19,7 +16,7 @@
 		<div class="boo_left">
 			<div class="boo_date">
 				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
-				<asp:Label ID="Label1" runat="server" Text="2023年4月" style="font-size:30px;"></asp:Label>
+				<asp:Label ID="Label1" runat="server" Text="2023年5月" style="font-size:30px;"></asp:Label>
 				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
 			</div>
 
@@ -42,7 +39,7 @@
 		<div class="boo_right">
 		<h1 style="text-align: center; margin-top: 20px;">新增</h1>
 		<div class="boo_add">
-			<div class="main-container">
+			<div class="c_container">
 				<p>選擇類別</p>
 				<br />
 				<div class="radio-buttons">
@@ -93,22 +90,29 @@
 			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
 			<input type="date" id="start" name="date"
                value="2023-04-20"
-               min="2022-01-01" max="2024-12-31" />
+               min="2022-01-01" max="" />
 			<script>
 				document.getElementById("start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
+                var today = new Date().toISOString().split('T')[0];
+                document.getElementById("start").max = today;
             </script>
 			<br />
 			<br />
-			<asp:Label ID="Label5" runat="server" Text="金額："></asp:Label>
-			<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
+			<asp:TextBox type="money" ID="TextBox1" runat="server"></asp:TextBox>
+			<br />
+			<br />
+			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
+			<asp:TextBox type="memo" ID="TextBox2" runat="server"></asp:TextBox>
 			<br />
 			<br />
 			<br />
-			<input class="reset" type="reset" value="重置" />
-			<asp:Button class="add" ID="Button3" runat="server" Text="新增" OnClick="Submit_Click" />
+			<input class="reset" type="reset" value="重新輸入" />
+			<asp:Button class="add" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
 		</div>
 		</div>
 	</div>
+		<asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
 	</form>
 </body>
 </html>
