@@ -1,5 +1,5 @@
 ﻿* {
-    margin: 0px 0px 0 0px;
+    margin: 0px 4px 0 0px;
     padding: 0;
     color: teal;
 }
@@ -11,7 +11,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0 479px 0 0px;
+    margin: 0px 479px 0 0px;
+    width: 1200px;
 }
 
 /*--------------------------------主畫面---------------------------------------*/
@@ -656,4 +657,241 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .dre_button:hover { /* 鼠標放在按鈕上 */
     background-color: lightseagreen;
+}
+
+
+
+/*------------------------------------------------*/
+.cloth{
+    overflow-y: scroll;
+}
+
+#top {
+    position: absolute; /*指定絕對位置*/
+    left: 520px;
+    top: 20px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#pents {
+    position: absolute; /*指定絕對位置*/
+    left: 560px;
+    top: 20px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#dress {
+    position: absolute; /*指定絕對位置*/
+    left: 520px;
+    top: 180px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#hat {
+    position: absolute; /*指定絕對位置*/
+    left: 560px;
+    top: 180px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#shoes {
+    position: absolute; /*指定絕對位置*/
+    left: 520px;
+    top: 340px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#socks {
+    position: absolute; /*指定絕對位置*/
+    left: 560px;
+    top: 340px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#eyes {
+    position: absolute; /*指定絕對位置*/
+    left: 520px;
+    top: 500px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#mouth {
+    position: absolute; /*指定絕對位置*/
+    left: 560px;
+    top: 500px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#hair {
+    position: absolute; /*指定絕對位置*/
+    left: 520px;
+    top: 660px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#earring {
+    position: absolute; /*指定絕對位置*/
+    left: 560px;
+    top: 660px;
+    Height: 150px;
+    Width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.sssright {
+    position: absolute; /*指定絕對位置*/
+    right: 97px;
+    top: 676px;
+}
+
+.settinggg {
+    position: absolute; /*指定絕對位置*/
+    right: 400px;
+    top: 10px;
+}
+
+#bbb {
+    position: absolute; /*指定絕對位置*/
+    right: 866px;
+    top: 82px;
+    height: 606px;
+    width: 182px;
+}
+
+#hhh {
+    position: absolute; /*指定絕對位置*/
+    right: 935px;
+    top: 373px;
+    height: 40px;
+    width: 60px;
+}
+
+#ccc {
+    position: absolute; /*指定絕對位置*/
+    right: 860px;
+    top: 246px;
+    height: 189px;
+    width: 200px;
+}
+
+#sss {
+    position: absolute; /*指定絕對位置*/
+    right: 875px;
+    top: 505px;
+    height: 189px;
+    width: 152px;
+}
+
+#ppp {
+    position: absolute; /*指定絕對位置*/
+    right: 874px;
+    top: 387px;
+    height: 262px;
+    width: 152px;
+}
+
+.backk {
+    position: absolute; /*指定絕對位置*/
+    right: 300px;
+    top: 100px;
+}
+
+#aa {
+    position: absolute; /*指定絕對位置*/
+    right: 500px;
+    top: 120px;
+    height: 60px;
+    width: 100px;
+}
+
+#bb {
+    position: absolute; /*指定絕對位置*/
+    right: 385px;
+    top: 120px;
+    height: 60px;
+    width: 100px;
+}
+
+#pbhair {
+    position: absolute; /*指定絕對位置*/
+    right: 800px;
+    top: 58px;
+    height: 350px;
+    width: 300px;
+}
+
+#pfhair {
+    position: absolute; /*指定絕對位置*/
+    right: 852px;
+    top: 70px;
+    height: 150px;
+    width: 200px;
+}
+
+#pshair {
+    position: absolute; /*指定絕對位置*/
+    right: 868px;
+    top: 120px;
+    height: 252px;
+    width: 180px;
+}
+
+#peyes {
+    position: absolute; /*指定絕對位置*/
+    right: 887px;
+    top: 180px;
+    height: 60px;
+    width: 140px;
+}
+
+#eeyes {
+    position: absolute; /*指定絕對位置*/
+    right: 887px;
+    top: 155px;
+    height: 45px;
+    width: 140px;
+}
+
+#pmouth {
+    position: absolute; /*指定絕對位置*/
+    right: 888px;
+    top: 228px;
+    height: 45px;
+    width: 140px;
+}
+
+#pglasses {
+    position: absolute; /*指定絕對位置*/
+    right: 875px;
+    top: 177px;
+    height: 80px;
+    width: 165px;
 }
