@@ -28,7 +28,7 @@
         <br />
         <br />
         <div class="log_button_block">
-        <p>&nbsp;&nbsp;<asp:Button class="log_button" ID="login_test" runat="server" Text="登入" Width="300" Height="35" Font-Size="13" /></p>
+        <p>&nbsp;&nbsp;<asp:Button class="log_button" ID="login_button" runat="server" Text="登入" Width="300" Height="35" Font-Size="13" /></p>
         <br />
         <h5 align="center" style="margin-top: -10px; margin-bottom:10px;">or</h5>
         <p>&nbsp;&nbsp;<asp:Button class="log_button" ID="register" runat="server" Text="我要註冊！" Width="300" Height="35" Font-Size="13" href="register.aspx" /></p>

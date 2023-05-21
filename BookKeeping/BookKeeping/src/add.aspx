@@ -15,9 +15,9 @@
 	<div class="book_content">
 		<div class="boo_left">
 			<div class="boo_date">
-				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
-				<asp:Label ID="Label1" runat="server" Text="2023年5月" style="font-size:30px;"></asp:Label>
-				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
+				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" OnClick="MinusMonth_Click" CommandArgument="minus" />
+				<asp:Label ID="Label1" runat="server"  style="font-size:30px;"></asp:Label>
+				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" OnClick="PlusMonth_Click" CommandArgument="plus" />
 			</div>
 
 			<div class="boo_table_block">
@@ -93,7 +93,7 @@
                min="2022-01-01" max="" />
 			<script>
 				document.getElementById("start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
-                var today = new Date().toISOString().split('T')[0];
+				var today = new Date().toISOString().split('T')[0];
                 document.getElementById("start").max = today;
             </script>
 			<br />

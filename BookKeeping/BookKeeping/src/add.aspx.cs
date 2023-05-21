@@ -15,36 +15,85 @@ namespace _BookKeeping
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // 建立資料庫連接字串
-            string connectionString = "server=140.131.114.242;userid=IMD112502;password=@Ntubimd06202741;database=112-112502";
+            if (!IsPostBack)
+            {
+                MySqlConnection conn = DBConnection();
 
-            // 建立資料庫連接
-            MySqlConnection connection = new MySqlConnection(connectionString);
+                SearchSelectMonth(conn, DateTime.Now.Month);
+               
 
-            // 建立 SQL 查詢命令
-            string sql = "SELECT date, class, cost FROM `112-112502`.記帳資料";
-            MySqlCommand command = new MySqlCommand(sql, connection);
 
-            // 開啟資料庫連接
+            }
+        }
+
+        protected MySqlConnection DBConnection() {
+            string connectionStrings = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connectionStrings);
             connection.Open();
+            return connection;
+        }
 
-            // 讀取資料
-            MySqlDataReader reader = command.ExecuteReader();
+        protected void SearchSelectMonth( MySqlConnection connection , int month) 
+        {
+
+            Label1.Text = DateTime.Now.Year.ToString() + "年" + month.ToString() + "月";
+            string sql = "SELECT date, class, cost FROM `112-112502`.記帳資料 where year(date) = @year and month(date) = @month;";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
+            cmd.Parameters.AddWithValue("@month", month);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+
 
             // 將資料繫結到 GridView 控制項上
             GridView1.DataSource = reader;
             GridView1.DataBind();
 
-            // 關閉資料庫連接
             reader.Close();
         }
+        protected void MinusMonth_Click(object sender, EventArgs e) 
+        {
+            MySqlConnection conn = DBConnection();
+            Button btn = (Button)sender;
+            //邊界值
+            int MaxMonth = DateTime.Now.Month;
+            int MinMonth = 1;
+            //求現在顯示的月份
+            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
+            if (indexMonth > MinMonth)
+            {
+                indexMonth -= 1;
+                SearchSelectMonth(conn, indexMonth);
+            }
+            
+        }
+
+        protected void PlusMonth_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn = DBConnection();
+            Button btn = (Button)sender;
+            //邊界值
+            int MaxMonth = DateTime.Now.Month;
+            int MinMonth = 1;
+            //求現在顯示的月份
+            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
+            if (indexMonth < MinMonth)
+            {
+                indexMonth += 1;
+                SearchSelectMonth(conn, indexMonth);
+            }
+
+        }
+
+
+
 
         protected void Submit_Click(object sender, EventArgs e) {
-            string connection = ConfigurationManager.ConnectionStrings["test1ConnectionString"].ConnectionString;
-            MySqlConnection conn = new MySqlConnection(connection);
-            conn.Open();
+            //資料庫連接
+            MySqlConnection conn = DBConnection();
 
-            string name = "aaa";
+
+            string name = "aaa"; //user_id
             DateTime datetime = DateTime.Parse(Request.Form["date"]);
             DateTime date = datetime.Date;
             int cost = Convert.ToInt32(TextBox1.Text);
@@ -61,13 +110,7 @@ namespace _BookKeeping
 
                 cmd.ExecuteNonQuery();
 
-                // 建立資料庫連接字串
-                string connectionString = "server=140.131.114.242;userid=IMD112502;password=@Ntubimd06202741;database=112-112502";
-
-                // 建立資料庫連接
-                MySqlConnection con = new MySqlConnection(connectionString);
-
-                MySqlDataAdapter a = new MySqlDataAdapter("SELECT date, class, cost FROM `112-112502`.記帳資料", con);
+                MySqlDataAdapter a = new MySqlDataAdapter("SELECT date, class, cost FROM `112-112502`.記帳資料", conn);
 
                 //存放資料
                 DataSet ds = new DataSet();
@@ -79,5 +122,7 @@ namespace _BookKeeping
                 GridView1.DataBind();
             }
         }
-        }
+
+ 
+    }
     }

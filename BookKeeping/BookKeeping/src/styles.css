@@ -1,5 +1,6 @@
 ﻿* {
     margin: 0px 4px 0 0px;
+    margin: 0px 4px 0 0px;
     padding: 0;
     color: teal;
 }
@@ -26,7 +27,7 @@ body {
     background-repeat: no-repeat;*/
 }
 
-#closet{ /* 衣櫥 */
+#closet { /* 衣櫥 */
     padding-left: 350px;
     padding-top: 150px;
 }
@@ -67,11 +68,9 @@ body {
 }
 
 #setting { /*設定*/
-
 }
 
 #ach { /*任務*/
-
 }
 /*--------------------------------任務/設定結束------------------------------------*/
 
@@ -86,9 +85,9 @@ body {
     background-size: 727.2px 656.4px;
 }
 
-.b_log_body:hover {
-    box-shadow: 0 0 10px #fff; /* 設定發光效果 */
-}
+    .b_log_body:hover {
+        box-shadow: 0 0 10px #fff; /* 設定發光效果 */
+    }
 
 .log_tit {
     margin-top: 20px;
@@ -124,9 +123,9 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
-.log_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .log_button:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 #user_acc, #user_pwd { /* 輸入框 */
     width: 150px;
@@ -186,7 +185,7 @@ body {
 }
 
 /*---------------記帳左---------------*/
-.boo_left { 
+.boo_left {
     position: fixed;
     top: 100px; /* 留出標題欄的高度 */
     left: 22.8%;
@@ -211,9 +210,9 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
-.boo_date_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .boo_date_button:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 .boo_table_block {
     margin-left: -20px;
@@ -232,18 +231,18 @@ table.gridview {
     border: none;
 }
 
-table.gridview tr {
-    text-align: center;
-}
+    table.gridview tr {
+        text-align: center;
+    }
 
-table.gridview th, table.gridview td {
-  border-left: none;
-  border-right: none;
-}
+    table.gridview th, table.gridview td {
+        border-left: none;
+        border-right: none;
+    }
 
-table.gridview th:first-child, table.gridview td:first-child {
-  border-left: none;
-}
+        table.gridview th:first-child, table.gridview td:first-child {
+            border-left: none;
+        }
 
 .boo_total { /* 總收入、總支出 */
     font-size: 25px;
@@ -254,7 +253,7 @@ table.gridview th:first-child, table.gridview td:first-child {
 /*-------------記帳左結束-------------*/
 
 /*---------------記帳右---------------*/
-.boo_right { 
+.boo_right {
     position: fixed;
     top: 100px; /* 留出標題欄的高度 */
     left: 51.3%;
@@ -283,7 +282,7 @@ table.gridview th:first-child, table.gridview td:first-child {
     text-align: center;
 }
 
-.custom-radio input { 
+.custom-radio input {
     display: none; /* 隱藏radio button輸入框 */
 }
 
@@ -300,49 +299,49 @@ table.gridview th:first-child, table.gridview td:first-child {
     cursor: pointer;
 }
 
-.radio-btn > i { /* 勾勾 */
-    color: #ffffff;
-    background-color: teal;
-    font-size: 15px;
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%) scale(4); /* 向左平移50%，並放大4倍 */
-    border-radius: 50px;
-    padding: 4px; /* 內邊距 */
-    transition: 0.2s; /* 過渡效果秒數 */
-    pointer-events: none; /* 設鼠標事件不可用 */
-    opacity: 0; /* 透明度 */
-}
+    .radio-btn > i { /* 勾勾 */
+        color: #ffffff;
+        background-color: teal;
+        font-size: 15px;
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%) scale(4); /* 向左平移50%，並放大4倍 */
+        border-radius: 50px;
+        padding: 4px; /* 內邊距 */
+        transition: 0.2s; /* 過渡效果秒數 */
+        pointer-events: none; /* 設鼠標事件不可用 */
+        opacity: 0; /* 透明度 */
+    }
 
-.radio-btn .hobbies-icon { /* 類別圖片 */
-    border-radius: 10px;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
-}
+    .radio-btn .hobbies-icon { /* 類別圖片 */
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
+    }
 
-.radio-btn .hobbies-icon i {
-    line-height: 80px;
-    font-size: 60px;
-}
+        .radio-btn .hobbies-icon i {
+            line-height: 80px;
+            font-size: 60px;
+        }
 
-.radio-btn h3 { /* 類別文字 */
-    margin-top: 8px;
-    font-size: 16px;
-}
+    .radio-btn h3 { /* 類別文字 */
+        margin-top: 8px;
+        font-size: 16px;
+    }
 
 .custom-radio input:checked + .radio-btn { /* 如果選取類別 */
     border: 3px solid teal;
 }
 
-.custom-radio input:checked + .radio-btn > i {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-}
+    .custom-radio input:checked + .radio-btn > i {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
 /*---類別結束---*/
 
 input[type="date"], input[type="money"], input[type="memo"], input[type="keyword"] { /* 輸入框 */
@@ -365,11 +364,11 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 1px 1px 3px gray;
-}   
-
-.reset:hover, .add:hover {
-    background-color: lightseagreen;
 }
+
+    .reset:hover, .add:hover {
+        background-color: lightseagreen;
+    }
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/
 
@@ -404,9 +403,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     box-shadow: 1px 1px 3px gray;
 }
 
-.ach_top_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .ach_top_button:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 .ach_top_button2 { /* 成就頂端按鈕區塊 */
     position: fixed;
@@ -427,9 +426,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     box-shadow: 1px 1px 3px gray;
 }
 
-.ach_button_get:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .ach_button_get:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 .ach_content { /* 成就區塊 */
     position: fixed;
@@ -464,15 +463,15 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     height: 150px;
 }
 
-.ach_content ul li img { /* 成就圖片 */
-    Height: 130px; 
-    Width: 130px;
-    float: left;
-    margin-left: -10px;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-}
+    .ach_content ul li img { /* 成就圖片 */
+        Height: 130px;
+        Width: 130px;
+        float: left;
+        margin-left: -10px;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
 /*--------------------------------成就結束------------------------------------*/
 
 /*--------------------------------願望清單------------------------------------*/
@@ -568,9 +567,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     box-shadow: 1px 1px 3px gray;
 }
 
-.buc_add_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .buc_add_button:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 /*願望清單-垃圾桶*/
 .trashcan_body {
@@ -618,9 +617,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     box-shadow: 1px 1px 3px gray;
 }
 
-.trashcan_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .trashcan_button:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 /*------------------------------------願望清單-審核區------------------------------------*/
 .review_body {
@@ -655,14 +654,14 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     margin-top: 10px;
 }
 
-.dre_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
-}
+    .dre_button:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
 
 
 
 /*------------------------------------------------*/
-.cloth{
+.cloth {
     overflow-y: scroll;
 }
 
