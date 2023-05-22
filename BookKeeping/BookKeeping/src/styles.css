@@ -476,50 +476,189 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 /*--------------------------------願望清單------------------------------------*/
 .buc_body {
-    /*background-image: url('images/dre_bg.png');
-    background-size: 1088.4px 904.2px;*/
+    background-image: url('images/dre_bg.png');
+    background-size: 907px 753.5px;
     text-align: center;
 }
 
+.buc_form {
+    margin-top: 200px;
+    margin-left: 550px;
+}
+
+#b_trashcan {
+    position: absolute; /*指定絕對位置*/
+    top: 230px;
+    left: -700px;
+}
+
 .wishes1 {
-    margin-left: 250px;
-    margin-top: 100px;
-    border: 2px solid black;
+    position: absolute; /*指定絕對位置*/
+    top: 225px;
+    left: 921px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
 }
 
 .wishes2 {
-    margin-left: 250px;
+    position: absolute; /*指定絕對位置*/
+    top: 550px;
+    left: 550px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
     margin-top: 20px;
-    border: 2px solid black;
+    margin-left: 20px;
 }
 
 .wishes3 {
-    margin-left: 250px;
+    position: absolute; /*指定絕對位置*/
+    top: 550px;
+    left: 730px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
     margin-top: 20px;
-    border: 2px solid black;
+    margin-left: 20px;
 }
 
 .wishes4 {
-    margin-left: 450px;
+    position: absolute; /*指定絕對位置*/
+    top: 378px;
+    left: 900px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.wishes5 {
+    position: absolute; /*指定絕對位置*/
+    top: 550px;
+    left: 900px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.wishes6 {
+    position: absolute; /*指定絕對位置*/
+    top: 205px;
+    left: 1070px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.wishes7 {
+    position: absolute; /*指定絕對位置*/
+    top: 378px;
+    left: 1070px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.wishes8 {
+    position: absolute; /*指定絕對位置*/
+    top: 153px;
+    left: -20px;
+    background: url('images/dre_memo.png');
+    background-size: 130px;
+    background-repeat: no-repeat;
+    font-size: x-large;
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.word1 {
+    padding-top: 38px;
+    padding-left: 10px;
+}
+
+.pick_wish {
+    position: absolute; /*指定絕對位置*/
+    top: 120px;
+    left: -520px;
+    background: url('images/dre_m_memo.png');
+    background-size: 300px;
+    font-size: x-large;
+    width: 300px;
+    height: 300px;
     margin-top: -300px;
-    border: 2px solid black;
 }
 
-.b_Label1 {
-    padding-top: 20px;
+.word_pick {
+    padding-top: 90px;
+    font-size: xx-large;
+    font-weight: bold;
 }
 
-.b_Label2 {
-    padding-top: 50px;
+#change_wish {
+    font-size: large;
+    Height: 40px;
+    Width: 80px;
+    margin-top: 25px;
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
 }
+
+    #change_wish:hover {
+        background-color: lightseagreen;
+    }
 
 #ImageButton2 { /*願望垃圾桶*/
     margin-left: -100px;
 }
 
 .review { /*審核區*/
-    margin-left: 400px;
-    margin-top: -400px;
+    position: absolute; /*指定絕對位置*/
+    top: 30px;
+    left: 150px;
+    background: url('images/dre_rev_button.png');
+    background-size: 160px;
+    font-size: xx-large;
+}
+
+.word_review {
+    padding-top: 65px;
+    padding-left: 10px;
+    font-weight: bold;
 }
 
 /*願望清單-新增*/
@@ -661,9 +800,27 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 
 /*------------------------------------------------*/
+.c_background {
+    background-color: lightblue;
+}
+
 .cloth {
     overflow-y: scroll;
+    background-color: tan;
 }
+
+.c_button {
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+    .c_button:hover {
+        background-color: lightseagreen;
+    }
 
 #top {
     position: absolute; /*指定絕對位置*/
@@ -841,10 +998,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 #pbhair {
     position: absolute; /*指定絕對位置*/
-    right: 800px;
-    top: 58px;
-    height: 350px;
-    width: 300px;
+    right: 818px;
+    top: 50px;
+    max-width: 15%; /* ★★★★★ */
 }
 
 #pfhair {
