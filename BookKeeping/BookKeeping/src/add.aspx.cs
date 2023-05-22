@@ -56,7 +56,6 @@ namespace _BookKeeping
             MySqlConnection conn = DBConnection();
             Button btn = (Button)sender;
             //邊界值
-            int MaxMonth = DateTime.Now.Month;
             int MinMonth = 1;
             //求現在顯示的月份
             int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
@@ -74,10 +73,9 @@ namespace _BookKeeping
             Button btn = (Button)sender;
             //邊界值
             int MaxMonth = DateTime.Now.Month;
-            int MinMonth = 1;
             //求現在顯示的月份
             int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
-            if (indexMonth < MinMonth)
+            if (indexMonth < MaxMonth)
             {
                 indexMonth += 1;
                 SearchSelectMonth(conn, indexMonth);

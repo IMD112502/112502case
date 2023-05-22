@@ -20,7 +20,7 @@
         <asp:Button class="buc_add_button" ID="submit" runat="server" Text="確認" Onclick="Submit_Click"/>
         <asp:Button class="buc_add_button" ID="reset" runat="server" Text="取消" />
 
-        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
+        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/main.aspx" />
     </form>
 </body>
 </html>

@@ -23,7 +23,7 @@
             <asp:TextBox ID="TextBox1" placeholder="請輸入審核不通過的原因" runat="server" height="30px" width="250px"></asp:TextBox>
         </div>
         <input class="dre_button" id="review_Submit1" type="submit" value="確認" style="height: 50px; width: 50px;" />
-        <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" />
+        <asp:ImageButton class="back1" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" PostBackUrl="~/src/main.aspx" />
     </form>
 </body>
 </html>

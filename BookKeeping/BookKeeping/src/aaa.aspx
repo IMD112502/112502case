@@ -69,7 +69,7 @@
         <div class="sssright" style="width: 410px; height: 90px;">
             <input id="aa" class="c_button" type="button" value="取消修改" style="font-size: 20px;"/>
             <input id="bb" class="c_button" type="button" value="確認更換" style="font-size: 20px;"/>
-		    <asp:ImageButton class="backk" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
+		    <asp:ImageButton class="backk" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px"  PostBackUrl="~/src/main.aspx" />
         </div>
     </form>
 </body>

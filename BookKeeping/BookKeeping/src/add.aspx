@@ -112,7 +112,7 @@
 		</div>
 		</div>
 	</div>
-		<asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" />
+		<asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/main.aspx" />
 	</form>
 </body>
 </html>
