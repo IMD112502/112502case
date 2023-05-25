@@ -646,21 +646,6 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     margin-left: -100px;
 }
 
-.review { /*審核區*/
-    position: absolute; /*指定絕對位置*/
-    top: 30px;
-    left: 150px;
-    background: url('images/dre_rev_button.png');
-    background-size: 160px;
-    font-size: xx-large;
-}
-
-.word_review {
-    padding-top: 65px;
-    padding-left: 10px;
-    font-weight: bold;
-}
-
 /*願望清單-新增*/
 .buc_add_body {
     background-image: url('images/dre_rev_button.png');
@@ -710,19 +695,20 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
         background-color: lightseagreen;
     }
 
-/*願望清單-垃圾桶*/
+/*-----------------------------願望清單-垃圾桶------------------------------*/
 .trashcan_body {
     background-image: url('images/dre_rev_button.png');
     background-size: 500px 500px;
 }
 
 .tra_form {
+    position: absolute; /*指定絕對位置*/
+    top: 300px;
+    left: 730px;
     text-align: center;
     padding: 20px;
     width: 350px;
     height: 350px;
-    margin-top: 350px;
-    margin-left: 50%;
     transform: translate(13%, -5%);
 }
 
@@ -760,30 +746,79 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
         background-color: lightseagreen;
     }
 
+/*-----------------------進入審核區的按鈕------------------------*/
+.review { /*審核區*/
+    position: absolute; /*指定絕對位置*/
+    top: -80px;
+    left: 140px;
+    /*    background: url('images/dre_rev_button.png');
+    background-size: 160px;
+    font-size: xx-large;*/
+}
+
+.word_review {
+    padding-top: 65px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#ReviewButton::after {
+    content: "審核區";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: brown;
+}
+/*-----------------------進入審核區的按鈕------------------------*/
+
 /*------------------------------------願望清單-審核區------------------------------------*/
 .review_body {
     position: absolute; /*指定絕對位置*/
-    background-image: url('images/dre_rev_button.png');
-    background-size: 500px 500px;
+    /*    background-image: url('images/dre_bg.png');
+    background-size: 1088.4px 904.2px;*/
 }
 
 .rev_form {
     text-align: center;
     padding: 20px;
-    width: 400px;
-    height: 400px;
-    margin: auto;
-    margin-top: 350px;
-    margin-left: 50%;
-    background-color: blueviolet;
+    width: 260px;
+    height: 535px;
+    margin-top: 180px;
+    margin-left: 45%;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.reviewing {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 650px 650px;
+    position: absolute; /*指定絕對位置*/
+    left: 670px;
+    top: 150px;
+    width: 650px;
+    height: 552px;
+    padding-top: 100px;
+}
+
+.word {
+    margin-top: 80px;
+    margin-left: 20px;
 }
 
 .review_button {
+    position: absolute; /*指定絕對位置*/
+    left: 870px;
+    top: 450px;
     margin-top: 40px;
     font-size: x-large;
 }
 
 .dre_button { /* 願望功能確認按鈕 */
+    position: absolute; /*指定絕對位置*/
+    left: 950px;
+    top: 630px;
     border: 0;
     background-color: teal;
     color: aliceblue;
@@ -791,14 +826,28 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     border-radius: 5px;
     box-shadow: 1px 1px 3px gray;
     margin-top: 10px;
+    font-size: large;
 }
 
-    .dre_button:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
+input[type="reason"] {
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
 
+.dre_button:hover { /* 鼠標放在按鈕上 */
+    background-color: lightseagreen;
+}
 
-
+.rev_back {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
 /*------------------------------------------------*/
 .c_background {
     background-color: lightblue;
