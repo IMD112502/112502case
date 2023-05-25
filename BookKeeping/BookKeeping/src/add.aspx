@@ -26,6 +26,7 @@
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
 						<asp:BoundField DataField="class" HeaderText="類別" />
 						<asp:BoundField DataField="cost" HeaderText="金額" />
+						<asp:BoundField DataField="mark" HeaderText="備註" />
 					</Columns>
 				</asp:GridView>
 			</div>
