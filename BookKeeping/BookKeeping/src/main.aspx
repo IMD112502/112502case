@@ -11,18 +11,20 @@
 <body class="main_body">
     <form id="form1" runat="server">
         <div class="setting" style="height: 200px; width: 100px;"><%--任務&設定--%>
-            <asp:ImageButton ID="setting" runat="server" ImageUrl="images/setting.png" Height="100px" Width="100px" />
+            <asp:ImageButton ID="setting" runat="server" ImageUrl="images/setting.png" Height="100px" Width="80px" />
             <br />
-            <asp:ImageButton ID="ach" runat="server" ImageUrl="images/ach.png" Height="100px" Width="100px"  PostBackUrl="~/src/achievement.aspx" />
+            <asp:ImageButton ID="ach" runat="server" ImageUrl="images/ach.png" Height="100px" Width="80px"  PostBackUrl="~/src/achievement.aspx" />
         </div>
         <div class="wishes" style="height: 400px; width: 500px;">
-            <asp:ImageButton ID="wishes" runat="server" ImageUrl="images/h_b_dre.png" Height="400px" Width="500px" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
-            <asp:ImageButton ID="bookkeeping" runat="server" ImageUrl="images/h_b_boo.png" Height="100px" Width="200px" PostBackUrl="~/src/add.aspx" /><%--記帳--%>
+            <asp:ImageButton ID="wishes" runat="server" ImageUrl="images/main/h_b_dre.png" Height="369.6px" Width="439.2px" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
+            <asp:ImageButton ID="bookkeeping" runat="server" ImageUrl="images/main/h_b_boo.png" Height="178.2px" Width="210.6px" PostBackUrl="~/src/add.aspx" /><%--記帳--%>
+            <asp:ImageButton ID="game" runat="server" ImageUrl="images/main/h_b_game.png" Height="178.2px" Width="210.6px" PostBackUrl="~/src/main.aspx" /><%--記帳--%>
         </div>
         <p style="width: 390px">
-            <asp:ImageButton ID="closet" runat="server" ImageUrl="images/h_b_clo.png"  Height="700px" Width="470px" PostBackUrl="~/src/aaa.aspx" /><%--衣櫥--%>
+            <asp:ImageButton ID="closet" runat="server" ImageUrl="images/main/h_b_clo.png"  Height="695.4px" Width="458.4px" PostBackUrl="~/src/aaa.aspx" /><%--衣櫥--%>
         </p>
         <asp:Image ID="pig" runat="server" ImageUrl="images/pig20.png" Height="525px" Width="750px"/>
+        <asp:Image ID="person" runat="server" ImageUrl="images/person.png" Height="707px" Width="249px"/>
     </form>
 </body>
 </html>

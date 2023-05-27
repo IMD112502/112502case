@@ -7,7 +7,7 @@
 <head runat="server">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>記帳 新增</title>
+	<title>記帳新增</title>
 </head>
 
 <body class="boo_body">
@@ -26,7 +26,6 @@
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
 						<asp:BoundField DataField="class" HeaderText="類別" />
 						<asp:BoundField DataField="cost" HeaderText="金額" />
-						<asp:BoundField DataField="mark" HeaderText="備註" />
 					</Columns>
 				</asp:GridView>
 			</div>
@@ -38,6 +37,9 @@
 		</div>
 
 		<div class="boo_right">
+		<asp:ImageButton class="add_bookmark1" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add1.png" height="80px" width="80px" PostBackUrl="~/src/add.aspx" />
+		<asp:ImageButton class="add_bookmark2" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" height="44.27px" width="80px" PostBackUrl="~/src/search.aspx" />
+		<asp:ImageButton class="add_bookmark3" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" height="44.27px" width="80px" PostBackUrl="~/src/report.aspx" />
 		<h1 style="text-align: center; margin-top: 20px;">新增</h1>
 		<div class="boo_add">
 			<div class="c_container">

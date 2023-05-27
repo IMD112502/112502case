@@ -16,6 +16,24 @@ body {
     width: 1200px;
 }
 
+.button_style { /* 按鈕樣式 */
+    border: 0;
+    background-color: teal;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px gray;
+    font-size: large;
+}
+
+    .button_style:hover { /* 鼠標放在按鈕上 */
+        background-color: lightseagreen;
+    }
+
+.button_size1 {
+    width: 150px;
+    height: 40px;
+}
 /*--------------------------------主畫面---------------------------------------*/
 .main_body {
     background-image: url('images/home_bg.png');
@@ -28,30 +46,37 @@ body {
 }
 
 #closet { /* 衣櫥 */
-    padding-left: 350px;
+    padding-left: 220px;
     padding-top: 150px;
 }
 
 .wishes {
     float: right;
-    padding-top: 100px;
-    padding-right: 0px;
-}
-
-.bookkeeping {
-    float: right;
-    margin-top: 500px;
+    padding-top: 70px;
+    padding-right: 20px;
 }
 
 #bookkeeping {
-    padding-top: 50px;
-    padding-left: 30px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+#game {
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+#person {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-85%, -40%);
 }
 
 #pig {
     position: fixed;
     bottom: -150px;
-    left: 180px;
+    left: 60px;
 }
 
 .back { /* 返回按鈕 */
@@ -64,13 +89,8 @@ body {
 /*---------------------------------任務/設定---------------------------------------*/
 .setting {
     float: right;
-    margin-right: -120px;
-}
-
-#setting { /*設定*/
-}
-
-#ach { /*任務*/
+    margin-top: 5px;
+    margin-right: -35px;
 }
 /*--------------------------------任務/設定結束------------------------------------*/
 
@@ -268,6 +288,77 @@ table.gridview {
     margin-left: 5px;
 }
 
+.add_bookmark1 {
+    position: fixed;
+    top: 25px;
+    right: 750px;
+}
+
+.add_bookmark2 {
+    position: fixed;
+    top: 52px;
+    right: 660px;
+}
+
+.add_bookmark3 {
+    position: fixed;
+    top: 52px;
+    right: 570px;
+}
+
+.search_bookmark1 {
+    position: fixed;
+    top: 52px;
+    right: 750px;
+}
+
+.search_bookmark2 {
+    position: fixed;
+    top: 25px;
+    right: 660px;
+}
+
+.search_bookmark3 {
+    position: fixed;
+    top: 52px;
+    right: 570px;
+}
+
+.rep_bookmark1 {
+    position: fixed;
+    top: 52px;
+    right: 750px;
+}
+
+.rep_bookmark2 {
+    position: fixed;
+    top: 52px;
+    right: 660px;
+}
+
+.rep_bookmark3 {
+    position: fixed;
+    top: 25px;
+    right: 570px;
+}
+
+.edit_bookmark1 {
+    position: fixed;
+    top: 52px;
+    right: 750px;
+}
+
+.edit_bookmark2 {
+    position: fixed;
+    top: 52px;
+    right: 660px;
+}
+
+.edit_bookmark3 {
+    position: fixed;
+    top: 52px;
+    right: 570px;
+}
 /*---類別---*/
 .c_container {
     display: flex;
@@ -287,7 +378,7 @@ table.gridview {
 }
 
 .radio-btn {
-    margin: 2px;
+    margin: 0px;
     width: 100px;
     height: 100px;
     border: 3px solid aliceblue;
@@ -330,8 +421,8 @@ table.gridview {
         }
 
     .radio-btn h3 { /* 類別文字 */
-        margin-top: 8px;
-        font-size: 16px;
+        margin-top: -10px;
+        font-size: large;
     }
 
 .custom-radio input:checked + .radio-btn { /* 如果選取類別 */
@@ -355,6 +446,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 .reset, .add { /* 重新輸入、確定新增 */
+    margin-top: 40px;
     width: 150px;
     height: 40px;
     font-size: 16px;
@@ -482,8 +574,8 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 .buc_form {
-    margin-top: 200px;
-    margin-left: 550px;
+    margin-top: 50%;
+    margin-left: 50%;
 }
 
 #b_trashcan {
@@ -703,13 +795,13 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .tra_form {
     position: absolute; /*指定絕對位置*/
-    top: 300px;
-    left: 730px;
+    top: 50%;
+    left: 50%;
     text-align: center;
     padding: 20px;
     width: 350px;
     height: 350px;
-    transform: translate(13%, -5%);
+    transform: translate(-50%, -40%);
 }
 
 .trashcan {

@@ -75,7 +75,7 @@
                 </div>
         </div>
         <asp:ImageButton ID="b_trashcan" runat="server" ImageUrl="images/dre_gar.png" weight="160.8px" Height="259.8px" PostBackUrl="~/src/buc_trashcan.aspx" /><%--願望垃圾桶--%>
-        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="50px" width="50px" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
+        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
         <div class="review" style="width: 160px; height: 160px"><%--審核區--%>
             <div class="word_review">
                 <asp:Label ID="Label5" runat="server" Text="審核區"></asp:Label>

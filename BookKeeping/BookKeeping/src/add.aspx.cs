@@ -37,7 +37,7 @@ namespace _BookKeeping
         {
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + month.ToString() + "月";
-            string sql = "SELECT date, class, cost, mark FROM `112-112502`.記帳資料 where year(date) = @year and month(date) = @month;";
+            string sql = "SELECT date, class, cost FROM `112-112502`.記帳資料 where year(date) = @year and month(date) = @month;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", month);
@@ -96,21 +96,19 @@ namespace _BookKeeping
             DateTime date = datetime.Date;
             int cost = Convert.ToInt32(TextBox1.Text);
             string category = Request.Form["radio"].ToString();
-            string mark = TextBox2.Text;
             if (category != null)
             {
-                string sql = "insert into `112-112502`.記帳資料(user_id , date , class , cost, mark) values (@name , @date , @category , @cost, @mark)";
+                string sql = "insert into `112-112502`.記帳資料(user_id , date , class , cost) values (@name , @date , @category , @cost)";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@category", category);
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@cost", cost);
-                cmd.Parameters.AddWithValue("@mark", mark);
 
                 cmd.ExecuteNonQuery();
 
-                MySqlDataAdapter a = new MySqlDataAdapter("SELECT date, class, cost, mark FROM `112-112502`.記帳資料 order by date", conn);
+                MySqlDataAdapter a = new MySqlDataAdapter("SELECT date, class, cost FROM `112-112502`.記帳資料", conn);
 
                 //存放資料
                 DataSet ds = new DataSet();

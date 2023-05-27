@@ -6,7 +6,7 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>記帳-報表</title>
+    <title>記帳查詢</title>
 </head>
 
 <body class="boo_body">
@@ -36,7 +36,10 @@
 		</div>
 
         <div class="boo_right">
-		<h1 style="text-align: center; margin-top: 20px;">搜尋</h1>
+			<asp:ImageButton class="search_bookmark1" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_add2.png" height="44.27px" width="80px" PostBackUrl="~/src/add.aspx" />
+			<asp:ImageButton class="search_bookmark2" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_ser1.png" height="80px" width="80px" PostBackUrl="~/src/search.aspx" />
+			<asp:ImageButton class="search_bookmark3" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" height="44.27px" width="80px" PostBackUrl="~/src/report.aspx" />
+		<h1 style="text-align: center; margin-top: 20px;">查詢</h1>
         <div class="boo_add">
             <div class="c_container">
 				<p>選擇類別</p>
@@ -101,7 +104,7 @@
             <asp:TextBox ID="TextBox4" type="keyword" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
             <br />
 			<br />
-            <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" style="margin-left: 305px" Width="40px" />
+			<asp:Button class="button_style button_size1" ID="Button3" runat="server" Text="查詢" />
             <br />
             <asp:Label ID="Label11" runat="server" Text="搜尋結果  共"></asp:Label>
             <asp:TextBox ID="TextBox5" runat="server" Height="20px" Width="29px"></asp:TextBox>

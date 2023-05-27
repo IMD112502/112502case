@@ -7,7 +7,7 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>記帳-編輯</title>
+    <title>記帳編輯</title>
     <style type="text/css">
     </style>
 </head>
@@ -39,6 +39,9 @@
 		</div>
 
 		<div class="boo_right">
+		<asp:ImageButton class="edit_bookmark1" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add2.png" height="44.27px" width="80px" PostBackUrl="~/src/add.aspx" />
+		<asp:ImageButton class="edit_bookmark2" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" height="44.27px" width="80px" PostBackUrl="~/src/search.aspx" />
+		<asp:ImageButton class="edit_bookmark3" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" height="44.27px" width="80px" PostBackUrl="~/src/report.aspx" />
 		<h1 style="text-align: center; margin-top: 20px;">編輯</h1>
 		<div class="boo_add">
 			<div class="c_container">
