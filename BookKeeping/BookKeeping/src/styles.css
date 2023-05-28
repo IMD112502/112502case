@@ -681,9 +681,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 .wishes8 {
-    position: absolute; /*指定絕對位置*/
-    top: 153px;
-    left: -20px;
+    position: fixed; /*指定絕對位置*/
+    top: 550px;
+    left: 1070px;
     background: url('images/dre_memo.png');
     background-size: 130px;
     background-repeat: no-repeat;
@@ -700,9 +700,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 .pick_wish {
-    position: absolute; /*指定絕對位置*/
-    top: 120px;
-    left: -520px;
+    position: fixed; /*指定絕對位置*/
+    top: 520px;
+    left: 580px;
     background: url('images/dre_m_memo.png');
     background-size: 300px;
     font-size: x-large;
@@ -840,18 +840,17 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 /*-----------------------進入審核區的按鈕------------------------*/
 .review { /*審核區*/
-    position: absolute; /*指定絕對位置*/
-    top: -80px;
-    left: 140px;
+    position: fixed; /*指定絕對位置*/
+    top: 310px;
+    left: 1220px;
     /*    background: url('images/dre_rev_button.png');
     background-size: 160px;
     font-size: xx-large;*/
 }
 
-.word_review {
-    padding-top: 65px;
-    padding-left: 10px;
-    font-weight: bold;
+#word_review{
+    font-size: 45px;
+    margin-top: 500px;
 }
 
 #ReviewButton::after {
@@ -940,6 +939,20 @@ input[type="reason"] {
     right: 20px;
     bottom: 20px;
 }
+
+#Button1 { /*上一個願望*/
+    position: fixed;
+    left: 650px;
+    top: 500px;
+}
+
+#Button2 { /*下一個願望*/
+    position: fixed;
+    left: 1320px;
+    top: 500px;
+}
+
+
 /*------------------------------------------------*/
 .c_background {
     background-color: lightblue;

@@ -21,7 +21,7 @@
             <asp:ImageButton ID="game" runat="server" ImageUrl="images/main/h_b_game.png" Height="178.2px" Width="210.6px" PostBackUrl="~/src/main.aspx" /><%--記帳--%>
         </div>
         <p style="width: 390px">
-            <asp:ImageButton ID="closet" runat="server" ImageUrl="images/main/h_b_clo.png"  Height="695.4px" Width="458.4px" PostBackUrl="~/src/aaa.aspx" /><%--衣櫥--%>
+            <asp:ImageButton ID="closet" runat="server" ImageUrl="images/main/h_b_clo.png"  Height="695.4px" Width="458.4px" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
         </p>
         <asp:Image ID="pig" runat="server" ImageUrl="images/pig20.png" Height="525px" Width="750px"/>
         <asp:Image ID="person" runat="server" ImageUrl="images/person.png" Height="707px" Width="249px"/>
