@@ -1,5 +1,6 @@
 ﻿using _BookKeeping;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,11 +8,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using System.Web.Security;
+using Google.Protobuf.WellKnownTypes;
 
 namespace BookKeeping.src
 {
     public partial class review : System.Web.UI.Page
     {
+        protected string user_id = "1";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,7 +55,7 @@ namespace BookKeeping.src
         protected string FindName()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = \'1\';";
+            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = " + user_id;
             string user_name = string.Empty;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -122,7 +127,25 @@ namespace BookKeeping.src
 
         protected void Submit_Click(object sender, EventArgs e)
         {
+            MySqlConnection conn = DBConnection();
 
+            string selectedValue = RadioButtonList1.SelectedValue;
+            if (selectedValue == "y")
+            {
+                int amount = Convert.ToInt32(Textbox1.Text);
+                string wish_name = label2.Text;
+                string userID = "1";
+
+                string sql = "UPDATE `112 - 112502`.`願望清單` SET `pass_amount` = @amount , `pass_state` = 'y' WHERE(`d_name` = @wish_name );";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@amount", amount);
+                cmd.Parameters.AddWithValue("@wish_name", wish_name);
+                
+                 cmd.ExecuteNonQuery();
+
+                
+            }
         }
 
 

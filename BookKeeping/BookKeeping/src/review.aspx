@@ -42,7 +42,7 @@
             
         <%--</div>--%></asp:Panel>
         <asp:Button class="dre_button button_style button_size2" ID="Button3" runat="server" Text="確認" OnClick="Submit_Click" />
-        <%--<input class="dre_button" id="review_Submit1" type="submit" value="確認" style="height: 50px; width: 100px;" />--%>
+       
         <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" height="80px" width="80px" />
         <div class="last_next">
             <div><asp:Button class="button_style" ID="Last" runat="server" Text="<" style="height: 50px; width: 50px; font-size: 45px;" CommandArgument="minus" OnClick="ChangeWish_Click"/></div><%--上一個願望--%>
