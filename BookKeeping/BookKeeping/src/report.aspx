@@ -14,9 +14,9 @@
 	<div class="book_content">
 		<div class="boo_left">
 			<div class="boo_date">
-				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
+				<asp:Button class="button_style" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
 				<asp:Label ID="Label1" runat="server"  style="font-size:30px;"></asp:Label>
-				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
+				<asp:Button class="button_style" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
 			</div>
 
 			<div class="boo_table_block">
@@ -89,7 +89,7 @@
 			</div>
 			<br />
 			<br />
-			<asp:Button class="add" ID="Button3" runat="server" Text="查看報表" />
+			<asp:Button class="button_style button_size1" ID="Button3" runat="server" Text="查看報表" />
 		</div>
 		</div>
 	</div>

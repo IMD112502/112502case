@@ -6,21 +6,23 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>願望清單-新增</title>
-    <style type="text/css">        
-    </style>
+    <title>願望新增</title>
 </head>
 <body class="buc_add_body">
     <form class="buc_add_form" id="form1" runat="server">
         <div class="buc_add">
-            <asp:Label ID="wish_user" runat="server" Text="______想要" font-size="XX-Large" ></asp:Label><br />
-            <asp:TextBox ID="wish_textbox" PlaceHolder="請輸入您的願望" runat="server" Height="40px" Width="230px"></asp:TextBox><br/>
-            
+            <div class="word">
+                <asp:Label ID="wish_user" runat="server" Text="______想要"></asp:Label><br />
+                <asp:TextBox ID="wish_textbox" PlaceHolder="請輸入您的願望" runat="server"></asp:TextBox>
+            </div>
+            <div class="buc_add_button">
+                <asp:Button class="button_style button_size2" ID="BucAdd" runat="server" Text="確認" Onclick="Submit_Click"/>
+                <asp:Button class="button_style button_size2" ID="BucUnadd" runat="server" Text="取消" />
+            </div>
         </div>
-        <asp:Button class="buc_add_button" ID="submit" runat="server" Text="確認" Onclick="Submit_Click"/>
-        <asp:Button class="buc_add_button" ID="reset" runat="server" Text="取消" />
+        
 
-        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/main.aspx" />
+        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
 </body>
 </html>

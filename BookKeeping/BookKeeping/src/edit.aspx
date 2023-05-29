@@ -17,9 +17,9 @@
 	<div class="book_content">
 		<div class="boo_left">
 			<div class="boo_date">
-				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
+				<asp:Button class="button_style" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" />
 				<asp:Label ID="Label1" runat="server" Text="2023年5月" style="font-size:30px;"></asp:Label>
-				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
+				<asp:Button class="button_style" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" />
 			</div>
 
 			<div class="boo_table_block">
@@ -112,8 +112,8 @@
 			<br />
 			<br />
 			<br />
-			<input class="reset" type="reset" value="重新輸入" />
-			<asp:Button class="add" ID="Button4" runat="server" Text="確定修改" />
+			<input class="button_style button_size1" type="reset" value="重新輸入" />
+			<asp:Button class="button_style button_size1" ID="Button4" runat="server" Text="確定修改" />
 		</div>
 		</div>
 	</div>

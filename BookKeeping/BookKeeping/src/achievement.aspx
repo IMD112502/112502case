@@ -12,9 +12,9 @@
     <form id="form1" runat="server">
         <div class="ach_header">
             <h1><asp:Label class="ach_top_tit" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
-            <div class="ach_top_button2">
-                <asp:Button class="ach_top_button" ID="Button1" runat="server" Text="已完成" style="width:150px;height:30px;margin-left:-160px;"/>
-                <asp:Button class="ach_top_button" ID="Button2" runat="server" Text="未完成" style="width:150px;height:30px;"/>
+            <div class="ach_top_button">
+                <asp:Button class="button_style" ID="Button1" runat="server" Text="已完成" style="width:150px;height:30px;margin-left:-160px;"/>
+                <asp:Button class="button_style" ID="Button2" runat="server" Text="未完成" style="width:150px;height:30px;"/>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
                   <br />
                   <asp:Label class="ach_con" runat="server" Text="累計記帳11次" ></asp:Label>
                   <br />
-                  <asp:Button class="ach_button_get" ID="Button3" runat="server" Text="領取" />
+                  <asp:Button class="ach_button_get button_style" ID="Button3" runat="server" Text="領取" />
                   <br />
                   <div class="literal">
                   <asp:Literal ID="Literal1" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -38,7 +38,7 @@
                   <br />
                   <asp:Label class="ach_con" runat="server" Text="累計記帳20次" ></asp:Label>
                   <br />
-                  <asp:Button class="ach_button_get" ID="Button4" runat="server" Text="領取" />
+                  <asp:Button class="ach_button_get button_style" ID="Button4" runat="server" Text="領取" />
                   <br />
                   <div class="literal">
                   <asp:Literal ID="Literal2" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -50,7 +50,7 @@
                   <br />
                   <asp:Label class="ach_con" runat="server" Text="累計記帳30次" ></asp:Label>
                   <br />
-                  <asp:Button class="ach_button_get" ID="Button5" runat="server" Text="領取" />
+                  <asp:Button class="ach_button_get button_style" ID="Button5" runat="server" Text="領取" />
                   <br />
                   <div class="literal">
                   <asp:Literal ID="Literal3" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -62,7 +62,7 @@
                   <br />
                   <asp:Label class="ach_con" runat="server" Text="累計記帳40次" ></asp:Label>
                   <br />
-                  <asp:Button class="ach_button_get" ID="Button6" runat="server" Text="領取" />
+                  <asp:Button class="ach_button_get button_style" ID="Button6" runat="server" Text="領取" />
                   <br />
                   <div class="literal">
                   <asp:Literal ID="Literal4" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>

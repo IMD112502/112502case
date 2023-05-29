@@ -34,15 +34,18 @@ body {
     width: 150px;
     height: 40px;
 }
+
+.button_size2 {
+    font-size: 25px;
+    width: 120px;
+    height: 60px;
+}
 /*--------------------------------主畫面---------------------------------------*/
 .main_body {
     background-image: url('images/home_bg.png');
     background-size: 1416px 984px;
     height: 900px;
     width: 1600px;
-    /*background-size: cover;
-    background-position: center;    
-    background-repeat: no-repeat;*/
 }
 
 #closet { /* 衣櫥 */
@@ -220,19 +223,6 @@ body {
     height: 80px;
     text-align: center;
 }
-
-.boo_date_button { /* 日期按鈕 */
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-    .boo_date_button:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
 
 .boo_table_block {
     margin-left: -20px;
@@ -444,23 +434,6 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     padding: 5px;
     box-shadow: 1px 1px 3px gray;
 }
-
-.reset, .add { /* 重新輸入、確定新增 */
-    margin-top: 40px;
-    width: 150px;
-    height: 40px;
-    font-size: 16px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-    .reset:hover, .add:hover {
-        background-color: lightseagreen;
-    }
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/
 
@@ -486,20 +459,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     top: 60px;
 }
 
-.ach_top_button { /* 成就頂端按鈕 */
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-    .ach_top_button:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
-
-.ach_top_button2 { /* 成就頂端按鈕區塊 */
+.ach_top_button { /* 成就頂端按鈕區塊 */
     position: fixed;
     top: 160px;
     left: 50%;
@@ -510,17 +470,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     Width: 50px;
     margin-top: -20px;
     margin-left: 300px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
 }
-
-    .ach_button_get:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
 
 .ach_content { /* 成就區塊 */
     position: fixed;
@@ -580,13 +530,13 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 #b_trashcan {
     position: absolute; /*指定絕對位置*/
-    top: 230px;
-    left: -700px;
+    top: 650px;
+    left: 400px;
 }
 
 .wishes1 {
     position: absolute; /*指定絕對位置*/
-    top: 225px;
+    top: 255px;
     left: 921px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -598,7 +548,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes2 {
     position: absolute; /*指定絕對位置*/
-    top: 550px;
+    top: 580px;
     left: 550px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -612,7 +562,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes3 {
     position: absolute; /*指定絕對位置*/
-    top: 550px;
+    top: 580px;
     left: 730px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -626,7 +576,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes4 {
     position: absolute; /*指定絕對位置*/
-    top: 378px;
+    top: 408px;
     left: 900px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -640,7 +590,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes5 {
     position: absolute; /*指定絕對位置*/
-    top: 550px;
+    top: 580px;
     left: 900px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -654,7 +604,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes6 {
     position: absolute; /*指定絕對位置*/
-    top: 205px;
+    top: 235px;
     left: 1070px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -668,7 +618,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes7 {
     position: absolute; /*指定絕對位置*/
-    top: 378px;
+    top: 408px;
     left: 1070px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -682,7 +632,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .wishes8 {
     position: fixed; /*指定絕對位置*/
-    top: 550px;
+    top: 580px;
     left: 1070px;
     background: url('images/dre_memo.png');
     background-size: 130px;
@@ -701,7 +651,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 
 .pick_wish {
     position: fixed; /*指定絕對位置*/
-    top: 520px;
+    top: 550px;
     left: 580px;
     background: url('images/dre_m_memo.png');
     background-size: 300px;
@@ -738,32 +688,45 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     margin-left: -100px;
 }
 
+#ReviewButton { /* 審核區按鈕 */
+    position: fixed; /*指定絕對位置*/
+    top: 350px;
+    left: 1250px;
+}
+
+#BucketAdd {
+    position: fixed; /*指定絕對位置*/
+    top: 710px;
+    left: 1230px;
+}
+
 /*願望清單-新增*/
-.buc_add_body {
-    background-image: url('images/dre_rev_button.png');
-    background-size: 500px 500px;
+.buc_add {
+    background-image: url('images/dre_add_memo.png');
+    background-size: 650px 650px;
+    position: absolute; /*指定絕對位置*/
+    left: 50%;
+    top: 50%;
+    width: 650px;
+    height: 552px;
+    padding-top: 100px;
+    transform: translate(-50%, -50%);
 }
 
 .buc_add_form {
     text-align: center;
     padding: 20px;
-    width: 350px;
-    height: 350px;
-    margin-top: 350px;
+    width: 260px;
+    height: 535px;
+    margin-top: 180px;
     margin-left: 50%;
-    transform: translate(13%, -5%);
-}
-
-.buc_add {
-    padding-top: 60px;
 }
 
 #wish_textbox {
     margin-top: 40px;
-    margin-left: 30px;
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
     border-radius: 5px;
     border: none;
     padding: 5px;
@@ -771,104 +734,63 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 .buc_add_button {
-    font-size: large;
-    Height: 60px;
-    Width: 80px;
-    margin-top: 60px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
+    position: absolute; /*指定絕對位置*/
+    width: 260px;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
 }
 
-    .buc_add_button:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
+#BucAdd {
+    position: absolute;
+    right: 0px;
+}
+
+#BucUnadd {
+    position: absolute;
+    left: 0px;
+}
 
 /*-----------------------------願望清單-垃圾桶------------------------------*/
-.trashcan_body {
+.trashcan {
     background-image: url('images/dre_rev_button.png');
-    background-size: 500px 500px;
+    background-size: 650px 650px;
+    position: absolute; /*指定絕對位置*/
+    left: 50%;
+    top: 50%;
+    width: 650px;
+    height: 552px;
+    padding-top: 100px;
+    transform: translate(-50%, -50%);
 }
 
 .tra_form {
-    position: absolute; /*指定絕對位置*/
-    top: 50%;
-    left: 50%;
     text-align: center;
     padding: 20px;
-    width: 350px;
-    height: 350px;
-    transform: translate(-50%, -40%);
-}
-
-.trashcan {
-    padding-top: 20px;
-}
-
-.textarea {
-    width: 250px;
-    height: 150px;
-    border: transparent;
-    font-size: xx-large;
-    line-height: 1.5;
-    padding: 10px;
+    width: 260px;
+    height: 535px;
+    margin-top: 180px;
+    margin-left: 50%;
 }
 
 .trashcan_button {
-    margin-top: 20px;
-}
-
-.trashcan_button { /* 成就領取紐 */
-    font-size: large;
-    Height: 60px;
-    Width: 80px;
-    margin-top: 20px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-    .trashcan_button:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
-
-/*-----------------------進入審核區的按鈕------------------------*/
-.review { /*審核區*/
-    position: fixed; /*指定絕對位置*/
-    top: 310px;
-    left: 1220px;
-    /*    background: url('images/dre_rev_button.png');
-    background-size: 160px;
-    font-size: xx-large;*/
-}
-
-#word_review{
-    font-size: 45px;
-    margin-top: 500px;
-}
-
-#ReviewButton::after {
-    content: "審核區";
-    position: absolute;
-    top: 50%;
+    position: absolute; /*指定絕對位置*/
     left: 50%;
+    top: 85%;
     transform: translate(-50%, -50%);
-    font-size: 14px;
-    color: brown;
 }
-/*-----------------------進入審核區的按鈕------------------------*/
 
 /*------------------------------------願望清單-審核區------------------------------------*/
-.review_body {
+.reviewing {
+    background-image: url('images/dre_rev_button.png');
+    background-size: 650px 650px;
     position: absolute; /*指定絕對位置*/
-    /*    background-image: url('images/dre_bg.png');
-    background-size: 1088.4px 904.2px;*/
+    left: 50%;
+    top: 50%;
+    width: 650px;
+    height: 552px;
+    padding-top: 100px;
+    transform: translate(-50%, -50%);
 }
 
 .rev_form {
@@ -877,108 +799,114 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     width: 260px;
     height: 535px;
     margin-top: 180px;
-    margin-left: 45%;
-    margin-right: auto;
-    margin-bottom: auto;
-}
-
-.reviewing {
-    background-image: url('images/dre_rev_button.png');
-    background-size: 650px 650px;
-    position: absolute; /*指定絕對位置*/
-    left: 670px;
-    top: 150px;
-    width: 650px;
-    height: 552px;
-    padding-top: 100px;
+    margin-left: 50%;
 }
 
 .word {
     margin-top: 80px;
     margin-left: 20px;
+    font-size: 40px;
 }
 
-.review_button {
+.YesNo {
+    font-size: 30px;
     position: absolute; /*指定絕對位置*/
-    left: 870px;
-    top: 450px;
-    margin-top: 40px;
-    font-size: x-large;
+    left: 50%;
+    top: 50%;
+    width: 650px;
+    transform: translate(-15%);
+    border-block-color: blueviolet;
 }
 
-.dre_button { /* 願望功能確認按鈕 */
+.RevTextbox {
+    font-size: 30px;
     position: absolute; /*指定絕對位置*/
-    left: 950px;
-    top: 630px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-    margin-top: 10px;
-    font-size: large;
+    left: 1%;
+    top: 60%;
+    width: 650px;
+    border-block-color: blueviolet;
 }
 
-input[type="reason"] {
+/*input[type="reason"] {
     width: 150px;
     height: 25px;
     font-size: 16px;
     border-radius: 5px;
     border: none;
-    padding: 5px;
+    padding: 5px;   
     box-shadow: 1px 1px 3px gray;
+}*/
+.dre_button { /* 願望功能確認按鈕 */
+    position: absolute; /*指定絕對位置*/
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
 }
 
-.dre_button:hover { /* 鼠標放在按鈕上 */
-    background-color: lightseagreen;
+.last_next {
+    position: absolute; /*指定絕對位置*/
+    width: 700px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.rev_back {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
+#Last { /*上一個願望*/
+    position: absolute;
+    left: 40px;
 }
 
-#Button1 { /*上一個願望*/
-    position: fixed;
-    left: 650px;
-    top: 500px;
+#Next { /*下一個願望*/
+    position: absolute;
+    right: 0px;
 }
+/*------------------------------------願望清單-審核區結束------------------------------------*/
 
-#Button2 { /*下一個願望*/
-    position: fixed;
-    left: 1320px;
-    top: 500px;
-}
-
-
-/*------------------------------------------------*/
+/*------------------------------------更衣室------------------------------------*/
 .c_background {
-    background-color: lightblue;
+    background-image: url('images/home_bg.png');
+    background-size: 1416px 984px;
+    height: 900px;
+    width: 1600px;
+}
+
+#DreForm {
+    margin-left: 190px;
+    height: 100vh;
+}
+
+#DreTitle {
+    font-size: 55px;
+    color: blanchedalmond;
+    margin-left: 40%;
+    transform: translate(-50%);
 }
 
 .cloth {
     overflow-y: scroll;
     background-color: tan;
+    height: 100%;
+    width: 515px;
 }
 
-.c_button {
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-    .c_button:hover {
-        background-color: lightseagreen;
-    }
-
-#top {
+.SortButton {
     position: absolute; /*指定絕對位置*/
-    left: 520px;
+    left: 720px;
+    top: 50px;
+    width: 80px;
+}
+
+.DreButtonSize {
+    Height: 150px;
+    Width: 30px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    line-height: 2;
+}
+
+/*#top {
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 520px;
     top: 20px;
     Height: 150px;
     Width: 30px;
@@ -987,8 +915,8 @@ input[type="reason"] {
 }
 
 #pents {
-    position: absolute; /*指定絕對位置*/
-    left: 560px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 560px;
     top: 20px;
     Height: 150px;
     Width: 30px;
@@ -997,8 +925,8 @@ input[type="reason"] {
 }
 
 #dress {
-    position: absolute; /*指定絕對位置*/
-    left: 520px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 520px;
     top: 180px;
     Height: 150px;
     Width: 30px;
@@ -1007,8 +935,8 @@ input[type="reason"] {
 }
 
 #hat {
-    position: absolute; /*指定絕對位置*/
-    left: 560px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 560px;
     top: 180px;
     Height: 150px;
     Width: 30px;
@@ -1017,8 +945,8 @@ input[type="reason"] {
 }
 
 #shoes {
-    position: absolute; /*指定絕對位置*/
-    left: 520px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 520px;
     top: 340px;
     Height: 150px;
     Width: 30px;
@@ -1027,8 +955,8 @@ input[type="reason"] {
 }
 
 #socks {
-    position: absolute; /*指定絕對位置*/
-    left: 560px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 560px;
     top: 340px;
     Height: 150px;
     Width: 30px;
@@ -1037,8 +965,8 @@ input[type="reason"] {
 }
 
 #eyes {
-    position: absolute; /*指定絕對位置*/
-    left: 520px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 520px;
     top: 500px;
     Height: 150px;
     Width: 30px;
@@ -1047,8 +975,8 @@ input[type="reason"] {
 }
 
 #mouth {
-    position: absolute; /*指定絕對位置*/
-    left: 560px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 560px;
     top: 500px;
     Height: 150px;
     Width: 30px;
@@ -1057,8 +985,8 @@ input[type="reason"] {
 }
 
 #hair {
-    position: absolute; /*指定絕對位置*/
-    left: 520px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 520px;
     top: 660px;
     Height: 150px;
     Width: 30px;
@@ -1067,140 +995,24 @@ input[type="reason"] {
 }
 
 #earring {
-    position: absolute; /*指定絕對位置*/
-    left: 560px;
+    position: absolute;*/ /*指定絕對位置*/
+    /*left: 560px;
     top: 660px;
     Height: 150px;
     Width: 30px;
     display: flex;
     align-items: center;
-}
-
-.sssright {
+}*/
+    .DreButton {
     position: absolute; /*指定絕對位置*/
     right: 97px;
-    top: 676px;
+    top: 830px;
 }
 
-.settinggg {
-    position: absolute; /*指定絕對位置*/
-    right: 400px;
-    top: 10px;
+#DrePersom {
+    position: fixed;
+    top: 55%;
+    left: 64%;
+    transform: translate(-50%, -50%);
 }
-
-#bbb {
-    position: absolute; /*指定絕對位置*/
-    right: 866px;
-    top: 82px;
-    height: 606px;
-    width: 182px;
-}
-
-#hhh {
-    position: absolute; /*指定絕對位置*/
-    right: 935px;
-    top: 373px;
-    height: 40px;
-    width: 60px;
-}
-
-#ccc {
-    position: absolute; /*指定絕對位置*/
-    right: 860px;
-    top: 246px;
-    height: 189px;
-    width: 200px;
-}
-
-#sss {
-    position: absolute; /*指定絕對位置*/
-    right: 875px;
-    top: 505px;
-    height: 189px;
-    width: 152px;
-}
-
-#ppp {
-    position: absolute; /*指定絕對位置*/
-    right: 874px;
-    top: 387px;
-    height: 262px;
-    width: 152px;
-}
-
-.backk {
-    position: absolute; /*指定絕對位置*/
-    right: 300px;
-    top: 100px;
-}
-
-#aa {
-    position: absolute; /*指定絕對位置*/
-    right: 500px;
-    top: 120px;
-    height: 60px;
-    width: 100px;
-}
-
-#bb {
-    position: absolute; /*指定絕對位置*/
-    right: 385px;
-    top: 120px;
-    height: 60px;
-    width: 100px;
-}
-
-#pbhair {
-    position: absolute; /*指定絕對位置*/
-    right: 818px;
-    top: 50px;
-    max-width: 15%; /* ★★★★★ */
-}
-
-#pfhair {
-    position: absolute; /*指定絕對位置*/
-    right: 852px;
-    top: 70px;
-    height: 150px;
-    width: 200px;
-}
-
-#pshair {
-    position: absolute; /*指定絕對位置*/
-    right: 868px;
-    top: 120px;
-    height: 252px;
-    width: 180px;
-}
-
-#peyes {
-    position: absolute; /*指定絕對位置*/
-    right: 887px;
-    top: 180px;
-    height: 60px;
-    width: 140px;
-}
-
-#eeyes {
-    position: absolute; /*指定絕對位置*/
-    right: 887px;
-    top: 155px;
-    height: 45px;
-    width: 140px;
-}
-
-#pmouth {
-    position: absolute; /*指定絕對位置*/
-    right: 888px;
-    top: 228px;
-    height: 45px;
-    width: 140px;
-}
-
-#pglasses {
-    position: absolute; /*指定絕對位置*/
-    right: 875px;
-    top: 177px;
-    height: 80px;
-    width: 165px;
-}
+/*------------------------------------更衣室結束------------------------------------*/

@@ -15,9 +15,9 @@
 	<div class="book_content">
 		<div class="boo_left">
 			<div class="boo_date">
-				<asp:Button class="boo_date_button" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" OnClick="MinusMonth_Click" CommandArgument="minus" />
+				<asp:Button class="button_style" ID="Button1" runat="server" Text="<" style="width: 20px; height: 20px;" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"  style="font-size:30px;"></asp:Label>
-				<asp:Button class="boo_date_button" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" OnClick="PlusMonth_Click" CommandArgument="plus" />
+				<asp:Button class="button_style" ID="Button2" runat="server" Text=">" style="width: 20px; height: 20px;" OnClick="PlusMonth_Click" CommandArgument="plus" />
 			</div>
 
 			<div class="boo_table_block">
@@ -110,8 +110,8 @@
 			<br />
 			<br />
 			<br />
-			<input class="reset" type="reset" value="重新輸入" />
-			<asp:Button class="add" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
+			<input class="button_style button_size1" type="reset" value="重新輸入" />
+			<asp:Button class="button_style button_size1" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
 		</div>
 		</div>
 	</div>

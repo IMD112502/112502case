@@ -123,6 +123,7 @@
     <Content Include="src\images\boo\boo_button_ser2.png" />
     <Content Include="src\images\boo_bg.png" />
     <Content Include="src\images\boo_button.png" />
+    <Content Include="src\images\buc_add_button.png" />
     <Content Include="src\images\clothing1.png" />
     <Content Include="src\images\clothing2.png" />
     <Content Include="src\images\clothing3.png" />
@@ -202,6 +203,7 @@
     <Content Include="src\images\cloth\top\top_5.png" />
     <Content Include="src\images\cloth\top\top_6.png" />
     <Content Include="src\images\c_dre.png" />
+    <Content Include="src\images\dre_add_memo.png" />
     <Content Include="src\images\dre_bg.png" />
     <Content Include="src\images\dre_gar.png" />
     <Content Include="src\images\dre_gar_memo.png" />
@@ -232,6 +234,7 @@
     <Content Include="src\images\pig70.PNG" />
     <Content Include="src\images\pig80.PNG" />
     <Content Include="src\images\pig90.PNG" />
+    <Content Include="src\images\review_button.png" />
     <Content Include="src\images\setting.png" />
     <Content Include="src\login.aspx" />
     <Content Include="src\main.aspx" />
