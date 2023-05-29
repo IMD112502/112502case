@@ -16,7 +16,7 @@ namespace BookKeeping.src
         {
             if (!IsPostBack) 
             {
-                if (GetArray().Length < 0)
+                if (GetArray().Length > 0)
                 {
                     label1.Text = FindName() + "想要";
                     label2.Text = GetArray()[0];
@@ -79,6 +79,40 @@ namespace BookKeeping.src
 
         }
 
+        protected int select_index = 0;
+        protected void ChangeWish_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn.CommandArgument == "minus")
+            {
+                if (select_index == 0)
+                {
+                    select_index = GetArray().Length - 1;
+                }
+                else 
+                {
+                    select_index--;
+                }
+              
+            }
+            if (btn.CommandArgument == "plus")
+            {
+                if (select_index == GetArray().Length-1)
+                {
+                    select_index = 0;
+                   
+                }
+                else 
+                {
+                    select_index++;
+                    
+                }
+                
+            }
+            label2.Text = GetArray()[select_index];
+
+        }
+
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedValue = RadioButtonList1.SelectedValue;
@@ -97,9 +131,6 @@ namespace BookKeeping.src
 
         }
 
-        protected void Back_Click(object sender, EventArgs e) 
-        { 
-            
-        }
+      
     }
 }
