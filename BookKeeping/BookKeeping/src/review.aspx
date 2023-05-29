@@ -23,12 +23,17 @@
                     </asp:RadioButtonList>
                 </div>
                 <div class="RevTextbox">
+                    <asp:Panel ID="Panel2" runat="server">
                     <asp:Label ID="label4" runat="server" Text="設定目標為" font-size="30px"></asp:Label>
                     <asp:TextBox type="reason" ID="Textbox1" placeholder="請輸入金額" runat="server" height="30px" width="100px"></asp:TextBox>
                     <asp:Label ID="label5" runat="server" Text="元" font-size="30px"></asp:Label>
-                    <asp:Label ID="label6" runat="server" Text="拒絕原因：" font-size="30px" Visible="false"></asp:Label><br />
-                    <asp:TextBox type="reason" ID="Textbox2" placeholder="請輸入原因" runat="server" height="30px" width="250px" Visible="false"></asp:TextBox>
-                </div>
+                    </asp:Panel>
+                    <asp:Panel ID="Panel3" runat="server" Visible="false">
+                    <asp:Label ID="label6" runat="server" Text="拒絕原因：" font-size="30px" ></asp:Label><br />
+                    <asp:TextBox type="reason" ID="Textbox2" placeholder="請輸入原因" runat="server" height="30px" width="250px" ></asp:TextBox>
+                     </asp:Panel>
+                        </div>
+                <asp:Label ID="IndexCount" runat="server" Text="" Visible="false"></asp:Label> 
             </div>
         </div>
         <asp:Panel ID="Panel1" runat="server" CssClass ="review_button">

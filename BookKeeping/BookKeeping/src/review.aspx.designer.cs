@@ -78,6 +78,15 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.ListItem no;
 
         /// <summary>
+        /// Panel2 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
+
+        /// <summary>
         /// label4 控制項。
         /// </summary>
         /// <remarks>
@@ -105,6 +114,15 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Label label5;
 
         /// <summary>
+        /// Panel3 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel3;
+
+        /// <summary>
         /// label6 控制項。
         /// </summary>
         /// <remarks>
@@ -121,6 +139,15 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Textbox2;
+
+        /// <summary>
+        /// IndexCount 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label IndexCount;
 
         /// <summary>
         /// Panel1 控制項。

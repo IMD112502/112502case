@@ -21,6 +21,7 @@ namespace BookKeeping.src
                     label1.Text = FindName() + "想要";
                     label2.Text = GetArray()[0];
                     label3.Text = "可以嗎><？";
+                    IndexCount.Text = "0";
                 }
                 else
                 {
@@ -79,37 +80,28 @@ namespace BookKeeping.src
 
         }
 
-        protected int select_index = 0;
         protected void ChangeWish_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            if (btn.CommandArgument == "minus")
+            int index_value = Convert.ToInt32(IndexCount.Text);
+            int length = GetArray().Length;
+            if (btn.CommandArgument == "plus") 
             {
-                if (select_index == 0)
-                {
-                    select_index = GetArray().Length - 1;
-                }
-                else
-                {
-                    select_index--;
-                }
-
+                index_value++;
             }
-            if (btn.CommandArgument == "plus")
+            if (btn.CommandArgument == "minus") 
             {
-                if (select_index == GetArray().Length - 1)
+                if (index_value > 0)
                 {
-                    select_index = 0;
-
+                    index_value--;
                 }
-                else
+                else 
                 {
-                    select_index++;
-
+                    index_value = GetArray().Length - 1;
                 }
-
             }
-            label2.Text = GetArray()[select_index];
+            IndexCount.Text = index_value.ToString();
+            label2.Text = GetArray()[index_value % length];
 
         }
 
@@ -118,19 +110,13 @@ namespace BookKeeping.src
             string selectedValue = RadioButtonList1.SelectedValue;
             if (selectedValue == "y")
             {
-                label4.Visible = true;
-                label5.Visible = true;
-                Textbox1.Visible = true;
-                Textbox2.Visible = false;
-                label6.Visible = false;
+                Panel2.Visible = true;
+                Panel3.Visible = false;
             }
             if (selectedValue == "n")
             {
-                label4.Visible = false;
-                label5.Visible = false;
-                Textbox1.Visible = false;
-                Textbox2.Visible = true;
-                label6.Visible = true;
+                Panel2.Visible = false;
+                Panel3.Visible = true;
             }
         }
 
