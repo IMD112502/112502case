@@ -129,6 +129,7 @@ namespace BookKeeping.src
         {
             MySqlConnection conn = DBConnection();
 
+
             string selectedValue = RadioButtonList1.SelectedValue;
             if (selectedValue == "y")
             {
@@ -136,13 +137,29 @@ namespace BookKeeping.src
                 string wish_name = label2.Text;
                 string userID = "1";
 
-                string sql = "UPDATE `112 - 112502`.`願望清單` SET `pass_amount` = @amount , `pass_state` = 'y' WHERE(`d_name` = @wish_name );";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-                cmd.Parameters.AddWithValue("@amount", amount);
-                cmd.Parameters.AddWithValue("@wish_name", wish_name);
+                string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @userID;";
                 
-                 cmd.ExecuteNonQuery();
+
+                MySqlCommand cmd = new MySqlCommand(dNum, conn);
+                cmd.Parameters.AddWithValue("@wish_name", wish_name);
+                cmd.Parameters.AddWithValue("@userID", userID);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                
+                reader.Read();
+                string dName = reader.GetString(0);
+                conn.Close();
+                
+
+                string sql = "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
+
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(sql, conn);
+
+                command.Parameters.AddWithValue("@amount", amount);
+                command.Parameters.AddWithValue("@dName", dName);
+
+                command.ExecuteNonQuery();
 
                 
             }
