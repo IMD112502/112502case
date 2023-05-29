@@ -15,84 +15,84 @@ namespace BookKeeping.src
     {
 
         /// <summary>
-        /// form1 控制項。
+        /// Form1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
 
         /// <summary>
-        /// setting 控制項。
+        /// Setting 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton setting;
+        protected global::System.Web.UI.WebControls.ImageButton Setting;
 
         /// <summary>
-        /// ach 控制項。
+        /// Ach 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ach;
+        protected global::System.Web.UI.WebControls.ImageButton Ach;
 
         /// <summary>
-        /// wishes 控制項。
+        /// Wishes 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton wishes;
+        protected global::System.Web.UI.WebControls.ImageButton Wishes;
 
         /// <summary>
-        /// bookkeeping 控制項。
+        /// Bookkeeping 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton bookkeeping;
+        protected global::System.Web.UI.WebControls.ImageButton Bookkeeping;
 
         /// <summary>
-        /// game 控制項。
+        /// Game 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton game;
+        protected global::System.Web.UI.WebControls.ImageButton Game;
 
         /// <summary>
-        /// closet 控制項。
+        /// Closet 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton closet;
+        protected global::System.Web.UI.WebControls.ImageButton Closet;
 
         /// <summary>
-        /// pig 控制項。
+        /// Pig 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image pig;
+        protected global::System.Web.UI.WebControls.Image Pig;
 
         /// <summary>
-        /// person 控制項。
+        /// Person 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image person;
+        protected global::System.Web.UI.WebControls.Image Person;
     }
 }

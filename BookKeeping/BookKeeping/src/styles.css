@@ -41,42 +41,51 @@ body {
     height: 60px;
 }
 /*--------------------------------主畫面---------------------------------------*/
-.main_body {
+.SystemTitle {
+    position: fixed;
+    top: 10px;
+    left: 350px;
+    font-size: 90px;
+    /*font-family: Microsoft JhengHei;*/ /*微軟正黑體*/
+    font-family: DFKai-sb; /*標楷體*/
+}
+
+.MainBody {
     background-image: url('images/home_bg.png');
     background-size: 1416px 984px;
     height: 900px;
     width: 1600px;
 }
 
-#closet { /* 衣櫥 */
+#Closet { /* 衣櫥 */
     padding-left: 220px;
     padding-top: 150px;
 }
 
-.wishes {
+.Wishes {
     float: right;
     padding-top: 70px;
     padding-right: 20px;
 }
 
-#bookkeeping {
+#Bookkeeping {
     padding-top: 15px;
     padding-left: 10px;
 }
 
-#game {
+#Game {
     padding-top: 15px;
     padding-left: 10px;
 }
 
-#person {
+#Person {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-85%, -40%);
 }
 
-#pig {
+#Pig {
     position: fixed;
     bottom: -150px;
     left: 60px;
@@ -90,7 +99,7 @@ body {
 /*--------------------------------主畫面結束---------------------------------------*/
 
 /*---------------------------------任務/設定---------------------------------------*/
-.setting {
+.Setting {
     float: right;
     margin-top: 5px;
     margin-right: -35px;
@@ -438,12 +447,12 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 /*--------------------------------記帳結束------------------------------------*/
 
 /*----------------------------------成就--------------------------------------*/
-.ach_body {
+.AchBody {
     background-image: url('images/ach_bg.png');
     background-size: 851.4px 872.4px;
 }
 
-.ach_header {
+.AchHeader {
     position: fixed;
     top: 0;
     left: 0;
@@ -451,7 +460,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     padding: 10px;
 }
 
-.ach_top_tit { /* 頁面標題 */
+.AchTopTitle { /* 頁面標題 */
     position: fixed;
     color: darkcyan;
     font-size: 60px;
@@ -459,20 +468,20 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     top: 60px;
 }
 
-.ach_top_button { /* 成就頂端按鈕區塊 */
+.AchTopButton { /* 成就頂端按鈕區塊 */
     position: fixed;
     top: 160px;
     left: 50%;
 }
 
-.ach_button_get { /* 成就領取紐 */
+.AchButtonGet { /* 成就領取紐 */
     Height: 50px;
     Width: 50px;
     margin-top: -20px;
     margin-left: 300px;
 }
 
-.ach_content { /* 成就區塊 */
+.AchContent { /* 成就區塊 */
     position: fixed;
     margin: 35%;
     margin-top: 200px; /* 留出標題欄的高度 */
@@ -482,38 +491,38 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
 }
 
-.ach_tit { /* 成就標題 */
+.AchTit { /* 成就標題 */
     font-size: xx-large;
     font-weight: bold;
     color: teal;
     margin-left: 50px;
 }
 
-.ach_con { /* 成就內容 */
+.AchCon { /* 成就內容 */
     font-size: 20px;
     margin-top: 30px;
     margin-left: 50px;
 }
 
-.literal { /* 進度條 */
+.Literal { /* 進度條 */
     margin-top: -15px;
 }
 
-.ach_content ul li { /* 清單(單項成就) */
+.AchContent ul li { /* 清單(單項成就) */
     list-style: none;
     width: 100%;
     height: 150px;
 }
 
-    .ach_content ul li img { /* 成就圖片 */
-        Height: 130px;
-        Width: 130px;
-        float: left;
-        margin-left: -10px;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-    }
+.AchContent ul li img { /* 成就圖片 */
+    Height: 130px;
+    Width: 130px;
+    float: left;
+    margin-left: -10px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
 /*--------------------------------成就結束------------------------------------*/
 
 /*--------------------------------願望清單------------------------------------*/
@@ -863,7 +872,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 /*------------------------------------願望清單-審核區結束------------------------------------*/
 
 /*------------------------------------更衣室------------------------------------*/
-.c_background {
+.DreRoomBackground {
     background-image: url('images/home_bg.png');
     background-size: 1416px 984px;
     height: 900px;
@@ -882,7 +891,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     transform: translate(-50%);
 }
 
-.cloth {
+.Cloth {
     overflow-y: scroll;
     background-color: tan;
     height: 100%;
@@ -904,7 +913,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     line-height: 2;
 }
 
-/*#top {
+/*#Top {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 520px;
     top: 20px;
@@ -914,7 +923,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#pents {
+#Pents {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 560px;
     top: 20px;
@@ -924,7 +933,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#dress {
+#Dress {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 520px;
     top: 180px;
@@ -934,7 +943,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#hat {
+#Hat {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 560px;
     top: 180px;
@@ -944,7 +953,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#shoes {
+#Shoes {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 520px;
     top: 340px;
@@ -954,7 +963,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#socks {
+#Socks {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 560px;
     top: 340px;
@@ -964,7 +973,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#eyes {
+#Eyes {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 520px;
     top: 500px;
@@ -974,7 +983,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#mouth {
+#Mouth {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 560px;
     top: 500px;
@@ -984,7 +993,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#hair {
+#Hair {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 520px;
     top: 660px;
@@ -994,7 +1003,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     align-items: center;
 }
 
-#earring {
+#Earring {
     position: absolute;*/ /*指定絕對位置*/
     /*left: 560px;
     top: 660px;
@@ -1003,7 +1012,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     display: flex;
     align-items: center;
 }*/
-    .DreButton {
+.DreButton {
     position: absolute; /*指定絕對位置*/
     right: 97px;
     top: 830px;

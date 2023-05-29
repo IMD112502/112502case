@@ -8,9 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>更衣室</title>
 </head>
-<body class="c_background">
+<body class="DreRoomBackground">
     <form id="DreForm" runat="server">
-        <div class="cloth">
+        <div class="Cloth">
             <asp:Image ID="DrePersom" runat="server" ImageUrl="images/person.png" Height="707px" Width="249px"/>
             <asp:Label ID="DreTitle" runat="server" Font-Bold="True" Font-Italic="False" Text="上衣"></asp:Label>
 
@@ -23,16 +23,16 @@
         </div>
 
         <div class="SortButton">
-            <input id="top" class="button_style DreButtonSize" type="button" value="上衣" />
-            <input id="pents" class="button_style DreButtonSize" type="button" value="下身"/>
-            <input id="dress" class="button_style DreButtonSize" type="button" value="套裝" />
-            <input id="hat" class="button_style DreButtonSize" type="button" value="帽子" />
-            <input id="shoes" class="button_style DreButtonSize" type="button" value="鞋子" />
-            <input id="socks" class="button_style DreButtonSize" type="button" value="襪子" />
-            <input id="eyes" class="button_style DreButtonSize" type="button" value="眼睛" />
-            <input id="mouth" class="button_style DreButtonSize" type="button" value="嘴巴" />
-            <input id="hair" class="button_style DreButtonSize" type="button" value="頭髮" />
-            <input id="earring" class="button_style DreButtonSize" type="button" value="飾品" />
+            <input id="Top" class="button_style DreButtonSize " type="button" value="上衣" />
+            <input id="Pents" class="button_style DreButtonSize" type="button" value="下身"/>
+            <input id="Dress" class="button_style DreButtonSize" type="button" value="套裝" />
+            <input id="Hat" class="button_style DreButtonSize" type="button" value="帽子" />
+            <input id="Shoes" class="button_style DreButtonSize" type="button" value="鞋子" />
+            <input id="Socks" class="button_style DreButtonSize" type="button" value="襪子" />
+            <input id="Eyes" class="button_style DreButtonSize" type="button" value="眼睛" />
+            <input id="Mouth" class="button_style DreButtonSize" type="button" value="嘴巴" />
+            <input id="Hair" class="button_style DreButtonSize" type="button" value="頭髮" />
+            <input id="Earring" class="button_style DreButtonSize" type="button" value="飾品" />
         </div>
 
         <div class="DreButton" style="width: 410px; height: 90px;">
