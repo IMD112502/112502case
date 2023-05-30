@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33530.505
+VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookKeeping", "BookKeeping\BookKeeping.csproj", "{148847C6-D157-42ED-A0FB-05043F2B2127}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookKeeping", "BookKeeping\BookKeeping.csproj", "{A3F0DD0E-10BF-44DA-A869-6C55DFE7029E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{148847C6-D157-42ED-A0FB-05043F2B2127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{148847C6-D157-42ED-A0FB-05043F2B2127}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{148847C6-D157-42ED-A0FB-05043F2B2127}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{148847C6-D157-42ED-A0FB-05043F2B2127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F0DD0E-10BF-44DA-A869-6C55DFE7029E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F0DD0E-10BF-44DA-A869-6C55DFE7029E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F0DD0E-10BF-44DA-A869-6C55DFE7029E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F0DD0E-10BF-44DA-A869-6C55DFE7029E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B71EBA81-3A75-4AE0-A6B7-BFBA176D1A50}
+		SolutionGuid = {231B82AC-FF0A-49FB-B3AA-4DD431798A84}
 	EndGlobalSection
 EndGlobal

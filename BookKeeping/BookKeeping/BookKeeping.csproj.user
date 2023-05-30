@@ -3,7 +3,7 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44374</IISExpressSSLPort>
+    <IISExpressSSLPort>44321</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -11,7 +11,7 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <PropertyGroup>
-    <ReferencePath>E:\專題\112502case\BookKeeping\packages\;C:\Users\Student\Desktop\112502case\BookKeeping\packages\</ReferencePath>
+    <ReferencePath>E:\專題\112502case\BookKeeping\packages\</ReferencePath>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
