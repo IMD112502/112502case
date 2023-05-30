@@ -9,8 +9,8 @@
     <title>願望審核區</title>
 </head>
 <body>
-    <form class="RevForm" id="form1" runat="server">
-        <div class="Rev">
+    <form class="BucForm" id="form1" runat="server">
+        <div class="BMemo MemoStyle">
             <div class="BucWord">
                 <asp:Label ID="label1" runat="server" Text=""></asp:Label>
                 <asp:Label ID="label2" runat="server" Text=""></asp:Label><br />
@@ -24,12 +24,12 @@
                 </div>
                 <div class="RevTextbox">
                     <asp:Panel ID="Panel2" runat="server">
-                    <asp:Label ID="label4" runat="server" Text="設定目標為" font-size="30px"></asp:Label>
+                    <asp:Label ID="label4" runat="server" Text="設定目標為"></asp:Label>
                     <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox1" placeholder="請輸入金額" runat="server" height="30px" width="100px"></asp:TextBox>
-                    <asp:Label ID="label5" runat="server" Text="元" font-size="30px"></asp:Label>
+                    <asp:Label ID="label5" runat="server" Text="元"></asp:Label>
                     </asp:Panel>
                     <asp:Panel ID="Panel3" runat="server" Visible="false">
-                    <asp:Label ID="label6" runat="server" Text="拒絕原因：" font-size="30px" ></asp:Label><br />
+                    <asp:Label ID="label6" runat="server" Text="拒絕原因："></asp:Label><br />
                     <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox2" placeholder="請輸入原因" runat="server" height="30px" width="250px"></asp:TextBox>
                      </asp:Panel>
                         </div>

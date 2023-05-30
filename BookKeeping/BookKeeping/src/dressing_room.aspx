@@ -33,9 +33,9 @@
             <input id="Earring" class="ButtonStyle DreButtonSize" type="button" value="飾品" />
         </div>
 
-        <div class="DreButton" style="width: 410px; height: 90px;">
-            <input id="DreCancel" class="ButtonStyle ButtonSize2" type="button" value="取消修改" style="font-size: 20px;"/>
-            <input id="DreConfirm" class="ButtonStyle ButtonSize2" type="button" value="確認更換" style="font-size: 20px;"/>
+        <div class="DreButton">
+            <input id="DreCancel" class="ButtonStyle ButtonSize2" type="button" value="取消修改" />
+            <input id="DreConfirm" class="ButtonStyle ButtonSize2" type="button" value="確認更換" />
 		    <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
         </div>
     </form>

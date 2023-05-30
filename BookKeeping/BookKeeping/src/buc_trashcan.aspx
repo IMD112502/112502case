@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <form class="TraForm" id="form1" runat="server">
-        <div class="Tra">
+    <form class="BucForm" id="form1" runat="server">
+        <div class="BMemo MemoStyle">
             <div class="BucWord">
                 <asp:Label ID="CantBuy" runat="server" Text="不能買_______" font-size="XX-Large" ></asp:Label><br />
                 <asp:Label ID="Cause" runat="server" Text="因為" font-size="XX-Large" ></asp:Label><br />

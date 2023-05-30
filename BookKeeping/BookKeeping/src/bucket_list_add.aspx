@@ -9,8 +9,8 @@
     <title>願望新增</title>
 </head>
 <body>
-    <form class="BucAddForm" id="form1" runat="server">
-        <div class="BucAdd">
+    <form class="BucForm" id="form1" runat="server">
+        <div class="YMemo MemoStyle">
             <div class="BucWord">
                 <asp:Label ID="WishUser" runat="server" Text="______想要"></asp:Label><br />
                 <asp:TextBox class="TextBoxStyle" ID="WishTextbox" PlaceHolder="請輸入您的願望" runat="server" height="30px" width="250px" style="margin-top: 50px;"></asp:TextBox>

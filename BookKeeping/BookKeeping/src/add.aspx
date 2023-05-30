@@ -16,7 +16,7 @@
 		<div class="BookLeft">
 			<div class="BookDate">
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
-				<asp:Label ID="Label1" runat="server"  style="font-size:30px;"></asp:Label>
+				<asp:Label ID="Label1" runat="server"></asp:Label>
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
 			</div>
 
@@ -37,9 +37,9 @@
 		</div>
 
 		<div class="BookRight">
-		<asp:ImageButton class="BookmarkUp AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add1.png" height="80px" width="80px" PostBackUrl="~/src/add.aspx" />
-		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" height="44.27px" width="80px" PostBackUrl="~/src/search.aspx" />
-		<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" height="44.27px" width="80px" PostBackUrl="~/src/report.aspx" />
+		<asp:ImageButton class="BookmarkUp AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add1.png" PostBackUrl="~/src/add.aspx" />
+		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/search.aspx" />
+		<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/report.aspx" />
 		<h1 class="BookTitle">新增</h1>
 		<div class="BookChange">
 			<div class="SortContainer">

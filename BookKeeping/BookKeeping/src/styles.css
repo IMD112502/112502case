@@ -49,55 +49,6 @@ body {
     padding: 5px;
     box-shadow: 1px 1px 3px gray;
 }
-/*--------------------------------主畫面---------------------------------------*/
-.SystemTitle {
-    position: fixed;
-    top: 10px;
-    left: 300px;
-    font-size: 90px;
-    font-weight: bold;
-}
-
-.MainBody {
-    background-image: url('images/home_bg.png');
-    background-size: 1416px 984px;
-    height: 900px;
-    width: 1600px;
-}
-
-#Closet { /* 衣櫥 */
-    padding-left: 220px;
-    padding-top: 150px;
-}
-
-.Wishes {
-    float: right;
-    padding-top: 70px;
-    padding-right: 20px;
-}
-
-#Bookkeeping {
-    padding-top: 15px;
-    padding-left: 10px;
-}
-
-#Game {
-    padding-top: 15px;
-    padding-left: 10px;
-}
-
-#Person {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-85%, -40%);
-}
-
-#Pig {
-    position: fixed;
-    bottom: -150px;
-    left: 60px;
-}
 
 .Back { /* 返回按鈕 */
     position: fixed;
@@ -106,19 +57,92 @@ body {
     height: 80px;
     width: 80px;
 }
+/*--------------------------------主畫面---------------------------------------*/
+.MainBody {
+    background-image: url('images/home_bg.png');
+    background-size: 1416px 984px;
+    height: 900px;
+    width: 1600px;
+}
 
-/*--------------------------------主畫面結束---------------------------------------*/
+.SystemTitle { /* 系統標題 */
+    position: fixed;
+    top: 10px;
+    left: 300px;
+    font-size: 90px;
+    font-weight: bold;
+}
 
-/*---------------------------------任務/設定---------------------------------------*/
-.Setting {
+#Closet { /* 衣櫥 */
+    padding-left: 220px;
+    padding-top: 150px;
+}
+
+.MainRight { /* 右半部分區塊 */
+    height: 400px;
+    width: 500px;
+    float: right;
+    padding-top: 70px;
+    padding-right: 20px;
+}
+
+#Closet {
+    Height: 695.4px;
+    Width: 458.4px;
+}
+
+#Wishes {
+    Height: 369.6px;
+    Width: 439.2px;
+}
+
+#Bookkeeping { /* 記帳 */
+    padding-top: 15px;
+    padding-left: 10px;
+    Height: 178.2px;
+    Width: 210.6px;
+}
+
+#Game { /* 小遊戲 */
+    padding-top: 15px;
+    padding-left: 10px;
+    Height: 178.2px;
+    Width: 210.6px;
+}
+
+#Person { /* 人物 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    Height: 707px;
+    Width: 249px;
+    transform: translate(-85%, -40%);
+}
+
+#Pig { /* 撲滿 */
+    position: fixed;
+    bottom: -150px;
+    left: 60px;
+    Height: 525px;
+    Width: 750px;
+}
+
+.Setting { /* 設定、成就 */
+    Height: 200px;
+    Width: 100px;
     float: right;
     margin-top: 5px;
     margin-right: -35px;
 }
-/*--------------------------------任務/設定結束------------------------------------*/
 
-/*-------------------------------------登入----------------------------------------*/
-.LogBody {
+#Setting, #Ach {
+    Height: 100px;
+    Width: 80px;
+}
+/*--------------------------------主畫面結束---------------------------------------*/
+
+/*--------------------------------登入、註冊---------------------------------------*/
+.LogBody { 
     background-image: url('images/log_o_door.png');
     background-size: 1416px 730.8px;
 }
@@ -134,6 +158,7 @@ body {
     transform: translate(-6.7%);
 }
 
+/*------------登入------------*/
 .LogTitle {
     margin-top: 20px;
     font-size: 60px;
@@ -143,12 +168,12 @@ body {
     margin-top: 80px;
 }
 
-.LogButton {
+.LogButton { /* 按鈕區塊 */
     margin-top: 80px;
 }
-/*--------------------------------登入結束------------------------------------*/
+/*----------登入結束-----------*/
 
-/*----------------------------------註冊--------------------------------------*/
+/*------------註冊-------------*/
 .RegText {
     margin-left: 50%;
     margin-top: 40px;
@@ -162,14 +187,15 @@ body {
     font-size: 20px;
 }
 
-.RegGender {
+.RegGender { /* 性別按鈕區塊 */
     margin-bottom: 18px;
 }
 
 .RegButton {
     transform: translate(10%, 0);
 }
-/*--------------------------------註冊結束------------------------------------*/
+/*----------註冊結束-----------*/
+/*----------------------------登入、註冊結束----------------------------------*/
 
 /*----------------------------------記帳--------------------------------------*/
 .BookBody {
@@ -194,25 +220,26 @@ body {
     height: 680px;
 }
 
-.BookDate {
+.BookDate { /* 記帳月份區塊 */
     font-weight: bold;
     margin-top: 20px;
     height: 80px;
     text-align: center;
+    font-size: 30px;
 }
 
-.DateButtonSize {
+.DateButtonSize { /* 記帳月份切換按鈕 */
     width: 20px;
     height: 20px;
 }
 
-.BookTable {
+.BookTable { /* 記帳紀錄 */
     margin-left: -20px;
     position: center;
     padding: 20px;
-    height: 480px; /* 設定內容區域的高度，使其可以出現滾動條 */
+    height: 480px; /* 設定高度，使其出現滾動條 */
     width: 455px;
-    overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
+    overflow-y: scroll; /* 垂直滾動條 */
 }
 
 table.Gridview {
@@ -220,21 +247,21 @@ table.Gridview {
     height: 50px;
     margin-top: 5px;
     margin-left: 30px;
-    border: none;
+    border: none; /* 不要框線 */
 }
 
     table.Gridview tr {
         text-align: center;
     }
 
-    table.Gridview th, table.Gridview td {
+    table.Gridview th, table.Gridview td { /* 不要左右框線 */
         border-left: none;
         border-right: none;
     }
 
-        table.Gridview th:first-child, table.Gridview td:first-child {
+/*        table.Gridview th:first-child, table.Gridview td:first-child {
             border-left: none;
-        }
+        }*/
 
 .BookTotal { /* 總收入、總支出 */
     font-size: 25px;
@@ -254,25 +281,19 @@ table.Gridview {
     height: 680px;
 }
 
-.BookTitle {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.BookChange {
-    text-align: center;
-    margin-top: 65px;
-    margin-left: 5px;
-}
-
+/* -----書籤按鈕位置----- */
 .BookmarkUp {
     position: fixed;
     top: 25px;
+    height: 80px;
+    width: 80px;
 }
 
 .BookmarkDown {
     position: fixed;
     top: 52px;
+    height: 44.27px;
+    width: 80px;
 }
 
 .AddBookmark {
@@ -287,8 +308,20 @@ table.Gridview {
     right: 570px;
 }
 
+.BookTitle { /* 功能標題 */
+    text-align: center;
+    margin-top: 20px;
+}
+/* ---書籤按鈕位置結束--- */
+
+.BookChange { /* 功能區塊 */
+    text-align: center;
+    margin-top: 65px;
+    margin-left: 5px;
+}
+
 /*---類別---*/
-.SortContainer {
+.SortContainer { /* 類別區塊 */
     display: flex;
     align-items: center; /* 在主軸上居中對齊flex子元素 */
     justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
@@ -305,7 +338,7 @@ table.Gridview {
     display: none; /* 隱藏radio button輸入框 */
 }
 
-.RadioBtn {
+.RadioBtn { /* 類別按鈕樣式 */
     margin: 0px;
     width: 100px;
     height: 100px;
@@ -371,7 +404,7 @@ table.Gridview {
     background-size: 851.4px 872.4px;
 }
 
-.AchHeader {
+.AchHeader { /* 上部分區塊 */
     position: fixed;
     top: 0;
     left: 0;
@@ -456,12 +489,6 @@ table.Gridview {
     margin-left: 50%;
 }
 
-#BucTrashcan {
-    position: absolute; /*指定絕對位置*/
-    top: 632px;
-    left: 400px;
-}
-
 .WishFlex { /*flex區塊*/
     position: fixed; /*指定絕對位置*/
     top: 200px;
@@ -474,7 +501,7 @@ table.Gridview {
     flex-direction: column;
 }
 
-.BucFlexRight {
+.BucFlexRight { /* 單個願望便條 */
     background: url('images/dre_memo.png');
     background-size: 230px;
     background-repeat: no-repeat;
@@ -484,7 +511,7 @@ table.Gridview {
     justify-content: center;
 }
 
-.PickWish {
+.PickWish { /* 目標願望便條 */
     background: url('images/dre_m_memo.png');
     background-size: 400px;
     background-repeat: no-repeat;
@@ -494,39 +521,54 @@ table.Gridview {
     justify-content: center;
 }
 
-#ChangeWishButton {
+#ChangeWishButton { /* 更換目標按鈕位置及大小 */
     position: fixed; /*指定絕對位置*/
     top: 580px;
     font-size: large;
-    Height: 40px;
-    Width: 90px;
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
+    height: 40px;
+    width: 90px;
 }
 
-    #ChangeWishButton:hover {
-        background-color: lightseagreen;
-    }
+#BucTrashcan { /* 垃圾桶按鈕 */
+    position: absolute; /*指定絕對位置*/
+    top: 632px;
+    left: 400px;
+    width: 160.8px;
+    height: 259.8px;
+}
 
 #ReviewButton { /* 審核區按鈕 */
     position: fixed; /*指定絕對位置*/
     top: 350px;
     left: 1250px;
+    width: 200px;
+    height: 220px;
 }
 
-#BucketAdd {
+#BucketAdd { /* 新增願望按鈕 */
     position: fixed; /*指定絕對位置*/
     top: 710px;
     left: 1230px;
+    width: 80px;
+    height: 80px;
 }
 
-/*-----------------------願望新增----------------------------*/
-.BucAdd {
+/*-----------------------願望功能----------------------------*/
+.BucWord { /* 願望功能內容文字 */
+    margin-top: 80px;
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+.YMemo { /* 黃色便條 */
     background-image: url('images/dre_add_memo.png');
+}
+
+.BMemo { /* 藍色便條 */
+    background-image: url('images/dre_rev_button.png');
+}
+
+.MemoStyle { /* 便條區塊樣式 */
     background-size: 650px 650px;
     position: absolute; /*指定絕對位置*/
     left: 50%;
@@ -537,7 +579,7 @@ table.Gridview {
     transform: translate(-50%, -50%);
 }
 
-.BucAddForm {
+.BucForm { /* 願望功能Form樣式 */
     text-align: center;
     padding: 20px;
     width: 260px;
@@ -546,7 +588,34 @@ table.Gridview {
     margin-left: 50%;
 }
 
-.BucAddButton {
+/*--換頁紐--*/
+.LastNext { /* 區塊 */
+    position: absolute; /*指定絕對位置*/
+    width: 700px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.LastNextSize { /* 按鈕大小 */
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+}
+
+#Last { /* 上一個願望 */
+    position: absolute;
+    left: 40px;
+}
+
+#Next { /* 下一個願望 */
+    position: absolute;
+    right: 0px;
+}
+/*----------*/
+
+/*--------------願望新增---------------*/
+.BucAddButton { /* 按鈕區塊 */
     position: absolute; /*指定絕對位置*/
     width: 260px;
     left: 50%;
@@ -563,72 +632,26 @@ table.Gridview {
     position: absolute;
     left: 0px;
 }
+/*------------願望新增結束------------*/
 
-/*-----------------------------願望清單-垃圾桶------------------------------*/
-.Tra {
-    background-image: url('images/dre_rev_button.png');
-    background-size: 650px 650px;
-    position: absolute; /*指定絕對位置*/
-    left: 50%;
-    top: 50%;
-    width: 650px;
-    height: 552px;
-    padding-top: 100px;
-    transform: translate(-50%, -50%);
-}
-
-.TraForm {
-    text-align: center;
-    padding: 20px;
-    width: 260px;
-    height: 535px;
-    margin-top: 180px;
-    margin-left: 50%;
-}
-
+/*-------------願望垃圾桶-------------*/
 .TraButton {
     position: absolute; /*指定絕對位置*/
     left: 50%;
     top: 85%;
     transform: translate(-50%, -50%);
 }
+/*-----------願望垃圾桶結束-----------*/
 
-/*------------------------------------願望清單-審核區------------------------------------*/
-.Rev {
-    background-image: url('images/dre_rev_button.png');
-    background-size: 650px 650px;
-    position: absolute; /*指定絕對位置*/
-    left: 50%;
-    top: 50%;
-    width: 650px;
-    height: 552px;
-    padding-top: 100px;
-    transform: translate(-50%, -50%);
-}
-
-.RevForm {
-    text-align: center;
-    padding: 20px;
-    width: 260px;
-    height: 535px;
-    margin-top: 180px;
-    margin-left: 50%;
-}
-
-.BucWord {
-    margin-top: 80px;
-    margin-left: 20px;
-    font-size: 40px;
-}
-
-.NoRev {
+/*-------------願望審核區-------------*/
+.NoRev { /* 沒有要審核的願望 */
     position: absolute;
     margin-top: 14%;
     margin-left: 6%;
     font-size: 35px;
 }
 
-.YesNo {
+.YesNo { /* 可以、不可以 */
     font-size: 30px;
     position: absolute; /*指定絕對位置*/
     left: 50%;
@@ -638,7 +661,7 @@ table.Gridview {
     border-block-color: blueviolet;
 }
 
-.RevTextbox {
+.RevTextbox { /* 輸入金額或原因 */
     font-size: 30px;
     position: absolute; /*指定絕對位置*/
     left: 1%;
@@ -647,41 +670,17 @@ table.Gridview {
     border-block-color: blueviolet;
 }
 
-.BucButton { /* 願望功能確認按鈕 */
+.BucButton { /* 審核確認紐 */
     position: absolute; /*指定絕對位置*/
     left: 50%;
     top: 75%;
     transform: translate(-50%, -50%);
 }
-
-.LastNext {
-    position: absolute; /*指定絕對位置*/
-    width: 700px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.LastNextSize {
-    height: 50px;
-    width: 50px;
-    font-size: 45px;
-}
-
-#Last { /*上一個願望*/
-    position: absolute;
-    left: 40px;
-}
-
-#Next { /*下一個願望*/
-    position: absolute;
-    right: 0px;
-}
-/*------------------------------------願望清單-審核區結束------------------------------------*/
+/*----------願望審核區結束----------*/
 
 /*------------------------------------更衣室------------------------------------*/
 .DreRoomBackground {
-    background-image: url('images/home_bg.png');
+    background-image: url('images/home_bg.png'); /* 暫用 */
     background-size: 1416px 984px;
     height: 900px;
     width: 1600px;
@@ -706,14 +705,14 @@ table.Gridview {
     width: 515px;
 }
 
-.SortButton {
+.SortButton { /* 類別按鈕區塊 */
     position: absolute; /*指定絕對位置*/
     left: 720px;
     top: 50px;
     width: 100px;
 }
 
-.DreButtonSize {
+.DreButtonSize { /* 類別按鈕 */
     Height: 50px;
     Width: 100px;
     writing-mode: vertical-rl;
@@ -722,13 +721,15 @@ table.Gridview {
     margin-top: 5px;
 }
 
-.DreButton {
+.DreButton { /* 底部按鈕區塊 */
     position: absolute; /*指定絕對位置*/
     right: 97px;
     top: 830px;
+    width: 410px;
+    height: 90px;
 }
 
-#DrePersom {
+#DrePersom { /* 人物 */
     position: fixed;
     top: 55%;
     left: 64%;
