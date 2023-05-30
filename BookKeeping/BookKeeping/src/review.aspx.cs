@@ -205,7 +205,14 @@ namespace BookKeeping.src
                 command.Parameters.AddWithValue("@reason", reason);
                 command.Parameters.AddWithValue("@dName", dName);
 
-                command.ExecuteNonQuery();
+                int rows_affect = command.ExecuteNonQuery();
+
+                if (rows_affect > 0)
+                {
+                    Textbox1.Text = null;
+                    Response.Write("<script>alert('新增成功')</script>");
+                    DisplayWindows();
+                }
             }
         }
 
