@@ -23,22 +23,20 @@
         </div>
 
         <div class="SortButton">
-            <input id="Top" class="button_style DreButtonSize " type="button" value="上衣" />
-            <input id="Pents" class="button_style DreButtonSize" type="button" value="下身"/>
-            <input id="Dress" class="button_style DreButtonSize" type="button" value="套裝" />
-            <input id="Hat" class="button_style DreButtonSize" type="button" value="帽子" />
-            <input id="Shoes" class="button_style DreButtonSize" type="button" value="鞋子" />
-            <input id="Socks" class="button_style DreButtonSize" type="button" value="襪子" />
-            <input id="Eyes" class="button_style DreButtonSize" type="button" value="眼睛" />
-            <input id="Mouth" class="button_style DreButtonSize" type="button" value="嘴巴" />
-            <input id="Hair" class="button_style DreButtonSize" type="button" value="頭髮" />
-            <input id="Earring" class="button_style DreButtonSize" type="button" value="飾品" />
+            <input id="Hair" class="ButtonStyle DreButtonSize" type="button" value="頭髮" />
+            <input id="Face" class="ButtonStyle DreButtonSize" type="button" value="表情" />
+            <input id="Top" class="ButtonStyle DreButtonSize " type="button" value="上衣" />
+            <input id="Pents" class="ButtonStyle DreButtonSize" type="button" value="下著"/>
+            <input id="Dress" class="ButtonStyle DreButtonSize" type="button" value="套裝" />
+            <input id="Shoes" class="ButtonStyle DreButtonSize" type="button" value="鞋子" />
+            <input id="Hat" class="ButtonStyle DreButtonSize" type="button" value="帽子" />
+            <input id="Earring" class="ButtonStyle DreButtonSize" type="button" value="飾品" />
         </div>
 
         <div class="DreButton" style="width: 410px; height: 90px;">
-            <input id="DreCancel" class="button_style button_size2" type="button" value="取消修改" style="font-size: 20px;"/>
-            <input id="DreConfirm" class="button_style button_size2" type="button" value="確認更換" style="font-size: 20px;"/>
-		    <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px"  PostBackUrl="~/src/main.aspx" />
+            <input id="DreCancel" class="ButtonStyle ButtonSize2" type="button" value="取消修改" style="font-size: 20px;"/>
+            <input id="DreConfirm" class="ButtonStyle ButtonSize2" type="button" value="確認更換" style="font-size: 20px;"/>
+		    <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
         </div>
     </form>
 </body>

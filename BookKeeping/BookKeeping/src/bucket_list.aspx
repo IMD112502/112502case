@@ -18,7 +18,7 @@
             <div class="BucFlexRight"></div>
         </div>
         <asp:ImageButton ID="BucTrashcan" runat="server" ImageUrl="images/dre_gar.png" weight="160.8px" Height="259.8px" PostBackUrl="~/src/buc_trashcan.aspx" /><%--願望垃圾桶--%>
-        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
+        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
         <asp:ImageButton ID="ReviewButton" runat="server" ImageUrl="images/review_button.png" weight="200px" height="200px" PostBackUrl="~/src/review.aspx" />
         <asp:ImageButton ID="BucketAdd" runat="server" ImageUrl="images/buc_add_button.png" weight="80px" height="80px" PostBackUrl="~/src/bucket_list_add.aspx" />
     </form>

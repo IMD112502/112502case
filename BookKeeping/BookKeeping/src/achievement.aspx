@@ -13,8 +13,8 @@
         <div class="AchHeader">
             <h1><asp:Label class="AchTopTitle" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
             <div class="AchTopButton">
-                <asp:Button class="button_style" ID="Button1" runat="server" Text="已完成" style="width:150px;height:30px;margin-left:-160px;"/>
-                <asp:Button class="button_style" ID="Button2" runat="server" Text="未完成" style="width:150px;height:30px;"/>
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="已完成" style="margin-left:-160px;"/>
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" Text="未完成" />
             </div>
         </div>
 
@@ -26,7 +26,7 @@
                   <br />
                   <asp:Label class="AchCon" runat="server" Text="累計記帳11次" ></asp:Label>
                   <br />
-                  <asp:Button class="AchButtonGet button_style" ID="Button3" runat="server" Text="領取" />
+                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button3" runat="server" Text="領取" />
                   <br />
                   <div class="Literal">
                   <asp:Literal ID="Literal1" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -38,7 +38,7 @@
                   <br />
                   <asp:Label class="AchCon" runat="server" Text="累計記帳20次" ></asp:Label>
                   <br />
-                  <asp:Button class="AchButtonGet button_style" ID="Button4" runat="server" Text="領取" />
+                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button4" runat="server" Text="領取" />
                   <br />
                   <div class="Literal">
                   <asp:Literal ID="Literal2" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -50,7 +50,7 @@
                   <br />
                   <asp:Label class="AchCon" runat="server" Text="累計記帳30次" ></asp:Label>
                   <br />
-                  <asp:Button class="AchButtonGet button_style" ID="Button5" runat="server" Text="領取" />
+                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button5" runat="server" Text="領取" />
                   <br />
                   <div class="Literal">
                   <asp:Literal ID="Literal3" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -62,7 +62,7 @@
                   <br />
                   <asp:Label class="AchCon" runat="server" Text="累計記帳40次" ></asp:Label>
                   <br />
-                  <asp:Button class="AchButtonGet button_style" ID="Button6" runat="server" Text="領取" />
+                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button6" runat="server" Text="領取" />
                   <br />
                   <div class="Literal">
                   <asp:Literal ID="Literal4" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
@@ -70,7 +70,7 @@
                 </li>
             </ul>
         </div>
-        <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px"  PostBackUrl="~/src/main.aspx" />
+        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
     </form>
 </body>
 </html>

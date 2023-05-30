@@ -1,6 +1,5 @@
 ﻿* {
     margin: 0px 4px 0 0px;
-    margin: 0px 4px 0 0px;
     padding: 0;
     color: teal;
 }
@@ -16,38 +15,47 @@ body {
     width: 1200px;
 }
 
-.button_style { /* 按鈕樣式 */
+.ButtonStyle { /* 按鈕樣式 */
     border: 0;
     background-color: teal;
     color: aliceblue;
-    cursor: pointer;
+    cursor: pointer; /* 小手 */
     border-radius: 5px;
     box-shadow: 1px 1px 3px gray;
     font-size: large;
 }
 
-    .button_style:hover { /* 鼠標放在按鈕上 */
+    .ButtonStyle:hover { /* 鼠標放在按鈕上 */
         background-color: lightseagreen;
     }
-
-.button_size1 {
+    
+.ButtonSize1 { /* 按鈕大小(較寬) */
     width: 150px;
     height: 40px;
 }
 
-.button_size2 {
+.ButtonSize2 { /* 按鈕大小(較窄) */
     font-size: 25px;
     width: 120px;
     height: 60px;
+}
+
+.TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
 }
 /*--------------------------------主畫面---------------------------------------*/
 .SystemTitle {
     position: fixed;
     top: 10px;
-    left: 350px;
+    left: 300px;
     font-size: 90px;
-    /*font-family: Microsoft JhengHei;*/ /*微軟正黑體*/
-    font-family: DFKai-sb; /*標楷體*/
+    font-weight: bold;
 }
 
 .MainBody {
@@ -91,11 +99,14 @@ body {
     left: 60px;
 }
 
-.back { /* 返回按鈕 */
+.Back { /* 返回按鈕 */
     position: fixed;
     bottom: 3px;
     right: 6px;
+    height: 80px;
+    width: 80px;
 }
+
 /*--------------------------------主畫面結束---------------------------------------*/
 
 /*---------------------------------任務/設定---------------------------------------*/
@@ -107,109 +118,66 @@ body {
 /*--------------------------------任務/設定結束------------------------------------*/
 
 /*-------------------------------------登入----------------------------------------*/
-.log_body {
+.LogBody {
     background-image: url('images/log_o_door.png');
     background-size: 1416px 730.8px;
 }
 
-.b_log_body {
-    background-image: url('images/log_c_door.png');
-    background-size: 727.2px 656.4px;
-}
-
-    .b_log_body:hover {
-        box-shadow: 0 0 10px #fff; /* 設定發光效果 */
-    }
-
-.log_tit {
-    margin-top: 20px;
-    font-size: 60px;
-}
-
-.log_form {
+.LogForm {
     text-align: center;
     padding: 20px;
     border-style: solid;
     width: 670px;
     height: 580px;
-    margin: auto;
-    margin-top: 90px;
+    margin-top: 115px;
     margin-left: 50%;
-    transform: translate(-16.5%);
+    transform: translate(-6.7%);
 }
 
-.log_text {
+.LogTitle {
+    margin-top: 20px;
+    font-size: 60px;
+}
+
+.LogText {
     margin-top: 80px;
 }
 
-.log_button_block {
+.LogButton {
     margin-top: 80px;
-}
-
-.log_button { /* 登入/註冊按鈕 */
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-    .log_button:hover { /* 鼠標放在按鈕上 */
-        background-color: lightseagreen;
-    }
-
-#user_acc, #user_pwd { /* 輸入框 */
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
 }
 /*--------------------------------登入結束------------------------------------*/
 
 /*----------------------------------註冊--------------------------------------*/
-.reg_text {
+.RegText {
     margin-left: 50%;
     margin-top: 40px;
     transform: translate(-60%, 0);
 }
 
-.reg_text_block {
+.RegTextBlock {
     text-align: right;
     width: 365px;
     height: 400px;
     font-size: 20px;
 }
 
-.reg_gender {
+.RegGender {
     margin-bottom: 18px;
 }
 
-.reg_button_block {
+.RegButton {
     transform: translate(10%, 0);
-}
-
-#acc, #name, #nickname, #pwd, #c_pwd { /* 輸入框 */
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
 }
 /*--------------------------------註冊結束------------------------------------*/
 
 /*----------------------------------記帳--------------------------------------*/
-.boo_body {
+.BookBody {
     background-image: url('images/boo_bg.png');
     background-size: 1093.8px 753.6px;
 }
 
-.book_content { /* 記帳區塊 */
+.BookContent { /* 記帳區塊 */
     position: center;
     width: 1093.8px;
     height: 753.6px;
@@ -217,23 +185,28 @@ body {
 }
 
 /*---------------記帳左---------------*/
-.boo_left {
+.BookLeft {
     position: fixed;
     top: 100px; /* 留出標題欄的高度 */
-    left: 22.8%;
+    left: 21%;
     padding: 20px;
     width: 475px;
     height: 680px;
 }
 
-.boo_date {
+.BookDate {
     font-weight: bold;
     margin-top: 20px;
     height: 80px;
     text-align: center;
 }
 
-.boo_table_block {
+.DateButtonSize {
+    width: 20px;
+    height: 20px;
+}
+
+.BookTable {
     margin-left: -20px;
     position: center;
     padding: 20px;
@@ -242,7 +215,7 @@ body {
     overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
 }
 
-table.gridview {
+table.Gridview {
     width: 395px;
     height: 50px;
     margin-top: 5px;
@@ -250,20 +223,20 @@ table.gridview {
     border: none;
 }
 
-    table.gridview tr {
+    table.Gridview tr {
         text-align: center;
     }
 
-    table.gridview th, table.gridview td {
+    table.Gridview th, table.Gridview td {
         border-left: none;
         border-right: none;
     }
 
-        table.gridview th:first-child, table.gridview td:first-child {
+        table.Gridview th:first-child, table.Gridview td:first-child {
             border-left: none;
         }
 
-.boo_total { /* 總收入、總支出 */
+.BookTotal { /* 總收入、總支出 */
     font-size: 25px;
     margin-bottom: 3px;
     text-align: center;
@@ -272,7 +245,7 @@ table.gridview {
 /*-------------記帳左結束-------------*/
 
 /*---------------記帳右---------------*/
-.boo_right {
+.BookRight {
     position: fixed;
     top: 100px; /* 留出標題欄的高度 */
     left: 51.3%;
@@ -281,102 +254,58 @@ table.gridview {
     height: 680px;
 }
 
-.boo_add {
+.BookTitle {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.BookChange {
     text-align: center;
     margin-top: 65px;
     margin-left: 5px;
 }
 
-.add_bookmark1 {
+.BookmarkUp {
     position: fixed;
     top: 25px;
+}
+
+.BookmarkDown {
+    position: fixed;
+    top: 52px;
+}
+
+.AddBookmark {
     right: 750px;
 }
 
-.add_bookmark2 {
-    position: fixed;
-    top: 52px;
+.SearchBookmark {
     right: 660px;
 }
 
-.add_bookmark3 {
-    position: fixed;
-    top: 52px;
+.ReportBookmark {
     right: 570px;
 }
 
-.search_bookmark1 {
-    position: fixed;
-    top: 52px;
-    right: 750px;
-}
-
-.search_bookmark2 {
-    position: fixed;
-    top: 25px;
-    right: 660px;
-}
-
-.search_bookmark3 {
-    position: fixed;
-    top: 52px;
-    right: 570px;
-}
-
-.rep_bookmark1 {
-    position: fixed;
-    top: 52px;
-    right: 750px;
-}
-
-.rep_bookmark2 {
-    position: fixed;
-    top: 52px;
-    right: 660px;
-}
-
-.rep_bookmark3 {
-    position: fixed;
-    top: 25px;
-    right: 570px;
-}
-
-.edit_bookmark1 {
-    position: fixed;
-    top: 52px;
-    right: 750px;
-}
-
-.edit_bookmark2 {
-    position: fixed;
-    top: 52px;
-    right: 660px;
-}
-
-.edit_bookmark3 {
-    position: fixed;
-    top: 52px;
-    right: 570px;
-}
 /*---類別---*/
-.c_container {
+.SortContainer {
     display: flex;
     align-items: center; /* 在主軸上居中對齊flex子元素 */
     justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
     flex-direction: column; /* 將flex子元素的排列方向設置為垂直排列 */
 }
 
-.radio-buttons {
+.RadioButtons {
     width: 100%;
     margin: 0 auto;
     text-align: center;
 }
 
-.custom-radio input {
+.SortRadio input {
     display: none; /* 隱藏radio button輸入框 */
 }
 
-.radio-btn {
+.RadioBtn {
     margin: 0px;
     width: 100px;
     height: 100px;
@@ -389,7 +318,7 @@ table.gridview {
     cursor: pointer;
 }
 
-    .radio-btn > i { /* 勾勾 */
+    .RadioBtn > i { /* 勾勾 */
         color: #ffffff;
         background-color: teal;
         font-size: 15px;
@@ -404,7 +333,7 @@ table.gridview {
         opacity: 0; /* 透明度 */
     }
 
-    .radio-btn .hobbies-icon { /* 類別圖片 */
+    .RadioBtn .SortIcon { /* 類別圖片 */
         border-radius: 10px;
         width: 100px;
         height: 100px;
@@ -414,35 +343,25 @@ table.gridview {
         transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
     }
 
-        .radio-btn .hobbies-icon i {
+        .RadioBtn .SortIcon i {
             line-height: 80px;
             font-size: 60px;
         }
 
-    .radio-btn h3 { /* 類別文字 */
+    .RadioBtn h3 { /* 類別文字 */
         margin-top: -10px;
         font-size: large;
     }
 
-.custom-radio input:checked + .radio-btn { /* 如果選取類別 */
+.SortRadio input:checked + .RadioBtn { /* 如果選取類別 */
     border: 3px solid teal;
 }
 
-    .custom-radio input:checked + .radio-btn > i {
+    .SortRadio input:checked + .RadioBtn > i {
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
 /*---類別結束---*/
-
-input[type="date"], input[type="money"], input[type="memo"], input[type="keyword"] { /* 輸入框 */
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/
 
@@ -543,7 +462,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     left: 400px;
 }
 
-.WishFlex {/*flex區塊*/
+.WishFlex { /*flex區塊*/
     position: fixed; /*指定絕對位置*/
     top: 200px;
     left: 550px;
@@ -554,6 +473,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     justify-content: space-evenly; /*div置中*/
     flex-direction: column;
 }
+
 .BucFlexRight {
     background: url('images/dre_memo.png');
     background-size: 230px;
@@ -604,8 +524,8 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     left: 1230px;
 }
 
-/*願望清單-新增*/
-.buc_add {
+/*-----------------------願望新增----------------------------*/
+.BucAdd {
     background-image: url('images/dre_add_memo.png');
     background-size: 650px 650px;
     position: absolute; /*指定絕對位置*/
@@ -617,7 +537,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     transform: translate(-50%, -50%);
 }
 
-.buc_add_form {
+.BucAddForm {
     text-align: center;
     padding: 20px;
     width: 260px;
@@ -626,18 +546,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     margin-left: 50%;
 }
 
-#wish_textbox {
-    margin-top: 40px;
-    width: 300px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-.buc_add_button {
+.BucAddButton {
     position: absolute; /*指定絕對位置*/
     width: 260px;
     left: 50%;
@@ -656,7 +565,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 /*-----------------------------願望清單-垃圾桶------------------------------*/
-.trashcan {
+.Tra {
     background-image: url('images/dre_rev_button.png');
     background-size: 650px 650px;
     position: absolute; /*指定絕對位置*/
@@ -668,7 +577,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     transform: translate(-50%, -50%);
 }
 
-.tra_form {
+.TraForm {
     text-align: center;
     padding: 20px;
     width: 260px;
@@ -677,7 +586,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     margin-left: 50%;
 }
 
-.trashcan_button {
+.TraButton {
     position: absolute; /*指定絕對位置*/
     left: 50%;
     top: 85%;
@@ -685,7 +594,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 }
 
 /*------------------------------------願望清單-審核區------------------------------------*/
-.reviewing {
+.Rev {
     background-image: url('images/dre_rev_button.png');
     background-size: 650px 650px;
     position: absolute; /*指定絕對位置*/
@@ -697,7 +606,7 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     transform: translate(-50%, -50%);
 }
 
-.rev_form {
+.RevForm {
     text-align: center;
     padding: 20px;
     width: 260px;
@@ -706,10 +615,17 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     margin-left: 50%;
 }
 
-.word {
+.BucWord {
     margin-top: 80px;
     margin-left: 20px;
     font-size: 40px;
+}
+
+.NoRev {
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 6%;
+    font-size: 35px;
 }
 
 .YesNo {
@@ -731,28 +647,25 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     border-block-color: blueviolet;
 }
 
-/*input[type="reason"] {
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;   
-    box-shadow: 1px 1px 3px gray;
-}*/
-.dre_button { /* 願望功能確認按鈕 */
+.BucButton { /* 願望功能確認按鈕 */
     position: absolute; /*指定絕對位置*/
     left: 50%;
     top: 75%;
     transform: translate(-50%, -50%);
 }
 
-.last_next {
+.LastNext {
     position: absolute; /*指定絕對位置*/
     width: 700px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.LastNextSize {
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
 }
 
 #Last { /*上一個願望*/
@@ -797,116 +710,18 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     position: absolute; /*指定絕對位置*/
     left: 720px;
     top: 50px;
-    width: 80px;
+    width: 100px;
 }
 
 .DreButtonSize {
-    Height: 150px;
-    Width: 30px;
+    Height: 50px;
+    Width: 100px;
     writing-mode: vertical-rl;
     text-align: center;
-    line-height: 2;
+    font-size: 30px;
+    margin-top: 5px;
 }
 
-/*#Top {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 520px;
-    top: 20px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Pents {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 560px;
-    top: 20px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Dress {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 520px;
-    top: 180px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Hat {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 560px;
-    top: 180px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Shoes {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 520px;
-    top: 340px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Socks {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 560px;
-    top: 340px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Eyes {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 520px;
-    top: 500px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Mouth {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 560px;
-    top: 500px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Hair {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 520px;
-    top: 660px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}
-
-#Earring {
-    position: absolute;*/ /*指定絕對位置*/
-    /*left: 560px;
-    top: 660px;
-    Height: 150px;
-    Width: 30px;
-    display: flex;
-    align-items: center;
-}*/
 .DreButton {
     position: absolute; /*指定絕對位置*/
     right: 97px;

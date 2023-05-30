@@ -25,7 +25,7 @@ namespace _BookKeeping
             conn.Open();
 
             string name = "aaa"; //user_id
-            string d_name = wish_textbox.Text;
+            string d_name = WishTextbox.Text;
       
             if (d_name != null)
             {
@@ -36,7 +36,7 @@ namespace _BookKeeping
                 cmd.Parameters.AddWithValue("@d_name", d_name);
 
                 int rowsaffected =  cmd.ExecuteNonQuery();
-                wish_textbox.Text = null;
+                WishTextbox.Text = null;
 
                 if (rowsaffected > 0)
                 {

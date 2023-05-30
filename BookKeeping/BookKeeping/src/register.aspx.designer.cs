@@ -24,31 +24,31 @@ namespace _BookKeeping
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// acc 控制項。
+        /// RegAcc 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox acc;
+        protected global::System.Web.UI.WebControls.TextBox RegAcc;
 
         /// <summary>
-        /// name 控制項。
+        /// RegName 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox name;
+        protected global::System.Web.UI.WebControls.TextBox RegName;
 
         /// <summary>
-        /// nickname 控制項。
+        /// RegNickname 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nickname;
+        protected global::System.Web.UI.WebControls.TextBox RegNickname;
 
         /// <summary>
         /// RadioButton1 控制項。
@@ -69,22 +69,22 @@ namespace _BookKeeping
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
 
         /// <summary>
-        /// pwd 控制項。
+        /// RegPwd 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pwd;
+        protected global::System.Web.UI.WebControls.TextBox RegPwd;
 
         /// <summary>
-        /// c_pwd 控制項。
+        /// ReRegPwd 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox c_pwd;
+        protected global::System.Web.UI.WebControls.TextBox ReRegPwd;
 
         /// <summary>
         /// Button1 控制項。
