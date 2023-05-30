@@ -21,26 +21,32 @@ namespace BookKeeping.src
         {
             if (!IsPostBack)
             {
-                if (GetArray().Length > 0)
-                {
-                    label1.Text = FindName() + "想要";
-                    label2.Text = GetArray()[0];
-                    label3.Text = "可以嗎><？";
-                    IndexCount.Text = "0";
-                }
-                else
-                {
-                    RadioButtonList1.Visible = false;
-                    Button3.Text = "返回";
-                    Button3.Click -= Submit_Click;
-                    Button3.PostBackUrl = "bucket_list.aspx";
-                    Label l = new Label();
-                    l.Text = "目前沒有要審核的願望喔!";
-                    Panel1.Controls.Add(l);
-                }
+                DisplayWindows();
+            }
+        }
 
-
-
+        protected void DisplayWindows() 
+        {
+            if (GetArray().Length > 0)
+            {
+                label1.Text = FindName() + "想要";
+                label2.Text = GetArray()[0];
+                label3.Text = "可以嗎><？";
+                IndexCount.Text = "0";
+            }
+            else
+            {
+                label1.Text = "";
+                label2.Text = "";
+                label3.Text = "";
+                RadioButtonList1.Visible = false;
+                Panel2.Visible = false;
+                Button3.Text = "返回";
+                Button3.Click -= Submit_Click;
+                Button3.PostBackUrl = "bucket_list.aspx";
+                Label l = new Label();
+                l.Text = "目前沒有要審核的願望喔!";
+                Panel1.Controls.Add(l);
             }
         }
 
@@ -131,26 +137,45 @@ namespace BookKeeping.src
 
 
             string selectedValue = RadioButtonList1.SelectedValue;
+            string wish_name = label2.Text;
+            string userID = "1";
+
+            string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @userID;";
+
+            MySqlCommand cmd = new MySqlCommand(dNum, conn);
+            cmd.Parameters.AddWithValue("@wish_name", wish_name);
+            cmd.Parameters.AddWithValue("@userID", userID);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            reader.Read();
+            string dName = reader.GetString(0);
+            conn.Close();
             if (selectedValue == "y")
             {
                 int amount = Convert.ToInt32(Textbox1.Text);
-                string wish_name = label2.Text;
-                string userID = "1";
-
-                string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @userID;";
-                
-
-                MySqlCommand cmd = new MySqlCommand(dNum, conn);
-                cmd.Parameters.AddWithValue("@wish_name", wish_name);
-                cmd.Parameters.AddWithValue("@userID", userID);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                
-                reader.Read();
-                string dName = reader.GetString(0);
+                string sql_target = "SELECT count(*) FROM `112-112502`.願望清單\r\nwhere user_id = @user_id and run_state = 'y'";
+                conn.Open();
+                MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
+                cmd_target.Parameters.AddWithValue("@userID", userID);
+                MySqlDataReader reader_target = cmd_target.ExecuteReader();
+                reader_target.Read();
+                int target_count = Convert.ToInt32(reader_target.GetString(0));
                 conn.Close();
-                
 
-                string sql = "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
+                string sql = null;
+
+
+                if (target_count == 0)
+                {
+                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
+
+                }
+                else 
+                {
+                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
+            
+                }
+
 
                 conn.Open();
 
@@ -158,10 +183,29 @@ namespace BookKeeping.src
 
                 command.Parameters.AddWithValue("@amount", amount);
                 command.Parameters.AddWithValue("@dName", dName);
+                int rows_affect = command.ExecuteNonQuery();
+
+                if (rows_affect > 0) 
+                {
+                    Textbox1.Text = null;
+                    Response.Write("<script>alert('新增成功')</script>");
+                    DisplayWindows();
+                }
+            }
+
+            if(selectedValue == "n") 
+            {
+                string reason = Textbox2.Text;
+                string sql = "update `112-112502`.願望清單 set reason = @reason , pass_state = 'n' where(`d_num` = @dName)";
+
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(sql, conn);
+
+                command.Parameters.AddWithValue("@reason", reason);
+                command.Parameters.AddWithValue("@dName", dName);
 
                 command.ExecuteNonQuery();
-
-                
             }
         }
 
