@@ -526,161 +526,60 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
 /*--------------------------------成就結束------------------------------------*/
 
 /*--------------------------------願望清單------------------------------------*/
-.buc_body {
+.BucBody {
     background-image: url('images/dre_bg.png');
     background-size: 907px 753.5px;
     text-align: center;
 }
 
-.buc_form {
+.BucForm {
     margin-top: 50%;
     margin-left: 50%;
 }
 
-#b_trashcan {
+#BucTrashcan {
     position: absolute; /*指定絕對位置*/
-    top: 650px;
+    top: 632px;
     left: 400px;
 }
 
-.wishes1 {
-    position: absolute; /*指定絕對位置*/
-    top: 255px;
-    left: 921px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-}
-
-.wishes2 {
-    position: absolute; /*指定絕對位置*/
-    top: 580px;
+.WishFlex {/*flex區塊*/
+    position: fixed; /*指定絕對位置*/
+    top: 200px;
     left: 550px;
+    display: flex;
+    width: 700px;
+    height: 570px;
+    flex-wrap: wrap; /*多行*/
+    justify-content: space-evenly; /*div置中*/
+    flex-direction: column;
+}
+.BucFlexRight {
     background: url('images/dre_memo.png');
-    background-size: 130px;
+    background-size: 230px;
     background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
+    width: 230px;
+    height: 230px;
+    display: flex;
+    justify-content: center;
 }
 
-.wishes3 {
-    position: absolute; /*指定絕對位置*/
-    top: 580px;
-    left: 730px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.wishes4 {
-    position: absolute; /*指定絕對位置*/
-    top: 408px;
-    left: 900px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.wishes5 {
-    position: absolute; /*指定絕對位置*/
-    top: 580px;
-    left: 900px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.wishes6 {
-    position: absolute; /*指定絕對位置*/
-    top: 235px;
-    left: 1070px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.wishes7 {
-    position: absolute; /*指定絕對位置*/
-    top: 408px;
-    left: 1070px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.wishes8 {
-    position: fixed; /*指定絕對位置*/
-    top: 580px;
-    left: 1070px;
-    background: url('images/dre_memo.png');
-    background-size: 130px;
-    background-repeat: no-repeat;
-    font-size: x-large;
-    width: 130px;
-    height: 130px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.word1 {
-    padding-top: 38px;
-    padding-left: 10px;
-}
-
-.pick_wish {
-    position: fixed; /*指定絕對位置*/
-    top: 550px;
-    left: 580px;
+.PickWish {
     background: url('images/dre_m_memo.png');
-    background-size: 300px;
-    font-size: x-large;
-    width: 300px;
-    height: 300px;
-    margin-top: -300px;
+    background-size: 400px;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
 }
 
-.word_pick {
-    padding-top: 90px;
-    font-size: xx-large;
-    font-weight: bold;
-}
-
-#change_wish {
+#ChangeWishButton {
+    position: fixed; /*指定絕對位置*/
+    top: 580px;
     font-size: large;
     Height: 40px;
-    Width: 80px;
-    margin-top: 25px;
+    Width: 90px;
     border: 0;
     background-color: teal;
     color: aliceblue;
@@ -689,13 +588,9 @@ input[type="date"], input[type="money"], input[type="memo"], input[type="keyword
     box-shadow: 1px 1px 3px gray;
 }
 
-    #change_wish:hover {
+    #ChangeWishButton:hover {
         background-color: lightseagreen;
     }
-
-#ImageButton2 { /*願望垃圾桶*/
-    margin-left: -100px;
-}
 
 #ReviewButton { /* 審核區按鈕 */
     position: fixed; /*指定絕對位置*/
