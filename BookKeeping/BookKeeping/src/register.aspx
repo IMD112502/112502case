@@ -6,7 +6,7 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="styles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>註冊</title>
 </head>
 <body class="LogBody">
     <form class="LogForm" id="form1" runat="server">

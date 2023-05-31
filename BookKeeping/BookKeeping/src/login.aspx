@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>記帳趣 登入</title>
 </head>
-
+        
 <body class="LogBody">
     <form class="LogForm" id="form1" runat="server">
         <h1 class="LogTitle" align="center">記帳趣</h1>
@@ -23,7 +23,7 @@
             <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
         </p>
         <br />
-        <a href="forget_pwd.aspx">忘記密碼</a>
+        <a class="LogForgetPwd" href="forget_pw.aspx">忘記密碼</a>
         </div>
         <br />
         <br />

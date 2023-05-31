@@ -50,6 +50,16 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
+.DropDownListStyle { /*下拉式選單樣式*/
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 18px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    box-shadow: 1px 1px 3px gray;
+}
+
 .Back { /* 返回按鈕 */
     position: fixed;
     bottom: 3px;
@@ -175,6 +185,12 @@ body {
 }
 
 /*------------登入------------*/
+.ForgetPwdText {
+    margin-left: 50%;
+    margin-top: 40px;
+    transform: translate(-50%, 0);
+}
+
 .LogTitle {
     margin-top: 20px;
     font-size: 60px;
@@ -187,8 +203,12 @@ body {
 .LogButton { /* 按鈕區塊 */
     margin-top: 80px;
 }
-/*----------登入結束-----------*/
 
+.LogForgetPwd {
+    margin-left: 250px;
+}
+
+/*----------登入結束-----------*/
 /*------------註冊-------------*/
 .RegText {
     margin-left: 50%;
@@ -211,8 +231,8 @@ body {
     transform: translate(10%, 0);
 }
 /*----------註冊結束-----------*/
-/*----------------------------登入、註冊結束----------------------------------*/
 
+/*----------------------------登入、註冊結束----------------------------------*/
 /*----------------------------------記帳--------------------------------------*/
 .BookBody {
     background-image: url('images/boo_bg.png');
@@ -565,6 +585,7 @@ table.Gridview {
     height: 150px;
     display: flex;
     justify-content: center;
+    font-weight: bold;
 }
 
 .PickWish { /* 目標願望便條 */
