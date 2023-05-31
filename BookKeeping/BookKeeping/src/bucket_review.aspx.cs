@@ -152,48 +152,53 @@ namespace BookKeeping.src
             conn.Close();
             if (selectedValue == "y")
             {
-                int amount = Convert.ToInt32(Textbox1.Text);
-                string sql_target = "SELECT count(*) FROM `112-112502`.願望清單\r\nwhere user_id = @user_id and run_state = 'y'";
+                int amount;
+                if (!int.TryParse(Textbox1.Text, out amount))
+                {
+                    ErrorMessagel.Text = "請輸入有效的金額!";
+                    ErrorMessagel.Visible = true;
+                    return;
+                }
+
+                int target_count;
+                string sql_target = "SELECT count(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id AND run_state = 'y'";
                 conn.Open();
                 MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
                 cmd_target.Parameters.AddWithValue("@userID", userID);
                 MySqlDataReader reader_target = cmd_target.ExecuteReader();
                 reader_target.Read();
-                int target_count = Convert.ToInt32(reader_target.GetString(0));
+                target_count = Convert.ToInt32(reader_target.GetString(0));
                 conn.Close();
 
                 string sql = null;
 
-
                 if (target_count == 0)
                 {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
-
+                    sql += "UPDATE `112-112502`.願望清單 SET pass_amount = @amount, pass_state = 'y', run_state = 'y' WHERE (`d_num` = @dName)";
                 }
-                else 
+                else
                 {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
-            
+                    sql += "UPDATE `112-112502`.願望清單 SET pass_amount = @amount, pass_state = 'y' WHERE (`d_num` = @dName)";
                 }
-
 
                 conn.Open();
-
                 MySqlCommand command = new MySqlCommand(sql, conn);
-
                 command.Parameters.AddWithValue("@amount", amount);
                 command.Parameters.AddWithValue("@dName", dName);
-                int rows_affect = command.ExecuteNonQuery();
+                int rows_affected = command.ExecuteNonQuery();
+                conn.Close();
 
-                if (rows_affect > 0) 
+                if (rows_affected > 0)
                 {
                     Textbox1.Text = null;
+                    ErrorMessagel.Visible = false;
                     Response.Write("<script>alert('新增成功')</script>");
                     DisplayWindows();
                 }
                 else
                 {
                     Textbox1.Text = null;
+                    ErrorMessagel.Visible = false;
                     Response.Write("<script>alert('新增失敗')</script>");
                     DisplayWindows();
                 }
@@ -202,6 +207,14 @@ namespace BookKeeping.src
             if(selectedValue == "n") 
             {
                 string reason = Textbox2.Text;
+                if (string.IsNullOrEmpty(reason))
+                {
+                    ErrorMessage2.Text = "請輸入拒絕原因!";
+                    ErrorMessage2.Visible = true;
+                    return;
+                }
+
+                _ = Textbox2.Text;
                 string sql = "update `112-112502`.願望清單 set reason = @reason , pass_state = 'n' where(`d_num` = @dName)";
 
                 conn.Open();

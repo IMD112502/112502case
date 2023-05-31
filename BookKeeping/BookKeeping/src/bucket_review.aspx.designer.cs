@@ -114,6 +114,15 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Label label5;
 
         /// <summary>
+        /// ErrorMessagel 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorMessagel;
+
+        /// <summary>
         /// Panel3 控制項。
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Textbox2;
+
+        /// <summary>
+        /// ErrorMessage2 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorMessage2;
 
         /// <summary>
         /// IndexCount 控制項。
