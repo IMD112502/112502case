@@ -140,13 +140,12 @@ namespace BookKeeping.src
 
             string selectedValue = RadioButtonList1.SelectedValue;
             string wish_name = label2.Text;
-            string userID = "1";
 
             string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @user_id;";
 
             MySqlCommand cmd = new MySqlCommand(dNum, conn);
             cmd.Parameters.AddWithValue("@wish_name", wish_name);
-            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             reader.Read();
@@ -166,7 +165,7 @@ namespace BookKeeping.src
                 string sql_target = "SELECT count(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id AND run_state = 'y'";
                 conn.Open();
                 MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
-                cmd_target.Parameters.AddWithValue("@user_id", userID);
+                cmd_target.Parameters.AddWithValue("@user_id", user_id);
                 MySqlDataReader reader_target = cmd_target.ExecuteReader();
                 reader_target.Read();
                 target_count = Convert.ToInt32(reader_target.GetString(0));
@@ -176,12 +175,12 @@ namespace BookKeeping.src
 
                 if (target_count == 0)
                 {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'n' where(`d_num` = @dName)";
+                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
 
                 }
                 else
                 {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
+                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'n' where(`d_num` = @dName)";
             
                 }
 
@@ -217,8 +216,6 @@ namespace BookKeeping.src
                     ErrorMessage2.Visible = true;
                     return;
                 }
-
-                _ = Textbox2.Text;
                 string sql = "update `112-112502`.願望清單 set reason = @reason , pass_state = 'n' where(`d_num` = @dName)";
 
                 conn.Open();

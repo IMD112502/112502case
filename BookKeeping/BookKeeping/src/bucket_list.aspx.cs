@@ -105,36 +105,41 @@ namespace _BookKeeping
             //找現有的目標
             string sql = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = 'y' and run_state = \'y\'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@user_id" , user_id);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
             int target_count = cmd.ExecuteNonQuery();
 
-           
+
 
             conn.Close();
 
-            if (target_count > 0)
+            if (target_count != 0)
             {
                 //目標內容設定
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                string name_amount = reader.GetString(0);
+                if (reader.Read())
+                {
+                    string name_amount = reader.GetString(0);
+                    
+                    string[] wish_values = name_amount.Split(',');
+                    Panel target_space = new Panel() { CssClass = "ContentFlexLeft" };
+                    Panel target_values = new Panel() /*{ BorderStyle = BorderStyle.Dashed }*/;
+                    Label title = new Label() { Text = "目標", CssClass = "PickWishTitle" };
+                    Label target_name = new Label() { Text = wish_values[0] + "\n", CssClass = "PickWishText", };
+                    Label target_amount = new Label() { Text = wish_values[1] + "元", CssClass = "PickWishText" };
+
+
+                    Target_Background.Visible = true;
+
+                    target_values.Controls.Add(target_name);
+                    target_values.Controls.Add(target_amount);
+                    target_space.Controls.Add(title);
+                    target_space.Controls.Add(target_values);
+                    Target_Background.Controls.Add(target_space);
+                }
                 conn.Close();
-                string[] wish_values = name_amount.Split(',');
-                Panel target_space = new Panel() { CssClass = "ContentFlexLeft" };
-                Panel target_values = new Panel() /*{ BorderStyle = BorderStyle.Dashed }*/;
-                Label title = new Label() { Text = "目標" , CssClass= "PickWishTitle" };
-                Label target_name = new Label() { Text = wish_values[0]+"\n" , CssClass = "PickWishText", };
-                Label target_amount = new Label() { Text = wish_values[1]+"元" , CssClass = "PickWishText" };
 
 
-                Target_Background.Visible = true;
-
-                target_values.Controls.Add(target_name);
-                target_values.Controls.Add(target_amount);
-                target_space.Controls.Add(title);
-                target_space.Controls.Add(target_values);
-                Target_Background.Controls.Add(target_space);
 
                 //找尚未被選中的願望
                 conn.Open();
@@ -143,19 +148,19 @@ namespace _BookKeeping
                 cmd_target.Parameters.AddWithValue("@user_id", user_id);
                 int untarget_count = cmd.ExecuteNonQuery();
 
-                conn.Close() ;
+                conn.Close();
 
-                if (untarget_count != 0) 
+                if (untarget_count != 0)
                 {
                     List<string[]> list = new List<string[]>();
 
                     conn.Open();
                     MySqlDataReader untarget_reader = cmd_target.ExecuteReader();
-                    
+
                     while (untarget_reader.Read())
                     {
-                       string data = untarget_reader.GetString(0);
-                       string[] data_split = data.Split(',');
+                        string data = untarget_reader.GetString(0);
+                        string[] data_split = data.Split(',');
 
                         list.Add(data_split);
                     }
@@ -164,20 +169,17 @@ namespace _BookKeeping
 
                     int index = 1;
 
-                    foreach (string[] untarget in untargetArray) 
+                    foreach (string[] untarget in untargetArray)
                     {
-                        Panel panel1 = new Panel() { ID = "Panel" + index.ToString() , CssClass= "BucFlexRight" };
-                        Panel panel2 = new Panel() { ID = "Panel" + index.ToString()+'1', CssClass = "ContentFlexRight" };
-                        
+                        Panel panel1 = new Panel() { ID = "Panel" + index.ToString(), CssClass = "BucFlexRight" };
+                        Panel panel2 = new Panel() { ID = "Panel" + index.ToString() + '1', CssClass = "ContentFlexRight" };
 
-                        Button btn = new Button() { CommandArgument = index.ToString() , CssClass= "ButtonStyle" , Text="更改目標" };
+
+                        Button btn = new Button() { CommandArgument = index.ToString(), CssClass = "ButtonStyle", Text = "更改目標" };
                         btn.Click += new EventHandler(ChangeTarget_Click);
 
                         Label label1 = new Label() { Text = untarget[0]  , ID = "Label"+index.ToString() };
                         Label label2 = new Label() { Text = untarget[1] + "元",  ID = "Label"+index.ToString()+'1' }  ;
-
-                        target_name.Attributes["runat"] = "server";
-                        target_amount.Attributes["runat"] = "server";
 
                         label1.Font.Size = FontUnit.XXLarge;
                         label2.Font.Size = FontUnit.XXLarge;
