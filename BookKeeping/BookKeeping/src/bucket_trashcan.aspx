@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buc_trashcan.aspx.cs" Inherits="_BookKeeping.buc_trashcan" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bucket_trashcan.aspx.cs" Inherits="_BookKeeping.bucket_trashcan" %>
 
 <!DOCTYPE html>
 

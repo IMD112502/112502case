@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="_BookKeeping.search" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bookkeeping_search.aspx.cs" Inherits="_BookKeeping.bookkeeping_search" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,9 +36,9 @@
 		</div>
 
         <div class="BookRight">
-			<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/add.aspx" />
-			<asp:ImageButton class="BookmarkUp SearchBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_ser1.png" PostBackUrl="~/src/search.aspx" />
-			<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/report.aspx" />
+			<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/bookkeeping_add.aspx" />
+			<asp:ImageButton class="BookmarkUp SearchBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_ser1.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
+			<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">查詢</h1>
         <div class="BookChange">
             <div class="SortContainer">

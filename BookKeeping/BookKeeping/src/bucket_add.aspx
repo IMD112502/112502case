@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bucket_list_add.aspx.cs" Inherits="_BookKeeping.bucket_list_add" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bucket_add.aspx.cs" Inherits="_BookKeeping.bucket_add" %>
 
 <!DOCTYPE html>
 

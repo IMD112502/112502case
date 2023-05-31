@@ -104,12 +104,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\achievement.aspx" />
-    <Content Include="src\add.aspx" />
+    <Content Include="src\bookkeeping_add.aspx" />
+    <Content Include="src\bookkeeping_edit.aspx" />
+    <Content Include="src\bookkeeping_report.aspx" />
+    <Content Include="src\bookkeeping_search.aspx" />
+    <Content Include="src\bucket_add.aspx" />
     <Content Include="src\bucket_list.aspx" />
-    <Content Include="src\bucket_list_add.aspx" />
-    <Content Include="src\buc_trashcan.aspx" />
+    <Content Include="src\bucket_review.aspx" />
+    <Content Include="src\bucket_trashcan.aspx" />
     <Content Include="src\dressing_room.aspx" />
-    <Content Include="src\edit.aspx" />
     <Content Include="src\forget_pw.aspx" />
     <Content Include="src\images\ach.png" />
     <Content Include="src\images\ach_bg.png" />
@@ -252,9 +255,7 @@
     <Content Include="src\login.aspx" />
     <Content Include="src\main.aspx" />
     <Content Include="src\register.aspx" />
-    <Content Include="src\report.aspx" />
-    <Content Include="src\review.aspx" />
-    <Content Include="src\search.aspx" />
+    <Content Include="src\setting.aspx" />
     <Content Include="src\styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -267,12 +268,40 @@
     <Compile Include="src\achievement.aspx.designer.cs">
       <DependentUpon>achievement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\add.aspx.cs">
-      <DependentUpon>add.aspx</DependentUpon>
+    <Compile Include="src\bookkeeping_add.aspx.cs">
+      <DependentUpon>bookkeeping_add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\add.aspx.designer.cs">
-      <DependentUpon>add.aspx</DependentUpon>
+    <Compile Include="src\bookkeeping_add.aspx.designer.cs">
+      <DependentUpon>bookkeeping_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\bookkeeping_edit.aspx.cs">
+      <DependentUpon>bookkeeping_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\bookkeeping_edit.aspx.designer.cs">
+      <DependentUpon>bookkeeping_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\bookkeeping_report.aspx.cs">
+      <DependentUpon>bookkeeping_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\bookkeeping_report.aspx.designer.cs">
+      <DependentUpon>bookkeeping_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\bookkeeping_search.aspx.cs">
+      <DependentUpon>bookkeeping_search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\bookkeeping_search.aspx.designer.cs">
+      <DependentUpon>bookkeeping_search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\bucket_add.aspx.cs">
+      <DependentUpon>bucket_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\bucket_add.aspx.designer.cs">
+      <DependentUpon>bucket_add.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\bucket_list.aspx.cs">
       <DependentUpon>bucket_list.aspx</DependentUpon>
@@ -281,19 +310,19 @@
     <Compile Include="src\bucket_list.aspx.designer.cs">
       <DependentUpon>bucket_list.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\bucket_list_add.aspx.cs">
-      <DependentUpon>bucket_list_add.aspx</DependentUpon>
+    <Compile Include="src\bucket_review.aspx.cs">
+      <DependentUpon>bucket_review.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\bucket_list_add.aspx.designer.cs">
-      <DependentUpon>bucket_list_add.aspx</DependentUpon>
+    <Compile Include="src\bucket_review.aspx.designer.cs">
+      <DependentUpon>bucket_review.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\buc_trashcan.aspx.cs">
-      <DependentUpon>buc_trashcan.aspx</DependentUpon>
+    <Compile Include="src\bucket_trashcan.aspx.cs">
+      <DependentUpon>bucket_trashcan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\buc_trashcan.aspx.designer.cs">
-      <DependentUpon>buc_trashcan.aspx</DependentUpon>
+    <Compile Include="src\bucket_trashcan.aspx.designer.cs">
+      <DependentUpon>bucket_trashcan.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\dressing_room.aspx.cs">
       <DependentUpon>dressing_room.aspx</DependentUpon>
@@ -301,13 +330,6 @@
     </Compile>
     <Compile Include="src\dressing_room.aspx.designer.cs">
       <DependentUpon>dressing_room.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\edit.aspx.cs">
-      <DependentUpon>edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\edit.aspx.designer.cs">
-      <DependentUpon>edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\forget_pw.aspx.cs">
       <DependentUpon>forget_pw.aspx</DependentUpon>
@@ -337,26 +359,12 @@
     <Compile Include="src\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\report.aspx.cs">
-      <DependentUpon>report.aspx</DependentUpon>
+    <Compile Include="src\setting.aspx.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\report.aspx.designer.cs">
-      <DependentUpon>report.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\review.aspx.cs">
-      <DependentUpon>review.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\review.aspx.designer.cs">
-      <DependentUpon>review.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\search.aspx.cs">
-      <DependentUpon>search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\search.aspx.designer.cs">
-      <DependentUpon>search.aspx</DependentUpon>
+    <Compile Include="src\setting.aspx.designer.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace _BookKeeping
 {
-    public partial class bucket_list_add : System.Web.UI.Page
+    public partial class bucket_add : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
