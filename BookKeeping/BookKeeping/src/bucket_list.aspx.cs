@@ -112,7 +112,7 @@ namespace _BookKeeping
 
             conn.Close();
 
-            if (target_count != 0)
+            if (target_count > 0)
             {
                 //目標內容設定
                 conn.Open();

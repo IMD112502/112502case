@@ -13,7 +13,7 @@ namespace _BookKeeping
 {
     public partial class bookkeeping_add : System.Web.UI.Page
     {
-
+        protected string user_id = "boa004";
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -40,10 +40,12 @@ namespace _BookKeeping
         {
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + month.ToString() + "月";
-            string sql = "SELECT date, class, cost, mark FROM `112-112502`.記帳資料 where year(date) = @year and month(date) = @month order by date;";
+            string sql = "SELECT date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", month);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
+
             MySqlDataReader reader = cmd.ExecuteReader();
 
 
@@ -91,7 +93,7 @@ namespace _BookKeeping
             // 資料庫連接
             MySqlConnection conn = DBConnection();
 
-            string name = "aaa"; // user_id
+              
             DateTime datetime = DateTime.Parse(Request.Form["date"]);
             DateTime date = datetime.Date;
 
@@ -106,7 +108,7 @@ namespace _BookKeeping
                     string sql = "INSERT INTO `112-112502`.記帳資料(user_id, date, class, cost, mark) VALUES (@name, @date, @category, @cost, @mark)";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@name", user_id);
                     cmd.Parameters.AddWithValue("@category", category);
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@cost", cost);
