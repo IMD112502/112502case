@@ -77,8 +77,9 @@ namespace BookKeeping.src
         protected string[] GetArray()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT d_name FROM `112-112502`.願望清單\r\nwhere user_id = \'1\' and pass_state = \'r\';";
+            string sql = "SELECT d_name FROM `112-112502`.願望清單\r\nwhere user_id = @user_id and pass_state = \'r\';";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue(user_id, user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
             List<string> list = new List<string>();
             while (reader.Read())
