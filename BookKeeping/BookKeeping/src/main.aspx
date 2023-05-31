@@ -12,9 +12,9 @@
     <form id="Form1" runat="server">
         <asp:Label class="SystemTitle" runat="server" Text="記帳趣" ></asp:Label>
         <div class="Setting"><%--任務&設定--%>
-            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/setting.png" />
+            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/setting.png" />
             <br />
-            <asp:ImageButton ID="Ach" runat="server" ImageUrl="images/ach.png" PostBackUrl="~/src/achievement.aspx" />
+            <asp:ImageButton ID="Ach" runat="server" ImageUrl="images/main/ach.png" PostBackUrl="~/src/achievement.aspx" />
         </div>
         <div class="MainRight">
             <asp:ImageButton ID="Wishes" runat="server" ImageUrl="images/main/h_b_dre.png" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
@@ -24,7 +24,8 @@
         <p style="width: 390px">
             <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/h_b_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
         </p>
-        <asp:Image ID="Pig" runat="server" ImageUrl="images/pig20.png" />
+        <asp:Image ID="Pig" runat="server" ImageUrl="images/main/pig/pig20.png" />
+         <asp:Label class="PigText" runat="server" Text="目標已達成45/300" ></asp:Label>
         <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" />
     </form>
 </body>

@@ -121,10 +121,19 @@ body {
 
 #Pig { /* 撲滿 */
     position: fixed;
-    bottom: -150px;
-    left: 60px;
-    Height: 525px;
-    Width: 750px;
+    bottom: 35px;
+    left: 210px;
+    Height: 242.4px;
+    Width: 373.5px;
+}
+
+.PigText {
+    position: fixed;
+    bottom: 10px;
+    left: 215px;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
 }
 
 .Setting { /* 設定、成就 */
@@ -326,6 +335,7 @@ table.Gridview {
     align-items: center; /* 在主軸上居中對齊flex子元素 */
     justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
     flex-direction: column; /* 將flex子元素的排列方向設置為垂直排列 */
+    font-size: 20px;
 }
 
 .RadioButtons {
@@ -500,29 +510,13 @@ table.Gridview {
     justify-content: space-evenly; /*div置中*/
     flex-direction: column;
 }
-.ContentFlexLeft {
-    margin-top: 80px;
-    flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-}
-.BucFlexRight {
+
+.BucFlexRight { /* 單個願望便條 */
     background: url('images/dre_memo.png');
     background-size: 230px;
     background-repeat: no-repeat;
     width: 230px;
     height: 230px;
-    display: flex;
-    justify-content: center;
-    text-align:center;
-}
-.ContentFlexRight {
-    margin-top: 40px;
-    flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
     display: flex;
     justify-content: center;
 }
@@ -574,6 +568,7 @@ table.Gridview {
     margin-top: 80px;
     margin-left: 20px;
     font-size: 40px;
+    font-weight: bold;
 }
 
 .YMemo { /* 黃色便條 */
@@ -665,6 +660,7 @@ table.Gridview {
     margin-top: 14%;
     margin-left: 6%;
     font-size: 35px;
+    font-weight: bold;
 }
 
 .YesNo { /* 可以、不可以 */

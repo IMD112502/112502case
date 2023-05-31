@@ -105,10 +105,7 @@
             <br />
 			<br />
 			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" />
-            <br />
-            <asp:Label ID="Label11" runat="server" Text="搜尋結果  共__筆"></asp:Label>
-            <br />
-            <br />
+            
         </div>
         </div>
         </div>
