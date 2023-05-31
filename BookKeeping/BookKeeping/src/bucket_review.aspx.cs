@@ -167,12 +167,12 @@ namespace BookKeeping.src
 
                 if (target_count == 0)
                 {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
+                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'n' where(`d_num` = @dName)";
 
                 }
                 else 
                 {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
+                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
             
                 }
 
