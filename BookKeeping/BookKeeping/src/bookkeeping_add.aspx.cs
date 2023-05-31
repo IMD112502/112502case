@@ -105,6 +105,8 @@ namespace _BookKeeping
 
                     string sql = "INSERT INTO `112-112502`.記帳資料(user_id, date, class, cost, mark) VALUES (@name, @date, @category, @cost, @mark)";
 
+
+
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@name", name);
                     cmd.Parameters.AddWithValue("@category", category);
