@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace _BookKeeping
 {
-    public partial class add : System.Web.UI.Page
+    public partial class bookkeeping_search : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,24 +18,25 @@ namespace _BookKeeping
                 MySqlConnection conn = DBConnection();
 
                 SearchSelectMonth(conn, DateTime.Now.Month);
-               
+
 
 
             }
         }
 
-        protected MySqlConnection DBConnection() {
+        protected MySqlConnection DBConnection()
+        {
             string connectionStrings = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connectionStrings);
             connection.Open();
             return connection;
         }
 
-        protected void SearchSelectMonth( MySqlConnection connection , int month) 
+        protected void SearchSelectMonth(MySqlConnection connection, int month)
         {
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + month.ToString() + "月";
-            string sql = "SELECT date, class, cost FROM `112-112502`.記帳資料 where year(date) = @year and month(date) = @month;";
+            string sql = "SELECT date, class, cost FROM `112-112502`.記帳資料 where year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", month);
@@ -51,7 +50,7 @@ namespace _BookKeeping
 
             reader.Close();
         }
-        protected void MinusMonth_Click(object sender, EventArgs e) 
+        protected void MinusMonth_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = DBConnection();
             Button btn = (Button)sender;
@@ -64,7 +63,7 @@ namespace _BookKeeping
                 indexMonth -= 1;
                 SearchSelectMonth(conn, indexMonth);
             }
-            
+
         }
 
         protected void PlusMonth_Click(object sender, EventArgs e)
@@ -82,45 +81,5 @@ namespace _BookKeeping
             }
 
         }
-
-
-
-
-        protected void Submit_Click(object sender, EventArgs e) {
-            //資料庫連接
-            MySqlConnection conn = DBConnection();
-
-
-            string name = "aaa"; //user_id
-            DateTime datetime = DateTime.Parse(Request.Form["date"]);
-            DateTime date = datetime.Date;
-            int cost = Convert.ToInt32(TextBox1.Text);
-            string category = Request.Form["radio"].ToString();
-            if (category != null)
-            {
-                string sql = "insert into `112-112502`.記帳資料(user_id , date , class , cost) values (@name , @date , @category , @cost)";
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@category", category);
-                cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@cost", cost);
-
-                cmd.ExecuteNonQuery();
-
-                MySqlDataAdapter a = new MySqlDataAdapter("SELECT date, class, cost FROM `112-112502`.記帳資料", conn);
-
-                //存放資料
-                DataSet ds = new DataSet();
-                a.Fill(ds, "記帳資料");
-
-                GridView1.DataSource = ds.Tables["記帳資料"];
-
-                // 重新綁定 GridView 控制項的資料來源
-                GridView1.DataBind();
-            }
-        }
-
- 
     }
-    }
+}

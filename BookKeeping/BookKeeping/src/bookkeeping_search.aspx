@@ -1,23 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="add.aspx.cs" Inherits="_BookKeeping.add" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bookkeeping_search.aspx.cs" Inherits="_BookKeeping.bookkeeping_search" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-	<link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>記帳新增</title>
+    <title>記帳查詢</title>
 </head>
 
 <body class="BookBody">
-	<form runat="server">
-	<div class="BookContent">
+    <form id="form1" runat="server">
+        <div class="BookContent">
 		<div class="BookLeft">
 			<div class="BookDate">
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"></asp:Label>
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
+				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
 			</div>
 
 			<div class="BookTable">
@@ -31,18 +31,18 @@
 			</div>
 
 			<div class="BookTotal">
-				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
-				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
+				<asp:Label ID="Label3" runat="server" Text="總收入__元"></asp:Label>
+				<asp:Label ID="Label4" runat="server" Text="總支出__元"></asp:Label>
 			</div>
 		</div>
 
-		<div class="BookRight">
-		<asp:ImageButton class="BookmarkUp AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add1.png" PostBackUrl="~/src/add.aspx" />
-		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/search.aspx" />
-		<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/report.aspx" />
-		<h1 class="BookTitle">新增</h1>
-		<div class="BookChange">
-			<div class="SortContainer">
+        <div class="BookRight">
+			<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/bookkeeping_add.aspx" />
+			<asp:ImageButton class="BookmarkUp SearchBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_ser1.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
+			<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
+		<h1 class="BookTitle">查詢</h1>
+        <div class="BookChange">
+            <div class="SortContainer">
 				<p>選擇類別</p>
 				<br />
 				<div class="RadioButtons">
@@ -90,40 +90,27 @@
 			</div>
 			<br />
 			<br />
-			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
+			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
 			<input type="date" id="Start" name="date"
                value="2023-04-20"
                min="2022-01-01" max="" />
 			<script>
-				document.getElementById("Start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
-				var today = new Date().toISOString().split('T')[0];
+                document.getElementById("Start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
+                var today = new Date().toISOString().split('T')[0];
                 document.getElementById("Start").max = today;
             </script>
 			<br />
 			<br />
-			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
-			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Label ID="Label10" runat="server" Text="查詢"></asp:Label>
+            <asp:TextBox class="TextBoxStyle" ID="TextBox4" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
+            <br />
 			<br />
-			<br />
-			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
-			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
-			<br />
-			<br />
-			<br />
-			<input class="ButtonStyle ButtonSize1" type="reset" value="重新輸入" />
-			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
-		</div>
-		</div>
-	</div>
-		<asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
-	</form>
+			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" />
+            
+        </div>
+        </div>
+        </div>
+		<asp:ImageButton class="Back" ID="ImageButton2" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
+    </form>
 </body>
 </html>
-
-
-
-
-
-
-
-

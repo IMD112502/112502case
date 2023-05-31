@@ -148,10 +148,17 @@ body {
     Height: 100px;
     Width: 80px;
 }
-/*--------------------------------主畫面結束---------------------------------------*/
 
+#Logout {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*--------------------------------主畫面結束---------------------------------------*/
 /*--------------------------------登入、註冊---------------------------------------*/
-.LogBody { 
+.LogBody {
     background-image: url('images/log_o_door.png');
     background-size: 1416px 730.8px;
 }
@@ -240,6 +247,15 @@ body {
 .DateButtonSize { /* 記帳月份切換按鈕 */
     width: 20px;
     height: 20px;
+    transform: translate(0, -25%);
+}
+
+.EditButton { /* 編輯按鈕 */
+    position: absolute;
+    margin-left: 50%;
+    transform: translate(-550%, 15%);
+    width: 40px;
+    height: 30px;
 }
 
 .BookTable { /* 記帳紀錄 */
@@ -511,12 +527,42 @@ table.Gridview {
     flex-direction: column;
 }
 
+.ContentFlexLeft {
+    margin-top: 80px;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.PickWishTitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.PickWishText {
+    font-size: 50px;
+    color: black;
+}
+
 .BucFlexRight { /* 單個願望便條 */
     background: url('images/dre_memo.png');
     background-size: 230px;
     background-repeat: no-repeat;
     width: 230px;
     height: 230px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.ContentFlexRight {
+    margin-top: 40px;
+    flex-wrap: wrap;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
 }

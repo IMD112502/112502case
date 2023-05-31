@@ -33,16 +33,16 @@
                 </div>
 
                 <p>密碼
-                    <asp:TextBox class="TextBoxStyle" ID="RegPwd" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入密碼" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="RegPwd" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入密碼" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
                 </p>
 
                 <p>確認密碼
-                    <asp:TextBox class="TextBoxStyle" ID="ReRegPwd" runat="server" Width="250px" Height="30px" required="required" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請再次輸入密碼"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="ReRegPwd" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請再次輸入密碼"></asp:TextBox>
                 </p>
             </div>       
             <div class="RegButton">
-                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="返回"  OnClick="Button1_Click" /> 
-                <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" OnClick="Button2_Click" Text="確認" ValidationGroup="register" causesvalidation="true"/>
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="返回"  OnClick="Button1_Click" PostBackUrl="login.aspx"/> 
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" OnClick="Button2_Click" Text="確認" ValidationGroup="register" causesvalidation="true" PostBackUrl="login.aspx"/>
             </div>
         </div>
     </form>

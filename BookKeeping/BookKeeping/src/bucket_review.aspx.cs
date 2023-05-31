@@ -14,7 +14,7 @@ using Google.Protobuf.WellKnownTypes;
 
 namespace BookKeeping.src
 {
-    public partial class review : System.Web.UI.Page
+    public partial class bucket_review : System.Web.UI.Page
     {
         protected string user_id = "1";
         protected void Page_Load(object sender, EventArgs e)

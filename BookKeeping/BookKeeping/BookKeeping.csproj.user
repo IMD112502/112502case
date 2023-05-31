@@ -11,13 +11,13 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <PropertyGroup>
-    <ReferencePath>E:\專題\112502case\BookKeeping\packages\</ReferencePath>
+    <ReferencePath>E:\專題\112502case\BookKeeping\packages\;C:\Users\112502\Desktop\112502case\112502case\packages\</ReferencePath>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <StartPageUrl>src/main.aspx</StartPageUrl>
+          <StartPageUrl>src/login.aspx</StartPageUrl>
           <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>

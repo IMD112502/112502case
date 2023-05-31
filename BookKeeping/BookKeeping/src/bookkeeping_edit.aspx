@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="edit.aspx.cs" Inherits="_BookKeeping.edit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bookkeeping_edit.aspx.cs" Inherits="_BookKeeping.bookkeeping_edit" %>
 
 <!DOCTYPE html>
 
@@ -17,9 +17,10 @@
 	<div class="BookContent">
 		<div class="BookLeft">
 			<div class="BookDate">
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" />
-				<asp:Label ID="Label1" runat="server" Text="2023年5月"></asp:Label>
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" />
+				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
+				<asp:Label ID="Label1" runat="server"></asp:Label>
+				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
+				<asp:Button class="ButtonStyle EditButton" ID="Button3" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
 			</div>
 
 			<div class="BookTable">
@@ -39,9 +40,9 @@
 		</div>
 
 		<div class="BookRight">
-		<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/add.aspx" />
-		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/search.aspx" />
-		<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/report.aspx" />
+		<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/bookkeeping_add.aspx" />
+		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
+		<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">編輯</h1>
 		<div class="BookChange">
 			<div class="SortContainer">

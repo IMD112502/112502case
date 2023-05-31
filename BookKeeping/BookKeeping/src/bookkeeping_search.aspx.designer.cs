@@ -11,7 +11,7 @@ namespace _BookKeeping
 {
 
 
-    public partial class search
+    public partial class bookkeeping_search
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace _BookKeeping
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Label2 控制項。
+        /// Label1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// Button2 控制項。
@@ -51,13 +51,22 @@ namespace _BookKeeping
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// GridView2 控制項。
+        /// Button4 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.Button Button4;
+
+        /// <summary>
+        /// GridView1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
         /// Label3 控制項。
@@ -105,13 +114,13 @@ namespace _BookKeeping
         protected global::System.Web.UI.WebControls.ImageButton ImageButton5;
 
         /// <summary>
-        /// Label1 控制項。
+        /// Label2 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// Label10 控制項。

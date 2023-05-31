@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buc_trashcan.aspx.cs" Inherits="_BookKeeping.buc_trashcan" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bucket_trashcan.aspx.cs" Inherits="_BookKeeping.bucket_trashcan" %>
 
 <!DOCTYPE html>
 
@@ -13,8 +13,8 @@
     <form class="BucForm" id="form1" runat="server">
         <div class="BMemo MemoStyle">
             <div class="BucWord">
-                <asp:Label ID="CantBuy" runat="server" Text="不能買_______" font-size="XX-Large" ></asp:Label><br />
-                <asp:Label ID="Cause" runat="server" Text="因為" font-size="XX-Large" ></asp:Label><br />
+                <asp:Label ID="CantBuy" runat="server" Text="不能買_______"></asp:Label><br />
+                <asp:Label ID="Cause" runat="server" Text="因為"></asp:Label><br />
             </div>
             <input class="TraButton ButtonStyle ButtonSize2" id="Submit1" type="submit" value="知道了" />
         </div>

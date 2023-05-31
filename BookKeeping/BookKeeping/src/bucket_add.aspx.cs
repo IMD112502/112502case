@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace _BookKeeping
 {
-    public partial class bucket_list_add : System.Web.UI.Page
+    public partial class bucket_add : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,11 +20,11 @@ namespace _BookKeeping
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            string connection = ConfigurationManager.ConnectionStrings["test1ConnectionString"].ConnectionString;
+            string connection = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             MySqlConnection conn = new MySqlConnection(connection);
             conn.Open();
 
-            string name = "aaa"; //user_id
+            string name = "1"; //user_id
             string d_name = WishTextbox.Text;
       
             if (d_name != null)

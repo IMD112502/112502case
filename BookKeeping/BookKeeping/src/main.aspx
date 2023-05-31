@@ -12,13 +12,13 @@
     <form id="Form1" runat="server">
         <asp:Label class="SystemTitle" runat="server" Text="記帳趣" ></asp:Label>
         <div class="Setting"><%--任務&設定--%>
-            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/setting.png" />
+            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/setting.png" PostBackUrl="~/src/setting.aspx"/>
             <br />
             <asp:ImageButton ID="Ach" runat="server" ImageUrl="images/main/ach.png" PostBackUrl="~/src/achievement.aspx" />
         </div>
         <div class="MainRight">
             <asp:ImageButton ID="Wishes" runat="server" ImageUrl="images/main/h_b_dre.png" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
-            <asp:ImageButton ID="Bookkeeping" runat="server" ImageUrl="images/main/h_b_boo.png" PostBackUrl="~/src/add.aspx" /><%--記帳--%>
+            <asp:ImageButton ID="Bookkeeping" runat="server" ImageUrl="images/main/h_b_boo.png" PostBackUrl="~/src/bookkeeping_add.aspx" /><%--記帳--%>
             <asp:ImageButton ID="Game" runat="server" ImageUrl="images/main/h_b_game.png" PostBackUrl="~/src/main.aspx" /><%--記帳--%>
         </div>
         <p style="width: 390px">

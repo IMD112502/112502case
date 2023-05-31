@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace _BookKeeping
 {
-    public partial class buc_trashcan : System.Web.UI.Page
+    public partial class bucket_trashcan : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
