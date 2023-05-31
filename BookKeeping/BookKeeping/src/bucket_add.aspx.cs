@@ -15,6 +15,8 @@ namespace _BookKeeping
 {
     public partial class bucket_add : System.Web.UI.Page
     {
+
+        protected string user_id = "boa004";
         public object ErrorMessagel { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
