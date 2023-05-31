@@ -103,9 +103,10 @@
 			<br />
 			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox1" runat="server"></asp:TextBox>
-			<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="請輸入金額" ValidationGroup="ValidationGroup1"></asp:RequiredFieldValidator>
 			<br />
-			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<asp:Label ID="ErrorMessageLabel" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red"></asp:Label>
+			<br /> <n/><n /><n />
 			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
 			<br />

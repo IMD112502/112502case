@@ -13,6 +13,7 @@ namespace _BookKeeping
 {
     public partial class bookkeeping_add : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -85,47 +86,51 @@ namespace _BookKeeping
 
         }
 
-
-
-
-        protected void Submit_Click(object sender, EventArgs e) {
-
-            //資料庫連接
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            // 資料庫連接
             MySqlConnection conn = DBConnection();
 
-
-            string name = "aaa"; //user_id
+            string name = "aaa"; // user_id
             DateTime datetime = DateTime.Parse(Request.Form["date"]);
             DateTime date = datetime.Date;
-            int cost = Convert.ToInt32(TextBox1.Text);
-            string mark = TextBox2.Text;
-            string category = Request.Form["radio"].ToString();
-            if (category != null)
+
+            string costInput = TextBox1.Text;
+            if (!string.IsNullOrEmpty(costInput))
             {
-                string sql = "insert into `112-112502`.記帳資料(user_id , date , class , cost, mark) values (@name , @date , @category , @cost, @mark)";
+                if (int.TryParse(costInput, out int cost))
+                {
+                    string mark = TextBox2.Text;
+                    string category = Request.Form["radio"].ToString();
 
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@category", category);
-                cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@cost", cost);
-                cmd.Parameters.AddWithValue("@mark", mark);
+                    string sql = "INSERT INTO `112-112502`.記帳資料(user_id, date, class, cost, mark) VALUES (@name, @date, @category, @cost, @mark)";
 
-                cmd.ExecuteNonQuery();
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@category", category);
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@cost", cost);
+                    cmd.Parameters.AddWithValue("@mark", mark);
 
-                MySqlDataAdapter a = new MySqlDataAdapter("SELECT date, class, cost, mark FROM `112-112502`.記帳資料 order by date", conn);
+                    cmd.ExecuteNonQuery();
 
-                //存放資料
-                DataSet ds = new DataSet();
-                a.Fill(ds, "記帳資料");
-
-                GridView1.DataSource = ds.Tables["記帳資料"];
-
-                // 重新綁定 GridView 控制項的資料來源
-                GridView1.DataBind();
+                    // 重新綁定 GridView 控制項的資料來源
+                    SearchSelectMonth(conn, date.Month);
+                }
+                else
+                {
+                    ErrorMessageLabel.Visible = true;
+                    ErrorMessageLabel.Text = "請輸入有效的數字!";
+                }
+            }
+            else
+            {
+                ErrorMessageLabel.Visible = true;
+                ErrorMessageLabel.Text = "請輸入數字!";
             }
         }
 
- 
+
+
     }
-    }
+}
