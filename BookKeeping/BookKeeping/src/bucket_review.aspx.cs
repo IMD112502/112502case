@@ -239,12 +239,6 @@ namespace BookKeeping.src
                     DisplayWindows();
                 }
             }
-
-            
-            
-
         }
-
-
     }
 }
