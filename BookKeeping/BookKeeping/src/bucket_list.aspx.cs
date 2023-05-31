@@ -41,9 +41,9 @@ namespace _BookKeeping
             string sql = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and run_state = \'y\'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id" , user_id);
-            int wish_count = cmd.ExecuteNonQuery();
+            int target_count = cmd.ExecuteNonQuery();
 
-            if (wish_count != 0)
+            if (target_count != 0)
             {
                 //目標內容設定
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -68,7 +68,6 @@ namespace _BookKeeping
                 Target_Background.Controls.Add(target_space);
 
                 //找尚未被選中的願望
-
             }
 
 
