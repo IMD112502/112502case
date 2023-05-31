@@ -24,22 +24,22 @@ namespace _BookKeeping
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// wish_user 控制項。
+        /// WishUser 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label wish_user;
+        protected global::System.Web.UI.WebControls.Label WishUser;
 
         /// <summary>
-        /// wish_textbox 控制項。
+        /// WishTextbox 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wish_textbox;
+        protected global::System.Web.UI.WebControls.TextBox WishTextbox;
 
         /// <summary>
         /// BucAdd 控制項。

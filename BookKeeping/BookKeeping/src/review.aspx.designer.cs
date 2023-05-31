@@ -60,22 +60,22 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
 
         /// <summary>
-        /// yes 控制項。
+        /// Yess 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem yes;
+        protected global::System.Web.UI.WebControls.ListItem Yess;
 
         /// <summary>
-        /// no 控制項。
+        /// Noo 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem no;
+        protected global::System.Web.UI.WebControls.ListItem Noo;
 
         /// <summary>
         /// Panel2 控制項。

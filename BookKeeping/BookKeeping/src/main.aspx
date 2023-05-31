@@ -11,21 +11,21 @@
 <body class="MainBody">
     <form id="Form1" runat="server">
         <asp:Label class="SystemTitle" runat="server" Text="記帳趣" ></asp:Label>
-        <div class="Setting" style="height: 200px; width: 100px;"><%--任務&設定--%>
-            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/setting.png" Height="100px" Width="80px" />
+        <div class="Setting"><%--任務&設定--%>
+            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/setting.png" />
             <br />
-            <asp:ImageButton ID="Ach" runat="server" ImageUrl="images/ach.png" Height="100px" Width="80px"  PostBackUrl="~/src/achievement.aspx" />
+            <asp:ImageButton ID="Ach" runat="server" ImageUrl="images/ach.png" PostBackUrl="~/src/achievement.aspx" />
         </div>
-        <div class="Wishes" style="height: 400px; width: 500px;">
-            <asp:ImageButton ID="Wishes" runat="server" ImageUrl="images/main/h_b_dre.png" Height="369.6px" Width="439.2px" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
-            <asp:ImageButton ID="Bookkeeping" runat="server" ImageUrl="images/main/h_b_boo.png" Height="178.2px" Width="210.6px" PostBackUrl="~/src/add.aspx" /><%--記帳--%>
-            <asp:ImageButton ID="Game" runat="server" ImageUrl="images/main/h_b_game.png" Height="178.2px" Width="210.6px" PostBackUrl="~/src/main.aspx" /><%--記帳--%>
+        <div class="MainRight">
+            <asp:ImageButton ID="Wishes" runat="server" ImageUrl="images/main/h_b_dre.png" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
+            <asp:ImageButton ID="Bookkeeping" runat="server" ImageUrl="images/main/h_b_boo.png" PostBackUrl="~/src/add.aspx" /><%--記帳--%>
+            <asp:ImageButton ID="Game" runat="server" ImageUrl="images/main/h_b_game.png" PostBackUrl="~/src/main.aspx" /><%--記帳--%>
         </div>
         <p style="width: 390px">
-            <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/h_b_clo.png"  Height="695.4px" Width="458.4px" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
+            <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/h_b_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
         </p>
-        <asp:Image ID="Pig" runat="server" ImageUrl="images/pig20.png" Height="525px" Width="750px"/>
-        <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" Height="707px" Width="249px"/>
+        <asp:Image ID="Pig" runat="server" ImageUrl="images/pig20.png" />
+        <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" />
     </form>
 </body>
 </html>
