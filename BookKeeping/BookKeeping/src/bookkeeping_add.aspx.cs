@@ -15,6 +15,8 @@ namespace _BookKeeping
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
             if (!IsPostBack)
             {
                 MySqlConnection conn = DBConnection();
@@ -87,6 +89,7 @@ namespace _BookKeeping
 
 
         protected void Submit_Click(object sender, EventArgs e) {
+
             //資料庫連接
             MySqlConnection conn = DBConnection();
 

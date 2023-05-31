@@ -93,18 +93,17 @@
 			<br />
 			<br />
 			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
-			<input type="date" id="Start" name="date"
-               value="2023-04-20"
-               min="2022-01-01" max="" />
+			<input type="date" id="Start" name="date" value="<%= DateTime.Now.ToString("yyyy-MM-dd") %>"
+				min="2022-01-01" max="" />
 			<script>
-				document.getElementById("Start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
 				var today = new Date().toISOString().split('T')[0];
-                document.getElementById("Start").max = today;
-            </script>
+				document.getElementById("Start").max = today;
+			</script>
 			<br />
 			<br />
 			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox1" runat="server"></asp:TextBox>
+			<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="請輸入金額" ValidationGroup="ValidationGroup1"></asp:RequiredFieldValidator>
 			<br />
 			<br />
 			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
