@@ -14,20 +14,21 @@
         <div class="BookContent">
 		<div class="BookLeft">
 			<div class="BookDate">
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" />
-				<asp:Label ID="Label2" runat="server" Text="2023年4月"></asp:Label>
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" />
+				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
+				<asp:Label ID="Label1" runat="server"></asp:Label>
+				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
+				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
 			</div>
 
-            <div class="BookTable">
-                <asp:GridView class="Gridview" ID="GridView2" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
+			<div class="BookTable">
+				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+					<Columns>
+						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
 						<asp:BoundField DataField="class" HeaderText="類別" />
 						<asp:BoundField DataField="cost" HeaderText="金額" />
-                    </Columns>
-                </asp:GridView>
-            </div>
+					</Columns>
+				</asp:GridView>
+			</div>
 
 			<div class="BookTotal">
 				<asp:Label ID="Label3" runat="server" Text="總收入__元"></asp:Label>
@@ -89,7 +90,7 @@
 			</div>
 			<br />
 			<br />
-			<asp:Label ID="Label1" runat="server" Text="日期"></asp:Label>
+			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
 			<input type="date" id="Start" name="date"
                value="2023-04-20"
                min="2022-01-01" max="" />

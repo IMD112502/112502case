@@ -51,13 +51,10 @@ namespace _BookKeeping
                 string name_amount = reader.GetString(0);
                 string[] wish_values = name_amount.Split(',');
                 Panel target_space = new Panel() { CssClass = "ContentFlexLeft" };
-                Panel target_values = new Panel() { BorderStyle = BorderStyle.Dashed };
-                Label title = new Label() { Text = "目標" };
-                Label target_name = new Label() { Text = wish_values[0]  };
-                Label target_amount = new Label() { Text= wish_values[1] };
-                title.Font.Size = FontUnit.XXLarge;
-                target_name.Font.Size = FontUnit.XXLarge;
-                target_amount.Font.Size = FontUnit.XXLarge;
+                Panel target_values = new Panel() /*{ BorderStyle = BorderStyle.Dashed }*/;
+                Label title = new Label() { Text = "目標" , CssClass= "PickWishTitle" };
+                Label target_name = new Label() { Text = wish_values[0]+"\n" , CssClass = "PickWishText" };
+                Label target_amount = new Label() { Text = wish_values[1]+"元" , CssClass = "PickWishText" };
 
                 Target_Background.Visible = true;
 

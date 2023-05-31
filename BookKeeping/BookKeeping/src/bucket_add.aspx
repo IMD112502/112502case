@@ -13,7 +13,7 @@
         <div class="YMemo MemoStyle">
             <div class="BucWord">
                 <asp:Label ID="WishUser" runat="server" Text="______想要"></asp:Label><br />
-                <asp:TextBox class="TextBoxStyle" ID="WishTextbox" PlaceHolder="請輸入您的願望" runat="server" height="30px" width="250px" style="margin-top: 50px;"></asp:TextBox>
+                <asp:TextBox class="TextBoxStyle" ID="WishTextbox" PlaceHolder="請輸入你的願望" runat="server" height="40px" width="250px" Font-Size="30px" style="margin-top: 50px;"></asp:TextBox>
             </div>
             <div class="BucAddButton">
                 <asp:Button class="ButtonStyle ButtonSize2" ID="BucAdd" runat="server" Text="確認" Onclick="Submit_Click"/>
