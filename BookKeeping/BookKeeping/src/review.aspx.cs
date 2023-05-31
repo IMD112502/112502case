@@ -191,6 +191,12 @@ namespace BookKeeping.src
                     Response.Write("<script>alert('新增成功')</script>");
                     DisplayWindows();
                 }
+                else
+                {
+                    Textbox1.Text = null;
+                    Response.Write("<script>alert('新增失敗')</script>");
+                    DisplayWindows();
+                }
             }
 
             if(selectedValue == "n") 
@@ -213,7 +219,17 @@ namespace BookKeeping.src
                     Response.Write("<script>alert('新增成功')</script>");
                     DisplayWindows();
                 }
+                else 
+                {
+                    Textbox1.Text = null;
+                    Response.Write("<script>alert('新增失敗')</script>");
+                    DisplayWindows();
+                }
             }
+
+            
+            
+
         }
 
 

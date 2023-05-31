@@ -12,10 +12,26 @@
     <form id="form1" class="BucForm" runat="server">
         <div class="WishFlex">
             <div class="PickWish">
+                <asp:Panel ID="Panel3" runat="server" CssClass="ContentFlexLeft">
+                <asp:Label ID="Label5" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large" ></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large"></asp:Label>
                 <asp:Button ID="ChangeWishButton" runat="server" Text="更換目標" />
+                     </asp:Panel>
             </div>
-            <div class="BucFlexRight"></div>
-            <div class="BucFlexRight"></div>
+            <div class="BucFlexRight">
+                <asp:Panel ID="Panel1" runat="server" CssClass="ContentFlexRight">
+                <asp:Label ID="Label1" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large" ></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large"></asp:Label>
+                <asp:Button ID="Button1" runat="server" Text="Button" Height="30px" Width ="100px"/>
+                    </asp:Panel>
+            </div>
+            <div class="BucFlexRight">
+                <asp:Panel ID="Panel2" runat="server" CssClass="ContentFlexRight">
+                <asp:Label ID="Label3" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large" ></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large"></asp:Label>
+                <asp:Button ID="Button2" runat="server" Text="Button" Height="30px" Width ="100px"/>
+                     </asp:Panel>
+            </div>
         </div>
         <asp:ImageButton ID="BucTrashcan" runat="server" ImageUrl="images/dre_gar.png" weight="160.8px" Height="259.8px" PostBackUrl="~/src/buc_trashcan.aspx" /><%--願望垃圾桶--%>
         <asp:ImageButton class="back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" height="80px" width="80px" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
