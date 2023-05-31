@@ -61,9 +61,10 @@ namespace BookKeeping.src
         protected string FindName()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = " + user_id;
+            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = @user_id" ;
             string user_name = string.Empty;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
@@ -79,7 +80,7 @@ namespace BookKeeping.src
             MySqlConnection conn = DBConnection();
             string sql = "SELECT d_name FROM `112-112502`.願望清單\r\nwhere user_id = @user_id and pass_state = \'r\';";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue(user_id, user_id);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
             List<string> list = new List<string>();
             while (reader.Read())
@@ -141,11 +142,11 @@ namespace BookKeeping.src
             string wish_name = label2.Text;
             string userID = "1";
 
-            string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @userID;";
+            string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @user_id;";
 
             MySqlCommand cmd = new MySqlCommand(dNum, conn);
             cmd.Parameters.AddWithValue("@wish_name", wish_name);
-            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@user_id", userID);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             reader.Read();
@@ -165,7 +166,7 @@ namespace BookKeeping.src
                 string sql_target = "SELECT count(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id AND run_state = 'y'";
                 conn.Open();
                 MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
-                cmd_target.Parameters.AddWithValue("@userID", userID);
+                cmd_target.Parameters.AddWithValue("@user_id", userID);
                 MySqlDataReader reader_target = cmd_target.ExecuteReader();
                 reader_target.Read();
                 target_count = Convert.ToInt32(reader_target.GetString(0));

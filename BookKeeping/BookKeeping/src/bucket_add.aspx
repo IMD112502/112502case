@@ -12,7 +12,7 @@
     <form class="BucForm" id="form1" runat="server">
         <div class="YMemo MemoStyle">
             <div class="BucWord">
-                <asp:Label ID="WishUser" runat="server" Text="______想要"></asp:Label><br />
+                <asp:Label ID="WishUser" runat="server" Text=""></asp:Label><br />
                 <asp:TextBox class="TextBoxStyle" ID="WishTextbox" PlaceHolder="請輸入你的願望" runat="server" height="40px" width="250px" Font-Size="30px" style="margin-top: 50px;"></asp:TextBox>
             </div>
             <div class="BucAddButton">

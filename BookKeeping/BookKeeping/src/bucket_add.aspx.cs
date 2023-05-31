@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -21,16 +22,41 @@ namespace _BookKeeping
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            WishUser.Text = FindName()+"想要";             
+
+        }
+
+        protected MySqlConnection DBConnection() 
+        {
+            string connection = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            return conn;
+        }
+
+        protected string FindName()
+        {
+            MySqlConnection conn = DBConnection();
+            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = @user_id";
+            string user_name = string.Empty;
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                int length = reader.GetString(0).Length;
+                user_name = reader.GetString(0).Substring(length - 2);
+            }
+
+            return user_name;
 
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            string connection = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
-            MySqlConnection conn = new MySqlConnection(connection);
-            conn.Open();
+            MySqlConnection conn = DBConnection();  
+            
 
-            string name = "1"; //user_id
             string d_name = WishTextbox.Text;
 
             if (string.IsNullOrWhiteSpace(d_name))//判斷是否為空值
@@ -50,7 +76,7 @@ namespace _BookKeeping
             string sql = "insert into `112-112502`.願望清單(user_id, d_name, pass_state) values (@name, @d_name, 'r')";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@name", user_id);
             cmd.Parameters.AddWithValue("@d_name", d_name);
 
             int rowsaffected = cmd.ExecuteNonQuery();
