@@ -19,6 +19,7 @@
                 <asp:Button class="ButtonStyle ButtonSize2" ID="BucAdd" runat="server" Text="確認" Onclick="Submit_Click"/>
                 <asp:Button class="ButtonStyle ButtonSize2" ID="BucUnadd" runat="server" Text="取消" PostBackUrl="~/src/bucket_list.aspx" />
             </div>
+                <asp:Label ID="ErrorMessage1" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red;font-size:20px"></asp:Label>
         </div>
         
 

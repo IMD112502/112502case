@@ -6,7 +6,7 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>願望審核區</title>
+    <title願望審核區</title>
 </head>
 <body>
     <form class="BucForm" id="form1" runat="server">
@@ -27,10 +27,14 @@
                     <asp:Label ID="label4" runat="server" Text="設定目標為"></asp:Label>
                     <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox1" placeholder="請輸入金額" runat="server" height="30px" width="100px"></asp:TextBox>
                     <asp:Label ID="label5" runat="server" Text="元"></asp:Label>
+                        <br />
+                        <asp:Label ID="ErrorMessagel" runat="server" CssClass="ErrorMessage" style="color:red;font-size:20px" Visible="false"></asp:Label>
                     </asp:Panel>
                     <asp:Panel ID="Panel3" runat="server" Visible="false">
                     <asp:Label ID="label6" runat="server" Text="拒絕原因："></asp:Label><br />
                     <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox2" placeholder="請輸入原因" runat="server" height="30px" width="250px"></asp:TextBox>
+                        <br />
+                    <asp:Label ID="ErrorMessage2" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red;font-size:20px"></asp:Label>
                      </asp:Panel>
                         </div>
                 <asp:Label ID="IndexCount" runat="server" Text="" Visible="false"></asp:Label> 
