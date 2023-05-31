@@ -90,7 +90,8 @@
 			</div>
 			<br />
 			<br />
-			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查看報表" />
+			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查看報表"/>
+			
 		</div>
 		</div>
 	</div>
