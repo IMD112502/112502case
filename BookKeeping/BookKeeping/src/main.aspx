@@ -24,8 +24,8 @@
         <p style="width: 390px">
             <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/h_b_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
         </p>
-        <asp:Image ID="Pig" runat="server" ImageUrl="images/main/pig/pig20.png" />
-         <asp:Label class="PigText" runat="server" Text="目標已達成45/300" ></asp:Label>
+        <asp:Image ID="Pig" runat="server"  />
+         <asp:Label ID="PigProgress" class="PigText" runat="server" Text=" " ></asp:Label>
         <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" />
     </form>
 </body>
