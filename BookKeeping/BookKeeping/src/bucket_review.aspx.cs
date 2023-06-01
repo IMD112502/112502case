@@ -40,6 +40,8 @@ namespace BookKeeping.src
                 label2.Text = "";
                 label3.Text = "";
                 RadioButtonList1.Visible = false;
+                Last.Visible = false;
+                Next.Visible = false;
                 Panel2.Visible = false;
                 Button3.Text = "返回";
                 Button3.Click -= Submit_Click;
