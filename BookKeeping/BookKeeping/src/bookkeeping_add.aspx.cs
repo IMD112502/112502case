@@ -102,6 +102,7 @@ namespace _BookKeeping
             {
                 if (int.TryParse(costInput, out int cost))
                 {
+                    
                     string mark = TextBox2.Text;
                     string category = Request.Form["radio"].ToString();
 
@@ -116,17 +117,22 @@ namespace _BookKeeping
 
                     int rows_affect = cmd.ExecuteNonQuery();
                     if (rows_affect > 0)
-                    {
+                     {
                         TextBox1.Text = null;
                         TextBox2.Text = null;
                         ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
 
                         SearchSelectMonth(conn, date.Month);
-                    }
-                    else 
-                    {
+                     }
+                    else
+                     {
                         ClientScript.RegisterStartupScript(GetType(), "新增失敗", "alert('新增失敗！');", true);
-                    }
+                     }
+                    
+                    
+
+
+                    
 
                     // 重新綁定 GridView 控制項的資料來源
                     

@@ -21,7 +21,6 @@
             </div>
                 <asp:Label ID="ErrorMessage1" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red;font-size:20px"></asp:Label>
         </div>
-        
 
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
