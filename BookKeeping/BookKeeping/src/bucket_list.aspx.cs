@@ -175,7 +175,7 @@ namespace _BookKeeping
                         Panel panel2 = new Panel() { ID = "Panel" + index.ToString() + '1', CssClass = "ContentFlexRight" };
 
 
-                        Button btn = new Button() { CommandArgument = index.ToString(), CssClass = "ButtonStyle", Text = "更改目標" };
+                        Button btn = new Button() { CommandArgument = index.ToString(), CssClass = "ButtonStyle ChangeWishButton", Text = "更改目標" };
                         btn.Click += new EventHandler(ChangeTarget_Click);
 
                         Label label1 = new Label() { Text = untarget[0]  , ID = "Label"+index.ToString() };

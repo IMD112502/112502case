@@ -32,10 +32,10 @@
 				</asp:GridView>
 			</div>
 
-			<div class="BookTotal">
+			<%--<div class="BookTotal">
 				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
 				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
-			</div>
+			</div>--%>
 		</div>
 
 		<div class="BookRight">

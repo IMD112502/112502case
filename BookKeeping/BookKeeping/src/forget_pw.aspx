@@ -13,21 +13,21 @@
         <h1 class="LogTitle">安全問題</h1>
         <div class="ForgetPwdText">
             <asp:Label style="font-size:25px" ID="Label3" runat="server" Text="問題一"></asp:Label>
-            <asp:DropDownList class="DropDownListStyle" ID="DropDownList1" runat="server" Height="25px" Width="200px">
+            <asp:DropDownList class="DropDownList TextBoxStyle" ID="DropDownList1" runat="server" Height="25px" Width="200px">
             </asp:DropDownList>
             <br />
             <asp:Label style="font-size:25px" ID="Label4" runat="server" Text="答案一"></asp:Label>
             <asp:TextBox class="TextBoxStyle" ID="TextBox1" runat="server" Height="25px" Width="193px"></asp:TextBox>
             <br />
             <asp:Label style="font-size:25px" ID="Label5" runat="server" Text="問題二"></asp:Label>
-            <asp:DropDownList class="DropDownListStyle" ID="DropDownList2" runat="server" Height="25px" Width="200px">
+            <asp:DropDownList class="DropDownList TextBoxStyle" ID="DropDownList2" runat="server" Height="25px" Width="200px">
             </asp:DropDownList>
             <br />
             <asp:Label style="font-size:25px" ID="Label6" runat="server" Text="答案二"></asp:Label>
             <asp:TextBox class="TextBoxStyle" ID="TextBox2" runat="server" Height="25px" Width="193px"></asp:TextBox>
             <br />
             <br />
-            <div class="ForButton">
+            <div class="ForgetPwdButton">
                 <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="返回" PostBackUrl="login.aspx"/> 
                 <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" Text="確認" />
             </div>

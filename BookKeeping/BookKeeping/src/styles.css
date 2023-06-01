@@ -50,16 +50,6 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
-.DropDownListStyle { /*下拉式選單樣式*/
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 18px;
-    margin-bottom: 10px;
-    margin-top: 15px;
-    box-shadow: 1px 1px 3px gray;
-}
-
 .Back { /* 返回按鈕 */
     position: fixed;
     bottom: 3px;
@@ -174,23 +164,18 @@ body {
 }
 
 .LogForm {
+    position: absolute;
     text-align: center;
     padding: 20px;
     border-style: solid;
     width: 670px;
     height: 580px;
-    margin-top: 115px;
+    margin-top: 50%;
     margin-left: 50%;
-    transform: translate(-6.7%);
+    transform: translate(-50%, -128%);
 }
 
 /*------------登入------------*/
-.ForgetPwdText {
-    margin-left: 50%;
-    margin-top: 40px;
-    transform: translate(-50%, 0);
-}
-
 .LogTitle {
     margin-top: 20px;
     font-size: 60px;
@@ -207,8 +192,24 @@ body {
 .LogForgetPwd {
     margin-left: 250px;
 }
-
 /*----------登入結束-----------*/
+/*----------忘記密碼-----------*/
+.DropDownList { /* 下拉式選單 */
+    padding: 18px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.ForgetPwdText {
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translate(-50%, -70%);
+}
+
+.ForgetPwdButton { /* 按鈕區塊 */
+    margin-top: 120px;
+}
+/*--------忘記密碼結束---------*/
 /*------------註冊-------------*/
 .RegText {
     margin-left: 50%;
@@ -228,6 +229,7 @@ body {
 }
 
 .RegButton {
+    margin-top: -30px;
     transform: translate(10%, 0);
 }
 /*----------註冊結束-----------*/
@@ -564,6 +566,7 @@ table.Gridview {
 
 .PickWishText {
     font-size: 50px;
+    font-weight: bold;
     color: black;
 }
 
@@ -579,7 +582,7 @@ table.Gridview {
 }
 
 .ContentFlexRight {
-    margin-top: 40px;
+    margin-top: 50px;
     flex-wrap: wrap;
     width: 150px;
     height: 150px;
@@ -598,9 +601,7 @@ table.Gridview {
     justify-content: center;
 }
 
-#ChangeWishButton { /* 更換目標按鈕位置及大小 */
-    position: fixed; /*指定絕對位置*/
-    top: 580px;
+.ChangeWishButton { /* 更換目標按鈕大小 */
     font-size: large;
     height: 40px;
     width: 90px;

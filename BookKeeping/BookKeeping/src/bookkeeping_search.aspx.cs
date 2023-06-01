@@ -14,6 +14,8 @@ namespace _BookKeeping
         protected string user_id = "boa004";
         protected void Page_Load(object sender, EventArgs e)
         {
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
             if (!IsPostBack)
             {
                 MySqlConnection conn = DBConnection();
@@ -37,11 +39,12 @@ namespace _BookKeeping
         {
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + month.ToString() + "月";
-            string sql = "SELECT date, class, cost FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
+            string sql = "SELECT date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", month);
             cmd.Parameters.AddWithValue("@user_id", user_id);
+
             MySqlDataReader reader = cmd.ExecuteReader();
 
 

@@ -24,16 +24,17 @@
 				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
-						<asp:BoundField DataField="class" HeaderText="類別" />
+						<asp:BoundField DataField="class" HeaderText="類別"/>
 						<asp:BoundField DataField="cost" HeaderText="金額" />
+						<asp:BoundField DataField="mark" HeaderText="備註"/>
 					</Columns>
 				</asp:GridView>
 			</div>
 
-			<div class="BookTotal">
+			<%--<div class="BookTotal">
 				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
 				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
-			</div>
+			</div>--%>
 		</div>
 
 		<div class="BookRight">
