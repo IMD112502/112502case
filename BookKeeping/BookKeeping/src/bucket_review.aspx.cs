@@ -94,7 +94,7 @@ namespace BookKeeping.src
             return wish_list;
 
         }
-
+        //切換須審核的願望
         protected void ChangeWish_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -175,6 +175,7 @@ namespace BookKeeping.src
 
                 string sql = null;
 
+                //無目標的話，審核通過的自動預設為目標
                 if (target_count == 0)
                 {
                     sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";

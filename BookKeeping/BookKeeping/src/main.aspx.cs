@@ -29,37 +29,73 @@ namespace BookKeeping.src
             return conn;
         }
 
+        //抓取願望類別的總金額
         protected float GetWishAmount() 
-        { 
+        {
+            float wish_amount = 0;
             MySqlConnection conn = DBConnection();
-            string sql_wish = "SELECT sum(cost) FROM `112-112502`.記帳資料 where user_id = @user_id and class = \"願望\";";
-            MySqlCommand cmd_wish = new MySqlCommand(sql_wish, conn);
-            cmd_wish.Parameters.AddWithValue("@user_id", user_id);
-            MySqlDataReader reader_wish = cmd_wish.ExecuteReader();
-            reader_wish.Read();
-            float wish_amount = reader_wish.GetInt32(0);
-            conn.Close();
+
+            //判斷願望類別是否有資料
+            string sql_count = "SELECT count(*) FROM `112-112502`.記帳資料 where user_id = @user_id and class = \"願望\"";
+            MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
+            cmd_count.Parameters.AddWithValue("@user_id", user_id);
+             MySqlDataReader reader_count = cmd_count.ExecuteReader(); 
+             reader_count.Read();
+             int count =  reader_count.GetInt32(0);
+             conn.Close();
+
+            //抓取願望類別總金額
+            if (count>0) 
+            {
+                conn.Open ();
+                string sql_wish = "SELECT sum(cost) FROM `112-112502`.記帳資料 where user_id = @user_id and class = \"願望\";";
+                MySqlCommand cmd_wish = new MySqlCommand(sql_wish, conn);
+                cmd_wish.Parameters.AddWithValue("@user_id", user_id);
+                MySqlDataReader reader_wish = cmd_wish.ExecuteReader();
+                {
+                    reader_wish.Read();
+                    wish_amount += reader_wish.GetInt32(0);
+                }
+                
+                conn.Close();
+            }
+
+            
+            
 
             return wish_amount;
         }
-
+        //抓取目標願望的金額
         protected float GetTargetAmount()
         {
-            int target_amount = 0;
+            //判斷是否有目標
+            float target_amount = 0;
             MySqlConnection conn = DBConnection();
-            string sql_target = "SELECT pass_amount FROM `112-112502`.願望清單 where user_id = \"boa004\" and pass_state='y'and run_state = 'y' ";
-            MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
-            cmd_target.Parameters.AddWithValue("@user_id", user_id);
-            int rows_affect = cmd_target.ExecuteNonQuery();
+
+            //判斷願望類別是否有資料
+            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y'and run_state = 'y'";
+            MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
+            cmd_count.Parameters.AddWithValue("@user_id", user_id);
+            MySqlDataReader reader_count = cmd_count.ExecuteReader();
+            reader_count.Read();
+            int count = reader_count.GetInt32(0);
             conn.Close();
-            if (rows_affect != 0)
+
+            //抓取目標願望金額
+            if (count > 0) 
             {
+                string sql_target = "SELECT pass_amount FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y'and run_state = 'y' ";
+                MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
+                cmd_target.Parameters.AddWithValue("@user_id", user_id);
                 conn.Open();
                 MySqlDataReader reader_target = cmd_target.ExecuteReader();
                 reader_target.Read();
                 target_amount += reader_target.GetInt32(0);
                 conn.Close();
             }
+
+            
+     
             
             return target_amount;
         }
