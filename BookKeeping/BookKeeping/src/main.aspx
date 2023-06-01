@@ -10,7 +10,7 @@
 </head>
 <body class="MainBody">
     <form id="Form1" runat="server">
-        <asp:Label class="SystemTitle" runat="server" Text="記帳趣" ></asp:Label>
+        <asp:Label ID="title" class="SystemTitle" runat="server" Text="記帳趣" ></asp:Label>
         <div class="Setting"><%--任務&設定--%>
             <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/setting.png" PostBackUrl="~/src/setting.aspx"/>
             <br />
@@ -24,7 +24,7 @@
         <p style="width: 390px">
             <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/h_b_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
         </p>
-        <asp:Image ID="Pig" runat="server"  />
+        <asp:Image ID="Pig" runat="server"   />
          <asp:Label ID="PigProgress" class="PigText" runat="server" Text=" " ></asp:Label>
         <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" />
     </form>
