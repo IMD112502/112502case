@@ -96,9 +96,11 @@
 			<input type="date" id="Start" name="date" value="<%= DateTime.Now.ToString("yyyy-MM-dd") %>"
 				min="2022-01-01" max="" />
 			<script>
-				var today = new Date().toISOString().split('T')[0];
-				document.getElementById("Start").max = today;
-			</script>
+                var tomorrow = new Date()
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                var tomorrowDate = tomorrow.toISOString().split('T')[0];
+                document.getElementById("Start").max = tomorrowDate;
+            </script>
 			<br />
 			<br />
 			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
