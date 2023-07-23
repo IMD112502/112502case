@@ -22,14 +22,20 @@
 			</div>
 
 			<div class="BookTable">
-				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="date, cost" OnRowDeleting="GridView1_RowDeleting">
 					<Columns>
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
 						<asp:BoundField DataField="class" HeaderText="類別"/>
 						<asp:BoundField DataField="cost" HeaderText="金額" />
 						<asp:BoundField DataField="mark" HeaderText="備註"/>
+						<asp:TemplateField>
+							<ItemTemplate>
+								<asp:Button ID="btnDelete" runat="server" Text="刪除" CommandName="Delete" CommandArgument='<%# Eval("date") %>' OnClientClick="return confirm('確定要刪除該筆資料嗎？');" />
+  							</ItemTemplate>
+						</asp:TemplateField>
 					</Columns>
 				</asp:GridView>
+
 			</div>
 
 			<%--<div class="BookTotal">
@@ -99,7 +105,9 @@
                 var tomorrow = new Date()
                 tomorrow.setDate(tomorrow.getDate() + 1);
                 var tomorrowDate = tomorrow.toISOString().split('T')[0];
-                document.getElementById("Start").max = tomorrowDate;
+				document.getElementById("Start").max = tomorrowDate;
+
+                
             </script>
 			<br />
 			<br />
@@ -123,11 +131,3 @@
 	</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
