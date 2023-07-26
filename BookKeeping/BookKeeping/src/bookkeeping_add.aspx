@@ -18,20 +18,29 @@
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"></asp:Label>
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
-				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
+				<%--<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />--%>
 			</div>
 
 			<div class="BookTable">
-				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="date, cost" OnRowDeleting="GridView1_RowDeleting">
-					<Columns>
-						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
+                <asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="date,cost" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
+                    OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating">
+
+                    <Columns>
+                        <asp:BoundField DataField="num" HeaderText="資料號碼" Visible="False" />
+                        <asp:BoundField DataField="date" HeaderText="日期" ReadOnly="True"  DataFormatString="{0:yyyy-MM-dd}" />
 						<asp:BoundField DataField="class" HeaderText="類別"/>
 						<asp:BoundField DataField="cost" HeaderText="金額" />
 						<asp:BoundField DataField="mark" HeaderText="備註"/>
 						<asp:TemplateField>
 							<ItemTemplate>
+							    <asp:Button ID="btnEdit" runat="server" Text="編輯" CommandName="Edit" ToolTip="Edit" CommandArgument='<%# Eval("date") %>'/>
 								<asp:Button ID="btnDelete" runat="server" Text="刪除" CommandName="Delete" CommandArgument='<%# Eval("date") %>' OnClientClick="return confirm('確定要刪除該筆資料嗎？');" />
   							</ItemTemplate>
+							<EditItemTemplate>
+							    <asp:Button ID="btnSave" runat="server" Text="儲存" CommandName="Save" ToolTip="Save" CommandArgument='<%# Eval("date") %>'/>
+								<asp:Button ID="btnCancel" runat="server" Text="取消" CommandName="Cancel" ToolTip="Cancel" CommandArgument='<%# Eval("date") %>'/>
+
+							</EditItemTemplate>
 						</asp:TemplateField>
 					</Columns>
 				</asp:GridView>

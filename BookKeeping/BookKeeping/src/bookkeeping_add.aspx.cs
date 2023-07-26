@@ -55,7 +55,7 @@ namespace _BookKeeping
             int currentMonth = Math.Max(1, Math.Min(DateTime.Now.Month, month));
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + currentMonth.ToString() + "月";
-            string sql = "SELECT date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
+            string sql = "SELECT num, date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", currentMonth);
@@ -164,10 +164,7 @@ namespace _BookKeeping
             }
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -212,5 +209,31 @@ namespace _BookKeeping
 
             conn.Close();
         }
+
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            MySqlConnection conn = DBConnection();
+            GridView1.EditIndex = e.NewEditIndex;
+            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
+            SearchSelectMonth(conn, indexMonth);
+
+        }
+
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            MySqlConnection conn = DBConnection();
+            GridView1.EditIndex = -1;
+            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
+            SearchSelectMonth(conn, indexMonth);
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+
     }
 }
