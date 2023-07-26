@@ -22,7 +22,7 @@
 			</div>
 
 			<div class="BookTable">
-                <asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="date,cost" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
+                <asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="num" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
                     OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating">
 
                     <Columns>

@@ -169,10 +169,10 @@ namespace _BookKeeping
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             // 取得要刪除的資料的主鍵值
-            string dateStr = GridView1.DataKeys[e.RowIndex]["date"].ToString();
-            string category = GridView1.DataKeys[e.RowIndex]["cost"].ToString();
+            string num = GridView1.DataKeys[e.RowIndex]["num"].ToString();
+
             // 執行刪除資料的操作
-            DeleteRecord(dateStr, category);
+            DeleteRecord(num);
 
             // 取得目前顯示的月份
             int currentMonth = Convert.ToInt32(Session["currentMonth"]);
@@ -184,17 +184,17 @@ namespace _BookKeeping
 
 
 
-        protected void DeleteRecord(string recordId, string category)
+
+        protected void DeleteRecord(string num)
         {
             // 資料庫連接
             MySqlConnection conn = DBConnection();
 
-            string sql = "DELETE FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND date = @date and cost = @cost";
+            string sql = "DELETE FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND num = @num";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
-            cmd.Parameters.AddWithValue("@date", DateTime.Parse(recordId).ToString("yyyy-MM-dd"));
-            cmd.Parameters.AddWithValue("@cost", category);
+            cmd.Parameters.AddWithValue("@num", num);
 
             int rowsAffected = cmd.ExecuteNonQuery();
 
