@@ -190,10 +190,9 @@ namespace _BookKeeping
             // 資料庫連接
             MySqlConnection conn = DBConnection();
 
-            string sql = "DELETE FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND num = @num";
+            string sql = "DELETE FROM `112-112502`.記帳資料 WHERE num = @num";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@user_id", user_id);
             cmd.Parameters.AddWithValue("@num", num);
 
             int rowsAffected = cmd.ExecuteNonQuery();
@@ -231,8 +230,57 @@ namespace _BookKeeping
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            MySqlConnection conn = DBConnection();
+            GridViewRow row = GridView1.Rows[e.RowIndex];
 
+            // 取得要編輯的資料的主鍵值
+            string num = GridView1.DataKeys[e.RowIndex]["num"].ToString();
+
+            // 取得編輯後的資料
+            string dateStr = ((TextBox)row.FindControl("txtdate")).Text;
+            string category = ((TextBox)row.FindControl("txtclass")).Text;
+            string costStr = ((TextBox)row.FindControl("txtcost")).Text;
+            string mark = ((TextBox)row.FindControl("txtmark")).Text;
+
+            // 將字串轉換為日期型別
+            DateTime date = DateTime.Parse(dateStr);
+
+            // 將字串轉換為整數型別
+            int cost = int.Parse(costStr);
+
+            // 更新資料庫中的資料
+            string sql = "UPDATE `112-112502`.記帳資料 SET date = @date, class = @category, cost = @cost, mark = @mark WHERE user_id = @user_id AND num = @num";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@category", category);
+            cmd.Parameters.AddWithValue("@cost", cost);
+            cmd.Parameters.AddWithValue("@mark", mark);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
+            cmd.Parameters.AddWithValue("@num", num);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+            {
+                ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('資料已成功更新！');", true);
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(GetType(), "更新失敗", "alert('資料更新失敗！');", true);
+            }
+
+            GridView1.EditIndex = -1;
+
+            // 取得目前顯示的月份
+            int currentMonth = Convert.ToInt32(Session["currentMonth"]);
+
+            // 重新載入該月份的資料
+            SearchSelectMonth(conn, currentMonth);
+
+            conn.Close();
         }
+
 
 
     }
