@@ -140,6 +140,10 @@
     <Content Include="src\bucket_trashcan.aspx" />
     <Content Include="src\dressing_room.aspx" />
     <Content Include="src\forget_pw.aspx" />
+    <Content Include="src\game_junior_menu.aspx" />
+    <Content Include="src\game_main_menu.aspx" />
+    <Content Include="src\game_senior_level.aspx" />
+    <Content Include="src\game_senior_menu.aspx" />
     <Content Include="src\images\ach.png" />
     <Content Include="src\images\ach_bg.png" />
     <Content Include="src\images\back.png" />
@@ -363,6 +367,34 @@
     </Compile>
     <Compile Include="src\forget_pw.aspx.designer.cs">
       <DependentUpon>forget_pw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\game_junior_menu.aspx.cs">
+      <DependentUpon>game_junior_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\game_junior_menu.aspx.designer.cs">
+      <DependentUpon>game_junior_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\game_main_menu.aspx.cs">
+      <DependentUpon>game_main_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\game_main_menu.aspx.designer.cs">
+      <DependentUpon>game_main_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\game_senior_level.aspx.cs">
+      <DependentUpon>game_senior_level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\game_senior_level.aspx.designer.cs">
+      <DependentUpon>game_senior_level.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\game_senior_menu.aspx.cs">
+      <DependentUpon>game_senior_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\game_senior_menu.aspx.designer.cs">
+      <DependentUpon>game_senior_menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

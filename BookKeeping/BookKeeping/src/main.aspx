@@ -19,7 +19,7 @@
         <div class="MainRight">
             <asp:ImageButton ID="Wishes" runat="server" ImageUrl="images/main/h_b_dre.png" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
             <asp:ImageButton ID="Bookkeeping" runat="server" ImageUrl="images/main/h_b_boo.png" PostBackUrl="~/src/bookkeeping_add.aspx" /><%--記帳--%>
-            <asp:ImageButton ID="Game" runat="server" ImageUrl="images/main/h_b_game.png" PostBackUrl="~/src/main.aspx" /><%--記帳--%>
+            <asp:ImageButton ID="Game" runat="server" ImageUrl="images/main/h_b_game.png" PostBackUrl="~/src/game_main_menu.aspx" /><%--記帳--%>
         </div>
         <p style="width: 390px">
             <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/h_b_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>

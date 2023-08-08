@@ -816,3 +816,102 @@ table.Gridview {
     transform: translate(-50%, -50%);
 }
 /*------------------------------------更衣室結束------------------------------------*/
+
+/*------------------------------------小遊戲開始------------------------------------*/
+.GameTopTitle { /*頁面標題*/
+    position: fixed;
+    color: darkcyan;
+    font-size: 60px;
+    left: 46%;
+    top: 60px;
+    font-weight: bold;
+}
+.GameMenuBody { /*小遊戲主畫面背景*/
+    background-image: url('images/dre_bg.png'); /*待修改*/
+    background-size: 900px 650px; /*待修改*/
+    text-align: center;
+}
+.JuniorGame {
+
+}
+.SeniorGame {
+
+}
+.SJGameTitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+.GameFlex {
+    position: fixed; /*指定絕對位置*/
+    top: 300px;
+    left: 550px;
+    display: flex;
+    width: 800px;
+    height: 800px;
+    flex-wrap: wrap; /*多行*/
+    justify-content: space-evenly; /*div置中*/
+}
+#JuniorGameButton {
+    Height: 300px;
+    Width: 300px;
+}
+#SeniorGameButton {
+    Height: 300px;
+    Width: 300px;
+}
+
+.SJGameTopTitle { /*低高年級主頁面標題(開始遊戲&遊戲介紹那邊)*/
+    position: fixed;
+    color: darkcyan;
+    font-size: 70px;
+    left: 46%;
+    top: 60px;
+    font-weight: bold;
+}
+.SJGameMain {
+    position: fixed; /*指定絕對位置*/
+    top: 600px;
+    left: 915px;
+    display: flex;
+    width: 500px;
+    height: 100px;
+    justify-content: space-evenly; /*div置中*/
+    flex-direction: column;
+}
+
+/*=======高年級========*/
+.SGameLevelTitle {
+    position: fixed;
+    color: darkcyan;
+    font-size: 60px;
+    left: 46%;
+    top: 60px;
+    font-weight: bold;
+}
+
+.SGameLevelFlex {
+    position: fixed; /*指定絕對位置*/
+    top: 220px;
+    left: 600px;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    flex-wrap: wrap; /*多行*/
+    justify-content: space-evenly; /*div置中*/
+    align-content: stretch;
+}
+
+.SGameLevelButton {
+    Height: 130px;
+    Width: 130px;
+}
+.SLevelLastNext {
+    position: absolute; /*指定絕對位置*/
+    width: 1050px;
+    left: 51%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+/*=======高年級========*/
+/*------------------------------------小遊戲結束------------------------------------*/
