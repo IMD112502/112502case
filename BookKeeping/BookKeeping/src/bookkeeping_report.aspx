@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bookkeeping_report.aspx.cs" Inherits="_BookKeeping.bookkeeping_report" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -17,18 +19,27 @@
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"></asp:Label>
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
-				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
 			</div>
 
 			<div class="BookTable">
-				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+                <asp:Chart ID="Chart1" runat="server">
+					<Series>
+						<asp:Series Name="Series1" ChartType="Pie">
+							
+						</asp:Series>
+					</Series>
+					<ChartAreas>
+						<asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+					</ChartAreas>
+				</asp:Chart>
+				<%--<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
 						<asp:BoundField DataField="class" HeaderText="類別"/>
 						<asp:BoundField DataField="cost" HeaderText="金額" />
 						<asp:BoundField DataField="mark" HeaderText="備註"/>
 					</Columns>
-				</asp:GridView>
+				</asp:GridView>--%>
 			</div>
 
 			<%--<div class="BookTotal">
@@ -41,7 +52,7 @@
 		<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/bookkeeping_add.aspx" />
 		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
 		<asp:ImageButton class="BookmarkUp ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep1.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
-		<h1 class="BookTitle">報表</h1>
+		<%--<h1 class="BookTitle">報表</h1>
 		<div class="BookChange">
 			<div class="SortContainer">
 				<p>選擇類別</p>
@@ -92,7 +103,7 @@
 			<br />
 			<br />
 			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查看報表"/>
-			
+			--%>
 		</div>
 		</div>
 	</div>

@@ -43,7 +43,6 @@ namespace _BookKeeping
             cmd.Parameters.AddWithValue("@keyword", keyword);
             cmd.Parameters.AddWithValue("@user_id", user_id);
 
-            Label1.Text = sql;
 
             MySqlDataReader reader = cmd.ExecuteReader();
                 

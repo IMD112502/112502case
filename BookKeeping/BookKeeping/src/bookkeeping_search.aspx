@@ -75,7 +75,6 @@
             
         </div>
         </div>
-		<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
 		<asp:ImageButton class="Back" ID="ImageButton2" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
     </form>
