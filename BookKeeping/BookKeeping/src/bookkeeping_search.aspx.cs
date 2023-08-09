@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,12 +19,7 @@ namespace _BookKeeping
 
             if (!IsPostBack)
             {
-                MySqlConnection conn = DBConnection();
-
-                SearchSelectMonth(conn, DateTime.Now.Month);
-
-
-
+                
             }
         }
 
@@ -35,56 +31,65 @@ namespace _BookKeeping
             return connection;
         }
 
-        protected void SearchSelectMonth(MySqlConnection connection, int month)
+        protected void SearchData(string sql , DateTime date , string category , string keyword)
         {
 
-            Label1.Text = DateTime.Now.Year.ToString() + "年" + month.ToString() + "月";
-            string sql = "SELECT date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
-            cmd.Parameters.AddWithValue("@month", month);
+            MySqlConnection conn = DBConnection();
+            
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@category", category);
+            cmd.Parameters.AddWithValue("@keyword", keyword);
             cmd.Parameters.AddWithValue("@user_id", user_id);
 
+            Label1.Text = sql;
+
             MySqlDataReader reader = cmd.ExecuteReader();
+                
 
 
 
             // 將資料繫結到 GridView 控制項上
-            GridView1.DataSource = reader;
-            GridView1.DataBind();
+                SearchView.DataSource = reader;
+                SearchView.DataBind();
 
-            reader.Close();
+                reader.Close();
+
+
+          
         }
-        protected void MinusMonth_Click(object sender, EventArgs e)
+
+        protected void Search_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DBConnection();
-            Button btn = (Button)sender;
-            //邊界值
-            int MinMonth = 1;
-            //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
-            if (indexMonth > MinMonth)
+            string sql = "SELECT num,date, class, cost, mark FROM `112-112502`.記帳資料 where user_id=@user_id and date=@date ";
+
+            DateTime datetime = DateTime.Parse(Request.Form["date"]);
+            DateTime date = datetime.Date;
+
+            string category = DropDownList1.Text;
+
+
+            if (category != "all")
             {
-                indexMonth -= 1;
-                SearchSelectMonth(conn, indexMonth);
+                sql += " ";
+                sql += "and class=@category ";
             }
 
-        }
+            string keyword = TxtBox.Text.Trim();
 
-        protected void PlusMonth_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = DBConnection();
-            Button btn = (Button)sender;
-            //邊界值
-            int MaxMonth = DateTime.Now.Month;
-            //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
-            if (indexMonth < MaxMonth)
+            if (!string.IsNullOrEmpty(keyword))
             {
-                indexMonth += 1;
-                SearchSelectMonth(conn, indexMonth);
+                sql += " ";
+                sql += " and (cost=@keyword or mark=@keyword) ";
             }
 
+           
+
+            SearchData(sql , date , category , keyword);
+
         }
+
+      
     }
 }

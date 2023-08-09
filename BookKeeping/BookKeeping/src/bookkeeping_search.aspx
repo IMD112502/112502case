@@ -14,14 +14,14 @@
         <div class="BookContent">
 		<div class="BookLeft">
 			<div class="BookDate">
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
+				<%--<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"></asp:Label>
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
-				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
+				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />--%>
+<%--				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />--%>
 			</div>
 
 			<div class="BookTable">
-				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+				<asp:GridView class="Gridview" ID="SearchView" runat="server" AutoGenerateColumns="False" DataKeyNames="num" >
 					<Columns>
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
 						<asp:BoundField DataField="class" HeaderText="類別"/>
@@ -44,49 +44,14 @@
 		<h1 class="BookTitle">查詢</h1>
         <div class="BookChange">
             <div class="SortContainer">
-				<p>選擇類別</p>
-				<br />
-				<div class="RadioButtons">
-					<label class="SortRadio">
-						<input type="radio" name="radio" value="願望" checked="checked" />
-						<span class="RadioBtn">
-							<i>v</i>
-							<div class="SortIcon" style="background:url('images/c_dre.png');">
-								<i></i>
-								<h3>願望</h3>
-							</div>
-						</span>
-					</label>
-					<label class="SortRadio">
-						<input type="radio" name="radio" value="飲食" />
-						<span class="RadioBtn">
-							<i>v</i>
-							<div class="SortIcon">
-								<i></i>
-								<h3>飲食</h3>
-							</div>
-						</span>
-					</label>
-					<label class="SortRadio">
-						<input type="radio" name="radio" value="娛樂"/>
-						<span class="RadioBtn">
-							<i>v</i>
-							<div class="SortIcon">
-								<i></i>
-								<h3>娛樂</h3>
-							</div>
-						</span>
-					</label>
-					<label class="SortRadio">
-						<input type="radio" name="radio" value="其他"/>
-						<span class="RadioBtn">
-							<i>v</i>
-							<div class="SortIcon">
-								<i></i>
-								<h3>其他</h3>
-							</div>
-						</span>
-					</label>
+				<asp:DropDownList ID="DropDownList1" runat="server">
+					<asp:ListItem Text="---" Value="all"  />
+					<asp:ListItem Text="願望" Value="願望"  />
+					<asp:ListItem Text="飲食" Value="飲食" />
+					<asp:ListItem Text="娛樂" Value="娛樂" />
+					<asp:ListItem Text="其他" Value="其他" />
+
+				</asp:DropDownList>
 				</div>
 			</div>
 			<br />
@@ -103,13 +68,14 @@
 			<br />
 			<br />
             <asp:Label ID="Label10" runat="server" Text="查詢"></asp:Label>
-            <asp:TextBox class="TextBoxStyle" ID="TextBox4" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
+            <asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
             <br />
 			<br />
-			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" />
+			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" OnClick="Search_Click"/>
             
         </div>
         </div>
+		<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
 		<asp:ImageButton class="Back" ID="ImageButton2" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
     </form>
