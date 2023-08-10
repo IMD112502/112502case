@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Label class="SGameLevelTitle" ID="Label1" runat="server" Text="Label">關卡</asp:Label>
+        <asp:Label class="SJGameLevelTitle" ID="Label1" runat="server" Text="Label">關卡</asp:Label>
         <div class="SGameLevelFlex" >
             <asp:ImageButton class="SGameLevelButton" ID="ImageButton2" runat="server" ImageUrl="images/dre_add_memo.png"/>
             <asp:ImageButton class="SGameLevelButton" ID="ImageButton3" runat="server" ImageUrl="images/dre_add_memo.png"/>

@@ -667,6 +667,14 @@ table.Gridview {
     margin-left: 50%;
 }
 
+#RecordButton {
+    position: absolute; /*指定絕對位置*/
+    width: 100px;
+    left: 68%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
 /*--換頁紐--*/
 .LastNext { /* 區塊 */
     position: absolute; /*指定絕對位置*/
@@ -821,8 +829,8 @@ table.Gridview {
 .GameTopTitle { /*頁面標題*/
     position: fixed;
     color: darkcyan;
-    font-size: 60px;
-    left: 46%;
+    font-size: 70px;
+    left: 45%;
     top: 60px;
     font-weight: bold;
 }
@@ -830,12 +838,6 @@ table.Gridview {
     background-image: url('images/dre_bg.png'); /*待修改*/
     background-size: 900px 650px; /*待修改*/
     text-align: center;
-}
-.JuniorGame {
-
-}
-.SeniorGame {
-
 }
 .SJGameTitle {
     font-size: 40px;
@@ -865,7 +867,7 @@ table.Gridview {
     position: fixed;
     color: darkcyan;
     font-size: 70px;
-    left: 46%;
+    left: 44.2%;
     top: 60px;
     font-weight: bold;
 }
@@ -881,7 +883,7 @@ table.Gridview {
 }
 
 /*=======高年級========*/
-.SGameLevelTitle {
+.SJGameLevelTitle {
     position: fixed;
     color: darkcyan;
     font-size: 60px;
@@ -914,4 +916,36 @@ table.Gridview {
     transform: translate(-50%, -50%);
 }
 /*=======高年級========*/
+
+/*=======低年級========*/
+.JGameLevelButton {
+    Height: 130px;
+    Width: 130px;
+}
+#JGameLevel{
+    font-size: 30px;
+}
+.JGameLevelFlex1 {
+    position: fixed; /*指定絕對位置*/
+    top: 560px;
+    left: 800px;
+    display: flex;
+    width: 600px;
+    height: 400px;
+    flex-wrap: wrap; /*多行*/
+    justify-content: space-evenly; /*div置中*/
+    flex-direction: column; /* 彈性方向:列(縱) */
+}
+.JGameLevelFlex2 {
+    position: fixed; /*指定絕對位置*/
+    top: 560px;
+    left: 350px;
+    display: flex;
+    width: 1200px;
+    height: 500px;
+    flex-wrap: wrap; /*多行*/
+    justify-content: space-evenly; /*div置中*/
+    align-content: stretch;
+}
+/*=======低年級========*/
 /*------------------------------------小遊戲結束------------------------------------*/

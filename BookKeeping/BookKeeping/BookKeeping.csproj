@@ -137,10 +137,12 @@
     <Content Include="src\bookkeeping_search.aspx" />
     <Content Include="src\bucket_add.aspx" />
     <Content Include="src\bucket_list.aspx" />
+    <Content Include="src\bucket_record.aspx" />
     <Content Include="src\bucket_review.aspx" />
     <Content Include="src\bucket_trashcan.aspx" />
     <Content Include="src\dressing_room.aspx" />
     <Content Include="src\forget_pw.aspx" />
+    <Content Include="src\game_junior_level.aspx" />
     <Content Include="src\game_junior_menu.aspx" />
     <Content Include="src\game_main_menu.aspx" />
     <Content Include="src\game_senior_level.aspx" />
@@ -341,6 +343,13 @@
     <Compile Include="src\bucket_list.aspx.designer.cs">
       <DependentUpon>bucket_list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="src\bucket_record.aspx.cs">
+      <DependentUpon>bucket_record.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\bucket_record.aspx.designer.cs">
+      <DependentUpon>bucket_record.aspx</DependentUpon>
+    </Compile>
     <Compile Include="src\bucket_review.aspx.cs">
       <DependentUpon>bucket_review.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -368,6 +377,13 @@
     </Compile>
     <Compile Include="src\forget_pw.aspx.designer.cs">
       <DependentUpon>forget_pw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\game_junior_level.aspx.cs">
+      <DependentUpon>game_junior_level.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\game_junior_level.aspx.designer.cs">
+      <DependentUpon>game_junior_level.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\game_junior_menu.aspx.cs">
       <DependentUpon>game_junior_menu.aspx</DependentUpon>
