@@ -11,6 +11,8 @@
 <body class="BucBody">
     <form id="form1" class="BucForm" runat="server">
         <div id="Target_Space" class="WishFlex" runat="server" >
+            <asp:Label ID="TotalAmountLabel" runat="server" CssClass="TotalAmountLabelStyle"></asp:Label>
+            <asp:Label ID="test" runat="server"  ></asp:Label>
             <asp:Panel ID="Target_Background" runat="server" CssClass="PickWish" Visible="false">
                 <%--<asp:Panel ID="Panel3" runat="server" CssClass="ContentFlexLeft">
                 <asp:Label ID="Label5" runat="server" Text="目標"   Width="150px" Font-Size="XX-Large" ></asp:Label>
@@ -21,7 +23,7 @@
                 <asp:Button class="ButtonStyle" ID="ChangeWishButton" runat="server" Text="更換目標" />
                      </asp:Panel>--%>
             </asp:Panel>
-           <%-- <div class="BucFlexRight">
+            <%-- <div class="BucFlexRight">
                 <asp:Panel ID="Panel1" runat="server" CssClass="ContentFlexRight">
                 <asp:Label ID="Label1" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large" ></asp:Label>
                 <asp:Label ID="Label2" runat="server" Text="Label"   Width="150px" Font-Size="XX-Large"></asp:Label>

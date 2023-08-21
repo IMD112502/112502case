@@ -607,6 +607,12 @@ table.Gridview {
     width: 90px;
 }
 
+.ExchangeButton { /* 兌換按鈕大小 */
+    font-size: large;
+    height: 40px;
+    width: 90px;
+}
+
 #BucTrashcan { /* 垃圾桶按鈕 */
     position: absolute; /*指定絕對位置*/
     top: 632px;

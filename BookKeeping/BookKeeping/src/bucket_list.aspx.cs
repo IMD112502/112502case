@@ -1,13 +1,16 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ZstdSharp.Unsafe;
 
 namespace _BookKeeping
 {
@@ -98,6 +101,8 @@ namespace _BookKeeping
             return connection;
         }
 
+
+
         protected void DisplayWish()
         {
             MySqlConnection conn = DBConnection();
@@ -112,11 +117,32 @@ namespace _BookKeeping
 
             conn.Close();
 
+            conn.Open();
+            string sqlTotalAmount = "SELECT sum(cost) FROM `112-112502`.記帳資料 where class = '願望' and user_id = @user_id";
+            MySqlCommand cmdTotalAmount = new MySqlCommand(sqlTotalAmount, conn);
+            cmdTotalAmount.Parameters.AddWithValue("@user_id", user_id);
+
+            object totalAmountResult = cmdTotalAmount.ExecuteScalar();
+            int totalAmount = 0;
+
+            if (totalAmountResult != null && totalAmountResult != DBNull.Value)
+            {
+                totalAmount = Convert.ToInt32(totalAmountResult);
+            }
+
+            TotalAmountLabel.Text = "總金額：" + totalAmount.ToString() + "元"; // Display the total amount
+            TotalAmountLabel.Visible = false;
+            conn.Close();
+
+
+
             if (target_count != 0)
             {
                 //目標內容設定
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
+
+
                 if (reader.Read())
                 {
                     string name_amount = reader.GetString(0);
@@ -128,6 +154,7 @@ namespace _BookKeeping
                     Label target_name = new Label() { Text = wish_values[0] + "\n", CssClass = "PickWishText", };
                     Label target_amount = new Label() { Text = wish_values[1] + "元", CssClass = "PickWishText" };
 
+                    test.Text = target_name.Text;
 
                     Target_Background.Visible = true;
 
@@ -136,8 +163,21 @@ namespace _BookKeeping
                     target_space.Controls.Add(title);
                     target_space.Controls.Add(target_values);
                     Target_Background.Controls.Add(target_space);
+
+                    int targetAmount = Convert.ToInt32(wish_values[1]); // Assuming wish_values[1] is the target amount
+                    if (totalAmount > targetAmount)
+                    {
+                        // Create and add the exchange button to the target's panel
+                        
+                        Button exchangeButton = new Button() {CssClass = "ButtonStyle ExchangeButton", Text = "兌換" };
+                        exchangeButton.Click += new EventHandler(Exchange_Click);
+                        target_values.Controls.Add(exchangeButton);
+                    }
                 }
+
                 conn.Close();
+
+
 
 
 
@@ -189,6 +229,8 @@ namespace _BookKeeping
                         panel2.Controls.Add(label2);
                         panel2.Controls.Add(btn);
 
+                        
+
                         panel1.Controls.Add(panel2);
 
                         Target_Space.Controls.Add(panel1);
@@ -198,6 +240,23 @@ namespace _BookKeeping
 
                 }
             }
+
+            
         }
+        protected void Exchange_Click(object sender, EventArgs e)
+        {
+            string a = test.Text.ToString();
+            MySqlConnection conn = DBConnection();
+            // Construct the SQL command to update the exchange_state
+            string sqlUpdate = "UPDATE `112-112502`.`願望清單` SET exchange_state = 's' WHERE d_name = @targetName and user_id = @user_id";
+            MySqlCommand cmdUpdate = new MySqlCommand(sqlUpdate, conn);
+            cmdUpdate.Parameters.AddWithValue("@targetName", a);
+            cmdUpdate.Parameters.AddWithValue("@user_id", user_id);
+
+            conn.Close();
+        }
+
+        
+
     }
 }
