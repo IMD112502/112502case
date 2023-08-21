@@ -57,14 +57,24 @@
 			<br />
 			<br />
 			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
-			<input type="date" id="Start" name="date"
+			<asp:DropDownList ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+			<asp:Label ID="YearLabel" runat="server" Text="年"></asp:Label>
+			<asp:DropDownList ID="MonthList" runat="server" OnSelectedIndexChanged="MonthList_SelectedIndexChanged" AutoPostBack="true">
+				<asp:ListItem Text="*" Value="0"  />
+			</asp:DropDownList >
+			<asp:Label ID="MonthLabel" runat="server" Text="月" ></asp:Label>
+			<asp:DropDownList ID="DayList" runat="server">
+				<asp:ListItem Text="*" Value="0"  />
+			</asp:DropDownList>
+			<asp:Label ID="DayLabel" runat="server" Text="日"></asp:Label>
+			<%--<input type="date" id="Start" name="date"
                value="2023-04-20"
                min="2022-01-01" max="" />
 			<script>
                 document.getElementById("Start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
                 var today = new Date().toISOString().split('T')[0];
                 document.getElementById("Start").max = today;
-            </script>
+            </script>--%>
 			<br />
 			<br />
             <asp:Label ID="Label10" runat="server" Text="查詢"></asp:Label>

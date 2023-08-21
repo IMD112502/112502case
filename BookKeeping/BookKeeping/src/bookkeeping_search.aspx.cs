@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +21,18 @@ namespace _BookKeeping
             if (!IsPostBack)
             {
                 
+                //填充年份、月份下拉式選單內容
+                int currentYear = DateTime.Now.Year;
+                for (int y = currentYear; y >= currentYear - 5; y--) 
+                {
+                    YearList.Items.Add(new ListItem(y.ToString(), y.ToString()));
+                }
+                for (int m = 1; m <= 12; m++) 
+                { 
+                    MonthList.Items.Add(new ListItem(m.ToString(), m.ToString()));
+                }
+                
+
             }
         }
 
@@ -89,6 +102,102 @@ namespace _BookKeeping
 
         }
 
-      
+        protected void YearList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int year = Convert.ToInt32(YearList.SelectedIndex);
+            int month = Convert.ToInt32(MonthList.SelectedIndex);
+            int i = 0;
+            bool isLeapYear = false;
+            DayList.Items.Clear();
+            DayList.Items.Add(new ListItem("*", 0.ToString()));
+
+            //判斷閏年
+            if (year % 4 == 0)
+            {
+                if (year % 100 != 0 || year % 400 == 0)
+                {
+                    isLeapYear = true;
+                }
+            }
+
+            //判斷月份的天數
+            if (month != 0) 
+            {
+                if (month == 2 && isLeapYear)
+                {
+                    i = 29;
+                }
+                else if (month == 2)
+                {
+                    i = 28;
+                }
+                else if (month == 4 || month == 6 || month == 9 || month == 11)
+                {
+                    i = 30;
+                }
+                else 
+                {
+                    i = 31;
+                }
+                for (int j = 1; j <= i; j++) 
+                {
+                    DayList.Items.Add(new ListItem(j.ToString(), j.ToString()));
+                }
+            }
+            else
+            {
+                DayList.Items.Add(new ListItem("*", 0.ToString()));
+            }
+
+
+        }
+
+        protected void MonthList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int year = Convert.ToInt32(YearList.SelectedIndex);
+            int month = Convert.ToInt32(MonthList.SelectedIndex);
+            int i = 0;
+            bool isLeapYear = false;
+            DayList.Items.Clear();
+            
+
+            //判斷閏年
+            if (year % 4 == 0)
+            {
+                if (year % 100 != 0 || year % 400 == 0)
+                {
+                    isLeapYear = true;
+                }
+            }
+
+            //判斷月份的天數
+            if (month != 0)
+            {
+                if (month == 2 && isLeapYear)
+                {
+                    i = 29;
+                }
+                else if (month == 2)
+                {
+                    i = 28;
+                }
+                else if (month == 4 || month == 6 || month == 9 || month == 11)
+                {
+                    i = 30;
+                }
+                else
+                {
+                    i = 31;
+                }
+                for (int j = 1; j <= i; j++)
+                {
+                    DayList.Items.Add(new ListItem(j.ToString(), j.ToString()));
+                }
+            }
+            else 
+            {
+                DayList.Items.Add(new ListItem("*", 0.ToString()));
+            }
+        }
     }
 }
