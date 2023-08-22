@@ -44,8 +44,8 @@
 		<h1 class="BookTitle">查詢</h1>
         <div class="BookChange">
             <div class="SortContainer">
-				<asp:DropDownList ID="DropDownList1" runat="server">
-					<asp:ListItem Text="---" Value="all"  />
+				<asp:DropDownList ID="CategoryList" runat="server">
+					<asp:ListItem Text="*" Value="all"  />
 					<asp:ListItem Text="願望" Value="願望"  />
 					<asp:ListItem Text="飲食" Value="飲食" />
 					<asp:ListItem Text="娛樂" Value="娛樂" />
@@ -57,7 +57,7 @@
 			<br />
 			<br />
 			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
-			<asp:DropDownList ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+			<asp:DropDownList ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
 			<asp:Label ID="YearLabel" runat="server" Text="年"></asp:Label>
 			<asp:DropDownList ID="MonthList" runat="server" OnSelectedIndexChanged="MonthList_SelectedIndexChanged" AutoPostBack="true">
 				<asp:ListItem Text="*" Value="0"  />
@@ -82,7 +82,7 @@
             <br />
 			<br />
 			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" OnClick="Search_Click"/>
-            
+			<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
         </div>
         </div>

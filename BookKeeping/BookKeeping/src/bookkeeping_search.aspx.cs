@@ -44,14 +44,16 @@ namespace _BookKeeping
             return connection;
         }
 
-        protected void SearchData(string sql , DateTime date , string category , string keyword)
+        protected void SearchData(string sql , string year , string month , string day  , string category , string keyword)
         {
 
             MySqlConnection conn = DBConnection();
             
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@year", year);
+            cmd.Parameters.AddWithValue("@month", month);
+            cmd.Parameters.AddWithValue("@day", day);
             cmd.Parameters.AddWithValue("@category", category);
             cmd.Parameters.AddWithValue("@keyword", keyword);
             cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -68,18 +70,32 @@ namespace _BookKeeping
 
                 reader.Close();
 
+             
 
           
         }
 
         protected void Search_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT num,date, class, cost, mark FROM `112-112502`.記帳資料 where user_id=@user_id and date=@date ";
+           string sql = "SELECT num,date, class, cost, mark FROM `112-112502`.記帳資料 where user_id=@user_id and year(date)=@year ";
 
-            DateTime datetime = DateTime.Parse(Request.Form["date"]);
-            DateTime date = datetime.Date;
+           string year = YearList.SelectedValue;
+           string month = MonthList.SelectedValue;
+           string day = DayList.SelectedValue;
 
-            string category = DropDownList1.Text;
+           string category =CategoryList.SelectedValue;
+
+            if(month !="0")
+            {
+                sql += " ";
+                sql += "and month(date)=@month";
+            }
+            
+            if (day != "0")
+            {
+                sql += " ";
+                sql += "and day(date)=@day";
+            }
 
 
             if (category != "all")
@@ -98,14 +114,15 @@ namespace _BookKeeping
 
            
 
-            SearchData(sql , date , category , keyword);
+            SearchData(sql , year,month,day , category , keyword);
+            
 
         }
 
         protected void YearList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int year = Convert.ToInt32(YearList.SelectedIndex);
-            int month = Convert.ToInt32(MonthList.SelectedIndex);
+            int year = Convert.ToInt32(YearList.SelectedValue);
+            int month = Convert.ToInt32(MonthList.SelectedValue);
             int i = 0;
             bool isLeapYear = false;
             DayList.Items.Clear();
@@ -144,22 +161,18 @@ namespace _BookKeeping
                     DayList.Items.Add(new ListItem(j.ToString(), j.ToString()));
                 }
             }
-            else
-            {
-                DayList.Items.Add(new ListItem("*", 0.ToString()));
-            }
 
 
         }
 
         protected void MonthList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int year = Convert.ToInt32(YearList.SelectedIndex);
-            int month = Convert.ToInt32(MonthList.SelectedIndex);
+            int year = Convert.ToInt32(YearList.SelectedValue);
+            int month = Convert.ToInt32(MonthList.SelectedValue);
             int i = 0;
             bool isLeapYear = false;
             DayList.Items.Clear();
-            
+            DayList.Items.Add(new ListItem("*", 0.ToString()));
 
             //判斷閏年
             if (year % 4 == 0)
@@ -194,10 +207,7 @@ namespace _BookKeeping
                     DayList.Items.Add(new ListItem(j.ToString(), j.ToString()));
                 }
             }
-            else 
-            {
-                DayList.Items.Add(new ListItem("*", 0.ToString()));
-            }
+           
         }
     }
 }
