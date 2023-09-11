@@ -59,8 +59,8 @@ body {
 }
 /*--------------------------------主畫面---------------------------------------*/
 .MainBody {
-    background-image: url('images/home_bg.png');
-    background-size: 1416px 984px;
+    background-image: url('images/main/home_bg.png');
+    background-size: 50%;
     height: 900px;
     width: 1600px;
 }
@@ -73,49 +73,74 @@ body {
     font-weight: bold;
 }
 
+.ClosetDiv {
+    padding-left: 485px;
+    padding-top: 295px;
+    float: left;
+}
+
 #Closet { /* 衣櫥 */
-    padding-left: 220px;
-    padding-top: 150px;
+    Height: 456.5px;
+    Width: 213.5px;
 }
 
-.MainRight { /* 右半部分區塊 */
-    height: 400px;
-    width: 500px;
-    float: right;
-    padding-top: 70px;
-    padding-right: 20px;
-}
-
-#Closet {
-    Height: 695.4px;
-    Width: 458.4px;
+.WishesDiv {
+    padding-top: 160px;
+    padding-left: 30px;
+    float: left;
 }
 
 #Wishes {
-    Height: 369.6px;
-    Width: 439.2px;
+    Height: 190px;
+    Width: 175.5px;
+}
+
+.RightDiv {
+    float: left;
+}
+
+.AchDiv {
+    padding-top: 210px;
+    padding-left: 210px;
+}
+
+#Ach {
+    Height: 88px;
+    Width: 61px;
+}
+
+.DeckDiv {
+    float: none;
+}
+
+.BookkeepingDiv {
+    padding-top: 230px;
+    padding-left: 110px;
+    float: left;
 }
 
 #Bookkeeping { /* 記帳 */
-    padding-top: 15px;
-    padding-left: 10px;
-    Height: 178.2px;
-    Width: 210.6px;
+    Height: 41px;
+    Width: 133.5px;
+}
+
+.GameDiv {
+    padding-top: 104px;
+    padding-left: 0px;
+    float: left;
 }
 
 #Game { /* 小遊戲 */
-    padding-top: 15px;
-    padding-left: 10px;
-    Height: 178.2px;
-    Width: 210.6px;
+    Height: 215px;
+    Width: 154px;
 }
 
 #Person { /* 人物 */
     position: fixed;
     top: 50%;
     left: 50%;
-    Height: 707px;
-    Width: 249px;
+    Height: 353.5px;
+    Width: 124.5px;
     transform: translate(-85%, -40%);
 }
 
@@ -136,7 +161,7 @@ body {
     font-weight: bold;
 }
 
-.Setting { /* 設定、成就 */
+.Setting { /* 設定 */
     Height: 200px;
     Width: 100px;
     float: right;
@@ -144,7 +169,7 @@ body {
     margin-right: -35px;
 }
 
-#Setting, #Ach {
+#Setting {
     Height: 100px;
     Width: 80px;
 }
@@ -737,6 +762,18 @@ table.Gridview {
 /*-----------願望垃圾桶結束-----------*/
 
 /*-------------願望審核區-------------*/
+.RevPassForm {
+    position: absolute;
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    width: 670px;
+    height: 580px;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -128%);
+}
+
 .NoRev { /* 沒有要審核的願望 */
     position: absolute;
     margin-top: 14%;

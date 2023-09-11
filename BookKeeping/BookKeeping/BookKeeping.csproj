@@ -291,6 +291,7 @@
     <Content Include="src\setting.aspx" />
     <Content Include="src\styles.css" />
     <Content Include="Web.config" />
+    <Content Include="src\bucket_password.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -440,6 +441,13 @@
     </Compile>
     <Compile Include="src\setting.aspx.designer.cs">
       <DependentUpon>setting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\bucket_password.aspx.cs">
+      <DependentUpon>bucket_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\bucket_password.aspx.designer.cs">
+      <DependentUpon>bucket_password.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

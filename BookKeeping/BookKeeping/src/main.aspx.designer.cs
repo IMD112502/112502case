@@ -42,13 +42,13 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.ImageButton Setting;
 
         /// <summary>
-        /// Ach 控制項。
+        /// Closet 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Ach;
+        protected global::System.Web.UI.WebControls.ImageButton Closet;
 
         /// <summary>
         /// Wishes 控制項。
@@ -58,6 +58,15 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton Wishes;
+
+        /// <summary>
+        /// Ach 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton Ach;
 
         /// <summary>
         /// Bookkeeping 控制項。
@@ -76,15 +85,6 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton Game;
-
-        /// <summary>
-        /// Closet 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Closet;
 
         /// <summary>
         /// Pig 控制項。

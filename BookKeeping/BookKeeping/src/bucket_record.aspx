@@ -12,6 +12,16 @@
     <form class="BucForm" id="form1" runat="server">
         <div class="YMemo MemoStyle">
             <asp:Label ID="Label1" runat="server" style="font-size:40px; font-weight: bold;" Text="願望兌換紀錄"></asp:Label><br />
+
+            <asp:GridView class="Gridview" ID="GridView2" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="d_num" HeaderText="編號" />
+                    <asp:BoundField DataField="d_name" HeaderText="名稱" />
+                    <asp:BoundField DataField="pass_amount" HeaderText="金額" />
+                    <asp:BoundField DataField="exchange_time" HeaderText="兌換日期" />
+                </Columns>
+            </asp:GridView>
+
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
