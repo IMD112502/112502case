@@ -22,7 +22,7 @@ namespace _BookKeeping
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) { 
-            DisplayWish();
+               
             }
         }
 
@@ -103,158 +103,162 @@ namespace _BookKeeping
 
 
 
-        protected void DisplayWish()
-        {
-            MySqlConnection conn = DBConnection();
+        //protected void DisplayWish()
+        //{
+        //    MySqlConnection conn = DBConnection();
 
-            //找現有的目標
-            string sql = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = 'y' and run_state = \'y\'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@user_id", user_id);
-            int target_count = cmd.ExecuteNonQuery();
-
-
-
-            conn.Close();
-
-            conn.Open();
-            string sqlTotalAmount = "SELECT sum(cost) FROM `112-112502`.記帳資料 where class = '願望' and user_id = @user_id";
-            MySqlCommand cmdTotalAmount = new MySqlCommand(sqlTotalAmount, conn);
-            cmdTotalAmount.Parameters.AddWithValue("@user_id", user_id);
-
-            object totalAmountResult = cmdTotalAmount.ExecuteScalar();
-            int totalAmount = 0;
-
-            if (totalAmountResult != null && totalAmountResult != DBNull.Value)
-            {
-                totalAmount = Convert.ToInt32(totalAmountResult);
-            }
-
-            TotalAmountLabel.Text = "總金額：" + totalAmount.ToString() + "元"; // Display the total amount
-            TotalAmountLabel.Visible = false;
-            conn.Close();
+        //    //找現有的目標
+        //    string sql = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = 'y' and run_state = \'y\'";
+        //    MySqlCommand cmd = new MySqlCommand(sql, conn);
+        //    cmd.Parameters.AddWithValue("@user_id", user_id);
+        //    int target_count = cmd.ExecuteNonQuery();
 
 
 
-            if (target_count != 0)
-            {
-                //目標內容設定
-                conn.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
+        //    conn.Close();
+
+        //    conn.Open();
+        //    string sqlTotalAmount = "SELECT sum(cost) FROM `112-112502`.記帳資料 where class = '願望' and user_id = @user_id";
+        //    MySqlCommand cmdTotalAmount = new MySqlCommand(sqlTotalAmount, conn);
+        //    cmdTotalAmount.Parameters.AddWithValue("@user_id", user_id);
+
+        //    object totalAmountResult = cmdTotalAmount.ExecuteScalar();
+        //    int totalAmount = 0;
+
+        //    if (totalAmountResult != null && totalAmountResult != DBNull.Value)
+        //    {
+        //        totalAmount = Convert.ToInt32(totalAmountResult);
+        //    }
+
+        //    TotalAmountLabel.Text = "總金額：" + totalAmount.ToString() + "元"; // Display the total amount
+        //    TotalAmountLabel.Visible = false;
+        //    conn.Close();
 
 
-                if (reader.Read())
-                {
-                    string name_amount = reader.GetString(0);
+
+        //    if (target_count != 0)
+        //    {
+        //        //目標內容設定
+        //        conn.Open();
+        //        MySqlDataReader reader = cmd.ExecuteReader();
+
+
+        //        if (reader.Read())
+        //        {
+        //            string name_amount = reader.GetString(0);
                     
-                    string[] wish_values = name_amount.Split(',');
-                    Panel target_space = new Panel() { CssClass = "ContentFlexLeft" };
-                    Panel target_values = new Panel() /*{ BorderStyle = BorderStyle.Dashed }*/;
-                    Label title = new Label() { Text = "目標", CssClass = "PickWishTitle" };
-                    Label target_name = new Label() { Text = wish_values[0] + "\n", CssClass = "PickWishText", };
-                    Label target_amount = new Label() { Text = wish_values[1] + "元", CssClass = "PickWishText" };
+        //            string[] wish_values = name_amount.Split(',');
+        //            Panel target_space = new Panel() { CssClass = "ContentFlexLeft" };
+        //            Panel target_values = new Panel() /*{ BorderStyle = BorderStyle.Dashed }*/;
+        //            Label title = new Label() { Text = "目標", CssClass = "PickWishTitle" };
+        //            Label target_name = new Label() { Text = wish_values[0] + "\n", CssClass = "PickWishText", };
+        //            Label target_amount = new Label() { Text = wish_values[1] + "元", CssClass = "PickWishText" };
 
-                    test.Text = target_name.Text;
+        //            test.Text = target_name.Text;
 
-                    Target_Background.Visible = true;
+        //            Target_Background.Visible = true;
 
-                    target_values.Controls.Add(target_name);
-                    target_values.Controls.Add(target_amount);
-                    target_space.Controls.Add(title);
-                    target_space.Controls.Add(target_values);
-                    Target_Background.Controls.Add(target_space);
+        //            target_values.Controls.Add(target_name);
+        //            target_values.Controls.Add(target_amount);
+        //            target_space.Controls.Add(title);
+        //            target_space.Controls.Add(target_values);
+        //            Target_Background.Controls.Add(target_space);
 
-                    int targetAmount = Convert.ToInt32(wish_values[1]); // Assuming wish_values[1] is the target amount
-                    if (totalAmount > targetAmount)
-                    {
-                        // Create and add the exchange button to the target's panel
+        //            int targetAmount = Convert.ToInt32(wish_values[1]); // Assuming wish_values[1] is the target amount
+        //            if (totalAmount > targetAmount)
+        //            {
+        //                // Create and add the exchange button to the target's panel
                         
-                        Button exchangeButton = new Button() {CssClass = "ButtonStyle ExchangeButton", Text = "兌換" };
-                        exchangeButton.Click += new EventHandler(Exchange_Click);
-                        target_values.Controls.Add(exchangeButton);
-                    }
-                }
+        //                Button exchangeButton = new Button() {CssClass = "ButtonStyle ExchangeButton", Text = "兌換" };
+        //                exchangeButton.Click += new EventHandler(Exchange_Click);
+        //                target_values.Controls.Add(exchangeButton);
+        //            }
+        //        }
 
-                conn.Close();
-
-
+        //        conn.Close();
 
 
 
-                //找尚未被選中的願望
-                conn.Open();
-                string sql_untarget = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = \'y\' and run_state = \'n\'";
-                MySqlCommand cmd_target = new MySqlCommand(sql_untarget, conn);
-                cmd_target.Parameters.AddWithValue("@user_id", user_id);
-                int untarget_count = cmd.ExecuteNonQuery();
-
-                conn.Close();
-
-                if (untarget_count != 0)
-                {
-                    List<string[]> list = new List<string[]>();
-
-                    conn.Open();
-                    MySqlDataReader untarget_reader = cmd_target.ExecuteReader();
-
-                    while (untarget_reader.Read())
-                    {
-                        string data = untarget_reader.GetString(0);
-                        string[] data_split = data.Split(',');
-
-                        list.Add(data_split);
-                    }
-                    conn.Close();
-                    string[][] untargetArray = list.ToArray();
-
-                    int index = 1;
-
-                    foreach (string[] untarget in untargetArray)
-                    {
-                        Panel panel1 = new Panel() { ID = "Panel" + index.ToString(), CssClass = "BucFlexRight" };
-                        Panel panel2 = new Panel() { ID = "Panel" + index.ToString() + '1', CssClass = "ContentFlexRight" };
 
 
-                        Button btn = new Button() { CommandArgument = index.ToString(), CssClass = "ButtonStyle ChangeWishButton", Text = "更改目標" };
-                        btn.Click += new EventHandler(ChangeTarget_Click);
+        //        //找尚未被選中的願望
+        //        conn.Open();
+        //        string sql_untarget = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = \'y\' and run_state = \'n\'";
+        //        MySqlCommand cmd_target = new MySqlCommand(sql_untarget, conn);
+        //        cmd_target.Parameters.AddWithValue("@user_id", user_id);
+        //        int untarget_count = cmd.ExecuteNonQuery();
 
-                        Label label1 = new Label() { Text = untarget[0]  , ID = "Label"+index.ToString() };
-                        Label label2 = new Label() { Text = untarget[1] + "元",  ID = "Label"+index.ToString()+'1' }  ;
+        //        conn.Close();
 
-                        label1.Font.Size = FontUnit.XXLarge;
-                        label2.Font.Size = FontUnit.XXLarge;
+        //        if (untarget_count != 0)
+        //        {
+        //            List<string[]> list = new List<string[]>();
+
+        //            conn.Open();
+        //            MySqlDataReader untarget_reader = cmd_target.ExecuteReader();
+
+        //            while (untarget_reader.Read())
+        //            {
+        //                string data = untarget_reader.GetString(0);
+        //                string[] data_split = data.Split(',');
+
+        //                list.Add(data_split);
+        //            }
+        //            conn.Close();
+        //            string[][] untargetArray = list.ToArray();
+
+        //            int index = 1;
+
+        //            foreach (string[] untarget in untargetArray)
+        //            {
+        //                Panel panel1 = new Panel() { ID = "Panel" + index.ToString(), CssClass = "BucFlexRight" };
+        //                Panel panel2 = new Panel() { ID = "Panel" + index.ToString() + '1', CssClass = "ContentFlexRight" };
 
 
-                        panel2.Controls.Add(label1);
-                        panel2.Controls.Add(label2);
-                        panel2.Controls.Add(btn);
+        //                Button btn = new Button() { CommandArgument = index.ToString(), CssClass = "ButtonStyle ChangeWishButton", Text = "更改目標" };
+        //                btn.Click += new EventHandler(ChangeTarget_Click);
+
+        //                Label label1 = new Label() { Text = untarget[0]  , ID = "Label"+index.ToString() };
+        //                Label label2 = new Label() { Text = untarget[1] + "元",  ID = "Label"+index.ToString()+'1' }  ;
+
+        //                label1.Font.Size = FontUnit.XXLarge;
+        //                label2.Font.Size = FontUnit.XXLarge;
+
+
+        //                panel2.Controls.Add(label1);
+        //                panel2.Controls.Add(label2);
+        //                panel2.Controls.Add(btn);
 
                         
 
-                        panel1.Controls.Add(panel2);
+        //                panel1.Controls.Add(panel2);
 
-                        Target_Space.Controls.Add(panel1);
+        //                Target_Space.Controls.Add(panel1);
 
-                        index++;
-                    }
+        //                index++;
+        //            }
 
-                }
-            }
+        //        }
+        //    }
 
             
-        }
-        protected void Exchange_Click(object sender, EventArgs e)
-        {
-            string a = test.Text.ToString();
-            MySqlConnection conn = DBConnection();
-            // Construct the SQL command to update the exchange_state
-            string sqlUpdate = "UPDATE `112-112502`.`願望清單` SET exchange_state = 's' WHERE d_name = @targetName and user_id = @user_id";
-            MySqlCommand cmdUpdate = new MySqlCommand(sqlUpdate, conn);
-            cmdUpdate.Parameters.AddWithValue("@targetName", a);
-            cmdUpdate.Parameters.AddWithValue("@user_id", user_id);
+        //}
+        //protected void Exchange_Click(object sender, EventArgs e)
+        //{
+        //    string a = test.Text.ToString();
+        //    MySqlConnection conn = DBConnection();
+        //    // Construct the SQL command to update the exchange_state
+        //    string sqlUpdate = "UPDATE `112-112502`.`願望清單` SET exchange_state = 's' WHERE run_state='y' and user_id = @user_id";
+        //    MySqlCommand cmdUpdate = new MySqlCommand(sqlUpdate, conn);
+        //    cmdUpdate.Parameters.AddWithValue("@targetName", a);
+        //    cmdUpdate.Parameters.AddWithValue("@user_id", user_id);
+            
+        //    cmdUpdate.ExecuteNonQuery();
 
-            conn.Close();
-        }
+        //    conn.Close();
+
+            
+        //}
 
         
 
