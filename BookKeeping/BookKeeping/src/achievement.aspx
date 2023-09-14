@@ -24,7 +24,8 @@
                   <asp:Image ID="Image1" runat="server" ImageUrl="images/clothing1.png" />
                   <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
                   <br />
-                  <asp:Label class="AchCon" runat="server" Text="累計記帳11次" ></asp:Label>
+                  <asp:Label class="AchCon" ID="AchCon1" runat="server" Text="累計記帳11次" ></asp:Label>
+                  <asp:Label class="count" ID ="count1" runat="server" ></asp:Label>
                   <br />
                   <asp:Button class="AchButtonGet ButtonStyle" ID="Button3" runat="server" Text="領取" />
                   <br />
@@ -34,9 +35,10 @@
                 </li>
                 <li>
                   <asp:Image ID="Image2" runat="server" ImageUrl="images/clothing2.png" />
-                  <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
+                  <asp:Label class="AchTit"  runat="server" Text="記帳小達人" ></asp:Label>
                   <br />
-                  <asp:Label class="AchCon" runat="server" Text="累計記帳20次" ></asp:Label>
+                  <asp:Label class="AchCon" ID="AchCon2" runat="server" Text="累計記帳20次" ></asp:Label>
+                  <asp:Label class="count" ID ="count2" runat="server" ></asp:Label>
                   <br />
                   <asp:Button class="AchButtonGet ButtonStyle" ID="Button4" runat="server" Text="領取" />
                   <br />
@@ -48,7 +50,8 @@
                   <asp:Image ID="Image3" runat="server" ImageUrl="images/clothing3.png" />
                   <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
                   <br />
-                  <asp:Label class="AchCon" runat="server" Text="累計記帳30次" ></asp:Label>
+                  <asp:Label class="AchCon" ID="AchCon3" runat="server" Text="累計記帳30次" ></asp:Label>
+                    <asp:Label class="count" ID ="count3" runat="server" ></asp:Label>
                   <br />
                   <asp:Button class="AchButtonGet ButtonStyle" ID="Button5" runat="server" Text="領取" />
                   <br />
@@ -60,7 +63,8 @@
                   <asp:Image ID="Image4" runat="server" ImageUrl="images/clothing4.png" />
                   <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
                   <br />
-                  <asp:Label class="AchCon" runat="server" Text="累計記帳40次" ></asp:Label>
+                  <asp:Label class="AchCon" ID="AchCon4" runat="server" Text="累計記帳40次" ></asp:Label>
+                    <asp:Label class="count" ID ="count4" runat="server"  ></asp:Label>
                   <br />
                   <asp:Button class="AchButtonGet ButtonStyle" ID="Button6" runat="server" Text="領取" />
                   <br />

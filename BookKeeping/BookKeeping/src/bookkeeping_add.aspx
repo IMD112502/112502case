@@ -166,7 +166,7 @@
 				min="2022-01-01" max="" />
 			<script>
                 var tomorrow = new Date()
-                tomorrow.setDate(tomorrow.getDate() + 1);
+                tomorrow.setDate(tomorrow.getDate());
                 var tomorrowDate = tomorrow.toISOString().split('T')[0];
 				document.getElementById("Start").max = tomorrowDate;
 

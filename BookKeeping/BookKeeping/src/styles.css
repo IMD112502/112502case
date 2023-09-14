@@ -28,7 +28,7 @@ body {
     .ButtonStyle:hover { /* 鼠標放在按鈕上 */
         background-color: lightseagreen;
     }
-    
+
 .ButtonSize1 { /* 按鈕大小(較寬) */
     width: 150px;
     height: 40px;
@@ -539,14 +539,23 @@ table.Gridview {
     height: 150px;
 }
 
-.AchContent ul li img { /* 成就圖片 */
-    Height: 130px;
-    Width: 130px;
-    float: left;
-    margin-left: -10px;
-    top: 0;
-    left: 0;
-    object-fit: cover;
+    .AchContent ul li img { /* 成就圖片 */
+        Height: 130px;
+        Width: 130px;
+        float: left;
+        margin-left: -10px;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+
+/* 禁用按钮的样式 */
+.DisabledButtonStyle {
+    /* 在这里定义禁用状态下的样式，例如灰色背景和文字颜色 */
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed; /* 鼠标样式为不可用 */
+    /* 还可以添加其他样式属性，以使按钮看起来禁用 */
 }
 /*--------------------------------成就結束------------------------------------*/
 
@@ -877,16 +886,19 @@ table.Gridview {
     top: 60px;
     font-weight: bold;
 }
+
 .GameMenuBody { /*小遊戲主畫面背景*/
     background-image: url('images/dre_bg.png'); /*待修改*/
     background-size: 900px 650px; /*待修改*/
     text-align: center;
 }
+
 .SJGameTitle {
     font-size: 40px;
     font-weight: bold;
     color: black;
 }
+
 .GameFlex {
     position: fixed; /*指定絕對位置*/
     top: 300px;
@@ -897,10 +909,12 @@ table.Gridview {
     flex-wrap: wrap; /*多行*/
     justify-content: space-evenly; /*div置中*/
 }
+
 #JuniorGameButton {
     Height: 300px;
     Width: 300px;
 }
+
 #SeniorGameButton {
     Height: 300px;
     Width: 300px;
@@ -914,6 +928,7 @@ table.Gridview {
     top: 60px;
     font-weight: bold;
 }
+
 .SJGameMain {
     position: fixed; /*指定絕對位置*/
     top: 600px;
@@ -951,6 +966,7 @@ table.Gridview {
     Height: 130px;
     Width: 130px;
 }
+
 .SLevelLastNext {
     position: absolute; /*指定絕對位置*/
     width: 1050px;
@@ -965,9 +981,11 @@ table.Gridview {
     Height: 130px;
     Width: 130px;
 }
-#JGameLevel{
+
+#JGameLevel {
     font-size: 30px;
 }
+
 .JGameLevelFlex1 {
     position: fixed; /*指定絕對位置*/
     top: 560px;
@@ -979,6 +997,7 @@ table.Gridview {
     justify-content: space-evenly; /*div置中*/
     flex-direction: column; /* 彈性方向:列(縱) */
 }
+
 .JGameLevelFlex2 {
     position: fixed; /*指定絕對位置*/
     top: 560px;

@@ -94,6 +94,17 @@ namespace _BookKeeping
 
                 DisplayWishList();
 
+                int rowsaffected = deleteCmd.ExecuteNonQuery();
+
+                if (rowsaffected > 0)//彈出視窗
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "刪除成功", "alert('刪除成功！');", true);
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "刪除失敗", "alert('刪除失敗！');", true);
+                }
+
             }
             else if (e.CommandName == "RedeemWish")
             {
@@ -102,12 +113,25 @@ namespace _BookKeeping
 
                 MySqlConnection conn = DBConnection();
 
-                string deleteQuery = "UPDATE 願望清單 SET run_state = 'r' WHERE d_num = @dNum";
+                string deleteQuery = "UPDATE 願望清單 SET run_state = 'r' , exchange_state = 'Y' WHERE d_num = @dNum";
                 MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
                 deleteCmd.Parameters.AddWithValue("@dNum", dNum);
                 deleteCmd.ExecuteNonQuery();
 
                 DisplayWishList();
+
+                int rowsaffected = deleteCmd.ExecuteNonQuery();
+
+                if (rowsaffected > 0)//彈出視窗
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "兌換成功", "alert('兌換成功！');", true);
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "兌換失敗", "alert('兌換失敗！');", true);
+                }
+
+                
             }
 
 
