@@ -21,76 +21,10 @@ namespace _BookKeeping
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { 
-               
+            if (!IsPostBack)
+            {
+                DisplayWishList();
             }
-        }
-
-        
-
-        protected void ChangeTarget_Click(object sender, EventArgs e)
-        {
-            //MySqlConnection conn = DBConnection();
-
-            //Button btn = (Button)sender;
-            //string btn_cmd = btn.CommandArgument;
-            //Panel text_panel = (Panel)FindControl("Panel" + btn_cmd + '1');
-            //Label text_label = (Label)text_panel.FindControl("Label" + btn_cmd);
-            //Label amount_label = (Label)text_panel.FindControl("Label" + btn_cmd + '1');
-            //string untarget_text = text_label.Text;
-            //int index_amount = amount_label.Text.IndexOf("元");
-            //string amount_text = amount_label.Text.Substring(0, index_amount);
-            //int untarget_amount = Convert.ToInt32(amount_text);
-
-            ////找出現在目標的主索引值，並且撤換
-            //string sql_dnum = "SELECT d_num FROM `112 - 112502`.願望清單 where user_id = @user_id and pass_state = \'y\' and run_state = \'y\';";
-            //MySqlCommand cmd_dnum = new MySqlCommand(sql_dnum,conn);
-            //cmd_dnum.Parameters.AddWithValue("@user_id", user_id);
-            //MySqlDataReader dnum_reader = cmd_dnum.ExecuteReader();
-            //dnum_reader.Read();
-            //int d_num = dnum_reader.GetInt32(0);
-            //conn.Close();
-
-            //string sql_BeUntarget = "UPDATE `112-112502`.`願望清單` SET `run_state` = \'n\' WHERE (`d_num` = @d_num);";
-            //MySqlCommand cmd_BeUntarget = new MySqlCommand(sql_BeUntarget,conn);
-            //cmd_BeUntarget.Parameters.AddWithValue("@d_num", d_num);
-            //int row_affect =  cmd_BeUntarget.ExecuteNonQuery();
-
-            ////確認撤換目標
-            //if (row_affect > 0) 
-            //{ 
-            //    //找出欲更換的目標的主索引值
-            //    conn.Open();
-            //    string sql_Dnum = "SELECT d_num FROM `112-112502`.願望清單  where user_id = @user_id and  d_name = @target_name and pass_amount = @target_amount and pass_state = \'y\' and run_state = \'n\';";
-            //    MySqlCommand cmd_FindDnumTarget = new MySqlCommand(sql_Dnum,conn);
-            //    cmd_FindDnumTarget.Parameters.AddWithValue("@user_id", user_id);
-            //    cmd_FindDnumTarget.Parameters.AddWithValue("@target_name", untarget_text);
-            //    cmd_FindDnumTarget.Parameters.AddWithValue("@target_amount", untarget_amount);
-
-            //    MySqlDataReader reader_dnum = cmd_FindDnumTarget.ExecuteReader();
-
-            //    reader_dnum.Read();
-
-            //    int dNum = reader_dnum.GetInt32(0);
-            //    conn.Close();
-
-            //    //更換目標
-            //    string sql_update = "UPDATE `112-112502`.`願望清單` SET `run_state` = 'y' WHERE (`d_num` = @dNum);";
-            //    MySqlCommand cmd_BeTarget = new MySqlCommand(sql_update, conn);
-            //    cmd_BeTarget.Parameters.AddWithValue("@dNum", dNum);
-
-            //    int update_affect = cmd_BeTarget.ExecuteNonQuery();
-
-            //    if (update_affect > 0) 
-            //    {
-            //        Response.Write("<script>alert('新增成功')</script>");
-            //        DisplayWish();
-            //    }
-
-            //}
-
-
-
         }
 
         protected MySqlConnection DBConnection()
@@ -101,166 +35,86 @@ namespace _BookKeeping
             return connection;
         }
 
+        protected void DisplayWishList()
+        {
+            MySqlConnection conn = DBConnection();
 
 
-        //protected void DisplayWish()
-        //{
-        //    MySqlConnection conn = DBConnection();
-
-        //    //找現有的目標
-        //    string sql = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = 'y' and run_state = \'y\'";
-        //    MySqlCommand cmd = new MySqlCommand(sql, conn);
-        //    cmd.Parameters.AddWithValue("@user_id", user_id);
-        //    int target_count = cmd.ExecuteNonQuery();
-
-
-
-        //    conn.Close();
-
-        //    conn.Open();
-        //    string sqlTotalAmount = "SELECT sum(cost) FROM `112-112502`.記帳資料 where class = '願望' and user_id = @user_id";
-        //    MySqlCommand cmdTotalAmount = new MySqlCommand(sqlTotalAmount, conn);
-        //    cmdTotalAmount.Parameters.AddWithValue("@user_id", user_id);
-
-        //    object totalAmountResult = cmdTotalAmount.ExecuteScalar();
-        //    int totalAmount = 0;
-
-        //    if (totalAmountResult != null && totalAmountResult != DBNull.Value)
-        //    {
-        //        totalAmount = Convert.ToInt32(totalAmountResult);
-        //    }
-
-        //    TotalAmountLabel.Text = "總金額：" + totalAmount.ToString() + "元"; // Display the total amount
-        //    TotalAmountLabel.Visible = false;
-        //    conn.Close();
-
-
-
-        //    if (target_count != 0)
-        //    {
-        //        //目標內容設定
-        //        conn.Open();
-        //        MySqlDataReader reader = cmd.ExecuteReader();
-
-
-        //        if (reader.Read())
-        //        {
-        //            string name_amount = reader.GetString(0);
-                    
-        //            string[] wish_values = name_amount.Split(',');
-        //            Panel target_space = new Panel() { CssClass = "ContentFlexLeft" };
-        //            Panel target_values = new Panel() /*{ BorderStyle = BorderStyle.Dashed }*/;
-        //            Label title = new Label() { Text = "目標", CssClass = "PickWishTitle" };
-        //            Label target_name = new Label() { Text = wish_values[0] + "\n", CssClass = "PickWishText", };
-        //            Label target_amount = new Label() { Text = wish_values[1] + "元", CssClass = "PickWishText" };
-
-        //            test.Text = target_name.Text;
-
-        //            Target_Background.Visible = true;
-
-        //            target_values.Controls.Add(target_name);
-        //            target_values.Controls.Add(target_amount);
-        //            target_space.Controls.Add(title);
-        //            target_space.Controls.Add(target_values);
-        //            Target_Background.Controls.Add(target_space);
-
-        //            int targetAmount = Convert.ToInt32(wish_values[1]); // Assuming wish_values[1] is the target amount
-        //            if (totalAmount > targetAmount)
-        //            {
-        //                // Create and add the exchange button to the target's panel
-                        
-        //                Button exchangeButton = new Button() {CssClass = "ButtonStyle ExchangeButton", Text = "兌換" };
-        //                exchangeButton.Click += new EventHandler(Exchange_Click);
-        //                target_values.Controls.Add(exchangeButton);
-        //            }
-        //        }
-
-        //        conn.Close();
-
-
-
-
-
-        //        //找尚未被選中的願望
-        //        conn.Open();
-        //        string sql_untarget = "SELECT concat(d_name,',',pass_amount) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state = \'y\' and run_state = \'n\'";
-        //        MySqlCommand cmd_target = new MySqlCommand(sql_untarget, conn);
-        //        cmd_target.Parameters.AddWithValue("@user_id", user_id);
-        //        int untarget_count = cmd.ExecuteNonQuery();
-
-        //        conn.Close();
-
-        //        if (untarget_count != 0)
-        //        {
-        //            List<string[]> list = new List<string[]>();
-
-        //            conn.Open();
-        //            MySqlDataReader untarget_reader = cmd_target.ExecuteReader();
-
-        //            while (untarget_reader.Read())
-        //            {
-        //                string data = untarget_reader.GetString(0);
-        //                string[] data_split = data.Split(',');
-
-        //                list.Add(data_split);
-        //            }
-        //            conn.Close();
-        //            string[][] untargetArray = list.ToArray();
-
-        //            int index = 1;
-
-        //            foreach (string[] untarget in untargetArray)
-        //            {
-        //                Panel panel1 = new Panel() { ID = "Panel" + index.ToString(), CssClass = "BucFlexRight" };
-        //                Panel panel2 = new Panel() { ID = "Panel" + index.ToString() + '1', CssClass = "ContentFlexRight" };
-
-
-        //                Button btn = new Button() { CommandArgument = index.ToString(), CssClass = "ButtonStyle ChangeWishButton", Text = "更改目標" };
-        //                btn.Click += new EventHandler(ChangeTarget_Click);
-
-        //                Label label1 = new Label() { Text = untarget[0]  , ID = "Label"+index.ToString() };
-        //                Label label2 = new Label() { Text = untarget[1] + "元",  ID = "Label"+index.ToString()+'1' }  ;
-
-        //                label1.Font.Size = FontUnit.XXLarge;
-        //                label2.Font.Size = FontUnit.XXLarge;
-
-
-        //                panel2.Controls.Add(label1);
-        //                panel2.Controls.Add(label2);
-        //                panel2.Controls.Add(btn);
-
-                        
-
-        //                panel1.Controls.Add(panel2);
-
-        //                Target_Space.Controls.Add(panel1);
-
-        //                index++;
-        //            }
-
-        //        }
-        //    }
-
+            //搜尋願望
+            string wishQuery = "SELECT d_num, d_name, pass_amount FROM 願望清單 WHERE user_id = @user_id AND run_state = 'y'";
+            MySqlCommand cmd = new MySqlCommand(wishQuery, conn);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
             
-        //}
-        //protected void Exchange_Click(object sender, EventArgs e)
-        //{
-        //    string a = test.Text.ToString();
-        //    MySqlConnection conn = DBConnection();
-        //    // Construct the SQL command to update the exchange_state
-        //    string sqlUpdate = "UPDATE `112-112502`.`願望清單` SET exchange_state = 's' WHERE run_state='y' and user_id = @user_id";
-        //    MySqlCommand cmdUpdate = new MySqlCommand(sqlUpdate, conn);
-        //    cmdUpdate.Parameters.AddWithValue("@targetName", a);
-        //    cmdUpdate.Parameters.AddWithValue("@user_id", user_id);
-            
-        //    cmdUpdate.ExecuteNonQuery();
+            //使用Repeater 繫結資料
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                Wish_Repeater.DataSource = reader;
+                Wish_Repeater.DataBind();
+            }
 
-        //    conn.Close();
+        }
+        //檢查是否能兌換願望
+        protected bool IsRedeemVisible(object passAmountObj)
+        {
+            if (passAmountObj == null || passAmountObj == DBNull.Value)
+            {
+                return false;
+            }
 
-            
-        //}
+            int passAmount = Convert.ToInt32(passAmountObj);
+            MySqlConnection conn = DBConnection();
 
-        
+            //計算現有存款
+            string depositQuery = @"
+            SELECT 
+                COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = 'boa004' AND class = '願望'), 0) -
+                COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = 'boa004' AND class = '1'), 0) AS 現有存款";
 
+            MySqlCommand depositCommand = new MySqlCommand(depositQuery, conn);
+
+            // 執行查詢並獲取結果
+            int currentUserAmount = Convert.ToInt32(depositCommand.ExecuteScalar());
+
+            // 檢查是否可以兌換
+            return currentUserAmount >= passAmount;
+        }
+
+        protected void Repeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteWish")
+            {
+                string dNum = e.CommandArgument.ToString();
+
+                MySqlConnection conn = DBConnection();
+
+                string deleteQuery = "UPDATE 願望清單 SET run_state = 'd' WHERE d_num = @dNum";
+                MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
+                deleteCmd.Parameters.AddWithValue("@dNum", dNum);
+                deleteCmd.ExecuteNonQuery();
+
+                DisplayWishList();
+
+            }
+            else if (e.CommandName == "RedeemWish")
+            {
+                // 獲取要兌換的願望的 d_num
+                string dNum = e.CommandArgument.ToString();
+
+                MySqlConnection conn = DBConnection();
+
+                string deleteQuery = "UPDATE 願望清單 SET run_state = 'r' WHERE d_num = @dNum";
+                MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
+                deleteCmd.Parameters.AddWithValue("@dNum", dNum);
+                deleteCmd.ExecuteNonQuery();
+
+                DisplayWishList();
+            }
+
+
+
+
+
+
+        }
     }
 }
