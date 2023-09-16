@@ -87,7 +87,7 @@ namespace _BookKeeping
 
                 MySqlConnection conn = DBConnection();
 
-                string deleteQuery = "UPDATE 願望清單 SET run_state = 'd' WHERE d_num = @dNum";
+                string deleteQuery = "UPDATE 願望清單 SET run_state = 'd' , exchange_state = 'D', exchange_time = now() WHERE d_num = @dNum";
                 MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
                 deleteCmd.Parameters.AddWithValue("@dNum", dNum);
                 deleteCmd.ExecuteNonQuery();
@@ -113,7 +113,7 @@ namespace _BookKeeping
 
                 MySqlConnection conn = DBConnection();
 
-                string deleteQuery = "UPDATE 願望清單 SET run_state = 'r' , exchange_state = 'Y' WHERE d_num = @dNum";
+                string deleteQuery = "UPDATE 願望清單 SET run_state = 'r' , exchange_state = 'Y' , exchange_time = now() WHERE d_num = @dNum";
                 MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
                 deleteCmd.Parameters.AddWithValue("@dNum", dNum);
                 deleteCmd.ExecuteNonQuery();

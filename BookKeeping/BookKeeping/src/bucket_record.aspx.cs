@@ -23,7 +23,7 @@ namespace BookKeeping.src
 
         protected void BucketRecord(MySqlConnection connection)
         {
-            string sql = "SELECT d_num, d_name, pass_amount, exchange_time FROM `112-112502`.願望清單 WHERE user_id = @user_id AND exchange_state = 'Y';";
+            string sql = "SELECT d_num, d_name, pass_amount, exchange_time, exchange_state FROM `112-112502`.願望清單 WHERE user_id = @user_id;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@user_id", user_id);
 
@@ -41,5 +41,18 @@ namespace BookKeeping.src
             MySqlConnection conn = new MySqlConnection(connection);
             return conn;
         }
+
+        protected string GetExchangeStatus(object exchangeState)
+        {
+            if (exchangeState != null && exchangeState.ToString() == "Y")
+            {
+                return "已兌換";
+            }
+            else
+            {
+                return "刪除";
+            }
+        }
+
     }
 }
