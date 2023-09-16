@@ -23,7 +23,7 @@ namespace _BookKeeping
                 MySqlConnection conn = DBConnection();
 
                 GenerateChart(conn, DateTime.Now.Month);
-                
+
 
 
             }
@@ -37,6 +37,38 @@ namespace _BookKeeping
             return connection;
         }
 
+        protected void SearchSelectMonth(MySqlConnection connection, int month)
+        {
+            // 如果有 Session 變數 "currentMonth"，則使用它作為目前顯示的月份
+            if (Session["currentMonth"] != null)
+            {
+                month = Convert.ToInt32(Session["currentMonth"]);
+            }
+            else
+            {
+                // 如果 Session 變數 "currentMonth" 不存在，將當前月份存入 Session 變數中
+                Session["currentMonth"] = month;
+            }
+
+            // 將月份限制在有效範圍內
+            int currentMonth = Math.Max(1, Math.Min(DateTime.Now.Month, month));
+
+            Label1.Text = DateTime.Now.Year.ToString() + "年" + currentMonth.ToString() + "月";
+            string sql = "SELECT num, date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
+            cmd.Parameters.AddWithValue("@month", currentMonth);
+            cmd.Parameters.AddWithValue("@user_id", user_id);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            // 將資料繫結到 GridView 控制項上
+            GridView1.DataSource = reader;
+            GridView1.DataBind();
+
+            reader.Close();
+        }
+
         protected void GenerateChart(MySqlConnection connection, int month)
         {
             string year = DateTime.Now.Year.ToString();
@@ -46,7 +78,7 @@ namespace _BookKeeping
             // 定義四個類別
             string[] categories = { "願望", "飲食", "娛樂", "其他" };
 
-            foreach (string category in categories) 
+            foreach (string category in categories)
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT sum(cost) FROM `112-112502`.記帳資料 WHERE user_id=@user_id AND class=@class AND YEAR(date)=@year AND MONTH(date)=@month", connection);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -59,9 +91,9 @@ namespace _BookKeeping
                 {
                     int cost = Convert.ToInt32(result);
                     Chart1.Series["Series1"].Points.AddXY(category, cost);
-                   
+
                 }
-           
+
             }
             foreach (DataPoint point in Chart1.Series["Series1"].Points)
             {
@@ -104,6 +136,7 @@ namespace _BookKeeping
             }
 
         }
+
 
 
     }

@@ -50,6 +50,16 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
+.DropDownStyle { /* 下拉式選單樣式 */
+    width: 70px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
 .Back { /* 返回按鈕 */
     position: fixed;
     bottom: 3px;

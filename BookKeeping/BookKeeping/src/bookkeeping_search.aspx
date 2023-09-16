@@ -43,46 +43,40 @@
 			<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">查詢</h1>
         <div class="BookChange">
-            <div class="SortContainer">
-				<asp:DropDownList ID="CategoryList" runat="server">
-					<asp:ListItem Text="*" Value="all"  />
-					<asp:ListItem Text="願望" Value="願望"  />
-					<asp:ListItem Text="飲食" Value="飲食" />
-					<asp:ListItem Text="娛樂" Value="娛樂" />
-					<asp:ListItem Text="其他" Value="其他" />
-
-				</asp:DropDownList>
-				</div>
-			</div>
-			<br />
-			<br />
 			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
-			<asp:DropDownList ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
+			<asp:DropDownList class="DropDownStyle" ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
 			<asp:Label ID="YearLabel" runat="server" Text="年"></asp:Label>
-			<asp:DropDownList ID="MonthList" runat="server" OnSelectedIndexChanged="MonthList_SelectedIndexChanged" AutoPostBack="true">
+			<asp:DropDownList class="DropDownStyle" ID="MonthList" runat="server" OnSelectedIndexChanged="MonthList_SelectedIndexChanged" AutoPostBack="true">
 				<asp:ListItem Text="*" Value="0"  />
-			</asp:DropDownList >
+			</asp:DropDownList>
 			<asp:Label ID="MonthLabel" runat="server" Text="月" ></asp:Label>
-			<asp:DropDownList ID="DayList" runat="server">
+			<asp:DropDownList class="DropDownStyle" ID="DayList" runat="server">
 				<asp:ListItem Text="*" Value="0"  />
 			</asp:DropDownList>
 			<asp:Label ID="DayLabel" runat="server" Text="日"></asp:Label>
 			<%--<input type="date" id="Start" name="date"
-               value="2023-04-20"
-               min="2022-01-01" max="" />
+			   value="2023-04-20"
+			   min="2022-01-01" max="" />
 			<script>
-                document.getElementById("Start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
-                var today = new Date().toISOString().split('T')[0];
-                document.getElementById("Start").max = today;
-            </script>--%>
+				document.getElementById("Start").value = '<%= DateTime.Now.ToString("yyyy-MM-dd") %>';
+				var today = new Date().toISOString().split('T')[0];
+				document.getElementById("Start").max = today;
+			</script>--%>
 			<br />
 			<br />
-            <asp:Label ID="Label10" runat="server" Text="查詢"></asp:Label>
-            <asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
-            <br />
+			<asp:Label ID="Label3" runat="server" Text="類別"></asp:Label>
+			<asp:DropDownList class="DropDownStyle" ID="CategoryList" runat="server">
+				<asp:ListItem Text="*" Value="all"  />
+				<asp:ListItem Text="願望" Value="願望"  />
+				<asp:ListItem Text="飲食" Value="飲食" />
+				<asp:ListItem Text="娛樂" Value="娛樂" />
+				<asp:ListItem Text="其他" Value="其他" />
+			</asp:DropDownList>
+			<asp:Label ID="Label10" runat="server" Text="關鍵字"></asp:Label>
+			<asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
+			<br />
 			<br />
 			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" OnClick="Search_Click"/>
-			<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
         </div>
         </div>
