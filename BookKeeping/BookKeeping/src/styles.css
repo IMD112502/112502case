@@ -28,7 +28,7 @@ body {
     .ButtonStyle:hover { /* 鼠標放在按鈕上 */
         background-color: lightseagreen;
     }
-
+    
 .ButtonSize1 { /* 按鈕大小(較寬) */
     width: 150px;
     height: 40px;
@@ -50,16 +50,6 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
-.DropDownStyle { /* 下拉式選單樣式 */
-    width: 70px;
-    height: 30px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
 .Back { /* 返回按鈕 */
     position: fixed;
     bottom: 3px;
@@ -70,15 +60,16 @@ body {
 /*--------------------------------主畫面---------------------------------------*/
 .MainBody {
     background-image: url('images/main/home_bg.png');
-    background-size: 50%;
-    height: 900px;
-    width: 1600px;
+    background-size: 1000px 850px;
+
+    display: flex;
+
 }
 
 .SystemTitle { /* 系統標題 */
     position: fixed;
-    top: 10px;
-    left: 300px;
+    display: flex;
+
     font-size: 90px;
     font-weight: bold;
 }
@@ -195,19 +186,21 @@ body {
 /*--------------------------------登入、註冊---------------------------------------*/
 .LogBody {
     background-image: url('images/log_o_door.png');
-    background-size: 1416px 730.8px;
+    background-size: 1405px 700.8px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
 }
 
 .LogForm {
-    position: absolute;
+    position: fixed;
     text-align: center;
     padding: 20px;
     border-style: solid;
-    width: 670px;
-    height: 580px;
-    margin-top: 50%;
-    margin-left: 50%;
-    transform: translate(-50%, -128%);
+    height: 560px;
+    width: 668px;
 }
 
 /*------------登入------------*/
@@ -229,6 +222,23 @@ body {
 }
 /*----------登入結束-----------*/
 /*----------忘記密碼-----------*/
+.LogBody {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+}
+
+.LogForm {
+    position: fixed;
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    height: 560px;
+    width: 668px;
+}
+
 .DropDownList { /* 下拉式選單 */
     padding: 18px;
     margin-bottom: 10px;
@@ -549,23 +559,14 @@ table.Gridview {
     height: 150px;
 }
 
-    .AchContent ul li img { /* 成就圖片 */
-        Height: 130px;
-        Width: 130px;
-        float: left;
-        margin-left: -10px;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-    }
-
-/* 禁用按钮的样式 */
-.DisabledButtonStyle {
-    /* 在这里定义禁用状态下的样式，例如灰色背景和文字颜色 */
-    background-color: #ccc;
-    color: #888;
-    cursor: not-allowed; /* 鼠标样式为不可用 */
-    /* 还可以添加其他样式属性，以使按钮看起来禁用 */
+.AchContent ul li img { /* 成就圖片 */
+    Height: 130px;
+    Width: 130px;
+    float: left;
+    margin-left: -10px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
 }
 /*--------------------------------成就結束------------------------------------*/
 
@@ -573,56 +574,55 @@ table.Gridview {
 .BucBody {
     background-image: url('images/dre_bg.png');
     background-size: 907px 753.5px;
-    text-align: center;
-}
-
-.BucForm {
-    margin-top: 50%;
-    margin-left: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
 }
 
 .WishFlex { /*flex區塊*/
-    position: fixed; /*指定絕對位置*/
-    top: 200px;
-    left: 550px;
     display: flex;
     width: 700px;
-    height: 570px;
+    height: 580px;
     flex-wrap: wrap; /*多行*/
     justify-content: space-evenly; /*div置中*/
-    flex-direction: column;
+    flex-direction: row;
+    background-color:aquamarine;
 }
 
-.ContentFlexLeft {
+/*.ContentFlexLeft {
     margin-top: 80px;
     flex-wrap: wrap;
     width: 200px;
     height: 250px;
     display: flex;
     justify-content: center;
-}
+}*/
 
-.PickWishTitle {
+/*.PickWishTitle {
     font-size: 40px;
     font-weight: bold;
     color: black;
-}
+}*/
 
-.PickWishText {
+/*.PickWishText {
     font-size: 50px;
     font-weight: bold;
     color: black;
-}
+}*/
 
 .BucFlexRight { /* 單個願望便條 */
     background: url('images/dre_memo.png');
-    background-size: 230px;
+    background-size: 180px;
     background-repeat: no-repeat;
-    width: 230px;
-    height: 230px;
+
+    width: 180px;
+    height: 180px;
     display: flex;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
 }
 
 .ContentFlexRight {
@@ -635,15 +635,15 @@ table.Gridview {
     font-weight: bold;
 }
 
-.PickWish { /* 目標願望便條 */
-    background: url('images/dre_m_memo.png');
+/*.PickWish {*/ /* 目標願望便條 */
+    /*background: url('images/dre_m_memo.png');
     background-size: 400px;
     background-repeat: no-repeat;
     width: 400px;
     height: 400px;
     display: flex;
     justify-content: center;
-}
+}*/
 
 .ChangeWishButton { /* 更換目標按鈕大小 */
     font-size: large;
@@ -896,19 +896,16 @@ table.Gridview {
     top: 60px;
     font-weight: bold;
 }
-
 .GameMenuBody { /*小遊戲主畫面背景*/
     background-image: url('images/dre_bg.png'); /*待修改*/
     background-size: 900px 650px; /*待修改*/
     text-align: center;
 }
-
 .SJGameTitle {
     font-size: 40px;
     font-weight: bold;
     color: black;
 }
-
 .GameFlex {
     position: fixed; /*指定絕對位置*/
     top: 300px;
@@ -919,12 +916,10 @@ table.Gridview {
     flex-wrap: wrap; /*多行*/
     justify-content: space-evenly; /*div置中*/
 }
-
 #JuniorGameButton {
     Height: 300px;
     Width: 300px;
 }
-
 #SeniorGameButton {
     Height: 300px;
     Width: 300px;
@@ -938,7 +933,6 @@ table.Gridview {
     top: 60px;
     font-weight: bold;
 }
-
 .SJGameMain {
     position: fixed; /*指定絕對位置*/
     top: 600px;
@@ -976,7 +970,6 @@ table.Gridview {
     Height: 130px;
     Width: 130px;
 }
-
 .SLevelLastNext {
     position: absolute; /*指定絕對位置*/
     width: 1050px;
@@ -991,11 +984,9 @@ table.Gridview {
     Height: 130px;
     Width: 130px;
 }
-
-#JGameLevel {
+#JGameLevel{
     font-size: 30px;
 }
-
 .JGameLevelFlex1 {
     position: fixed; /*指定絕對位置*/
     top: 560px;
@@ -1007,7 +998,6 @@ table.Gridview {
     justify-content: space-evenly; /*div置中*/
     flex-direction: column; /* 彈性方向:列(縱) */
 }
-
 .JGameLevelFlex2 {
     position: fixed; /*指定絕對位置*/
     top: 560px;
