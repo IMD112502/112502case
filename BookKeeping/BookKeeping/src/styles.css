@@ -50,6 +50,16 @@ body {
     box-shadow: 1px 1px 3px gray;
 }
 
+.DropDownStyle { /* 下拉式選單樣式 */
+    width: 70px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
 .Back { /* 返回按鈕 */
     position: fixed;
     bottom: 3px;
@@ -61,7 +71,6 @@ body {
 .MainBody {
     background-image: url('images/main/home_bg.png');
     background-size: 1000px 850px;
-
     display: flex;
 
 }
@@ -69,8 +78,7 @@ body {
 .SystemTitle { /* 系統標題 */
     position: fixed;
     display: flex;
-
-    font-size: 90px;
+    font-size: 60px;
     font-weight: bold;
 }
 
@@ -162,17 +170,11 @@ body {
     font-weight: bold;
 }
 
-.Setting { /* 設定 */
-    Height: 200px;
-    Width: 100px;
-    float: right;
-    margin-top: 5px;
-    margin-right: -35px;
-}
-
 #Setting {
-    Height: 100px;
-    Width: 80px;
+    Height: 114.6px;
+    Width: 343.2px;
+    float: left;
+    margin-top: 5px;
 }
 
 #Logout {
@@ -461,8 +463,8 @@ table.Gridview {
 
     .RadioBtn .SortIcon { /* 類別圖片 */
         border-radius: 10px;
-        width: 100px;
-        height: 100px;
+        width: 162px;
+        height: 162px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -470,7 +472,7 @@ table.Gridview {
     }
 
         .RadioBtn .SortIcon i {
-            line-height: 80px;
+            line-height: 145px;
             font-size: 60px;
         }
 

@@ -131,7 +131,7 @@
 						<input type="radio" name="radio" value="飲食" />
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon">
+							<div class="SortIcon" style="background:url('images/c_eat.png');">
 								<i></i>
 								<h3>飲食</h3>
 							</div>
@@ -141,7 +141,7 @@
 						<input type="radio" name="radio" value="娛樂"/>
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon">
+							<div class="SortIcon" style="background:url('images/c_play.png');">
 								<i></i>
 								<h3>娛樂</h3>
 							</div>
@@ -151,7 +151,7 @@
 						<input type="radio" name="radio" value="其他"/>
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon">
+							<div class="SortIcon" style="background:url('images/c_other.png');">
 								<i></i>
 								<h3>其他</h3>
 							</div>
