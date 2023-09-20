@@ -14,6 +14,7 @@ namespace _BookKeeping
     public partial class bookkeeping_report : System.Web.UI.Page
     {
         protected string user_id = "boa004";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
@@ -22,12 +23,10 @@ namespace _BookKeeping
             {
                 MySqlConnection conn = DBConnection();
 
-                GenerateChart(conn, DateTime.Now.Month);
-
-
-
+                GenerateChart(conn, DateTime.Now.Month); 
             }
         }
+
 
         protected MySqlConnection DBConnection()
         {
@@ -105,39 +104,64 @@ namespace _BookKeeping
 
 
         }
-        protected void MinusMonth_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = DBConnection();
-            Button btn = (Button)sender;
-            //邊界值
-            int MinMonth = 1;
-            //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
-            if (indexMonth > MinMonth)
-            {
-                indexMonth -= 1;
-                GenerateChart(conn, indexMonth);
-            }
-
-        }
-
         protected void PlusMonth_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = DBConnection();
-            Button btn = (Button)sender;
-            //邊界值
-            int MaxMonth = DateTime.Now.Month;
-            //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
-            if (indexMonth < MaxMonth)
-            {
-                indexMonth += 1;
-                GenerateChart(conn, indexMonth);
-            }
+            // 獲取當前日期
+            DateTime currentDate = DateTime.ParseExact(Label1.Text, "yyyy年M月", System.Globalization.CultureInfo.InvariantCulture);
 
+            // 增加一個月
+            DateTime newDate = currentDate.AddMonths(1);
+
+            // 更新 Label 控件的文本，使用新的日期提取月份
+            Label1.Text = newDate.ToString("yyyy年M月");
+
+            MySqlConnection conn = DBConnection();
+            UpdateGridView(conn, newDate.Month, newDate.Year);
         }
 
+        protected void MinusMonth_Click(object sender, EventArgs e)
+        {
+            // 獲取當前日期
+            DateTime currentDate = DateTime.ParseExact(Label1.Text, "yyyy年M月", System.Globalization.CultureInfo.InvariantCulture);
 
+            // 減少一個月
+            DateTime newDate = currentDate.AddMonths(-1);
 
+            // 更新 Label 控件的文本，使用新的日期提取月份
+            Label1.Text = newDate.ToString("yyyy年M月");
+
+            MySqlConnection conn = DBConnection();
+            UpdateGridView(conn, newDate.Month, newDate.Year);
+        }
+
+        private void UpdateGridView(MySqlConnection connection, int month, int year)
+        {
+            // 使用新的月份和年份來綁定 GridView
+            DataTable dt = GetMonthlyCategoryTotals(connection, month, year);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+
+            // 重新生成圓餅圖
+            GenerateChart(connection, month);
+        }
+
+        protected DataTable GetMonthlyCategoryTotals(MySqlConnection connection, int month, int year)
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT class, SUM(cost) AS total_cost " +
+                           "FROM `112-112502`.記帳資料 " +
+                           "WHERE MONTH(date) = @month AND YEAR(date) = @year " +
+                           "GROUP BY class";
+
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@month", month);
+            cmd.Parameters.AddWithValue("@year", year);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dt);
+
+            return dt;
+        }
     }
 }

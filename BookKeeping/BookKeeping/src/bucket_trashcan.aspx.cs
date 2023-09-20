@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Configuration;
+using System.Diagnostics;
 
 namespace _BookKeeping
 {
@@ -77,6 +78,7 @@ namespace _BookKeeping
 
         protected void Next_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("Next button clicked"); // 或者使用 Response.Write
             currentRowIndex++; // 切换到下一个数据
 
             // 如果 currentRowIndex 超出了总行数，将其重置为0
@@ -87,6 +89,7 @@ namespace _BookKeeping
 
             ShowCannotBuyReason();
         }
+
 
         protected void Last_Click(object sender, EventArgs e)
         {
