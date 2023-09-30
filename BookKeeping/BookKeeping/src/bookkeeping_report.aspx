@@ -22,6 +22,7 @@
 				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
 			</div>
 
+			<h1 class="BookTitle">本月類別統計</h1>
 			<div class="BookTable">
 				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>

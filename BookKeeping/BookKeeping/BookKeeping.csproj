@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\achievement.aspx" />
+    <Content Include="src\avatar.aspx" />
     <Content Include="src\bookkeeping_add.aspx" />
     <Content Include="src\bookkeeping_edit.aspx" />
     <Content Include="src\bookkeeping_report.aspx" />
@@ -292,6 +293,7 @@
     <Content Include="src\main.aspx" />
     <Content Include="src\register.aspx" />
     <Content Include="src\setting.aspx" />
+    <Content Include="src\setting_edit.aspx" />
     <Content Include="src\styles.css" />
     <Content Include="Web.config" />
     <Content Include="src\bucket_password.aspx" />
@@ -304,6 +306,13 @@
     </Compile>
     <Compile Include="src\achievement.aspx.designer.cs">
       <DependentUpon>achievement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\avatar.aspx.cs">
+      <DependentUpon>avatar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\avatar.aspx.designer.cs">
+      <DependentUpon>avatar.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\bookkeeping_add.aspx.cs">
       <DependentUpon>bookkeeping_add.aspx</DependentUpon>
@@ -451,6 +460,13 @@
     </Compile>
     <Compile Include="src\bucket_password.aspx.designer.cs">
       <DependentUpon>bucket_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\setting_edit.aspx.cs">
+      <DependentUpon>setting_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\setting_edit.aspx.designer.cs">
+      <DependentUpon>setting_edit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

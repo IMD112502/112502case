@@ -40,6 +40,12 @@ body {
     height: 60px;
 }
 
+.ButtonSize3 { /* 按鈕大小(小方塊) */
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+}
+
 .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
     width: 150px;
     height: 25px;
@@ -73,13 +79,6 @@ body {
     background-size: 1000px 850px;
     display: flex;
 
-}
-
-.SystemTitle { /* 系統標題 */
-    position: fixed;
-    display: flex;
-    font-size: 60px;
-    font-weight: bold;
 }
 
 .ClosetDiv {
@@ -185,6 +184,119 @@ body {
 }
 
 /*--------------------------------主畫面結束---------------------------------------*/
+/*-----------------------------------設定------------------------------------------*/
+.SetBody {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+}
+
+.SetForm {
+    position: fixed;
+    text-align: left;
+    padding: 80px;
+    background-color: #95CACA;
+    height: 500px;
+    width: 900px;
+    border-radius: 30px;
+    border-style: solid;
+    font-size: 40px;
+    line-height: 70px;
+    font-weight: bold;
+}
+
+.SetTitle {
+    font-size: 70px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.SetContent {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translate(0, -50%);
+}
+
+.AvatarSmall {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}
+
+    .AvatarSmall:hover { /* 鼠標放在按鈕上 */
+        width: 120px;
+        height: 120px;
+    }
+
+.Ava {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+}
+
+.Avatar {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+}
+
+    .Avatar:hover { /* 鼠標放在按鈕上 */
+        width: 330px;
+        height: 330px;
+    }
+
+#Xx {
+    position: absolute;
+    top: 10%;
+    left: 93.5%;
+    transform: translate(-50%, -50%);
+}
+
+#Logout, #GoBack {
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
+#EditOk {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.SetTextBoxStyle {
+    width: 150px;
+    height: 40px;
+    width: 350px;
+    font-size: 40px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    box-shadow: 1px 1px 3px gray;
+}
+
+#Clear {
+    position: absolute;
+    top: 90%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+}
+
+/*---------------------------------設定結束----------------------------------------*/
 /*--------------------------------登入、註冊---------------------------------------*/
 .LogBody {
     background-image: url('images/log_o_door.png');
