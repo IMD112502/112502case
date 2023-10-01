@@ -7,9 +7,25 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>成就</title>
+    <style>
+        /* 添加進度條的樣式 */
+        .progress {
+            width: 30%;
+            height: 20px;
+            background-color: #ccc;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+        }
+    </style>
 </head>
 <body class="AchBody">
     <form id="Form1" runat="server">
+
         <div class="AchHeader">
             <h1><asp:Label class="AchTopTitle" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
             <div class="AchTopButton">
@@ -18,7 +34,7 @@
             </div>
         </div>
 
-        <div class="AchContent">
+        <%--<div class="AchContent">
             <ul>
                 <li>
                   <asp:Image ID="Image1" runat="server" ImageUrl="images/clothing1.png" />
@@ -30,50 +46,32 @@
                   <asp:Button class="AchButtonGet ButtonStyle" ID="Button3" runat="server" Text="領取" />
                   <br />
                   <div class="Literal">
-                  <asp:Literal ID="Literal1" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
-                  </div>
-                </li>
-                <li>
-                  <asp:Image ID="Image2" runat="server" ImageUrl="images/clothing2.png" />
-                  <asp:Label class="AchTit"  runat="server" Text="記帳小達人" ></asp:Label>
-                  <br />
-                  <asp:Label class="AchCon" ID="AchCon2" runat="server" Text="累計記帳20次" ></asp:Label>
-                  <asp:Label class="count" ID ="count2" runat="server" ></asp:Label>
-                  <br />
-                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button4" runat="server" Text="領取" />
-                  <br />
-                  <div class="Literal">
-                  <asp:Literal ID="Literal2" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
-                  </div>
-                </li>
-                <li>
-                  <asp:Image ID="Image3" runat="server" ImageUrl="images/clothing3.png" />
-                  <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
-                  <br />
-                  <asp:Label class="AchCon" ID="AchCon3" runat="server" Text="累計記帳30次" ></asp:Label>
-                    <asp:Label class="count" ID ="count3" runat="server" ></asp:Label>
-                  <br />
-                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button5" runat="server" Text="領取" />
-                  <br />
-                  <div class="Literal">
-                  <asp:Literal ID="Literal3" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
-                  </div>
-                </li>
-                <li>
-                  <asp:Image ID="Image4" runat="server" ImageUrl="images/clothing4.png" />
-                  <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
-                  <br />
-                  <asp:Label class="AchCon" ID="AchCon4" runat="server" Text="累計記帳40次" ></asp:Label>
-                    <asp:Label class="count" ID ="count4" runat="server"  ></asp:Label>
-                  <br />
-                  <asp:Button class="AchButtonGet ButtonStyle" ID="Button6" runat="server" Text="領取" />
-                  <br />
-                  <div class="Literal">
-                  <asp:Literal ID="Literal4" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal><%--literal控制項可以寫html語法--%>
-                  </div>
-                </li>
-            </ul>
-        </div>
+                  <asp:Literal ID="Literal1" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal>
+                </div>
+                    </li>--%>
+                
+               <asp:Repeater ID="TaskRepeater" runat="server">
+                <ItemTemplate>
+                    <div>
+                        <!-- 左側圖片（可自行添加圖片的URL） -->
+                        <img src="your_image_url.jpg" alt="Task Image" />
+
+                        <!-- 任務主題 -->
+                        <h3><%# Eval("TaskName") %></h3>
+
+                        <!-- 任務內容 -->
+                        <p><%# Eval("TaskDescription") %></p>
+
+                        <!-- 進度條 -->
+                        <div class="progress">
+                            <div class="progress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
+                        </div>
+
+                        <!-- 領取按鈕（僅在達成條件時顯示） -->
+                        <asp:Button  class="AchButtonGet ButtonStyle"  ID="ClaimButton" runat="server" Text="領取" CommandName="ClaimTask" CommandArgument='<%# Eval("TaskID") %>' Visible='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) %>' OnClick="ClaimButton_Click" />
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
     </form>
 </body>
