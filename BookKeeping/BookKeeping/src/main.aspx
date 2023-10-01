@@ -9,34 +9,25 @@
     <title>主畫面</title>
 </head>
 <body class="MainBody">
-    <form id="Form1" runat="server">
+    <form class="MainForm" id="Form1" runat="server">
+        <asp:Label ID="userid" runat="server"></asp:Label>
         <div class="Setting"><%--使用者設定--%>
             <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/user_set.png" PostBackUrl="~/src/setting.aspx"/>
+            <asp:Image ID="Head" runat="server" ImageUrl="images/avatar/ava_girl.png" /><%--人物--%>
+            <asp:Label ID="NickName" runat="server">王小明</asp:Label>
+            <asp:Label ID="UId" runat="server">ID:abcdefg</asp:Label>
         </div>
-            <asp:Label ID="userid" runat="server"></asp:Label>
-        <div class="ClosetDiv">
-            <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/home_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
-        </div>
-        <div class="WishesDiv">
-            <asp:ImageButton ID="Wishes" runat="server" ImageUrl="images/main/home_dre.png" PostBackUrl="~/src/bucket_list.aspx" /><%--願望清單--%>
-        </div>
-        <div class="RightDiv">
-            <div class="AchDiv">
-                <asp:ImageButton ID="Ach" runat="server" ImageUrl="images/main/home_ach.png" PostBackUrl="~/src/achievement.aspx" />
-            </div>
-            <div class="DeskDiv">
-                <div class="BookkeepingDiv">
-                    <asp:ImageButton ID="Bookkeeping" runat="server" ImageUrl="images/main/home_boo.png" PostBackUrl="~/src/bookkeeping_add.aspx" /><%--記帳--%>
-                </div>
-                <div class="GameDiv">
-                    <asp:ImageButton ID="Game" runat="server" ImageUrl="images/main/home_game.png" PostBackUrl="~/src/game_main_menu.aspx" /><%--記帳--%>
-                </div>
-            </div>
-        </div>
+        <asp:Button ID="Closet" runat="server" PostBackUrl="~/src/dressing_room.aspx"/><%--更衣室--%>
+        <asp:Button ID="Wishes" runat="server" PostBackUrl="~/src/bucket_list.aspx"/><%--願望清單--%>
+        <asp:Button ID="Ach" runat="server" PostBackUrl="~/src/achievement.aspx"/><%--成就--%>
+        <asp:Button ID="Game" runat="server" PostBackUrl="~/src/game_main_menu.aspx"/><%--小遊戲--%>
+        <asp:Button ID="Bookkeeping" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--記帳--%>
+
+        <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" /><%--人物--%>
+        <asp:Button ID="ChatBot" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--小幫手--%>
 
         <asp:Image ID="Pig" runat="server"   />
-         <asp:Label ID="PigProgress" class="PigText" runat="server" Text=" " ></asp:Label>
-        <asp:Image ID="Person" runat="server" ImageUrl="images/person.png" />
+        <asp:Label ID="PigProgress" class="PigText" runat="server" Text=" " ></asp:Label>
     </form>
 </body>
 </html>

@@ -28,7 +28,7 @@ body {
     .ButtonStyle:hover { /* 鼠標放在按鈕上 */
         background-color: lightseagreen;
     }
-    
+
 .ButtonSize1 { /* 按鈕大小(較寬) */
     width: 150px;
     height: 40px;
@@ -75,81 +75,173 @@ body {
 }
 /*--------------------------------主畫面---------------------------------------*/
 .MainBody {
-    background-image: url('images/main/home_bg.png');
-    background-size: 1000px 850px;
+    margin: auto;
     display: flex;
-
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
 }
 
-.ClosetDiv {
-    padding-left: 485px;
-    padding-top: 295px;
-    float: left;
+.MainForm {
+    background-image: url('images/main/home_bg.png');
+    background-size: 1047px 877.2px;
+    position: fixed;
+    text-align: center;
+    height: 877.2px;
+    width: 1047px;
 }
 
-#Closet { /* 衣櫥 */
-    Height: 456.5px;
-    Width: 213.5px;
+#Closet { /* 更衣室 */
+    background-color: transparent;
+    background-image: url('images/main/home_clo.png');
+    background-size: 256.2px 547.8px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    Height: 547.8px; /* 原圖0.6倍 */
+    Width: 256.2px; /* 原圖0.6倍 */
+    top: 55%;
+    left: 0%;
+    transform: translate(0, -50%);
 }
 
-.WishesDiv {
-    padding-top: 160px;
-    padding-left: 30px;
-    float: left;
+    #Closet:hover {
+        background-image: url('images/main/home_clo_2.png');
+        background-size: 277.55px 623.35px;
+        border: none;
+        Height: 623.35px; /* 原圖0.65倍 */
+        Width: 277.55px; /* 原圖0.65倍 */
+        top: 55%;
+        left: 0%;
+    }
+
+#Wishes { /* 願望清單 */
+    background-color: transparent;
+    background-image: url('images/main/home_dre.png');
+    background-size: 210.6px 228px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    Height: 228px; /* 原圖0.6倍 */
+    Width: 210.6px; /* 原圖0.6倍 */
+    top: 25%;
+    left: 37%;
+    transform: translate(-50%, -50%);
 }
 
-#Wishes {
-    Height: 190px;
-    Width: 175.5px;
+    #Wishes:hover {
+        background-image: url('images/main/home_dre_2.png');
+        background-size: 228.15px 316.55px;
+        border: none;
+        Height: 316.55px; /* 原圖0.65倍 */
+        Width: 228.15px; /* 原圖0.65倍 */
+        top: 22%;
+        left: 37%;
+    }
+
+#Ach { /* 成就 */
+    background-color: transparent;
+    background-image: url('images/main/home_ach.png');
+    background-size: 73.2px 105.6px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    Height: 105.6px; /* 原圖0.6倍 */
+    Width: 73.2px; /* 原圖0.6倍 */
+    top: 23%;
+    left: 70%;
+    transform: translate(-50%, -50%);
 }
 
-.RightDiv {
-    float: left;
+    #Ach:hover {
+        background-image: url('images/main/home_ach_2.png');
+        background-size: 94.9px 158.6px;
+        border: none;
+        Height: 158.6px; /* 原圖0.65倍 */
+        Width: 94.9px; /* 原圖0.65倍 */
+        top: 20.5%;
+        left: 70.8%;
+    }
+
+#Bookkeeping { /* 成就 */
+    background-color: transparent;
+    background-image: url('images/main/home_boo.png');
+    background-size: 160.2px 49.2px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    Height: 49.2px; /* 原圖0.6倍 */
+    Width: 160.2px; /* 原圖0.6倍 */
+    top: 61%;
+    left: 65%;
+    transform: translate(-50%, -50%);
 }
 
-.AchDiv {
-    padding-top: 210px;
-    padding-left: 210px;
-}
-
-#Ach {
-    Height: 88px;
-    Width: 61px;
-}
-
-.DeckDiv {
-    float: none;
-}
-
-.BookkeepingDiv {
-    padding-top: 230px;
-    padding-left: 110px;
-    float: left;
-}
-
-#Bookkeeping { /* 記帳 */
-    Height: 41px;
-    Width: 133.5px;
-}
-
-.GameDiv {
-    padding-top: 104px;
-    padding-left: 0px;
-    float: left;
-}
+    #Bookkeeping:hover {
+        background-image: url('images/main/home_boo_2.png');
+        background-size: 186.9px 100.8px;
+        border: none;
+        Height: 100.8px; /* 原圖0.7倍 */
+        Width: 186.9px; /* 原圖0.7倍 */
+        top: 58.8%;
+        left: 65.5%;
+    }
 
 #Game { /* 小遊戲 */
-    Height: 215px;
-    Width: 154px;
+    background-color: transparent;
+    background-image: url('images/main/home_game.png');
+    background-size: 184.8px 258px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    Height: 258px; /* 原圖0.6倍 */
+    Width: 184.8px; /* 原圖0.6倍 */
+    top: 55%;
+    left: 79%;
+    transform: translate(-50%, -50%);
 }
 
+    #Game:hover {
+        background-image: url('images/main/home_game_2.png');
+        background-size: 200.2px 318.5px;
+        border: none;
+        Height: 318.5px; /* 原圖0.65倍 */
+        Width: 200.2px; /* 原圖0.65倍 */
+        top: 53%;
+        left: 79%;
+    }
+
+#ChatBot { /* 聊天機器人 */
+    background-color: transparent;
+    background-image: url('images/main/home_chatbot.png');
+    background-size: 41.4px 53.4px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    Height: 53.4px; /* 原圖0.6倍 */
+    Width: 41.4px; /* 原圖0.6倍 */
+    top: 55%;
+    left: 49.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #ChatBot:hover {
+        background-image: url('images/main/home_chatbot_2.png');
+        background-size: 147.7px 133px;
+        border: none;
+        Height: 133px; /* 原圖0.7倍 */
+        Width: 147.7px; /* 原圖0.7倍 */
+        top: 51%;
+        left: 49.8%;
+    }
+
 #Person { /* 人物 */
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    Height: 494.9px;
+    Width: 174.3px;
+    top: 55%;
     left: 50%;
-    Height: 353.5px;
-    Width: 124.5px;
-    transform: translate(-85%, -40%);
+    transform: translate(-50%, -50%);
 }
 
 #Pig { /* 撲滿 */
@@ -170,19 +262,42 @@ body {
 }
 
 #Setting {
+    position: absolute;
     Height: 114.6px;
     Width: 343.2px;
-    float: left;
-    margin-top: 5px;
+    top: 2%;
+    left: 1%;
 }
 
-#Logout {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+#Head {
+    position: absolute;
+    Height: 98px;
+    Width: 98px;
+    top: 8.8%;
+    left: 6.8%;
+    border-radius: 98px;
     transform: translate(-50%, -50%);
 }
 
+#NickName {
+    position: absolute;
+    top: 8%;
+    left: 12%;
+    border-radius: 98px;
+    font-size: 38px;
+    color: paleturquoise;
+    transform: translate(0, -50%);
+}
+
+#UId {
+    position: absolute;
+    top: 11.5%;
+    left: 12.2%;
+    border-radius: 98px;
+    font-size: 15px;
+    color: paleturquoise;
+    transform: translate(0, -50%);
+}
 /*--------------------------------主畫面結束---------------------------------------*/
 /*-----------------------------------設定------------------------------------------*/
 .SetBody {
@@ -604,7 +719,6 @@ table.Gridview {
 /*---類別結束---*/
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/
-
 /*----------------------------------成就--------------------------------------*/
 .AchBody {
     background-image: url('images/ach_bg.png');
@@ -673,15 +787,15 @@ table.Gridview {
     height: 150px;
 }
 
-.AchContent ul li img { /* 成就圖片 */
-    Height: 130px;
-    Width: 130px;
-    float: left;
-    margin-left: -10px;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-}
+    .AchContent ul li img { /* 成就圖片 */
+        Height: 130px;
+        Width: 130px;
+        float: left;
+        margin-left: -10px;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
 /*--------------------------------成就結束------------------------------------*/
 
 /*--------------------------------願望清單------------------------------------*/
@@ -702,7 +816,7 @@ table.Gridview {
     flex-wrap: wrap; /*多行*/
     justify-content: space-evenly; /*div置中*/
     flex-direction: row;
-    background-color:aquamarine;
+    background-color: aquamarine;
 }
 
 /*.ContentFlexLeft {
@@ -730,7 +844,6 @@ table.Gridview {
     background: url('images/dre_memo.png');
     background-size: 180px;
     background-repeat: no-repeat;
-
     width: 180px;
     height: 180px;
     display: flex;
@@ -750,7 +863,7 @@ table.Gridview {
 }
 
 /*.PickWish {*/ /* 目標願望便條 */
-    /*background: url('images/dre_m_memo.png');
+/*background: url('images/dre_m_memo.png');
     background-size: 400px;
     background-repeat: no-repeat;
     width: 400px;
@@ -1010,16 +1123,19 @@ table.Gridview {
     top: 60px;
     font-weight: bold;
 }
+
 .GameMenuBody { /*小遊戲主畫面背景*/
     background-image: url('images/dre_bg.png'); /*待修改*/
     background-size: 900px 650px; /*待修改*/
     text-align: center;
 }
+
 .SJGameTitle {
     font-size: 40px;
     font-weight: bold;
     color: black;
 }
+
 .GameFlex {
     position: fixed; /*指定絕對位置*/
     top: 300px;
@@ -1030,10 +1146,12 @@ table.Gridview {
     flex-wrap: wrap; /*多行*/
     justify-content: space-evenly; /*div置中*/
 }
+
 #JuniorGameButton {
     Height: 300px;
     Width: 300px;
 }
+
 #SeniorGameButton {
     Height: 300px;
     Width: 300px;
@@ -1047,6 +1165,7 @@ table.Gridview {
     top: 60px;
     font-weight: bold;
 }
+
 .SJGameMain {
     position: fixed; /*指定絕對位置*/
     top: 600px;
@@ -1084,6 +1203,7 @@ table.Gridview {
     Height: 130px;
     Width: 130px;
 }
+
 .SLevelLastNext {
     position: absolute; /*指定絕對位置*/
     width: 1050px;
@@ -1098,9 +1218,11 @@ table.Gridview {
     Height: 130px;
     Width: 130px;
 }
-#JGameLevel{
+
+#JGameLevel {
     font-size: 30px;
 }
+
 .JGameLevelFlex1 {
     position: fixed; /*指定絕對位置*/
     top: 560px;
@@ -1112,6 +1234,7 @@ table.Gridview {
     justify-content: space-evenly; /*div置中*/
     flex-direction: column; /* 彈性方向:列(縱) */
 }
+
 .JGameLevelFlex2 {
     position: fixed; /*指定絕對位置*/
     top: 560px;
