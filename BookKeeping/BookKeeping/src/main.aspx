@@ -10,7 +10,6 @@
 </head>
 <body class="MainBody">
     <form id="Form1" runat="server">
-        <asp:Label ID="title" class="SystemTitle" runat="server" Text="記帳趣" ></asp:Label>
         <div class="Setting"><%--使用者設定--%>
             <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/user_set.png" PostBackUrl="~/src/setting.aspx"/>
         </div>

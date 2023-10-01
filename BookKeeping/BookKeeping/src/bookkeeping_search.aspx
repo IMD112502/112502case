@@ -20,6 +20,7 @@
 <%--				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />--%>
 			</div>
 
+			<h1 class="BookTitle">查詢結果</h1>
 			<div class="BookTable">
 				<asp:GridView class="Gridview" ID="SearchView" runat="server" AutoGenerateColumns="False" DataKeyNames="num" >
 					<Columns>
