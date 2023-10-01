@@ -69,10 +69,13 @@ namespace _BookKeeping
             //計算現有存款
             string depositQuery = @"
             SELECT 
-                COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = 'boa004' AND class = '願望'), 0) -
-                COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = 'boa004' AND class = '1'), 0) AS 現有存款";
+                COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class = '願望'), 0) -
+                COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class = '1'), 0) AS 現有存款";
+
 
             MySqlCommand depositCommand = new MySqlCommand(depositQuery, conn);
+
+            depositCommand.Parameters.AddWithValue("@user_id", user_id);
 
             // 執行查詢並獲取結果
             int currentUserAmount = Convert.ToInt32(depositCommand.ExecuteScalar());
