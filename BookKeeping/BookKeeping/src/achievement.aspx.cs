@@ -64,16 +64,19 @@ namespace _BookKeeping
                 // 創建任務清單數據
                 DataTable dt = new DataTable();
                 dt.Columns.Add("TaskID", typeof(int));
+                dt.Columns.Add("ImageUrl", typeof(string));
                 dt.Columns.Add("TaskName", typeof(string));
                 dt.Columns.Add("TaskDescription", typeof(string));
                 dt.Columns.Add("ProgressBarStyle", typeof(string));
                 dt.Columns.Add("IsTaskCompleted", typeof(bool));
+               
 
                 // 任務1：記帳次數達5次 (finishTaskArray 不包含 '1' 才新增）
                 if (!finishTaskArray.Contains("1"))
                 {
                     DataRow task1 = dt.NewRow();
                     task1["TaskID"] = 1;
+                    task1["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
                     task1["TaskName"] = "記帳次數達5次";
                     task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
                     task1["ProgressBarStyle"] = $"width: {(accountingCount >= 5 ? 100 : (accountingCount * 20))}%";
@@ -86,6 +89,7 @@ namespace _BookKeeping
                 {
                     DataRow task2 = dt.NewRow();
                     task2["TaskID"] = 2;
+                    task2["ImageUrl"] = ResolveUrl("~/src/images/clothing2.png");
                     task2["TaskName"] = "許願10次";
                     task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
                     task2["ProgressBarStyle"] = $"width: {(wishingCount >= 10 ? 100 : (wishingCount * 10))}%";

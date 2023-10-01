@@ -8,18 +8,49 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>成就</title>
     <style>
-        /* 添加進度條的樣式 */
+       
+        /* 定義任務容器 */
+        .task-container {
+            display: flex; /* 使用 Flexbox 佈局 */
+            align-items: center; /* 垂直置中對齊 */
+            margin-bottom: 20px; /* 底邊距，控制每個任務之間的間距 */
+        }
+
+        /* 左側圖片 */
+        .task-image {
+            flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
+            width: 100px; /* 指定圖片的寬度 */
+            height: 100px; /* 指定圖片的高度 */
+            object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
+        }
+
+        /* 任務內容 */
+        .task-content {
+            flex: 3; /* 占用可用空間的一部分，使任務內容在中間 */
+            padding: 10px; /* 內邊距，增加內容區塊的間距 */
+        }
+
+        /* 進度條 */
         .progress {
-            width: 30%;
+            width: 250px;
             height: 20px;
             background-color: #ccc;
-            position: relative;
+            border: 1px solid #333;
         }
 
         .progress-bar {
-            width: 0;
+            width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
             height: 100%;
-            background-color: #4CAF50;
+            background-color: #007bff;
+        }
+
+        /* 領取按鈕 */
+        .claim-button {
+            flex: 0.3; /* 占用可用空間的一部分，使按鈕在右側 */
+            text-align: center; /* 文字置中 */
+            width:2px;
+            height:50%;
+            
         }
     </style>
 </head>
@@ -49,29 +80,33 @@
                   <asp:Literal ID="Literal1" runat="server"><progress value="10" max="100" style ="margin-left:50px;"></progress></asp:Literal>
                 </div>
                     </li>--%>
-                
-               <asp:Repeater ID="TaskRepeater" runat="server">
-                <ItemTemplate>
-                    <div>
-                        <!-- 左側圖片（可自行添加圖片的URL） -->
-                        <img src="your_image_url.jpg" alt="Task Image" />
+         <div class="AchContent">
+    <asp:Repeater ID="TaskRepeater" runat="server">
+        <ItemTemplate>
+            <div class="task-container">
+                <!-- 左側圖片 -->
+                <asp:Image CssClass="task-image" ID="Image1" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText="Task Image" Height="100" />
 
-                        <!-- 任務主題 -->
-                        <h3><%# Eval("TaskName") %></h3>
-
-                        <!-- 任務內容 -->
-                        <p><%# Eval("TaskDescription") %></p>
-
-                        <!-- 進度條 -->
-                        <div class="progress">
-                            <div class="progress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
-                        </div>
-
-                        <!-- 領取按鈕（僅在達成條件時顯示） -->
-                        <asp:Button  class="AchButtonGet ButtonStyle"  ID="ClaimButton" runat="server" Text="領取" CommandName="ClaimTask" CommandArgument='<%# Eval("TaskID") %>' Visible='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) %>' OnClick="ClaimButton_Click" />
+                <!-- 任務內容 -->
+                <div class="task-content">
+                    <!-- 任務主題 -->
+                    <h3><%# Eval("TaskName") %></h3>
+                    <!-- 任務內容 -->
+                    <p><%# Eval("TaskDescription") %></p>
+                    <!-- 進度條 -->
+                    <div class="progress">
+                        <div class="progress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
+                </div>
+
+                <!-- 領取按鈕（僅在達成條件時顯示） -->
+                <asp:Button class="claim-button" ID="ClaimButton" runat="server" Text="領取" CommandName="ClaimTask" CommandArgument='<%# Eval("TaskID") %>' Visible='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) %>' OnClick="ClaimButton_Click" style='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) ? "" : "display:none;" %>' />
+
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+</div>
+
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
     </form>
 </body>
