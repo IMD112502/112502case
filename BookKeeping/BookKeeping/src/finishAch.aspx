@@ -98,7 +98,7 @@
                         <div class="progress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
                     </div>
                 </div>
-                <asp:Image ID="Image2" runat="server" ImageUrl="~/src/images/checked.png" Width="50px" Height="50px"/>
+                <asp:Image ID="MyImage" runat="server" ImageUrl='<%# Eval("ImageURLField") %>' AlternateText="Image" Width="50px" Height="50px" />
                 
 
             </div>

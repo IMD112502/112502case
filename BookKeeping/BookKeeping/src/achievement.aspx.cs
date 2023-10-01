@@ -97,6 +97,18 @@ namespace _BookKeeping
                     dt.Rows.Add(task2);
                 }
 
+                if (!finishTaskArray.Contains("3"))
+                {
+                    DataRow task3 = dt.NewRow();
+                    task3["TaskID"] = 1;
+                    task3["ImageUrl"] = ResolveUrl("~/src/images/clothing3.png");
+                    task3["TaskName"] = "記帳次數達20次";
+                    task3["TaskDescription"] = $"您已記帳 {accountingCount} 次";
+                    task3["ProgressBarStyle"] = $"width: {(accountingCount >= 20 ? 100 : (accountingCount * 20))}%";
+                    task3["IsTaskCompleted"] = (accountingCount >= 20);
+                    dt.Rows.Add(task3);
+                }
+
                 TaskRepeater.DataSource = dt;
                 TaskRepeater.DataBind();
                 connection.Close();

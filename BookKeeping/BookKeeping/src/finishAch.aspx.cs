@@ -68,6 +68,7 @@ namespace _BookKeeping
                 dt.Columns.Add("TaskName", typeof(string));
                 dt.Columns.Add("TaskDescription", typeof(string));
                 dt.Columns.Add("ProgressBarStyle", typeof(string));
+                dt.Columns.Add("ImageURLField", typeof(string));
                
 
                 // 任務1：記帳次數達5次 (finishTaskArray 包含 '1' 才新增）
@@ -79,6 +80,7 @@ namespace _BookKeeping
                     task1["TaskName"] = "記帳次數達5次";
                     task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
                     task1["ProgressBarStyle"] = $"width: {(accountingCount >= 5 ? 100 : (accountingCount * 20))}%";
+                    task1["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                     dt.Rows.Add(task1);
                 }
 
@@ -91,7 +93,19 @@ namespace _BookKeeping
                     task2["TaskName"] = "許願10次";
                     task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
                     task2["ProgressBarStyle"] = $"width: {(wishingCount >= 10 ? 100 : (wishingCount * 10))}%";
+                    task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                     dt.Rows.Add(task2);
+                }
+                if (finishTaskArray.Contains("3"))
+                {
+                    DataRow task3 = dt.NewRow();
+                    task3["TaskID"] = 1;
+                    task3["ImageUrl"] = ResolveUrl("~/src/images/clothing3.png");
+                    task3["TaskName"] = "記帳次數達20次";
+                    task3["TaskDescription"] = $"您已記帳 {accountingCount} 次";
+                    task3["ProgressBarStyle"] = $"width: {(accountingCount >= 20 ? 100 : (accountingCount * 20))}%";
+                    task3["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
+                    dt.Rows.Add(task3);
                 }
 
                 FinishRepeater.DataSource = dt;
