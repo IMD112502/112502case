@@ -133,6 +133,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\finishAch.aspx" />
     <Content Include="src\achievement.aspx" />
     <Content Include="src\avatar.aspx" />
     <Content Include="src\bookkeeping_add.aspx" />
@@ -163,6 +164,7 @@
     <Content Include="src\images\boo_bg.png" />
     <Content Include="src\images\boo_button.png" />
     <Content Include="src\images\buc_add_button.png" />
+    <Content Include="src\images\checked.png" />
     <Content Include="src\images\clothing1.png" />
     <Content Include="src\images\clothing2.png" />
     <Content Include="src\images\clothing3.png" />
@@ -300,6 +302,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\finishAch.aspx.cs">
+      <DependentUpon>finishAch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\finishAch.aspx.designer.cs">
+      <DependentUpon>finishAch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="src\achievement.aspx.cs">
       <DependentUpon>achievement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

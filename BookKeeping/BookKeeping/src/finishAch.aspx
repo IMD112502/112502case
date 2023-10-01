@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="achievement.aspx.cs" Inherits="_BookKeeping.achievement" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="finishAch.aspx.cs" Inherits="_BookKeeping.finishAch" %>
 
 <!DOCTYPE html>
 
@@ -60,8 +60,8 @@
         <div class="AchHeader">
             <h1><asp:Label class="AchTopTitle" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
             <div class="AchTopButton">
-                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="已完成" style="margin-left:-160px;"/>
-                <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" Text="未完成"  PostBackUrl="~/src/finishAch.aspx"/>
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="已完成" style="margin-left:-160px;" PostBackUrl="~/src/achievement.aspx"/>
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" Text="未完成" />
             </div>
         </div>
 
@@ -81,7 +81,7 @@
                 </div>
                     </li>--%>
          <div class="AchContent">
-    <asp:Repeater ID="TaskRepeater" runat="server">
+    <asp:Repeater ID="FinishRepeater" runat="server">
         <ItemTemplate>
             <div class="task-container">
                 <!-- 左側圖片 -->
@@ -98,9 +98,8 @@
                         <div class="progress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
                     </div>
                 </div>
-
-                <!-- 領取按鈕（僅在達成條件時顯示） -->
-                <asp:Button class="claim-button" ID="ClaimButton" runat="server" Text="領取" CommandName="ClaimTask" CommandArgument='<%# Eval("TaskID") %>' Visible='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) %>' OnClick="ClaimButton_Click" style='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) ? "" : "display:none;" %>' />
+                <asp:Image ID="Image2" runat="server" ImageUrl="~/src/images/checked.png" Width="50px" Height="50px"/>
+                
 
             </div>
         </ItemTemplate>
