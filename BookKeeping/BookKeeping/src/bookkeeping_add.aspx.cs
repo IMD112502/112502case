@@ -85,7 +85,7 @@ namespace _BookKeeping
             //邊界值
             int MinMonth = 1;
             //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
+            int indexMonth = Convert.ToInt32(Label1.Text.Substring(Label1.Text.IndexOf("年")+1, Label1.Text.Length - 6).ToString());
             if (indexMonth > MinMonth)
             {
                 indexMonth -= 1;
@@ -103,7 +103,7 @@ namespace _BookKeeping
             //邊界值
             int MaxMonth = DateTime.Now.Month;
             //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text[Label1.Text.IndexOf("年") + 1].ToString());
+            int indexMonth = Convert.ToInt32(Label1.Text.Substring(Label1.Text.IndexOf("年") + 1, Label1.Text.Length-6).ToString());
             if (indexMonth < MaxMonth)
             {
                 indexMonth += 1;
