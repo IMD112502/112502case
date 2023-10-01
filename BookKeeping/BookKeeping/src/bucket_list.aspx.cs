@@ -11,16 +11,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ZstdSharp.Unsafe;
+using System.Web.SessionState;
 
 namespace _BookKeeping
 {
 
     public partial class bucket_list : System.Web.UI.Page
     {
-        protected string user_id = "boa004";
+        protected string user_id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            user_id = Session["UserID"] as string;
             if (!IsPostBack)
             {
                 DisplayWishList();

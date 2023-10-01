@@ -2,6 +2,7 @@
 using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Web.SessionState;
 
 namespace _BookKeeping
 {
@@ -9,9 +10,11 @@ namespace _BookKeeping
     {
         protected int currentRowIndex = 0; // 用于跟踪当前数据的索引
         protected int totalRows = 0; // 用于跟踪查询结果的总行数
+        protected string user_id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            user_id = Session["UserID"] as string;
             if (!IsPostBack)
             {
                 ShowCannotBuyReason();
@@ -20,7 +23,6 @@ namespace _BookKeeping
 
         protected void ShowCannotBuyReason()
         {
-            string user_id = "boa004"; // 您的用户ID
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))

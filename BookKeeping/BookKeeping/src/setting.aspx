@@ -13,8 +13,8 @@
         <h1 class="SetTitle">個人資料</h1>
         <div class="SetContent">
             <p>
-                <label>姓名 </label>
-                <label>王小明</label>
+                <label>姓名</label>
+                <asp:Label ID="name" runat="server"></asp:Label>
             </p>
             <p>
                 <label>暱稱 </label>

@@ -10,20 +10,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
-
+using System.Web.SessionState;
 
 namespace _BookKeeping
 {
     public partial class bucket_add : System.Web.UI.Page
     {
 
-        protected string user_id = "boa004";
+        protected string user_id ;
         public object ErrorMessagel { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            WishUser.Text = FindName()+"想要";             
-
+            user_id = Session["UserID"] as string;
+            WishUser.Text = FindName()+"想要";
         }
 
         protected MySqlConnection DBConnection() 

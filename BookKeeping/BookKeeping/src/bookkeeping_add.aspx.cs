@@ -9,26 +9,34 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.Types;
+using System.Web.SessionState;
 
 namespace _BookKeeping
 {
     public partial class bookkeeping_add : System.Web.UI.Page
     {
-        protected string user_id = "boa004";
+        protected string user_id;
         protected int currentMonth;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            user_id = Session["UserID"] as string;
 
             if (!IsPostBack)
             {
-                MySqlConnection conn = DBConnection();
+                if (string.IsNullOrEmpty(user_id))
+                {
+                    // 如果使用者未登入，可以執行相應的處理，例如導向到登入頁面
+                    Response.Redirect("login.aspx");
+                }
 
+                MySqlConnection conn = DBConnection();
                 currentMonth = DateTime.Now.Month; // 紀錄顯示的月份
                 SearchSelectMonth(conn, currentMonth);
             }
         }
+
 
         protected MySqlConnection DBConnection()
         {

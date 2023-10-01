@@ -8,16 +8,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace _BookKeeping
 {
     public partial class bookkeeping_search : System.Web.UI.Page
     {
-        protected string user_id = "boa004";
+        protected string user_id;
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-
+            user_id = Session["UserID"] as string;
             if (!IsPostBack)
             {
                 

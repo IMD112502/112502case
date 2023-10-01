@@ -11,14 +11,16 @@ using System.Web.UI.WebControls;
 using System.Xml.Linq;
 using System.Web.Security;
 using Google.Protobuf.WellKnownTypes;
+using System.Web.SessionState;
 
 namespace BookKeeping.src
 {
     public partial class bucket_review : System.Web.UI.Page
     {
-        protected string user_id = "boa004";
+        protected string user_id;
         protected void Page_Load(object sender, EventArgs e)
         {
+            user_id = Session["UserID"] as string;
             if (!IsPostBack)
             {
                 DisplayWindows();

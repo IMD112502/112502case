@@ -9,21 +9,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data;
+using System.Web.SessionState;
 
 namespace _BookKeeping
 {
     public partial class finishAch : System.Web.UI.Page
     {
-
+        protected string user_id;
         protected void Page_Load(object sender, EventArgs e)
         {
+            user_id = Session["UserID"] as string;
             if (!IsPostBack)
             {
                 BindTaskList();
             }
         }
-
-        protected string user_id = "boa004";
 
         private void BindTaskList()
         {

@@ -13,6 +13,7 @@
         <div class="Setting"><%--使用者設定--%>
             <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/user_set.png" PostBackUrl="~/src/setting.aspx"/>
         </div>
+            <asp:Label ID="userid" runat="server"></asp:Label>
         <div class="ClosetDiv">
             <asp:ImageButton ID="Closet" runat="server" ImageUrl="images/main/home_clo.png" PostBackUrl="~/src/dressing_room.aspx" /><%--衣櫥--%>
         </div>

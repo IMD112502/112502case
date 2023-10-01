@@ -2,19 +2,22 @@
 using System;
 using System.Configuration;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace BookKeeping.src
 {
     public partial class bucket_record : System.Web.UI.Page
     {
-        protected string user_id = "boa004";
+        protected string user_id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 using (MySqlConnection conn = DBConnection())
                 {
+                    user_id = Session["UserID"] as string;
                     conn.Open();
                     BucketRecord(conn);
                 }
