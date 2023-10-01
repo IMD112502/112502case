@@ -58,6 +58,15 @@ namespace _BookKeeping
 
         protected void Login_click(object sender, EventArgs e)
         {
+            string username = UserAcc.Text.Trim();
+            string password = UserPwd.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                state.Text = "請輸入帳號和密碼";
+                return; // Don't proceed with login
+            }
+
             string connection = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             MySqlConnection conn = new MySqlConnection(connection);
             conn.Open();
@@ -78,7 +87,7 @@ namespace _BookKeeping
             else
             {
                 // error
-                //state.Text = "帳號或密碼錯誤！";
+                state.Text = "帳號或密碼錯誤！";
             }
         }
 
