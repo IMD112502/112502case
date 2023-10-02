@@ -17,7 +17,9 @@
                 <br />
                 <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
                 <br />
-                <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle" ID="LoginButton" runat="server" Text="確認" Width="100" Height="35" Font-Size="13" PostBackUrl="~/src/bucket_review.aspx"/></p>
+                <asp:Label ID="ErrorMessageLabel" runat="server" Text="" />
+
+                <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" Width="100" Height="35" Font-Size="13"/></p>
             </div>
         </div>
     </form>

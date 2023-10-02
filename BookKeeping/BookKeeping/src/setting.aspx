@@ -35,7 +35,7 @@
         </div>
         <asp:Image class="Ava" ID="Ava" runat="server" ImageUrl="images/avatar/ava_girl.png" />
         <asp:Button class="ButtonStyle ButtonSize3" ID="Xx" runat="server" Text="X" PostBackUrl="~/src/main.aspx"/>
-        <asp:Button class="ButtonStyle ButtonSize2" ID="Logout" runat="server" Text="登出" PostBackUrl="~/src/login.aspx"/>
+        <asp:Button class="ButtonStyle ButtonSize2" ID="Logout" OnClick="Logout_Click" runat="server" Text="登出" PostBackUrl="~/src/login.aspx"/>
         <asp:Button class="ButtonStyle ButtonSize2" ID="EditOk" runat="server" Text="修改資料" PostBackUrl="~/src/setting_edit.aspx"/>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
     </form>

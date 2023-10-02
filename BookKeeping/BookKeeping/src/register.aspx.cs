@@ -40,10 +40,14 @@ namespace _BookKeeping
             string password = RegPwd.Text;
             string ynpwd = YNPwd.Text;
             string email = Email.Text;
+            string selectedQuestion1 = Question1.SelectedValue;
+            string selectedQuestion2 = Question2.SelectedValue;
+            string answer1 = Answer1.Text;
+            string answer2 = Answer2.Text;
 
             MySqlConnection conn = DBConnection();
             
-            string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, YNpassword, email) VALUES (@user_id, @user_name, @nickname, @gender, @password, @YNpassword, @email)";
+            string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, YNpassword, email, question1, question2, answer1, answer2) VALUES (@user_id, @user_name, @nickname, @gender, @password, @YNpassword, @email, @question1, @question2, @answer1, @answer2)";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             
             cmd.Parameters.AddWithValue("@user_id", userid);
@@ -53,6 +57,10 @@ namespace _BookKeeping
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@YNpassword", ynpwd);
             cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@question1", selectedQuestion1);
+            cmd.Parameters.AddWithValue("@question2", selectedQuestion2);
+            cmd.Parameters.AddWithValue("@answer1", answer1);
+            cmd.Parameters.AddWithValue("@answer2", answer2);
 
             int rowsaffected = cmd.ExecuteNonQuery();
 
@@ -66,6 +74,8 @@ namespace _BookKeeping
                 RegPwd.Text = "";
                 YNPwd.Text = "";
                 Email.Text = "";
+                Answer1.Text = "";
+                Answer2.Text = "";
                 ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('註冊成功！');", true);
             }
             else

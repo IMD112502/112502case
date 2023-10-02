@@ -13,7 +13,7 @@ namespace BookKeeping.src
     public partial class main : System.Web.UI.Page
     {
         protected string user_id; // 新增成員變數
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

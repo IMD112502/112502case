@@ -26,5 +26,14 @@ namespace BookKeeping.src
 
             }
         }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            // 清除用戶的 Session，以確保用戶登出
+            Session.Clear();
+
+            // 重定向到登入頁面
+            Response.Redirect("login.aspx");
+        }
     }
 }

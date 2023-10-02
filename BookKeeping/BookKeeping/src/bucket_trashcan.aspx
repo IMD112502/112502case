@@ -16,7 +16,8 @@
                 <asp:Label ID="CantBuy" runat="server" Text="不能買"></asp:Label><br />
                 <asp:Label ID="Cause" runat="server" Text="因為"></asp:Label><br />
             </div>
-            <input class="TraButton ButtonStyle ButtonSize2" id="Submit1" type="submit" value="知道了" />
+            <asp:Button  class="TraButton ButtonStyle ButtonSize2" ID="Submit1" Text="知道了" runat="server" OnClick="Submit1_Click"/>
+            <asp:Label ID="wish" runat="server"></asp:Label>
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
         <div class="LastNext">

@@ -11,12 +11,14 @@ namespace _BookKeeping
         protected int currentRowIndex = 0; // 用于跟踪当前数据的索引
         protected int totalRows = 0; // 用于跟踪查询结果的总行数
         protected string user_id;
+        protected string currentWishName = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             user_id = Session["UserID"] as string;
             if (!IsPostBack)
             {
+                
                 ShowCannotBuyReason();
             }
         }
@@ -29,7 +31,7 @@ namespace _BookKeeping
             {
                 conn.Open();
 
-                string sql = "SELECT d_name, reason FROM `112-112502`.願望清單 WHERE user_id = @user_id AND pass_state = 'n'";
+                string sql = "SELECT d_name, reason FROM `112-112502`.願望清單 WHERE user_id = @user_id AND exchange_state is null and pass_state = 'n'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
 
@@ -63,10 +65,12 @@ namespace _BookKeeping
                 {
                     if (dataReader.Read())
                     {
-                        string d_name = dataReader["d_name"].ToString();
+                        string d_name = dataReader["d_name"].ToString();                       
                         string reason = dataReader["reason"].ToString();
                         CantBuy.Text = "不能買：" + d_name;
                         Cause.Text = "因為" + reason;
+                        wish.Text = d_name;// 存儲願望名稱
+                        wish.Visible = false;
                     }
 
                     else
@@ -106,6 +110,30 @@ namespace _BookKeeping
             ShowCannotBuyReason();
         }
 
+        protected void Submit1_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 使用 UPDATE SQL 語句將 exchange_state 更新為 "R"，確保只更新符合特定條件的資料行
+                string updateSql = "UPDATE `112-112502`.願望清單 SET exchange_state = 'R', exchange_time = now() WHERE d_name = @d_name and user_id = @user_id";
+
+                using (MySqlCommand cmd = new MySqlCommand(updateSql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@d_name", wish.Text);
+                    cmd.Parameters.AddWithValue("@user_id", user_id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // 更新資料庫後，可以將該筆資料從當前頁面上移除或隱藏
+                // 例如，您可以重新載入頁面，以確保該筆資料不再顯示在當前頁面上
+                Response.Redirect(Request.Url.AbsoluteUri);
+            }
+            
+        }
 
 
 

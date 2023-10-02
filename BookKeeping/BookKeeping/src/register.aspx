@@ -48,6 +48,31 @@
                     <asp:TextBox class="TextBoxStyle" ID="YNPwd" runat="server" Width="250px" Height="30px" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入密碼"></asp:TextBox>
                 </p>
 
+                <p>選擇問題1
+                    <asp:DropDownList ID="Question1" runat="server" CssClass="DropDownStyle" Width="250px">
+                        <asp:ListItem Text="請選擇問題1" Value="" />
+                        <asp:ListItem Text="請問您的出生地在哪?" Value="1" />
+                        <asp:ListItem Text="請問你住在哪裡" Value="2" />
+                    </asp:DropDownList>
+                </p>
+
+                <p>回答問題
+                    <asp:TextBox ID="Answer1" runat="server" CssClass="TextBoxStyle" Width="250px" Height="30px" placeholder="請輸入答案"></asp:TextBox>
+                </p>
+
+                <p>選擇問題2
+                    <asp:DropDownList ID="Question2" runat="server" CssClass="DropDownStyle" Width="250px">
+                        <asp:ListItem Text="請選擇問題2" Value="" />
+                        <asp:ListItem Text="請問您的出生地在哪?" Value="1" />
+                        <asp:ListItem Text="請問你住在哪裡" Value="2" />
+                    </asp:DropDownList>
+                </p>
+
+                <p>回答問題
+                    <asp:TextBox ID="Answer2" runat="server" CssClass="TextBoxStyle" Width="250px" Height="30px" placeholder="請輸入答案"></asp:TextBox>
+                </p>
+
+
             </div>       
             <div class="RegButton">
                 <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="返回"  OnClick="Button1_Click" PostBackUrl="login.aspx"/> 
