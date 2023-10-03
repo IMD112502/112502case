@@ -10,18 +10,18 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Web.SessionState;
+using MySqlX.XDevAPI;
 
 namespace _BookKeeping
 {
     public partial class achievement : System.Web.UI.Page
     {
-        protected string user_id;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
             if (!IsPostBack)
             {
-                user_id = Session["UserID"] as string;
                 BindTaskList();
             }
         }
@@ -29,6 +29,7 @@ namespace _BookKeeping
         private void BindTaskList()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            string user_id = Session["UserID"].ToString();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -98,17 +99,7 @@ namespace _BookKeeping
                     dt.Rows.Add(task2);
                 }
 
-                if (!finishTaskArray.Contains("3"))
-                {
-                    DataRow task3 = dt.NewRow();
-                    task3["TaskID"] = 1;
-                    task3["ImageUrl"] = ResolveUrl("~/src/images/clothing3.png");
-                    task3["TaskName"] = "記帳次數達20次";
-                    task3["TaskDescription"] = $"您已記帳 {accountingCount} 次";
-                    task3["ProgressBarStyle"] = $"width: {(accountingCount >= 20 ? 100 : (accountingCount * 20))}%";
-                    task3["IsTaskCompleted"] = (accountingCount >= 20);
-                    dt.Rows.Add(task3);
-                }
+                
 
                 TaskRepeater.DataSource = dt;
                 TaskRepeater.DataBind();
@@ -119,9 +110,12 @@ namespace _BookKeeping
         private int GetAccountingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取記帳次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = 'boa004'";
+            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = @user_id";
+            string user_id = Session["UserID"].ToString();
+
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@user_id", user_id);
                 return Convert.ToInt32(command.ExecuteScalar());
             }
         }
@@ -129,44 +123,56 @@ namespace _BookKeeping
         private int GetWishingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取許願次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.願望清單 WHERE user_id = 'boa004'";
+            string query = "SELECT COUNT(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id";
+            string user_id = Session["UserID"].ToString();
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@user_id", user_id);
                 return Convert.ToInt32(command.ExecuteScalar());
             }
         }
 
         protected void ClaimButton_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
-
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-            // 在此處處理領取按鈕的點擊事件，您可以根據 CommandArgument 中的 TaskID 執行相應的操作
-            Button claimButton = (Button)sender;
-            string taskId = claimButton.CommandArgument.ToString();
-
-            // 根據 taskId 執行相應的操作，例如發放獎勵
-
-            string sql = "INSERT INTO 使用者成就完成 (user_id, a_id , get_state) VALUES (@user_id,@task_id , 'y')";
-
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-
-            cmd.Parameters.AddWithValue("@user_id", user_id);
-            cmd.Parameters.AddWithValue("task_id", taskId);
-
-            int rows_affect = cmd.ExecuteNonQuery();
-            if (rows_affect > 0)
+            // 验证是否成功获取了用户ID
+            if (Session["UserID"] != null)
             {
+                string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
-                ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                Button claimButton = (Button)sender;
+                string taskId = claimButton.CommandArgument.ToString();
+
+                // 根据 taskId 执行相应的操作，例如发放奖励
+
+                string sql = "INSERT INTO `112-112502`.使用者成就完成 (user_id, a_id , get_state) VALUES (@user_id , @task_id , 'y')";
+
+                // 使用 Session 中的用户ID
+                string user_id = Session["UserID"].ToString();
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@user_id", user_id); // 使用 userId 而不是 user_id
+                    cmd.Parameters.AddWithValue("@task_id", taskId);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
+                    }
+                }
+
+                // 重新绑定任务清单以更新任务状态
+                BindTaskList();
             }
-
-
-
-
-            // 重新綁定任務清單以更新任務狀態
-            BindTaskList();
+            else
+            {
+                // 处理未能获取用户ID的情况，可以显示错误消息或者采取其他操作
+                // 例如：ClientScript.RegisterStartupScript(GetType(), "UserIDMissing", "alert('未能获取用户ID！');", true);
+            }
         }
+
     }
 }

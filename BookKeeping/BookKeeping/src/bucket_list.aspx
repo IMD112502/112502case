@@ -13,7 +13,7 @@
            <%--   願望區--%>
             <asp:Repeater ID="Wish_Repeater" runat="server" OnItemCommand="Repeater_ItemCommand">
             <ItemTemplate>
-                <div class>
+                <div>
                     <span><%# Eval("d_name") %></span>
                     <span><%# Eval("pass_amount") %></span>
                     <asp:Button ID="DeleteButton" runat="server" Text="刪除" CommandName="DeleteWish" CommandArgument='<%# Eval("d_num") %>' />

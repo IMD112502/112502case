@@ -12,10 +12,10 @@
     <form class="MainForm" id="Form1" runat="server">
         <asp:Label ID="userid" runat="server"></asp:Label>
         <div class="Setting"><%--使用者設定--%>
-            <asp:Button ID="Setting" runat="server" ImageUrl="images/main/user_set.png" PostBackUrl="~/src/setting.aspx"/>
+            <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/user_set.png" PostBackUrl="~/src/setting.aspx"/>
             <asp:Image ID="Head" runat="server" ImageUrl="images/avatar/ava_girl.png" /><%--人物--%>
-            <asp:Label ID="NickName" runat="server"></asp:Label>
-            <asp:Label ID="UId" runat="server"></asp:Label>
+            <asp:Label ID="NickName" runat="server">王小明</asp:Label>
+            <asp:Label ID="UId" runat="server">10856012</asp:Label>
         </div>
         <asp:Button ID="Closet" runat="server" PostBackUrl="~/src/dressing_room.aspx"/><%--更衣室--%>
         <asp:Button ID="Wishes" runat="server" PostBackUrl="~/src/bucket_list.aspx"/><%--願望清單--%>

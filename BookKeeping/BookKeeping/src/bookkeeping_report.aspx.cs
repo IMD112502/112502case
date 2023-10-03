@@ -153,13 +153,13 @@ namespace _BookKeeping
 
             string query = "SELECT class, SUM(cost) AS total_cost " +
                            "FROM `112-112502`.記帳資料 " +
-                           "WHERE MONTH(date) = @month AND YEAR(date) = @year " +
-                           "GROUP BY class";
+                           "WHERE MONTH(date) = @month AND YEAR(date) = @year AND user_id = @user_id " +
+                           "GROUP BY class"; 
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@month", month);
             cmd.Parameters.AddWithValue("@year", year);
-
+            cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dt);
 

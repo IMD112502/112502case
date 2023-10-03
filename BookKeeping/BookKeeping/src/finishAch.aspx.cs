@@ -19,6 +19,7 @@ namespace _BookKeeping
         protected void Page_Load(object sender, EventArgs e)
         {
             user_id = Session["UserID"] as string;
+
             if (!IsPostBack)
             {
                 BindTaskList();
@@ -96,17 +97,7 @@ namespace _BookKeeping
                     task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                     dt.Rows.Add(task2);
                 }
-                if (finishTaskArray.Contains("3"))
-                {
-                    DataRow task3 = dt.NewRow();
-                    task3["TaskID"] = 1;
-                    task3["ImageUrl"] = ResolveUrl("~/src/images/clothing3.png");
-                    task3["TaskName"] = "記帳次數達20次";
-                    task3["TaskDescription"] = $"您已記帳 {accountingCount} 次";
-                    task3["ProgressBarStyle"] = $"width: {(accountingCount >= 20 ? 100 : (accountingCount * 20))}%";
-                    task3["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
-                    dt.Rows.Add(task3);
-                }
+                
 
                 FinishRepeater.DataSource = dt;
                 FinishRepeater.DataBind();
@@ -117,9 +108,10 @@ namespace _BookKeeping
         private int GetAccountingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取記帳次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = 'boa004'";
+            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = @user_id";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@user_id", user_id);
                 return Convert.ToInt32(command.ExecuteScalar());
             }
         }
@@ -127,9 +119,10 @@ namespace _BookKeeping
         private int GetWishingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取許願次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.願望清單 WHERE user_id = 'boa004'";
+            string query = "SELECT COUNT(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id";
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@user_id", user_id);
                 return Convert.ToInt32(command.ExecuteScalar());
             }
         }
