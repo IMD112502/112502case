@@ -9,7 +9,7 @@
     <title>願望清單</title>
 </head>
 <body class="BucBody">
-    <form id="form1" class="BucForm" runat="server">
+    <form id="form1" class="BucMainForm" runat="server">
            <%--   願望區--%>
             <asp:Repeater ID="Wish_Repeater" runat="server" OnItemCommand="Repeater_ItemCommand">
             <ItemTemplate>

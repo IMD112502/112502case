@@ -513,23 +513,27 @@ body {
 .BookBody {
     background-image: url('images/boo_bg.png');
     background-size: 1093.8px 753.6px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
 }
 
 .BookContent { /* 記帳區塊 */
     position: center;
-    width: 1093.8px;
-    height: 753.6px;
+    width: 1050px;
+    height: 650px;
     padding: 20px;
+/*    background-color: bisque;*/
 }
 
 /*---------------記帳左---------------*/
 .BookLeft {
-    position: fixed;
-    top: 100px; /* 留出標題欄的高度 */
-    left: 21%;
-    padding: 20px;
-    width: 475px;
-    height: 680px;
+    position: absolute;
+    top: 48%;
+    left: 35%;
+    transform: translate(-50%, -50%);
 }
 
 .BookDate { /* 記帳月份區塊 */
@@ -594,12 +598,10 @@ table.Gridview {
 
 /*---------------記帳右---------------*/
 .BookRight {
-    position: fixed;
-    top: 100px; /* 留出標題欄的高度 */
-    left: 51.3%;
-    padding: 20px;
-    width: 475px;
-    height: 680px;
+    position: absolute;
+    top: 48%;
+    left: 65%;
+    transform: translate(-50%, -50%);
 }
 
 /* -----書籤按鈕位置----- */
@@ -809,14 +811,20 @@ table.Gridview {
     height: 93vh;
 }
 
-.WishFlex { /*flex區塊*/
+.BucMainForm {
+    position: fixed;
+    padding: 20px 50px;
+    height: 600px;
+    width: 900px;
+}
+
+.WishFlex { /*flex區塊(4個願望)*/
     display: flex;
-    width: 700px;
+    width: 600px;
     height: 580px;
     flex-wrap: wrap; /*多行*/
     justify-content: space-evenly; /*div置中*/
-    flex-direction: row;
-    background-color: aquamarine;
+    flex-direction: row; /*橫向排列*/
 }
 
 /*.ContentFlexLeft {
@@ -844,8 +852,8 @@ table.Gridview {
     background: url('images/dre_memo.png');
     background-size: 180px;
     background-repeat: no-repeat;
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -885,27 +893,38 @@ table.Gridview {
 }
 
 #BucTrashcan { /* 垃圾桶按鈕 */
-    position: absolute; /*指定絕對位置*/
-    top: 632px;
-    left: 400px;
     width: 160.8px;
     height: 259.8px;
+    position: absolute;
+    top: 100%;
+    left: 8%;
+    transform: translate(-50%, -50%);
 }
 
 #ReviewButton { /* 審核區按鈕 */
-    position: fixed; /*指定絕對位置*/
-    top: 350px;
-    left: 1250px;
     width: 200px;
     height: 220px;
+    position: absolute;
+    top: 60%;
+    left: 85%;
+    transform: translate(-50%, -50%);
 }
 
 #BucketAdd { /* 新增願望按鈕 */
-    position: fixed; /*指定絕對位置*/
-    top: 710px;
-    left: 1230px;
     width: 80px;
     height: 80px;
+    position: absolute;
+    top: 100%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+}
+
+#RecordButton {
+    position: absolute; /*指定絕對位置*/
+    width: 100px;
+    left: 16%;
+    top: 20%;
+    transform: translate(-50%, -50%);
 }
 
 /*-----------------------願望功能----------------------------*/
@@ -942,14 +961,6 @@ table.Gridview {
     height: 535px;
     margin-top: 180px;
     margin-left: 50%;
-}
-
-#RecordButton {
-    position: absolute; /*指定絕對位置*/
-    width: 100px;
-    left: 68%;
-    top: 25%;
-    transform: translate(-50%, -50%);
 }
 
 /*--換頁紐--*/

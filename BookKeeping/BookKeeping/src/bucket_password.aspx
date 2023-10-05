@@ -22,6 +22,7 @@
                 <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" Width="100" Height="35" Font-Size="13"/></p>
             </div>
         </div>
+        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
 </body>
 </html>
