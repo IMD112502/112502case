@@ -17,10 +17,10 @@
 	<div class="BookContent">
 		<div class="BookLeft">
 			<div class="BookDate">
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
+				<asp:Button class="ButtonStyle3 DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"></asp:Label>
-				<asp:Button class="ButtonStyle DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
-				<asp:Button class="ButtonStyle EditButton" ID="Button3" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
+				<asp:Button class="ButtonStyle3 DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
+				<asp:Button class="ButtonStyle3 EditButton" ID="Button3" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />
 			</div>
 
 			<div class="BookTable">
@@ -114,8 +114,8 @@
 			<br />
 			<br />
 			<br />
-			<input class="ButtonStyle ButtonSize1" type="reset" value="重新輸入" />
-			<asp:Button class="ButtonStyle ButtonSize1" ID="Button4" runat="server" Text="確定修改" />
+			<input class="ButtonStyle3 ButtonSize1" type="reset" value="重新輸入" />
+			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button4" runat="server" Text="確定修改" />
 		</div>
 		</div>
 	</div>

@@ -13,13 +13,13 @@
         <div class="BMemo MemoStyle">
             <div class="BucWord">
                 <br /><br />
-                <label style="font-size:30px;">家長審核密碼</label>
+                <label style="font-size:40px;">家長審核密碼</label>
                 <br />
                 <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
                 <br />
-                <asp:Label ID="ErrorMessageLabel" runat="server" Text="" />
+                <asp:Label style="font-size:20px;" ID="ErrorMessageLabel" runat="server" Text="" />
 
-                <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" Width="100" Height="35" Font-Size="13"/></p>
+                <p>&nbsp;&nbsp;<asp:Button class="BucButton ButtonStyle ButtonSize2" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" /></p>
             </div>
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />

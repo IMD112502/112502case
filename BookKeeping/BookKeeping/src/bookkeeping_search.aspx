@@ -77,7 +77,7 @@
 			<asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
 			<br />
 			<br />
-			<asp:Button class="ButtonStyle ButtonSize1" ID="Button3" runat="server" Text="查詢" OnClick="Search_Click"/>
+			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button3" runat="server" Text="查詢" OnClick="Search_Click"/>
         </div>
         </div>
         </div>

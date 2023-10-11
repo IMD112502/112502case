@@ -42,13 +42,13 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.ImageButton Setting;
 
         /// <summary>
-        /// Head 控制項。
+        /// AvatarHead 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Head;
+        protected global::System.Web.UI.WebControls.Image AvatarHead;
 
         /// <summary>
         /// NickName 控制項。

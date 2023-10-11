@@ -15,33 +15,162 @@ body {
     width: 1200px;
 }
 
-.ButtonStyle { /* 按鈕樣式 */
-    border: 0;
-    background-color: teal;
-    color: aliceblue;
-    cursor: pointer; /* 小手 */
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px gray;
-    font-size: large;
+.ButtonStyle,
+.ButtonStyle:focus {
+    position: absolute; /*指定絕對位置*/
+    border: 3px solid teal;
+    border-radius: 4px;
+    background-color: transparent;
+    color: teal;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition-duration: 0.4s;
 }
 
-    .ButtonStyle:hover { /* 鼠標放在按鈕上 */
+    .ButtonStyle:hover {
+        border: 3px solid #ffffff;
+        box-shadow: 0px 2px 10px 5px teal;
+        color: white;
         background-color: lightseagreen;
     }
 
+    .ButtonStyle:after {
+        content: "";
+        display: block;
+        position: absolute;
+        margin-left: -20px !important;
+        opacity: 0;
+        transition: all 0.8s
+    }
+
+    .ButtonStyle:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+    }
+
+.ButtonStylePick {
+    position: relative;
+    border: 3px solid #ffffff;
+    background-color: teal;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px 5px teal;
+}
+
+.ButtonStyle2,
+.ButtonStyle2:focus {
+    position: relative;
+    border: 3px solid #301305;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #301305;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition-duration: 0.4s;
+}
+
+    .ButtonStyle2:hover {
+        border: 3px solid #ffffff;
+        box-shadow: 0px 2px 10px 5px #301305;
+        color: white;
+    }
+
+    .ButtonStyle2:after {
+        content: "";
+        display: block;
+        position: absolute;
+        margin-left: -20px !important;
+        opacity: 0;
+        transition: all 0.8s
+    }
+
+    .ButtonStyle2:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+    }
+
+.ButtonStyle3,
+.ButtonStyle3:focus {
+    position: relative;
+    border: 3px solid teal;
+    border-radius: 4px;
+    background-color: transparent;
+    color: teal;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition-duration: 0.4s;
+}
+
+    .ButtonStyle3:hover {
+        border: 3px solid #ffffff;
+        box-shadow: 0px 2px 10px 5px teal;
+        color: white;
+        background-color: lightseagreen;
+    }
+
+    .ButtonStyle3:after {
+        content: "";
+        display: block;
+        position: absolute;
+        margin-left: -20px !important;
+        opacity: 0;
+        transition: all 0.8s
+    }
+
+    .ButtonStyle3:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+    }
+
+.ButtonStylePick {
+    position: relative;
+    border: 3px solid #ffffff;
+    background-color: teal;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px 5px teal;
+}
 .ButtonSize1 { /* 按鈕大小(較寬) */
     width: 150px;
     height: 40px;
 }
 
 .ButtonSize2 { /* 按鈕大小(較窄) */
-    font-size: 25px;
     width: 120px;
     height: 60px;
 }
 
 .ButtonSize3 { /* 按鈕大小(小方塊) */
-    font-size: 25px;
     width: 50px;
     height: 50px;
 }
@@ -269,7 +398,7 @@ body {
     left: 1%;
 }
 
-#Head {
+#AvatarHead {
     position: absolute;
     Height: 98px;
     Width: 98px;
@@ -545,9 +674,8 @@ body {
 }
 
 .DateButtonSize { /* 記帳月份切換按鈕 */
-    width: 20px;
-    height: 20px;
-    transform: translate(0, -25%);
+    width: 25px;
+    height: 25px;
 }
 
 .EditButton { /* 編輯按鈕 */
@@ -900,6 +1028,10 @@ table.Gridview {
     left: 8%;
     transform: translate(-50%, -50%);
 }
+    #BucTrashcan:hover {
+        width: 176.88px; /* 1.1倍 */
+        height: 285.78px; /* 1.1倍 */
+    }
 
 #ReviewButton { /* 審核區按鈕 */
     width: 200px;
@@ -909,6 +1041,10 @@ table.Gridview {
     left: 85%;
     transform: translate(-50%, -50%);
 }
+    #ReviewButton:hover {
+        width: 220px; /* 1.1倍 */
+        height: 242px; /* 1.1倍 */
+    }
 
 #BucketAdd { /* 新增願望按鈕 */
     width: 80px;
@@ -918,6 +1054,10 @@ table.Gridview {
     left: 87%;
     transform: translate(-50%, -50%);
 }
+    #BucketAdd:hover {
+        width: 96px; /* 1.2倍 */
+        height: 96px; /* 1.2倍 */
+    }
 
 #RecordButton {
     position: absolute; /*指定絕對位置*/
@@ -1011,7 +1151,6 @@ table.Gridview {
 
 /*-------------願望垃圾桶-------------*/
 .TraButton {
-    position: absolute; /*指定絕對位置*/
     left: 50%;
     top: 85%;
     transform: translate(-50%, -50%);
@@ -1059,7 +1198,6 @@ table.Gridview {
 }
 
 .BucButton { /* 審核確認紐 */
-    position: absolute; /*指定絕對位置*/
     left: 50%;
     top: 75%;
     transform: translate(-50%, -50%);
@@ -1105,7 +1243,6 @@ table.Gridview {
     Width: 100px;
     writing-mode: vertical-rl;
     text-align: center;
-    font-size: 30px;
     margin-top: 5px;
 }
 
