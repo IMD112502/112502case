@@ -165,29 +165,31 @@ namespace BookKeeping.src
                     return;
                 }
 
-                int target_count;
-                string sql_target = "SELECT count(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id AND run_state = 'y'";
-                conn.Open();
-                MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
-                cmd_target.Parameters.AddWithValue("@user_id", user_id);
-                MySqlDataReader reader_target = cmd_target.ExecuteReader();
-                reader_target.Read();
-                target_count = Convert.ToInt32(reader_target.GetString(0));
-                conn.Close();
+                //int target_count;
+                //string sql_target = "SELECT count(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id AND run_state = 'y'";
+                //conn.Open();
+                //MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
+                //cmd_target.Parameters.AddWithValue("@user_id", user_id);
+                //MySqlDataReader reader_target = cmd_target.ExecuteReader();
+                //reader_target.Read();
+                //target_count = Convert.ToInt32(reader_target.GetString(0));
+                //conn.Close();
 
-                string sql = null;
+                //string sql = null;
 
-                //無目標的話，審核通過的自動預設為目標
-                if (target_count == 0)
-                {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
+                ////無目標的話，審核通過的自動預設為目標
+                //if (target_count == 0)
+                //{
+                //    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
 
-                }
-                else
-                {
-                    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
-            
-                }
+                //}
+                //else
+                //{
+                //    sql += "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y',run_state = 'y' where(`d_num` = @dName)";
+
+                //}
+
+                string sql = "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
 
                 conn.Open();
                 MySqlCommand command = new MySqlCommand(sql, conn);

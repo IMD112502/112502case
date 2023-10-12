@@ -44,7 +44,7 @@ namespace _BookKeeping
 
 
             //搜尋願望
-            string wishQuery = "SELECT d_num, d_name, pass_amount FROM 願望清單 WHERE user_id = @user_id AND run_state = 'y'";
+            string wishQuery = "SELECT d_num, d_name, pass_amount FROM 願望清單 WHERE user_id = @user_id AND pass_state = 'y'";
             MySqlCommand cmd = new MySqlCommand(wishQuery, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
             
