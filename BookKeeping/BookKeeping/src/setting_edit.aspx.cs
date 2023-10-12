@@ -103,6 +103,7 @@ namespace BookKeeping.src
                     int.Parse(TextBox2.Text),
                     int.Parse(TextBox3.Text),
                     int.Parse(TextBox4.Text))
+               
             };
 
             // 调用保存数据的方法
@@ -142,7 +143,7 @@ namespace BookKeeping.src
                     cmd.Parameters.AddWithValue("@Name", modifiedUserData.Name);
                     cmd.Parameters.AddWithValue("@Nickname", modifiedUserData.Nickname);
                     cmd.Parameters.AddWithValue("@Gender", modifiedUserData.Gender);
-                    cmd.Parameters.AddWithValue("@Birthdate", modifiedUserData.Birthdate);
+                    cmd.Parameters.AddWithValue("@Birthdate", modifiedUserData.Birthdate.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@Account", modifiedUserData.Account);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
