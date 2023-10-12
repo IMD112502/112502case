@@ -14,11 +14,11 @@
         <div class="SetContent">
             <p>
                 <label>姓名 </label>
-                <asp:TextBox class="SetTextBoxStyle" ID="SetName" runat="server" placeholder="原姓名"></asp:TextBox>
+                <asp:TextBox class="SetTextBoxStyle" ID="SetName" runat="server"></asp:TextBox>
             </p>
             <p>
                 <label>暱稱 </label>
-                <asp:TextBox class="SetTextBoxStyle" ID="SetNickname" runat="server" placeholder="原暱稱"></asp:TextBox>
+                <asp:TextBox class="SetTextBoxStyle" ID="SetNickname" runat="server"></asp:TextBox>
             </p>
             <p>
                 <label>性別 </label>            
@@ -27,21 +27,21 @@
             </p>
             <p>
                 <label>帳號 </label>
-                <asp:TextBox class="SetTextBoxStyle" ID="TextBox1" runat="server" placeholder="原帳號"></asp:TextBox>
+                <asp:TextBox class="SetTextBoxStyle" ID="TextBox1" runat="server"></asp:TextBox>
             </p>
             <p>
                 <label>生日 </label>
-                <asp:TextBox class="SetTextBoxStyle" ID="TextBox2" runat="server" Width="100px" placeholder="0000"></asp:TextBox>
+                <asp:TextBox class="SetTextBoxStyle" ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
                 <label>/</label>
-                <asp:TextBox class="SetTextBoxStyle" ID="TextBox3" runat="server" Width="50px" placeholder="00"></asp:TextBox>
+                <asp:TextBox class="SetTextBoxStyle" ID="TextBox3" runat="server" Width="50px"></asp:TextBox>
                 <label>/</label>
-                <asp:TextBox class="SetTextBoxStyle" ID="TextBox4" runat="server" Width="50px" placeholder="00"></asp:TextBox>
+                <asp:TextBox class="SetTextBoxStyle" ID="TextBox4" runat="server" Width="50px"></asp:TextBox>
             </p>
         </div>
         <asp:ImageButton class="Avatar" ID="Avatar" runat="server" ImageUrl="images/avatar/ava_girl.png" PostBackUrl="~/src/avatar.aspx" />
         <asp:Button class="ButtonStyle ButtonSize3" ID="Xx" runat="server" Text="X" PostBackUrl="~/src/main.aspx"/>
         <asp:Button class="ButtonStyle ButtonSize2" ID="GoBack" runat="server" Text="返回" PostBackUrl="~/src/setting.aspx"/>
-        <asp:Button class="ButtonStyle ButtonSize2" ID="EditOk" runat="server" Text="確認修改" PostBackUrl="~/src/setting.aspx"/>
+        <asp:Button class="ButtonStyle ButtonSize2" ID="EditOk" runat="server" OnClick="EditOk_Click" Text="確認修改" />
         <asp:ImageButton class="Back" ID="ImageButton2" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
     </form>
 </body>
