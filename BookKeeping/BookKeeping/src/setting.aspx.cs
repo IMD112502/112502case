@@ -39,6 +39,8 @@ namespace BookKeeping.src
 
                             using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
+                                
+
                                 if (reader.Read())
                                 {
                                     // 从数据库中获取用户数据并填充到 Label 中
@@ -47,6 +49,15 @@ namespace BookKeeping.src
                                     gender.Text = reader["gender"].ToString();
                                     account.Text = reader["user_id"].ToString();
                                     birthdate.Text = reader["birthday"].ToString();
+
+                                    if (reader["gender"].ToString() == "男生")
+                                    {
+                                        Ava.ImageUrl = "images/avatar/ava_boy.png";
+                                    }
+                                    else
+                                    {
+                                        Ava.ImageUrl = "images/avatar/ava_girl.png";
+                                    }
                                 }
                             }
                         }
