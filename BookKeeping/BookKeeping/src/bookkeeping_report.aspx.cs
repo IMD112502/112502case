@@ -163,6 +163,29 @@ namespace _BookKeeping
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             adapter.Fill(dt);
 
+            // count in and out amount
+            decimal totalIncome = 0;
+            decimal totalExpenses = 0;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string category = row["class"].ToString();
+                decimal totalCost = Convert.ToDecimal(row["total_cost"]);
+
+                if (category == "願望")
+                {
+                    totalIncome = totalCost;
+                }
+                else
+                {
+                    totalExpenses += totalCost;
+                }
+            }
+
+            // 更新Label
+            amount_in.Text = ((int)totalIncome).ToString();
+            amount_out.Text = ((int)totalExpenses).ToString();
+
             return dt;
         }
     }

@@ -18,19 +18,19 @@
             </p>
             <p>
                 <label>暱稱 </label>
-                <label>明明</label>
+                <asp:Label ID="nickname" runat="server"></asp:Label>
             </p>
             <p>
                 <label>性別 </label>
-                <label>女</label>
+                <asp:Label ID="gender" runat="server"></asp:Label>
             </p>
             <p>
                 <label>帳號 </label>
-                <label>abcdefg</label>
+                <asp:Label ID="account" runat="server"></asp:Label>
             </p>
             <p>
                 <label>生日 </label>
-                <label>2010/05/12</label>
+                <asp:Label ID="birthdate" runat="server" ></asp:Label>
             </p>
         </div>
         <asp:Image class="Ava" ID="Ava" runat="server" ImageUrl="images/avatar/ava_girl.png" />

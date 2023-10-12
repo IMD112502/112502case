@@ -246,7 +246,7 @@ namespace _BookKeeping
 
             // 取得編輯後的資料
             string dateStr = ((TextBox)row.FindControl("txtdate")).Text;
-            string category = ((TextBox)row.FindControl("txtclass")).Text;
+            string category = ((DropDownList)row.FindControl("txtclass")).SelectedValue;
             string costStr = ((TextBox)row.FindControl("txtcost")).Text;
             string mark = ((TextBox)row.FindControl("txtmark")).Text;
 

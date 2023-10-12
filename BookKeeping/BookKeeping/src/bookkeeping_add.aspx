@@ -55,7 +55,7 @@
 							<asp:Label ID="date" runat="server" Text='<%# Eval("date", "{0:yyyy-MM-dd}") %>'></asp:Label>
 						</ItemTemplate>
 						<EditItemTemplate>
-							<asp:TextBox ID="txtdate" runat="server" Text='<%# Bind("date", "{0:yyyy-MM-dd}") %>'></asp:TextBox>
+							<asp:TextBox ID="txtdate" runat="server" Text='<%# Bind("date", "{0:yyyy-MM-dd}") %>' Width="75px"></asp:TextBox>
 						</EditItemTemplate>
 					</asp:TemplateField>
 
@@ -63,9 +63,14 @@
 						<ItemTemplate>
 							<asp:Label ID="class" runat="server" Text='<%# Eval("class") %>'></asp:Label>
 						</ItemTemplate>
-						<EditItemTemplate>
-							<asp:TextBox ID="txtclass" runat="server" Text='<%# Bind("class") %>'></asp:TextBox>
-						</EditItemTemplate>
+							<EditItemTemplate>
+								<asp:DropDownList ID="txtclass" runat="server">
+									<asp:ListItem Text="願望" Value="願望" />
+									<asp:ListItem Text="飲食" Value="飲食" />
+									<asp:ListItem Text="娛樂" Value="娛樂" />
+									<asp:ListItem Text="其他" Value="其他" />
+								</asp:DropDownList>
+							</EditItemTemplate>
 					</asp:TemplateField>
 
 					<asp:TemplateField HeaderText="花費">
@@ -73,7 +78,7 @@
 							<asp:Label ID="cost" runat="server" Text='<%# Eval("cost") %>'></asp:Label>
 						</ItemTemplate>
 						<EditItemTemplate>
-							<asp:TextBox ID="txtcost" runat="server" Text='<%# Bind("cost") %>'></asp:TextBox>
+							<asp:TextBox ID="txtcost" runat="server" Text='<%# Bind("cost") %>' Width="40px"></asp:TextBox>
 						</EditItemTemplate>
 					</asp:TemplateField>
 
@@ -82,7 +87,7 @@
 							<asp:Label ID="mark" runat="server" Text='<%# Eval("mark") %>'></asp:Label>
 						</ItemTemplate>
 						<EditItemTemplate>
-							<asp:TextBox ID="txtmark" runat="server" Text='<%# Bind("mark") %>'></asp:TextBox>
+							<asp:TextBox ID="txtmark" runat="server" Text='<%# Bind("mark") %>' Width="70px"></asp:TextBox>
 						</EditItemTemplate>
 					</asp:TemplateField>
 

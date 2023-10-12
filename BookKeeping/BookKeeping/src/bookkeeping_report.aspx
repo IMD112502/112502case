@@ -30,6 +30,11 @@
 						<asp:BoundField DataField="total_cost" HeaderText="總金額" />
 					</Columns>
 				</asp:GridView>
+				<asp:Label ID="total_in" runat="server" Text="當月總收入: "></asp:Label>
+				<asp:Label ID="amount_in" runat="server" Text=""></asp:Label>
+				<br>
+				<asp:Label ID="total_out" runat="server" Text="當月總支出: "></asp:Label>
+				<asp:Label ID="amount_out" runat="server" Text=""></asp:Label>
 				<%--<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>

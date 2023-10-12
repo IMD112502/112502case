@@ -15,7 +15,7 @@
 
             <asp:GridView class="Gridview" ID="GridView2" runat="server" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:BoundField DataField="d_num" HeaderText="編號" />
+                    <asp:BoundField DataField="d_num" HeaderText="編號" Visible="false"/>
                     <asp:BoundField DataField="d_name" HeaderText="名稱" />
                     <asp:BoundField DataField="pass_amount" HeaderText="金額" />
                     <asp:TemplateField HeaderText="狀態">

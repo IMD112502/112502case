@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace BookKeeping.src
 {
@@ -16,16 +18,43 @@ namespace BookKeeping.src
         {
             if (!IsPostBack)
             {
-                user_id = Session["UserID"] as string; // 將 Session["UserID"] 賦值給成員變數 user_id
+                // 获取当前用户的 ID（你的实现方式可能不同）
+                string userID = Session["UserID"] as string;
 
-                if (!string.IsNullOrEmpty(user_id))
+                // 检查是否有用户 ID
+                if (!string.IsNullOrEmpty(userID))
                 {
-                    // 使用者已登入，顯示使用者名稱
-                    name.Text = user_id ;
-                }
+                    // 使用用户 ID 查询数据库以获取用户数据
+                    string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
 
+                        // 创建 SQL 查询
+                        string query = "SELECT user_name, nickname, gender, user_id, birthday FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
+
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@UserID", userID);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    // 从数据库中获取用户数据并填充到 Label 中
+                                    name.Text = reader["user_name"].ToString();
+                                    nickname.Text = reader["nickname"].ToString();
+                                    gender.Text = reader["gender"].ToString();
+                                    account.Text = reader["user_id"].ToString();
+                                    birthdate.Text = reader["birthday"].ToString();
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+
 
         protected void Logout_Click(object sender, EventArgs e)
         {
