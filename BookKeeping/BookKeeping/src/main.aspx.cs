@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using System.Security.Principal;
+using System.Xml.Linq;
 
 namespace BookKeeping.src
 {
@@ -22,8 +24,40 @@ namespace BookKeeping.src
 
                 if (!string.IsNullOrEmpty(user_id))
                 {
-                    // 使用者已登入，顯示使用者名稱
-                    userid.Text = "歡迎您，" + user_id + "！";
+                    // 使用用户 ID 查询数据库以获取用户数据
+                    string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // 创建 SQL 查询
+                        string query = "SELECT nickname, user_id, gender FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
+
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@UserID", user_id);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+
+                                if (reader.Read())
+                                {
+                                    // 从数据库中获取用户数据并填充到 Label 中
+                                    NickName.Text = reader["nickname"].ToString();
+                                    UId.Text = reader["user_id"].ToString();
+
+                                    if (reader["gender"].ToString() == "男生")
+                                    {
+                                        AvatarHead.ImageUrl = "images/avatar/ava_boy.png";
+                                    }
+                                    else
+                                    {
+                                        AvatarHead.ImageUrl = "images/avatar/ava_girl.png";
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
                 PigChange();
             }
