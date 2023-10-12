@@ -72,7 +72,7 @@ namespace _BookKeeping
                 ErrorMessage1.Visible = true;
                 return;
             }
-            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id;";
+            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id and exchange_state is null;";
             MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
             cmd_count.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd_count.ExecuteReader();
@@ -94,9 +94,10 @@ namespace _BookKeeping
                 int rowsaffected = cmd.ExecuteNonQuery();
                 WishTextbox.Text = null;
 
-                if (rowsaffected > 0)//彈出視窗
+                if (rowsaffected > 0)
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
+                    // 在C#中注册JavaScript以显示警报
+                    ClientScript.RegisterStartupScript(this.GetType(), "新增成功", "alert('新增成功！'); window.location.href = '" + ResolveUrl("~/src/bucket_list.aspx") + "';", true);
                 }
                 else
                 {
