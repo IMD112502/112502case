@@ -24,15 +24,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label3 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
         /// secretQuestion 控制項。
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList secretQuestion;
-
-        /// <summary>
-        /// Label4 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
         /// secretAnswer 控制項。
@@ -69,42 +51,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSecretAnswer;
 
         /// <summary>
-        /// account 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label account;
-
-        /// <summary>
-        /// enteraccount 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox enteraccount;
-
-        /// <summary>
-        /// rfvEnterAccount 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEnterAccount;
-
-        /// <summary>
-        /// enteremail 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label enteremail;
-
-        /// <summary>
         /// emailans 控制項。
         /// </summary>
         /// <remarks>
@@ -123,15 +69,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmailAns;
 
         /// <summary>
-        /// newpassword 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label newpassword;
-
-        /// <summary>
         /// newanswer 控制項。
         /// </summary>
         /// <remarks>
@@ -148,6 +85,24 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNewAnswer;
+
+        /// <summary>
+        /// TextBox1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
+        /// RequiredFieldValidator1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// ErrorMessage 控制項。

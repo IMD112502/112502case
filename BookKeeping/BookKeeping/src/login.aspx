@@ -14,12 +14,12 @@
         <h1 class="LogTitle" align="center">記帳趣</h1>
         <div class="LogText">
         <p>
-            <label style="font-size:30px;">帳號</label>
+            <label style="font-size:25px;">帳號</label>
             <asp:TextBox class="TextBoxStyle" ID="UserAcc" runat="server" Width="250" Height="35" placeholder="請輸入帳號" Font-Size="13"></asp:TextBox>
         </p>
         <br />
         <p>
-            <label style="font-size:30px;">密碼</label>
+            <label style="font-size:25px;">密碼</label>
             <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
         </p>
         <br />
@@ -30,7 +30,6 @@
         <div class="LogButton">
         <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle3" ID="LoginButton" runat="server" Text="登入" Width="300" Height="35" Font-Size="13" OnClick="Login_click"/></p>
             <br />
-        <h5 align="center" style="margin-top: -10px; margin-bottom:10px;">or</h5>
         <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle3" ID="RegisterButton" runat="server" Text="我要註冊！" Width="300" Height="35" Font-Size="13" PostBackUrl="register.aspx" /></p>
         </div>
     </form>

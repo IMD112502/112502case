@@ -17,6 +17,8 @@
                 <br />
                 <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
                 <br />
+                <a class="RevForgetPwd" style="font-size:18px;" href="forget_bucket_pwd.aspx">忘記密碼</a>
+                <br />
                 <asp:Label style="font-size:20px;" ID="ErrorMessageLabel" runat="server" Text="" />
                 <br />
                 <asp:Label ID="question" runat="server" Text="安全問題" Visible="false"></asp:Label>
@@ -29,7 +31,8 @@
                 <br />
                 <asp:TextBox class="TextBoxStyle" ID="securityAnswer" runat="server" Width="250" Height="35" placeholder="請輸入答案" Font-Size="13"></asp:TextBox>
 
-                <p>&nbsp;&nbsp;<asp:Button class="BucButton ButtonStyle ButtonSize2" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" /></p>
+                <p><asp:Button class="BucButton ButtonStyle ButtonSize2" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" /></p>
+                <p><asp:Button class="BucButton ButtonStyle3 ButtonSize2" ID="Button1" runat="server" Text="設定密碼" PostBackUrl="~/src/bucket_password_set.aspx"/></p>
             </div>
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />

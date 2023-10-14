@@ -12,8 +12,8 @@
     <form id="form1" runat="server">
         <asp:Label class="SJGameTopTitle" ID="Label1" runat="server" Text="Label">買水果</asp:Label>
         <div class="SJGameMain">
-			<asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="開始遊戲" PostBackUrl="~/src/game_junior_level.aspx" />
-            <asp:Button class="ButtonStyle ButtonSize1" ID="Button2" runat="server" Text="遊戲介紹" />
+			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button1" runat="server" Text="開始遊戲" PostBackUrl="~/src/game_junior_level.aspx" />
+            <asp:Button class="ButtonStyle3 ButtonSize1" ID="Button2" runat="server" Text="遊戲介紹" />
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/game_main_menu.aspx" />
     </form>

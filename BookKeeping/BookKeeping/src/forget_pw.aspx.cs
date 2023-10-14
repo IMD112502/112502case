@@ -31,7 +31,7 @@ namespace BookKeeping.src
 			    string selectanswer = secretAnswer.Text.Trim();
 			    string newpwd = newanswer.Text.Trim();
 			    string selectemail = emailans.Text.Trim();
-                string account = enteraccount.Text.Trim();
+                //string account = enteraccount.Text.Trim();
 
                 string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
@@ -45,7 +45,7 @@ namespace BookKeeping.src
                     selectCommand.Parameters.AddWithValue("@question1", selectquestion);
                     selectCommand.Parameters.AddWithValue("@answer1", selectanswer);
                     selectCommand.Parameters.AddWithValue("@password", newpwd);
-                    selectCommand.Parameters.AddWithValue("@user_id", account);
+                    //selectCommand.Parameters.AddWithValue("@user_id", account);
 
                     int rowsUpdated = selectCommand.ExecuteNonQuery();
 
@@ -56,7 +56,7 @@ namespace BookKeeping.src
                         secretAnswer.Text = "";
                         newanswer.Text = "";
                         emailans.Text = "";
-                        enteraccount.Text = "";
+                        //enteraccount.Text = "";
 
                         // 显示成功消息
                         ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('密碼更新成功');", true);

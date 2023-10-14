@@ -31,10 +31,8 @@
                 </p>
 
                 <p>出生日期
-                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px;">
+                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:250px; height:30px;" />
                 </p>
-
-
 
                 <div class="RegGender">
                     <p>性別&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             
@@ -42,31 +40,10 @@
                         <asp:RadioButton ID="RadioButton2" runat="server" GroupName="gendergroup" OnCheckedChanged="RadioButton2_CheckedChanged" Text="女生" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </p>
                 </div>
-
-                <p>密碼
-                    <asp:TextBox class="TextBoxStyle" ID="RegPwd" runat="server" Width="250px" Height="30px" TextMode="Password" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入密碼" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
-                </p>
-
-                <p>確認密碼
-                    <asp:TextBox class="TextBoxStyle" ID="ReRegPwd" runat="server" Width="250px" Height="30px" TextMode="Password" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請再次輸入密碼"></asp:TextBox>
-                </p>
-
-                <p>選擇問題1
-                    <asp:DropDownList ID="Question1" runat="server" CssClass="DropDownStyle" Width="250px">
-                        <asp:ListItem Text="請選擇問題1" Value="" />
-                        <asp:ListItem Text="請問您的出生地在哪?" Value="1" />
-                        <asp:ListItem Text="請問你住在哪裡" Value="2" />
-                    </asp:DropDownList>
-                </p>
-
-                <p>回答問題
-                    <asp:TextBox ID="Answer1" runat="server" CssClass="TextBoxStyle" Width="250px" Height="30px" placeholder="請輸入答案"></asp:TextBox>
-                </p>
-
             </div>       
             <div class="RegButton">
                 <asp:Button class="ButtonStyle3 ButtonSize1" ID="Button1" runat="server" Text="返回"  OnClick="Button1_Click" PostBackUrl="login.aspx"/> 
-                <asp:Button class="ButtonStyle3 ButtonSize1" ID="Button2" runat="server" OnClick="Button2_Click" Text="確認" ValidationGroup="register"  />
+                <asp:Button class="ButtonStyle3 ButtonSize1" ID="Button2" runat="server" OnClick="Button2_Click" Text="繼續" ValidationGroup="register" PostBackUrl="~/src/register_question.aspx" />
             </div>
         </div>
     </form>

@@ -562,6 +562,23 @@ body {
 }
 
 /*------------登入------------*/
+.LogBody {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+}
+
+.LogForm {
+    position: fixed;
+    text-align: center;
+    padding: 20px;
+    border-style: solid;
+    height: 560px;
+    width: 668px;
+}
+
 .LogTitle {
     margin-top: 20px;
     font-size: 60px;
@@ -580,23 +597,6 @@ body {
 }
 /*----------登入結束-----------*/
 /*----------忘記密碼-----------*/
-.LogBody {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}
-
-.LogForm {
-    position: fixed;
-    text-align: center;
-    padding: 20px;
-    border-style: solid;
-    height: 560px;
-    width: 668px;
-}
-
 .DropDownList { /* 下拉式選單 */
     padding: 18px;
     margin-bottom: 10px;
@@ -607,10 +607,6 @@ body {
     margin-left: 50%;
     margin-top: 50%;
     transform: translate(-50%, -70%);
-}
-
-.ForgetPwdButton { /* 按鈕區塊 */
-    margin-top: 120px;
 }
 /*--------忘記密碼結束---------*/
 /*------------註冊-------------*/
@@ -632,8 +628,8 @@ body {
 }
 
 .RegButton {
-    margin-top: -30px;
-    transform: translate(10%, 0);
+    margin-top: -55px;
+    transform: translate(12%, 0);
 }
 /*----------註冊結束-----------*/
 
@@ -1115,7 +1111,6 @@ table.Gridview {
 .LastNextSize { /* 按鈕大小 */
     height: 50px;
     width: 50px;
-    font-size: 45px;
 }
 
 #Last { /* 上一個願望 */
@@ -1202,8 +1197,17 @@ table.Gridview {
     top: 75%;
     transform: translate(-50%, -50%);
 }
-/*----------願望審核區結束----------*/
 
+.BucButton2 { /* 審核確認紐 */
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.RevForgetPwd {
+    margin-left: 190px;
+}
+/*----------願望審核區結束----------*/
 /*------------------------------------更衣室------------------------------------*/
 .DreRoomBackground {
     background-image: url('images/home_bg.png'); /* 暫用 */
