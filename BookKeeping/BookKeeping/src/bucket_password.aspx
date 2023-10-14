@@ -18,6 +18,16 @@
                 <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
                 <br />
                 <asp:Label style="font-size:20px;" ID="ErrorMessageLabel" runat="server" Text="" />
+                <br />
+                <asp:Label ID="question" runat="server" Text="安全問題" Visible="false"></asp:Label>
+                <br />
+                <asp:DropDownList ID="securityQuestion" runat="server" Visible="false" CssClass="DropDownStyle" Width="250px">
+                    <asp:ListItem Text="請選擇問題" Value="" />
+                    <asp:ListItem Text="請問您的出生地在哪?" Value="1" />
+                    <asp:ListItem Text="請問你住在哪裡" Value="2" />
+                </asp:DropDownList>
+                <br />
+                <asp:TextBox class="TextBoxStyle" ID="securityAnswer" runat="server" Width="250" Height="35" placeholder="請輸入答案" Font-Size="13"></asp:TextBox>
 
                 <p>&nbsp;&nbsp;<asp:Button class="BucButton ButtonStyle ButtonSize2" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" /></p>
             </div>

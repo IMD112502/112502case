@@ -8,6 +8,7 @@ using System.Web.SessionState;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 
+
 namespace BookKeeping
 {
     public partial class bucket_password : System.Web.UI.Page
@@ -25,6 +26,8 @@ namespace BookKeeping
                 if (hasAuditPassword)
                 {
                     // 用户已经注册了审核密码，不需要进行额外操作
+                    securityQuestion.Visible = false;
+                    securityAnswer.Visible = false;
                 }
                 else
                 {
@@ -32,6 +35,9 @@ namespace BookKeeping
                     ErrorMessageLabel.Text = "尚未註冊審核密碼，請在上方輸入密碼";
                     UserPwd.Visible = true; // 显示审核密码输入框
                     LoginButton.Text = "註冊審核密碼"; // 更改按钮文本
+                    question.Visible = true;
+                    securityQuestion.Visible = true;
+                    securityAnswer.Visible = true;
                 }
             }
         }
@@ -61,6 +67,8 @@ namespace BookKeeping
         {
             string enteredPassword = UserPwd.Text.Trim(); // 獲取用戶輸入的密碼
             bool userHasAuditPassword = CheckUserHasAuditPassword(user_id);
+            string Answer = securityAnswer.Text.Trim();
+            string ques = securityQuestion.SelectedValue;
 
             if (userHasAuditPassword)
             {
@@ -79,14 +87,14 @@ namespace BookKeeping
             else
             {
                 // 用户尚未注册审核密码，将用户输入的密码更新到数据库
-                UpdateAuditPasswordForUser(user_id, enteredPassword);
+                UpdateAuditPasswordForUser(user_id, enteredPassword, ques, Answer);
 
                 // 密码更新后，将用户重定向回原始页面
                 Response.Redirect("bucket_password.aspx");
             }
         }
 
-        private void UpdateAuditPasswordForUser(string user_id, string newPassword)
+        private void UpdateAuditPasswordForUser(string user_id, string newPassword, string ques, string Answer)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
@@ -94,10 +102,12 @@ namespace BookKeeping
             {
                 conn.Open();
 
-                string sql = "UPDATE `112-112502`.user基本資料 SET YNpassword = @newPassword WHERE user_id = @user_id";
+                string sql = "UPDATE `112-112502`.user基本資料 SET YNpassword = @newPassword, question2 = @question, answer2 = @answer WHERE user_id = @user_id";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@newPassword", newPassword);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
+                cmd.Parameters.AddWithValue("@question", ques);
+                cmd.Parameters.AddWithValue("@answer", Answer);
 
                 cmd.ExecuteNonQuery();
             }

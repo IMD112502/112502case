@@ -42,9 +42,21 @@ namespace BookKeeping.src
 
                                 if (reader.Read())
                                 {
+                                    
                                     // 从数据库中获取用户数据并填充到 Label 中
                                     NickName.Text = reader["nickname"].ToString();
                                     UId.Text = reader["user_id"].ToString();
+
+                                    if (string.IsNullOrEmpty(NickName.Text))
+                                    {
+                                        NickName.Text = user_id;
+                                        UId.Text = "";
+                                    }
+                                    else
+                                    {
+                                        NickName.Text = reader["nickname"].ToString();
+                                        UId.Text = reader["user_id"].ToString();
+                                    }
 
                                     if (reader["gender"].ToString() == "男生")
                                     {

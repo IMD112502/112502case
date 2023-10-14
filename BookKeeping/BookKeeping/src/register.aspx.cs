@@ -61,14 +61,14 @@ namespace _BookKeeping
 
             if (rowsaffected > 0)//彈出視窗
             {
-                RegAcc.Text = "";
-                RegName.Text = "";
-                RegNickname.Text = "";
-                RadioButton1.Checked = false;
-                RadioButton2.Checked = false;
-                RegPwd.Text = "";
-                Email.Text = "";
-                Answer1.Text = "";
+                //RegAcc.Text = "";
+                //RegName.Text = "";
+                //RegNickname.Text = "";
+                //RadioButton1.Checked = false;
+                //RadioButton2.Checked = false;
+                //RegPwd.Text = "";
+                //Email.Text = "";
+                //Answer1.Text = "";
                 ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('註冊成功！');", true);
                 Response.Redirect("login.aspx");
             }
