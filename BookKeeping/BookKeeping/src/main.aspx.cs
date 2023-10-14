@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using System.Security.Principal;
 using System.Xml.Linq;
+using System.Runtime.Remoting.Messaging;
 
 namespace BookKeeping.src
 {
@@ -72,9 +73,9 @@ namespace BookKeeping.src
         }
 
         //抓取願望類別的總金額
-        protected float GetWishAmount() 
+        private int GetWishAmount() 
         {
-            float wish_amount = 0;
+           int wish_amount = 0;
             MySqlConnection conn = DBConnection();
 
             //判斷願望類別是否有資料
@@ -108,14 +109,17 @@ namespace BookKeeping.src
             return wish_amount;
         }
         //抓取目標願望的金額
-        protected float GetTargetAmount()
+        private int GetTargetAmount()
         {
+
+            int wish_amount = GetWishAmount();
+
             //判斷是否有目標
-            float target_amount = 0;
+            int target_amount = 0;
             MySqlConnection conn = DBConnection();
 
             //判斷願望類別是否有資料
-            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y'and run_state = 'y'";
+            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y' and exchange_state is null ";
             MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
             cmd_count.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader_count = cmd_count.ExecuteReader();
@@ -126,14 +130,38 @@ namespace BookKeeping.src
             //抓取目標願望金額
             if (count > 0) 
             {
-                string sql_target = "SELECT pass_amount FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y'and run_state = 'y' ";
-                MySqlCommand cmd_target = new MySqlCommand(sql_target, conn);
-                cmd_target.Parameters.AddWithValue("@user_id", user_id);
-                conn.Open();
-                MySqlDataReader reader_target = cmd_target.ExecuteReader();
-                reader_target.Read();
-                target_amount += reader_target.GetInt32(0);
-                conn.Close();
+                conn.Open ();
+                string sql_target = "SELECT pass_amount FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y'and exchange_state is null";
+                using (MySqlCommand cmd_target = new MySqlCommand(sql_target, conn)) 
+                {
+                    cmd_target.Parameters.AddWithValue("@user_id", user_id);
+
+                    using (MySqlDataReader target_reader = cmd_target.ExecuteReader()) 
+                    { 
+                        List<int> wishAmountList = new List<int>();
+
+                        while (target_reader.Read()) 
+                        {
+                            int passAmount = target_reader.GetInt32("pass_amount");
+                            wishAmountList.Add(passAmount);
+                        }
+
+                        wishAmountList.Sort();
+
+                        int maxnum = wishAmountList.Max();
+
+                        foreach (int num in wishAmountList) 
+                        {
+                            if (wish_amount < num || num == maxnum) 
+                            { 
+                                target_amount = num;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+               
             }
 
             
