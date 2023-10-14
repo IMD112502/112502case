@@ -112,7 +112,8 @@ namespace BookKeeping.src
             if (updateSuccess)
             {
                 // 如果更新成功，你可以进行相应的处理，例如重定向到设置页面或显示成功消息
-                Response.Redirect("setting.aspx");
+                ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('更新成功');", true);
+                Response.AddHeader("REFRESH", "0.5;URL=setting.aspx");
             }
             else
             {

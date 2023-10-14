@@ -59,10 +59,10 @@ namespace BookKeeping.src
                         enteraccount.Text = "";
 
                         // 显示成功消息
-                        ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('密码更新成功');", true);
+                        ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('密碼更新成功');", true);
 
                         // 重定向到登录页面
-                        Response.Redirect("login.aspx"); // 替换为实际的登录页面路径
+                        Response.AddHeader("REFRESH", "0.5;URL=login.aspx"); // 替换为实际的登录页面路径
                     }
                     else
                     {

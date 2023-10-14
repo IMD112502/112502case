@@ -89,8 +89,10 @@ namespace BookKeeping
                 // 用户尚未注册审核密码，将用户输入的密码更新到数据库
                 UpdateAuditPasswordForUser(user_id, enteredPassword, ques, Answer);
 
+                ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('密碼註冊成功');", true);
+
                 // 密码更新后，将用户重定向回原始页面
-                Response.Redirect("bucket_password.aspx");
+                Response.AddHeader("REFRESH", "0.5;URL=bucket_password.aspx");
             }
         }
 
