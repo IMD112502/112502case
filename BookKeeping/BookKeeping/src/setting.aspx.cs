@@ -48,7 +48,9 @@ namespace BookKeeping.src
                                     nickname.Text = reader["nickname"].ToString();
                                     gender.Text = reader["gender"].ToString();
                                     account.Text = reader["user_id"].ToString();
-                                    birthdate.Text = reader["birthday"].ToString();
+
+                                    DateTime birthdayDate = (DateTime)reader["birthday"];
+                                    birthdate.Text = birthdayDate.ToShortDateString();
 
                                     if (reader["gender"].ToString() == "男生")
                                     {

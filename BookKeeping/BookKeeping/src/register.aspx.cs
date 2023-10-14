@@ -12,9 +12,21 @@ namespace _BookKeeping
 {
     public partial class register : System.Web.UI.Page
     {
+        protected DateTime BirthDate { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
+            if (IsPostBack)
+            {
+                // 获取用户选择的出生日期
+                if (DateTime.TryParse(Request.Form["BirthDate"], out DateTime birthdate))
+                {
+                    BirthDate = birthdate;
+                }
+            }
+
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -41,10 +53,11 @@ namespace _BookKeeping
             string email = Email.Text;
             string selectedQuestion1 = Question1.SelectedValue;
             string answer1 = Answer1.Text;
+            DateTime selectedDate = BirthDate.Date;
 
             MySqlConnection conn = DBConnection();
 
-            string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, email, question1, answer1) VALUES (@user_id, @user_name, @nickname, @gender, @password, @email, @question1, @answer1)";
+            string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, email, question1, answer1, birthday) VALUES (@user_id, @user_name, @nickname, @gender, @password, @email, @question1, @answer1, @birthdate)";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@user_id", userid);
@@ -55,7 +68,7 @@ namespace _BookKeeping
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@question1", selectedQuestion1);
             cmd.Parameters.AddWithValue("@answer1", answer1);
-
+            cmd.Parameters.AddWithValue("@birthdate", selectedDate);
 
             int rowsaffected = cmd.ExecuteNonQuery();
 
