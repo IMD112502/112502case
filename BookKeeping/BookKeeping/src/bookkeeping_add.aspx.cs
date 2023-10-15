@@ -69,13 +69,26 @@ namespace _BookKeeping
             cmd.Parameters.AddWithValue("@month", currentMonth);
             cmd.Parameters.AddWithValue("@user_id", user_id);
 
-            MySqlDataReader reader = cmd.ExecuteReader();
+            //MySqlDataReader reader = cmd.ExecuteReader();
 
             // 將資料繫結到 GridView 控制項上
-            GridView1.DataSource = reader;
-            GridView1.DataBind();
+            //GridView1.DataSource = reader;
+            //GridView1.DataBind();
 
-            reader.Close();
+            //reader.Close();
+
+            // 使用 DataTable 來存儲數據
+            DataTable dataTable = new DataTable();
+
+            // 使用 MySqlDataAdapter 從數據庫中檢索數據並填充 DataTable
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+            {
+                adapter.Fill(dataTable);
+            }
+
+            // 設置 GridView 的數據來源為 DataTable
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
         }
 
         protected void MinusMonth_Click(object sender, EventArgs e)
@@ -85,7 +98,7 @@ namespace _BookKeeping
             //邊界值
             int MinMonth = 1;
             //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text.Substring(Label1.Text.IndexOf("年")+1, Label1.Text.Length - 6).ToString());
+            int indexMonth = Convert.ToInt32(Label1.Text.Substring(Label1.Text.IndexOf("年") + 1, Label1.Text.Length - 6).ToString());
             if (indexMonth > MinMonth)
             {
                 indexMonth -= 1;
@@ -103,7 +116,7 @@ namespace _BookKeeping
             //邊界值
             int MaxMonth = DateTime.Now.Month;
             //求現在顯示的月份
-            int indexMonth = Convert.ToInt32(Label1.Text.Substring(Label1.Text.IndexOf("年") + 1, Label1.Text.Length-6).ToString());
+            int indexMonth = Convert.ToInt32(Label1.Text.Substring(Label1.Text.IndexOf("年") + 1, Label1.Text.Length - 6).ToString());
             if (indexMonth < MaxMonth)
             {
                 indexMonth += 1;
@@ -288,6 +301,33 @@ namespace _BookKeeping
 
             conn.Close();
         }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // 获取当前行数据
+                DataRowView rowView = (DataRowView)e.Row.DataItem;
+                string category = rowView["class"].ToString(); // 这里假设你的类别信息在 "class" 列中
+
+                // 找到编辑和删除按钮的控件
+                Button btnEdit = (Button)e.Row.FindControl("btnEdit");
+                Button btnDelete = (Button)e.Row.FindControl("btnDelete");
+
+                // 如果類別是"願望"或"兌換願望"，則隱藏編輯和刪除按鈕
+                if (category == "願望" || category == "兌換願望")
+                {
+                    btnEdit.Visible = false;
+                    btnDelete.Visible = false;
+                }
+            }
+        }
+
+
+
+
+
+
 
 
 
