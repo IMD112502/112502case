@@ -308,7 +308,6 @@
     <Content Include="src\login.aspx" />
     <Content Include="src\main.aspx" />
     <Content Include="src\register.aspx" />
-    <Content Include="src\register_question.aspx" />
     <Content Include="src\setting.aspx" />
     <Content Include="src\setting_edit.aspx" />
     <Content Include="src\styles.css" />
@@ -484,13 +483,6 @@
     </Compile>
     <Compile Include="src\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\register_question.aspx.cs">
-      <DependentUpon>register_question.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\register_question.aspx.designer.cs">
-      <DependentUpon>register_question.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\setting.aspx.cs">
       <DependentUpon>setting.aspx</DependentUpon>
