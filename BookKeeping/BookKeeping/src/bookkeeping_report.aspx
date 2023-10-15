@@ -59,7 +59,7 @@
 		<div class="BookChange">
 			<asp:Chart ID="Chart1" runat="server">
 				<Series>
-					<asp:Series Name="Series1" ChartType="Pie">
+					<asp:Series Name="Series1" ChartType="Column">
 						
 					</asp:Series>
 				</Series>

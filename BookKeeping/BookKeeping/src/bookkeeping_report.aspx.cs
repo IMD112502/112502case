@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.DataVisualization.Charting;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using System.Drawing;
 
 namespace _BookKeeping
 {
@@ -76,8 +77,11 @@ namespace _BookKeeping
 
             Label1.Text = year + "年" + month.ToString() + "月";
 
-            // 定義四個類別
-            string[] categories = { "願望", "飲食", "娛樂", "其他" };
+            // 定義五個類別
+            string[] categories = { "願望", "飲食", "娛樂", "其他", "兌換願望" };
+            // 设置图表背景为透明
+            Chart1.BackColor = Color.Transparent;
+            bool dataExists = false; // 用于标记是否存在数据
 
             foreach (string category in categories)
             {
@@ -92,15 +96,23 @@ namespace _BookKeeping
                 {
                     int cost = Convert.ToInt32(result);
                     Chart1.Series["Series1"].Points.AddXY(category, cost);
+                    dataExists = true;
 
                 }
 
+                // 如果没有数据存在，隐藏图表
+                Chart1.Visible = dataExists;
+
             }
-            foreach (DataPoint point in Chart1.Series["Series1"].Points)
+            if (dataExists) 
             {
-                double percentage = (point.YValues[0] / Chart1.Series["Series1"].Points.Sum(p => p.YValues[0])) * 100;
-                point.Label = string.Format("{0}: {1:F2}%", point.AxisLabel, percentage);
+                foreach (DataPoint point in Chart1.Series["Series1"].Points)
+                {
+                    double percentage = (point.YValues[0] / Chart1.Series["Series1"].Points.Sum(p => p.YValues[0])) * 100;
+                    point.Label = string.Format("{1:F2}%", point.AxisLabel, percentage);
+                }
             }
+           
 
 
 
@@ -188,5 +200,7 @@ namespace _BookKeeping
 
             return dt;
         }
+
+      
     }
 }
