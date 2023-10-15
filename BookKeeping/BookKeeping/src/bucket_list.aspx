@@ -16,7 +16,7 @@
                 <ItemTemplate>
                     <div class="BucMemo ContentFlex">
                         <span><%# Eval("d_name") %></span>
-                        <span><%# Eval("pass_amount") %></span>
+                        <span><%# Eval("pass_amount") %>元</span>
                         <div class="BucBotton12">
                             <asp:Button class="ButtonStyle ButtonSize3" ID="DeleteButton" runat="server" Text="刪除" CommandName="DeleteWish" CommandArgument='<%# Eval("d_num") %>' />
                             <asp:Button class="ButtonStyle ButtonSize3" ID="RedeemButton" runat="server" Text="兌換" CommandName="RedeemWish" CommandArgument='<%# Eval("d_num") %>' Visible='<%# IsRedeemVisible(Eval("pass_amount")) %>' />

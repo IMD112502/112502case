@@ -23,7 +23,7 @@
                     <asp:RadioButton ID="RadioButton1" runat="server" GroupName="gendergroup" style="margin-bottom:10px; padding-left:10px;" OnCheckedChanged="RadioButton1_CheckedChanged" Text="男" />
                     <asp:RadioButton ID="RadioButton2" runat="server" GroupName="gendergroup" style="margin-bottom:10px;" OnCheckedChanged="RadioButton2_CheckedChanged" Text="女" />
                    生日
-                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:90px; height:25px;" />
+                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:130px; height:25px;" />
                 </p>
                 <p>電子信箱
                     <asp:TextBox class="TextBoxStyle" ID="Email" runat="server" Width="250px" Height="25px" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入電子信箱"></asp:TextBox>

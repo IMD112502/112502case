@@ -52,14 +52,14 @@
 		</div>
 
 		<div class="BookRight">
-		<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/bookkeeping_add.aspx" />
-		<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
-		<asp:ImageButton class="BookmarkUp ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep1.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
+			<asp:ImageButton class="BookmarkDown AddBookmark" ID="ImageButton2" runat="server" ImageUrl="images/boo/boo_button_add2.png" PostBackUrl="~/src/bookkeeping_add.aspx" />
+			<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
+			<asp:ImageButton class="BookmarkUp ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep1.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">圖表分析</h1>
 		<div class="BookChange">
-			<asp:Chart ID="Chart1" runat="server">
+			<asp:Chart ID="Chart1" runat="server" BackColor="#00000">
 				<Series>
-					<asp:Series Name="Series1" ChartType="Column">
+					<asp:Series Name="Series1" ChartType="Column" Color="#006666" LabelBackColor="#ffffff" LabelForeColor="#006666">
 						
 					</asp:Series>
 				</Series>

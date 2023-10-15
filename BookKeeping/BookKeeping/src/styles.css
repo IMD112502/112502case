@@ -1164,6 +1164,12 @@ table.Gridview {
     transform: translate(-50%, -50%);
 }
 
+.BucPwButton { /* 審核確認紐 */
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+}
+
 .BucButton2 { /* 審核確認紐 */
     left: 50%;
     top: 85%;

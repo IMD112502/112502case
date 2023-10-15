@@ -25,7 +25,7 @@
                 <div class="RevTextbox">
                     <asp:Panel ID="Panel2" runat="server">
                     <asp:Label ID="label4" runat="server" Text="設定目標為"></asp:Label>
-                    <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox1" placeholder="請輸入金額" runat="server" height="30px" width="100px"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox1" placeholder="請輸入金額" runat="server" height="30px" width="100px" ></asp:TextBox>
                     <asp:Label ID="label5" runat="server" Text="元"></asp:Label>
                         <br />
                         <asp:Label ID="ErrorMessagel" runat="server" CssClass="ErrorMessage" style="color:red;font-size:20px" Visible="false"></asp:Label>
