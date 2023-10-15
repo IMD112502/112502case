@@ -36,6 +36,7 @@ namespace _BookKeeping
 
                 //將已完成的成就存放至陣列中
                 List<string> finishTaskLists = new List<string>();
+                int[] taskCount = { 5, 10, 20, 50 };
 
                 string query = "SELECT a_id FROM `112-112502`.使用者成就完成 WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
@@ -73,31 +74,45 @@ namespace _BookKeeping
                
 
                 // 任務1：記帳次數達5次 (finishTaskArray 包含 '1' 才新增）
-                if (finishTaskArray.Contains("1"))
+                for (int i = 1; i <= 7; i += 2)
                 {
-                    DataRow task1 = dt.NewRow();
-                    task1["TaskID"] = 1;
-                    task1["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
-                    task1["TaskName"] = "記帳次數達5次";
-                    task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
-                    task1["ProgressBarStyle"] = $"width: {(accountingCount >= 5 ? 100 : (accountingCount * 20))}%";
-                    task1["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
-                    dt.Rows.Add(task1);
+                    if (finishTaskArray.Contains(i.ToString()))
+                    {
+                        int countIndex = i / 2;
+                        int cnt = taskCount[countIndex];
+                        DataRow task1 = dt.NewRow();
+                        task1["TaskID"] = i.ToString();
+                        task1["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
+                        task1["TaskName"] = "記帳次數達" + cnt.ToString() + "次";
+                        //task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
+                        //task1["ProgressBarStyle"] = $"width: {(accountingCount >= cnt ? 100 : (accountingCount * 100 / cnt))}%";
+                        task1["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
+                        dt.Rows.Add(task1);
+
+                       
+                    }
                 }
 
-                // 任務2：許願10次( finishTaskArray 包含 '2' 才新增）
-                if (finishTaskArray.Contains("2"))
+
+                // 任務2：許願10次( finishTaskArray 不包含 '2' 才新增）
+                for (int j = 2; j <= 8; j += 2)
                 {
-                    DataRow task2 = dt.NewRow();
-                    task2["TaskID"] = 2;
-                    task2["ImageUrl"] = ResolveUrl("~/src/images/clothing2.png");
-                    task2["TaskName"] = "許願10次";
-                    task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
-                    task2["ProgressBarStyle"] = $"width: {(wishingCount >= 10 ? 100 : (wishingCount * 10))}%";
-                    task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
-                    dt.Rows.Add(task2);
+                    if (finishTaskArray.Contains(j.ToString()))
+                    {
+                        int countindex = j / 2 - 1;
+                        int cnt = taskCount[countindex];
+                        DataRow task2 = dt.NewRow();
+                        task2["TaskID"] = 2;
+                        task2["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
+                        task2["TaskName"] = "許願" + cnt.ToString() + "次";
+                        //task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
+                        //task2["ProgressBarStyle"] = $"width: {(wishingCount >= cnt ? 100 : (wishingCount * 100 / cnt))}%";
+                        task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
+                        dt.Rows.Add(task2);
+                       
+                    }
                 }
-                
+
 
                 FinishRepeater.DataSource = dt;
                 FinishRepeater.DataBind();
