@@ -80,7 +80,8 @@ namespace _BookKeeping
             // 定義五個類別
             string[] categories = { "願望", "飲食", "娛樂", "其他", "兌換願望" };
             // 设置图表背景为透明
-            Chart1.BackColor = Color.Transparent;
+            Chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+           
             bool dataExists = false; // 用于标记是否存在数据
 
             foreach (string category in categories)
