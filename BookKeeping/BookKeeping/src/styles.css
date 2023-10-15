@@ -597,22 +597,22 @@ body {
 }
 /*----------登入結束-----------*/
 /*----------忘記密碼-----------*/
+.ForgetPwdText {
+    margin-left: 50%;
+    margin-top: 40px;
+    transform: translate(-60%, 0);
+}
+
 .DropDownList { /* 下拉式選單 */
     padding: 18px;
     margin-bottom: 10px;
     margin-top: 15px;
 }
-
-.ForgetPwdText {
-    margin-left: 50%;
-    margin-top: 50%;
-    transform: translate(-50%, -70%);
-}
 /*--------忘記密碼結束---------*/
 /*------------註冊-------------*/
 .RegText {
     margin-left: 50%;
-    margin-top: 40px;
+    margin-top: 30px;
     transform: translate(-60%, 0);
 }
 
@@ -623,12 +623,8 @@ body {
     font-size: 20px;
 }
 
-.RegGender { /* 性別按鈕區塊 */
-    margin-bottom: 18px;
-}
-
 .RegButton {
-    margin-top: -55px;
+    margin-top: -20px;
     transform: translate(12%, 0);
 }
 /*----------註冊結束-----------*/

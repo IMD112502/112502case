@@ -11,7 +11,7 @@
 <body class="LogBody">
     <form class="LogForm" id="form1" runat="server">
         <h1 class="LogTitle">重設密碼</h1>
-        <div class="RegText">
+        <div class="ForgetPwdText">
             <div class="RegTextBlock">
             <p>安全問題
             <asp:DropDownList class = "DropDownList TextBoxStyle" ID="secretQuestion" runat="server" CssClass="DropDownStyle" Width="265px" Height="40px" style ="margin-top:10px; padding-left:10px;">

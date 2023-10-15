@@ -50,17 +50,17 @@ namespace _BookKeeping
             string username = RegName.Text;
             string nickname = RegNickname.Text;
             string gender = RadioButton1.Checked ? "男生" : "女生";
-            //string password = RegPwd.Text;
+            string password = RegPwd.Text;
             string email = Email.Text;
-            //string selectedQuestion1 = Question1.SelectedValue;
-            //string answer1 = Answer1.Text;
+            string selectedQuestion1 = Question1.SelectedValue;
+            string answer1 = Answer1.Text;
             DateTime selectedDate = BirthDate.Date;
 
             if (string.IsNullOrWhiteSpace(userid) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(nickname)
-                //|| string.IsNullOrWhiteSpace(password)
+                || string.IsNullOrWhiteSpace(password)
                 || string.IsNullOrWhiteSpace(email)
-                //|| string.IsNullOrWhiteSpace(selectedQuestion1) ||
-                //string.IsNullOrWhiteSpace(answer1)
+                || string.IsNullOrWhiteSpace(selectedQuestion1) ||
+                string.IsNullOrWhiteSpace(answer1)
                 )
             {
                 // 有一个或多个字段为空，显示错误消息
@@ -79,24 +79,24 @@ namespace _BookKeeping
                 cmd.Parameters.AddWithValue("@user_name", username);
                 cmd.Parameters.AddWithValue("@nickname", nickname);
                 cmd.Parameters.AddWithValue("@gender", gender);
-                //cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@email", email);
-                //cmd.Parameters.AddWithValue("@question1", selectedQuestion1);
-                //cmd.Parameters.AddWithValue("@answer1", answer1);
+                cmd.Parameters.AddWithValue("@question1", selectedQuestion1);
+                cmd.Parameters.AddWithValue("@answer1", answer1);
                 cmd.Parameters.AddWithValue("@birthdate", selectedDate);
 
                 int rowsaffected = cmd.ExecuteNonQuery();
 
                 if (rowsaffected > 0)//彈出視窗
                 {
-                    //RegAcc.Text = "";
-                    //RegName.Text = "";
-                    //RegNickname.Text = "";
-                    //RadioButton1.Checked = false;
-                    //RadioButton2.Checked = false;
-                    //RegPwd.Text = "";
-                    //Email.Text = "";
-                    //Answer1.Text = "";
+                    RegAcc.Text = "";
+                    RegName.Text = "";
+                    RegNickname.Text = "";
+                    RadioButton1.Checked = false;
+                    RadioButton2.Checked = false;
+                    RegPwd.Text = "";
+                    Email.Text = "";
+                    Answer1.Text = "";
                     ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('註冊成功！');", true);
                     Response.AddHeader("REFRESH", "0.5;URL=login.aspx");
                 }
