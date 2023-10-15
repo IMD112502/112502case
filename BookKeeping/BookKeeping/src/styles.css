@@ -935,89 +935,59 @@ table.Gridview {
     position: fixed;
     padding: 20px 50px;
     height: 600px;
-    width: 900px;
+    width: 800px;
 }
 
 .WishFlex { /*flex區塊(4個願望)*/
+    width: 570px;
+    height: 570px;
+    margin-left: 10%;
+    margin-top: 13%;
     display: flex;
-    width: 600px;
-    height: 580px;
-    flex-wrap: wrap; /*多行*/
-    justify-content: space-evenly; /*div置中*/
-    flex-direction: row; /*橫向排列*/
-}
-
-/*.ContentFlexLeft {
-    margin-top: 80px;
     flex-wrap: wrap;
-    width: 200px;
-    height: 250px;
-    display: flex;
     justify-content: center;
-}*/
+/*    background-color: darkgray;
+*/}
 
-/*.PickWishTitle {
-    font-size: 40px;
-    font-weight: bold;
-    color: black;
-}*/
-
-/*.PickWishText {
-    font-size: 50px;
-    font-weight: bold;
-    color: black;
-}*/
-
-.BucFlexRight { /* 單個願望便條 */
+.BucMemo { /* 單個願望便條 */
     background: url('images/dre_memo.png');
-    background-size: 180px;
+    background-size: 250px;
     background-repeat: no-repeat;
     width: 250px;
     height: 250px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
 }
 
-.ContentFlexRight {
-    margin-top: 50px;
-    flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
+.ContentFlex {
+    font-size: 40px;
+    width: 250px;
+    height: 250px;
     font-weight: bold;
-}
-
-/*.PickWish {*/ /* 目標願望便條 */
-/*background: url('images/dre_m_memo.png');
-    background-size: 400px;
-    background-repeat: no-repeat;
-    width: 400px;
-    height: 400px;
+    margin: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+/*    background-color: burlywood;
+*/}
+
+.BucBotton12 {
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+}
+/*.ExchangeButton {*/ /* 兌換按鈕大小 */
+    /*font-size: large;
+    height: 40px;
+    width: 90px;
 }*/
-
-.ChangeWishButton { /* 更換目標按鈕大小 */
-    font-size: large;
-    height: 40px;
-    width: 90px;
-}
-
-.ExchangeButton { /* 兌換按鈕大小 */
-    font-size: large;
-    height: 40px;
-    width: 90px;
-}
 
 #BucTrashcan { /* 垃圾桶按鈕 */
     width: 160.8px;
     height: 259.8px;
     position: absolute;
     top: 100%;
-    left: 8%;
+    left: 6%;
     transform: translate(-50%, -50%);
 }
     #BucTrashcan:hover {
@@ -1030,7 +1000,7 @@ table.Gridview {
     height: 220px;
     position: absolute;
     top: 60%;
-    left: 85%;
+    left: 88%;
     transform: translate(-50%, -50%);
 }
     #ReviewButton:hover {

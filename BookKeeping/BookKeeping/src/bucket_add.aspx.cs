@@ -82,7 +82,7 @@ namespace _BookKeeping
             conn.Close();
 
             //判斷願望是否達到上限
-            if (wish_count < 3)
+            if (wish_count < 4)
             {
                 conn.Open();
                 string sql = "insert into `112-112502`.願望清單(user_id, d_name, pass_state) values (@name, @d_name, 'r')";

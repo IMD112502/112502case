@@ -11,16 +11,20 @@
 <body class="BucBody">
     <form id="form1" class="BucMainForm" runat="server">
            <%--   願望區--%>
-            <asp:Repeater ID="Wish_Repeater" runat="server" OnItemCommand="Repeater_ItemCommand">
-            <ItemTemplate>
-                <div>
-                    <span><%# Eval("d_name") %></span>
-                    <span><%# Eval("pass_amount") %></span>
-                    <asp:Button ID="DeleteButton" runat="server" Text="刪除" CommandName="DeleteWish" CommandArgument='<%# Eval("d_num") %>' />
-            <asp:Button ID="RedeemButton" runat="server" Text="兌換" CommandName="RedeemWish" CommandArgument='<%# Eval("d_num") %>' Visible='<%# IsRedeemVisible(Eval("pass_amount")) %>' />
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
+            <div class="WishFlex">
+                <asp:Repeater ID="Wish_Repeater" runat="server" OnItemCommand="Repeater_ItemCommand">
+                <ItemTemplate>
+                    <div class="BucMemo ContentFlex">
+                        <span><%# Eval("d_name") %></span>
+                        <span><%# Eval("pass_amount") %></span>
+                        <div class="BucBotton12">
+                            <asp:Button class="ButtonStyle ButtonSize3" ID="DeleteButton" runat="server" Text="刪除" CommandName="DeleteWish" CommandArgument='<%# Eval("d_num") %>' />
+                            <asp:Button class="ButtonStyle ButtonSize3" ID="RedeemButton" runat="server" Text="兌換" CommandName="RedeemWish" CommandArgument='<%# Eval("d_num") %>' Visible='<%# IsRedeemVisible(Eval("pass_amount")) %>' />
+                        </div>
+                    </div>
+                </ItemTemplate>
+                </asp:Repeater>
+            </div>
 
         <asp:ImageButton ID="BucTrashcan" runat="server" ImageUrl="images/dre_gar.png" PostBackUrl="~/src/bucket_trashcan.aspx" /><%----願望垃圾桶--%>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" /><%----返回鍵--%>
