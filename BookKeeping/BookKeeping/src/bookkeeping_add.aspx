@@ -65,7 +65,6 @@
 						</ItemTemplate>
 							<EditItemTemplate>
 								<asp:DropDownList ID="txtclass" runat="server">
-									<asp:ListItem Text="願望" Value="願望" />
 									<asp:ListItem Text="飲食" Value="飲食" />
 									<asp:ListItem Text="娛樂" Value="娛樂" />
 									<asp:ListItem Text="其他" Value="其他" />
