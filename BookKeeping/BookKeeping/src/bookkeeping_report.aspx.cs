@@ -25,8 +25,20 @@ namespace _BookKeeping
             if (!IsPostBack)
             {
                 MySqlConnection conn = DBConnection();
+                int currentMonth = DateTime.Now.Month;
 
-                GenerateChart(conn, DateTime.Now.Month); 
+                // 将 GetMonthlyCategoryTotals 的逻辑整合到 Page_Load
+                DataTable dt = GetMonthlyCategoryTotals(conn, currentMonth, DateTime.Now.Year);
+
+                // 绑定 GridView 控件
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+
+                // 生成 Chart
+                GenerateChart(conn, currentMonth);
+
+                // 设置 Label1 文本
+                Label1.Text = DateTime.Now.Year.ToString() + "年" + currentMonth.ToString() + "月";
             }
         }
 
@@ -167,7 +179,7 @@ namespace _BookKeeping
             string query = "SELECT class, SUM(cost) AS total_cost " +
                            "FROM `112-112502`.記帳資料 " +
                            "WHERE MONTH(date) = @month AND YEAR(date) = @year AND user_id = @user_id " +
-                           "GROUP BY class"; 
+                           "GROUP BY class";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@month", month);
