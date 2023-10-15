@@ -72,6 +72,7 @@
 				<asp:ListItem Text="飲食" Value="飲食" />
 				<asp:ListItem Text="娛樂" Value="娛樂" />
 				<asp:ListItem Text="其他" Value="其他" />
+				<asp:ListItem Text="兌換願望" Value="兌換願望" />
 			</asp:DropDownList>
 			<asp:Label ID="Label10" runat="server" Text="關鍵字"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
