@@ -19,61 +19,58 @@ namespace BookKeeping.src
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            
+            user_id = Session["UserID"] as string; // 將 Session["UserID"] 賦值給成員變數 user_id
+
+            if (!string.IsNullOrEmpty(user_id))
             {
-                user_id = Session["UserID"] as string; // 將 Session["UserID"] 賦值給成員變數 user_id
-
-                if (!string.IsNullOrEmpty(user_id))
+                // 使用用户 ID 查询数据库以获取用户数据
+                string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    // 使用用户 ID 查询数据库以获取用户数据
-                    string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    connection.Open();
+
+                    // 创建 SQL 查询
+                    string query = "SELECT nickname, user_id, gender FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        connection.Open();
+                        cmd.Parameters.AddWithValue("@UserID", user_id);
 
-                        // 创建 SQL 查询
-                        string query = "SELECT nickname, user_id, gender FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
-
-                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            cmd.Parameters.AddWithValue("@UserID", user_id);
 
-                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            if (reader.Read())
                             {
-
-                                if (reader.Read())
-                                {
                                     
-                                    // 从数据库中获取用户数据并填充到 Label 中
+                                // 从数据库中获取用户数据并填充到 Label 中
+                                NickName.Text = reader["nickname"].ToString();
+                                UId.Text = reader["user_id"].ToString();
+
+                                if (string.IsNullOrEmpty(NickName.Text))
+                                {
+                                    NickName.Text = user_id;
+                                    UId.Text = "";
+                                }
+                                else
+                                {
                                     NickName.Text = reader["nickname"].ToString();
                                     UId.Text = reader["user_id"].ToString();
+                                }
 
-                                    if (string.IsNullOrEmpty(NickName.Text))
-                                    {
-                                        NickName.Text = user_id;
-                                        UId.Text = "";
-                                    }
-                                    else
-                                    {
-                                        NickName.Text = reader["nickname"].ToString();
-                                        UId.Text = reader["user_id"].ToString();
-                                    }
-
-                                    if (reader["gender"].ToString() == "男生")
-                                    {
-                                        AvatarHead.ImageUrl = "images/avatar/ava_boy.png";
-                                    }
-                                    else
-                                    {
-                                        AvatarHead.ImageUrl = "images/avatar/ava_girl.png";
-                                    }
+                                if (reader["gender"].ToString() == "男生")
+                                {
+                                    AvatarHead.ImageUrl = "images/avatar/ava_boy.png";
+                                }
+                                else
+                                {
+                                    AvatarHead.ImageUrl = "images/avatar/ava_girl.png";
                                 }
                             }
                         }
                     }
                 }
-                PigChange();
-            }
+            }   
         }
 
         protected MySqlConnection DBConnection()

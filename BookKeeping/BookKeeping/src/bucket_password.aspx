@@ -17,7 +17,7 @@
                 <br />
                 <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
                 <br />
-                <a class="RevForgetPwd" style="font-size:18px;" href="forget_bucket_pwd.aspx">忘記密碼</a>
+                <a id="RevForgetPwd" class="RevForgetPwd" runat="server" style="font-size:18px;" href="forget_bucket_pwd.aspx">忘記密碼</a>
                 <br />
                 <asp:Label style="font-size:20px;" ID="ErrorMessageLabel" runat="server" Text="" />
                 <br />

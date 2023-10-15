@@ -38,6 +38,7 @@ namespace BookKeeping
                     question.Visible = true;
                     securityQuestion.Visible = true;
                     securityAnswer.Visible = true;
+                    RevForgetPwd.Visible = false;
                 }
             }
         }

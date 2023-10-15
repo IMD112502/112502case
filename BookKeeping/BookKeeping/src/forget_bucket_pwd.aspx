@@ -34,7 +34,7 @@
                 <br />
                 <div>
                     <asp:Button class="ButtonStyle3 ButtonSize2" ID="ReturnButton" runat="server" Text="返回" PostBackUrl="~/src/bucket_password.aspx" />
-                    <asp:Button class="ButtonStyle3 ButtonSize2" ID="LoginButton" runat="server" Text="確認" PostBackUrl="~/src/bucket_password.aspx" />
+                    <asp:Button class="ButtonStyle3 ButtonSize2" ID="LoginButton" runat="server" OnClick="LoginButton_Click" Text="確認" />
                 </div>
             </div>
         </div>
