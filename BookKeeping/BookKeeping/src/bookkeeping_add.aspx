@@ -45,8 +45,9 @@
 					</Columns>
 				</asp:GridView>--%>
 				<h1 class="BookTitle">記帳紀錄</h1>
-				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="num" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
-				OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" >
+				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="num"
+				  OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
+				  OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDataBound="GridView1_RowDataBound">
 
 				<Columns>
 					<asp:TemplateField HeaderText="日期">

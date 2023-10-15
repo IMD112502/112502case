@@ -60,8 +60,8 @@
         <div class="AchHeader">
             <h1><asp:Label class="AchTopTitle" ID="Label1" runat="server" Text="成就"></asp:Label></h1>
             <div class="AchTopButton">
-                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="已完成" style="margin-left:-160px;" PostBackUrl="~/src/achievement.aspx"/>
-                <asp:Button class="ButtonStylePick ButtonSize1" ID="Button2" runat="server" Text="未完成" />
+                <asp:Button class="ButtonStyle ButtonSize1" ID="Button1" runat="server" Text="未完成" style="margin-left:-160px;" PostBackUrl="~/src/achievement.aspx"/>
+                <asp:Button class="ButtonStylePick ButtonSize1" ID="Button2" runat="server" Text="已完成" />
             </div>
         </div>
 

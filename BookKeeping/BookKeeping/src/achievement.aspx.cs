@@ -25,11 +25,35 @@ namespace _BookKeeping
                 BindTaskList();
             }
         }
+        private string UserGender(MySqlConnection connection) 
+        {
+            string gender = "";
+            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = @user_id";
+            string user_id = Session["UserID"].ToString();
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@user_id", user_id);
+                string cmdGender = command.ExecuteScalar().ToString();
+                if (cmdGender == "男生")
+                {
+                    gender += "A";
+                }
+                else 
+                {
+                    gender += "B";
+                }
+            }
+            
+
+            return gender;
+        }
 
         private void BindTaskList()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             string user_id = Session["UserID"].ToString();
+            
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -60,9 +84,10 @@ namespace _BookKeeping
 
 
 
-                // 獲取記帳次數和許願次數
+                // 獲取記帳次數、許願次數和使用者性別
                 int accountingCount = GetAccountingCount(connection);
                 int wishingCount = GetWishingCount(connection);
+                string gender = UserGender(connection);
 
                 // 創建任務清單數據
                 DataTable dt = new DataTable();
@@ -83,7 +108,7 @@ namespace _BookKeeping
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
-                        task1["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
+                        task1["ImageUrl"] = ResolveUrl("~/src/images/clothing"+i.ToString()+gender+".png");
                         task1["TaskName"] = "記帳次數達" + cnt.ToString() + "次";
                         task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
                         task1["ProgressBarStyle"] = $"width: {(accountingCount >= cnt ? 100 : (accountingCount * 100 / cnt))}%";
@@ -104,7 +129,7 @@ namespace _BookKeeping
                         int cnt = taskCount[countindex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
-                        task2["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
+                        task2["ImageUrl"] = ResolveUrl("~/src/images/clothing" + j.ToString() + gender + ".png");
                         task2["TaskName"] = "許願" + cnt.ToString() + "次";
                         task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
                         task2["ProgressBarStyle"] = $"width: {(wishingCount >= cnt ? 100 : (wishingCount * 100 / cnt))}%";
@@ -149,6 +174,10 @@ namespace _BookKeeping
 
         protected void ClaimButton_Click(object sender, EventArgs e)
         {
+
+            int rowsAffected = 0;
+            
+
             // 验证是否成功获取了用户ID
             if (Session["UserID"] != null)
             {
@@ -159,24 +188,40 @@ namespace _BookKeeping
 
                 Button claimButton = (Button)sender;
                 string taskId = claimButton.CommandArgument.ToString();
+                string gender = UserGender(connection);
 
                 // 根据 taskId 执行相应的操作，例如发放奖励
 
-                string sql = "INSERT INTO `112-112502`.使用者成就完成 (user_id, a_id , get_state) VALUES (@user_id , @task_id , 'y')";
+                string sql_ach = "INSERT INTO `112-112502`.使用者成就完成 (user_id, a_id , get_state) VALUES (@user_id , @task_id , 'y')";
 
                 // 使用 Session 中的用户ID
                 string user_id = Session["UserID"].ToString();
 
-                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                using (MySqlCommand cmd = new MySqlCommand(sql_ach, connection))
                 {
                     cmd.Parameters.AddWithValue("@user_id", user_id); // 使用 userId 而不是 user_id
                     cmd.Parameters.AddWithValue("@task_id", taskId);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
-                    }
+                    rowsAffected += cmd.ExecuteNonQuery();
+
+                }
+                string sql_cloth = "INSERT INTO `112-112502`.`更衣間` (user_id, cloth_id) VALUES (@user_id , @cloth_id);";
+
+                using (MySqlCommand cmd_cloth = new MySqlCommand(sql_cloth, connection)) 
+                {
+                    cmd_cloth.Parameters.AddWithValue("@user_id", user_id);
+                    cmd_cloth.Parameters.AddWithValue("@cloth_id", taskId + gender);
+
+                    rowsAffected += cmd_cloth.ExecuteNonQuery();
+                }
+
+                if (rowsAffected > 1)
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "領取成功", "alert('領取成功！');", true);
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "領取失敗", "alert('領取失敗！');", true);
                 }
 
                 // 重新绑定任务清单以更新任务状态

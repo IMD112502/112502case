@@ -25,6 +25,29 @@ namespace _BookKeeping
                 BindTaskList();
             }
         }
+        private string UserGender(MySqlConnection connection)
+        {
+            string gender = "";
+            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = @user_id";
+            string user_id = Session["UserID"].ToString();
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@user_id", user_id);
+                string cmdGender = command.ExecuteScalar().ToString();
+                if (cmdGender == "男生")
+                {
+                    gender += "A";
+                }
+                else
+                {
+                    gender += "B";
+                }
+            }
+
+
+            return gender;
+        }
 
         private void BindTaskList()
         {
@@ -59,9 +82,9 @@ namespace _BookKeeping
 
 
 
-                // 獲取記帳次數和許願次數
-                int accountingCount = GetAccountingCount(connection);
-                int wishingCount = GetWishingCount(connection);
+                // 獲取使用者性別
+                
+                string gender = UserGender(connection);
 
                 // 創建任務清單數據
                 DataTable dt = new DataTable();
@@ -82,10 +105,8 @@ namespace _BookKeeping
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
-                        task1["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
+                        task1["ImageUrl"] = ResolveUrl("~/src/images/clothing" + i.ToString() + gender + ".png");
                         task1["TaskName"] = "記帳次數達" + cnt.ToString() + "次";
-                        //task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
-                        //task1["ProgressBarStyle"] = $"width: {(accountingCount >= cnt ? 100 : (accountingCount * 100 / cnt))}%";
                         task1["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                         dt.Rows.Add(task1);
 
@@ -103,10 +124,8 @@ namespace _BookKeeping
                         int cnt = taskCount[countindex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
-                        task2["ImageUrl"] = ResolveUrl("~/src/images/clothing1.png");
+                        task2["ImageUrl"] = ResolveUrl("~/src/images/clothing" + j.ToString() + gender + ".png");
                         task2["TaskName"] = "許願" + cnt.ToString() + "次";
-                        //task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
-                        //task2["ProgressBarStyle"] = $"width: {(wishingCount >= cnt ? 100 : (wishingCount * 100 / cnt))}%";
                         task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                         dt.Rows.Add(task2);
                        
@@ -120,27 +139,7 @@ namespace _BookKeeping
             }
         }
 
-        private int GetAccountingCount(MySqlConnection connection)
-        {
-            // 執行 SQL 查詢以獲取記帳次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = @user_id";
-            using (MySqlCommand command = new MySqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@user_id", user_id);
-                return Convert.ToInt32(command.ExecuteScalar());
-            }
-        }
-
-        private int GetWishingCount(MySqlConnection connection)
-        {
-            // 執行 SQL 查詢以獲取許願次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id";
-            using (MySqlCommand command = new MySqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@user_id", user_id);
-                return Convert.ToInt32(command.ExecuteScalar());
-            }
-        }
+       
 
         
     }
