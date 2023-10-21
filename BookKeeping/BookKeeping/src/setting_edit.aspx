@@ -42,7 +42,6 @@
         <asp:Button class="ButtonStyle ButtonSize3" ID="Xx" runat="server" Text="X" PostBackUrl="~/src/main.aspx"/>
         <asp:Button class="ButtonStyle ButtonSize2" ID="GoBack" runat="server" Text="返回" PostBackUrl="~/src/setting.aspx"/>
         <asp:Button class="ButtonStyle ButtonSize2" ID="EditOk" runat="server" OnClick="EditOk_Click" Text="確認修改" />
-        <asp:ImageButton class="Back" ID="ImageButton2" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" /><%--返回鍵--%>
     </form>
 </body>
 </html>

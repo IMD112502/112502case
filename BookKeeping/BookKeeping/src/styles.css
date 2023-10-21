@@ -946,8 +946,7 @@ table.Gridview {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-/*    background-color: darkgray;
-*/}
+}
 
 .BucMemo { /* 單個願望便條 */
     background: url('images/dre_memo.png');
@@ -1181,60 +1180,49 @@ table.Gridview {
 }
 /*----------願望審核區結束----------*/
 /*------------------------------------更衣室------------------------------------*/
-.DreRoomBackground {
-    background-image: url('images/home_bg.png'); /* 暫用 */
-    background-size: 1416px 984px;
-    height: 900px;
-    width: 1600px;
-}
-
-#DreForm {
-    margin-left: 190px;
-    height: 100vh;
-}
-
-#DreTitle {
-    font-size: 55px;
-    color: blanchedalmond;
-    margin-left: 40%;
-    transform: translate(-50%);
-}
-
-.Cloth {
-    overflow-y: scroll;
-    background-color: tan;
-    height: 100%;
-    width: 515px;
-}
-
-.SortButton { /* 類別按鈕區塊 */
-    position: absolute; /*指定絕對位置*/
-    left: 720px;
-    top: 50px;
-    width: 100px;
-}
-
-.DreButtonSize { /* 類別按鈕 */
-    Height: 50px;
-    Width: 100px;
-    writing-mode: vertical-rl;
-    text-align: center;
-    margin-top: 5px;
+.DreRoom {
+    background-image: url('images/main/home_bg.png');
+    background-size: 1047px 877.2px;
 }
 
 .DreButton { /* 底部按鈕區塊 */
-    position: absolute; /*指定絕對位置*/
-    right: 97px;
-    top: 830px;
-    width: 410px;
+    position: absolute;
+    top: 92%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 300px;
     height: 90px;
 }
 
-#DrePersom { /* 人物 */
-    position: fixed;
-    top: 55%;
-    left: 64%;
+.Cloth {
+    background-color: #BEE3E2;
+    height: 600px;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 13%;
     transform: translate(-50%, -50%);
+    border-radius: 40px; /*圓角*/
+    overflow-y: scroll; /* 垂直滾動條 */
+}
+
+.DrePerson { /* 人物 */
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Pet {
+    background-color: #BEE3E2;
+    height: 600px;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px; /*圓角*/
+    overflow-y: scroll; /* 垂直滾動條 */
 }
 /*------------------------------------更衣室結束------------------------------------*/
 
