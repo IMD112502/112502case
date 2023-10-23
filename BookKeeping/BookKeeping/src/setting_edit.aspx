@@ -38,7 +38,7 @@
                 <asp:TextBox class="SetTextBoxStyle" ID="TextBox4" runat="server" Width="50px"></asp:TextBox>
             </p>
         </div>
-        <asp:ImageButton class="Avatar" ID="Avatar" runat="server" ImageUrl="images/avatar/ava_girl.png" PostBackUrl="~/src/avatar.aspx" />
+        <asp:Image class="Avatar" ID="Avatar" runat="server" ImageUrl="images/avatar/ava_girl.png"/>
         <asp:Button class="ButtonStyle ButtonSize3" ID="Xx" runat="server" Text="X" PostBackUrl="~/src/main.aspx"/>
         <asp:Button class="ButtonStyle ButtonSize2" ID="GoBack" runat="server" Text="返回" PostBackUrl="~/src/setting.aspx"/>
         <asp:Button class="ButtonStyle ButtonSize2" ID="EditOk" runat="server" OnClick="EditOk_Click" Text="確認修改" />

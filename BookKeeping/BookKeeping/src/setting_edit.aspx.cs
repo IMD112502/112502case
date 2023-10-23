@@ -73,6 +73,15 @@ namespace BookKeeping.src
                             user.Gender = reader["gender"].ToString();
                             user.Account = reader["user_id"].ToString();
                             user.Birthdate = Convert.ToDateTime(reader["birthday"]);
+
+                            if (reader["gender"].ToString() == "男生")
+                            {
+                                Avatar.ImageUrl = "images/avatar/ava_boy.png";
+                            }
+                            else
+                            {
+                                Avatar.ImageUrl = "images/avatar/ava_girl.png";
+                            }
                         }
                     }
                 }
@@ -113,7 +122,7 @@ namespace BookKeeping.src
             {
                 // 如果更新成功，你可以进行相应的处理，例如重定向到设置页面或显示成功消息
                 ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('更新成功');", true);
-                Response.AddHeader("REFRESH", "0.5;URL=setting.aspx");
+                Response.AddHeader("REFRESH", "0.1;URL=setting.aspx");
             }
             else
             {

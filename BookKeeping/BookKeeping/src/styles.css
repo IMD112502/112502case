@@ -473,7 +473,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-    .AvatarSmall:hover { /* 鼠標放在按鈕上 */
+    .AvatarSmall:hover {  鼠標放在按鈕上 
         width: 120px;
         height: 120px;
     }
@@ -496,10 +496,10 @@ body {
     transform: translate(-50%, -50%);
 }
 
-    .Avatar:hover { /* 鼠標放在按鈕上 */
-        width: 330px;
+    /*.Avatar:hover {*/ /* 鼠標放在按鈕上 */
+        /*width: 330px;
         height: 330px;
-    }
+    }*/
 
 #Xx {
     position: absolute;
