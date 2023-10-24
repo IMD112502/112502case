@@ -26,7 +26,7 @@
 
         /* 任務內容 */
         .task-content {
-            flex: 3; /* 占用可用空間的一部分，使任務內容在中間 */
+            flex: 2.3; /* 占用可用空間的一部分，使任務內容在中間 */
             padding: 10px; /* 內邊距，增加內容區塊的間距 */
         }
 
@@ -46,9 +46,9 @@
 
         /* 領取按鈕 */
         .claim-button {
-            flex: 0.3; /* 占用可用空間的一部分，使按鈕在右側 */
+            flex: 0.5; /* 占用可用空間的一部分，使按鈕在右側 */
             text-align: center; /* 文字置中 */
-            width:2px;
+            width:5px;
             height:50%;
             
         }
@@ -100,7 +100,7 @@
                 </div>
 
                 <!-- 領取按鈕（僅在達成條件時顯示） -->
-                <asp:Button class="claim-button" ID="ClaimButton" runat="server" Text="領取" CommandName="ClaimTask" CommandArgument='<%# Eval("TaskID") %>' Visible='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) %>' OnClick="ClaimButton_Click" style='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) ? "" : "display:none;" %>' />
+                <asp:Button CssClass="ButtonStyle3 ButtonSize2 claim-button" ID="ClaimButton" runat="server" Text="領取" CommandName="ClaimTask" CommandArgument='<%# Eval("TaskID") %>' Visible='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) %>' OnClick="ClaimButton_Click" style='<%# Convert.ToBoolean(Eval("IsTaskCompleted")) ? "" : "display:none;" %>' />
 
             </div>
         </ItemTemplate>

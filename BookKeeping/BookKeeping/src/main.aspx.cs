@@ -32,7 +32,7 @@ namespace BookKeeping.src
                     connection.Open();
 
                     // 创建 SQL 查询
-                    string query = "SELECT nickname, user_id, gender, cloth FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
+                    string query = "SELECT nickname, user_id, gender, cloth, cloth2 FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
@@ -44,8 +44,11 @@ namespace BookKeeping.src
                             if (reader.Read())
                             {
 
-                                string currentClothingID = reader["cloth"].ToString();
-                                Person.ImageUrl = currentClothingID;
+                                string currentHeadID = reader["cloth2"].ToString();
+                                MainHead.ImageUrl = currentHeadID;
+                                string currentBodyID = reader["cloth"].ToString();
+                                MainBody.ImageUrl = currentBodyID;
+                                
                                 // 从数据库中获取用户数据并填充到 Label 中
                                 NickName.Text = reader["nickname"].ToString();
                                 UId.Text = reader["user_id"].ToString();
