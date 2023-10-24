@@ -1194,12 +1194,24 @@ table.Gridview {
     height: 90px;
 }
 
-.Cloth {
+.Head {
     background-color: #BEE3E2;
-    height: 600px;
+    height: 320px;
     width: 350px;
     position: absolute;
-    top: 50%;
+    top: 30%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px; /*圓角*/
+    overflow-y: scroll; /* 垂直滾動條 */
+}
+
+.Cloth {
+    background-color: #BEE3E2;
+    height: 400px;
+    width: 350px;
+    position: absolute;
+    top: 70%;
     left: 13%;
     transform: translate(-50%, -50%);
     border-radius: 40px; /*圓角*/
@@ -1208,7 +1220,23 @@ table.Gridview {
 
 .DrePerson { /* 人物 */
     position: absolute;
+    height: 800px;
+    width: 380px;
     top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#NowBody {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-48%, -48.5%);
+}
+
+#NowHead {
+    position: absolute;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

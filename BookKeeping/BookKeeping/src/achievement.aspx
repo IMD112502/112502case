@@ -68,7 +68,7 @@
         <%--<div class="AchContent">
             <ul>
                 <li>
-                  <asp:Image ID="Image1" runat="server" ImageUrl="images/clothing1.png" />
+                  <asp:Image ID="Image1" runat="server" ImageUrl="images/cloth/head_g1.png" />
                   <asp:Label class="AchTit" runat="server" Text="記帳小達人" ></asp:Label>
                   <br />
                   <asp:Label class="AchCon" ID="AchCon1" runat="server" Text="累計記帳11次" ></asp:Label>

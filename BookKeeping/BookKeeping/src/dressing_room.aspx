@@ -10,40 +10,73 @@
 </head>
 <body class="DreRoom">
     <form id="DreForm" runat="server">
-        <div class="Cloth"> <%--左區塊--%>
-            <asp:ImageButton ID="cloth1" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g1.png" OnClientClick="return setPreviewImage('images/cloth/body_g1.png');" />
-
-            <asp:ImageButton ID="cloth2" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g2.png" OnClientClick="return setPreviewImage('images/cloth/body_g2.png');" />
-
-            <asp:ImageButton ID="cloth3" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g3.png" OnClientClick="return setPreviewImage('images/cloth/body_g3.png');" />
+        <div class="Head"> <%--左上區塊(女生)--%>
+            <asp:ImageButton ID="Headg1" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g1.png" OnClientClick="return setPreviewHead('images/cloth/head_g1.png');" />
+            <asp:ImageButton ID="Headg2" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g2.png" OnClientClick="return setPreviewHead('images/cloth/head_g2.png');" />
+            <asp:ImageButton ID="Headg3" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g3.png" OnClientClick="return setPreviewHead('images/cloth/head_g3.png');" />
+            <asp:ImageButton ID="Headg4" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g4.png" OnClientClick="return setPreviewHead('images/cloth/head_g4.png');" />
+            <asp:ImageButton ID="Headg5" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g5.png" OnClientClick="return setPreviewHead('images/cloth/head_g5.png');" />
+            <asp:ImageButton ID="Headg6" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g6.png" OnClientClick="return setPreviewHead('images/cloth/head_g6.png');" />
         </div>
 
-        <div class="DrePerson">
-            <asp:Image ID="now" runat="server" ImageUrl="images/person.png" Height="360px" Width="310px" ClientIDMode="Static"/>
+        <div class="Cloth"> <%--左下區塊(女生)--%>
+            <asp:ImageButton ID="Clothg1" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g1.png" OnClientClick="return setPreviewBody('images/cloth/body_g1.png');" />
+            <asp:ImageButton ID="Clothg2" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g2.png" OnClientClick="return setPreviewBody('images/cloth/body_g2.png');" />
+            <asp:ImageButton ID="Clothg3" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g3.png" OnClientClick="return setPreviewBody('images/cloth/body_g3.png');" />
+            <asp:ImageButton ID="Clothg4" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g4.png" OnClientClick="return setPreviewBody('images/cloth/body_g4.png');" />
+            <asp:ImageButton ID="Clothg5" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g5.png" OnClientClick="return setPreviewBody('images/cloth/body_g5.png');" />
+        </div>
 
+<%--        <div class="Cloth">
+            <asp:ImageButton ID="Clothb1" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b1.png" OnClientClick="return setPreviewBody('images/cloth/body_b1.png');" />
+            <asp:ImageButton ID="Clothb2" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b2.png" OnClientClick="return setPreviewBody('images/cloth/body_b2.png');" />
+            <asp:ImageButton ID="Clothb3" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b3.png" OnClientClick="return setPreviewBody('images/cloth/body_b3.png');" />
+            <asp:ImageButton ID="Clothb4" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b4.png" OnClientClick="return setPreviewBody('images/cloth/body_b4.png');" />
+            <asp:ImageButton ID="Clothb5" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b5.png" OnClientClick="return setPreviewBody('images/cloth/body_b5.png');" />
+        </div>--%>
+
+        <div class="DrePerson">
+            <asp:Image ID="NowHead" runat="server" ImageUrl="images/cloth/Head_g1.png" Height="530px" Width="380px" ClientIDMode="Static"/>
+            <asp:Image ID="NowBody" runat="server" ImageUrl="images/cloth/body_g1.png" Height="360px" Width="310px" ClientIDMode="Static"/>
         </div>
 
         <div class="Pet"> <%--右區塊--%>
-
+            
         </div>
 
         <div class="DreButton">
 <%--            <input id="DreCancel" class="ButtonStyle3 ButtonSize2" type="button" value="取消修改" />
             <input id="DreConfirm" class="ButtonStyle3 ButtonSize2" type="button" value="確認更換" />--%>
             <asp:Button ID="btnCancel" runat="server" Text="取消修改" OnClientClick="return cancelChanges();" Enabled="false" />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click" Enabled="false" />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="BtnConfirm_Click" Enabled="false" />
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
 
-        <asp:HiddenField ID="hiddenClothingID" runat="server" />
+        <asp:HiddenField ID="hiddenBodyID" runat="server" />
+        <asp:HiddenField ID="hiddenHeadID" runat="server" />
 
         <script type="text/javascript">
-            function setPreviewImage(imagePath) {
-                var nowImage = document.getElementById("now");
+            function setPreviewBody(imagePath) {
+                var nowImage = document.getElementById("NowBody");
                 nowImage.src = imagePath;
 
                 // 設定隱藏字段的值為user所選的衣服ID
-                document.getElementById('<%= hiddenClothingID.ClientID %>').value = imagePath;
+                document.getElementById('<%= hiddenBodyID.ClientID %>').value = imagePath;
+
+                // 启用确认修改按钮
+                var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');
+                var cancelButton = document.getElementById('<%= btnCancel.ClientID %>');
+                confirmButton.disabled = false;
+                cancelButton.disabled = false;
+
+                return false; // 阻止頁面刷新
+            }
+            function setPreviewHead(imagePath2) {
+                var nowImage2 = document.getElementById("NowHead");
+                nowImage2.src = imagePath2;
+
+                // 設定隱藏字段的值為user所選的衣服ID
+                document.getElementById('<%= hiddenHeadID.ClientID %>').value = imagePath2;
 
                 // 启用确认修改按钮
                 var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');

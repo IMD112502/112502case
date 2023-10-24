@@ -37,11 +37,11 @@ namespace _BookKeeping
                 string cmdGender = command.ExecuteScalar().ToString();
                 if (cmdGender == "男生")
                 {
-                    gender += "A";
+                    gender += "b";
                 }
                 else 
                 {
-                    gender += "B";
+                    gender += "g";
                 }
             }
             
@@ -108,7 +108,7 @@ namespace _BookKeeping
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
-                        task1["ImageUrl"] = ResolveUrl("~/src/images/clothing"+i.ToString()+gender+".png");
+                        task1["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + i.ToString() + ".png");
                         task1["TaskName"] = "記帳次數達" + cnt.ToString() + "次";
                         task1["TaskDescription"] = $"您已記帳 {accountingCount} 次";
                         task1["ProgressBarStyle"] = $"width: {(accountingCount >= cnt ? 100 : (accountingCount * 100 / cnt))}%";
@@ -129,7 +129,7 @@ namespace _BookKeeping
                         int cnt = taskCount[countindex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
-                        task2["ImageUrl"] = ResolveUrl("~/src/images/clothing" + j.ToString() + gender + ".png");
+                        task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + j.ToString() + ".png");
                         task2["TaskName"] = "許願" + cnt.ToString() + "次";
                         task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
                         task2["ProgressBarStyle"] = $"width: {(wishingCount >= cnt ? 100 : (wishingCount * 100 / cnt))}%";
