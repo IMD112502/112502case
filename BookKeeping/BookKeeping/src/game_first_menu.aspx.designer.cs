@@ -11,7 +11,7 @@ namespace BookKeeping.src
 {
 
 
-    public partial class game_senior_menu
+    public partial class game_first_menu
     {
 
         /// <summary>

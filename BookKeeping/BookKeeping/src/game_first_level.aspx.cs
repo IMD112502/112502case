@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BookKeeping.src
 {
-    public partial class game_senior_level : System.Web.UI.Page
+    public partial class game_first_level : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
