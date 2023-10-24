@@ -11,15 +11,15 @@
 <body class="DreRoom">
     <form id="DreForm" runat="server">
         <div class="Cloth"> <%--左區塊--%>
-            <asp:ImageButton ID="cloth1" runat="server" Height="200px" Width="200px" style="margin-left:30px; margin-top:30px;" src="images/clothing1A.png" OnClientClick="return setPreviewImage('images/clothing1A.png');" />
+            <asp:ImageButton ID="cloth1" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g1.png" OnClientClick="return setPreviewImage('images/cloth/body_g1.png');" />
 
-            <asp:ImageButton ID="cloth2" runat="server" Height="200px" Width="200px" style="margin-left:30px; margin-top:30px;" src="images/clothing2A.png" OnClientClick="return setPreviewImage('images/clothing2A.png');" />
+            <asp:ImageButton ID="cloth2" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g2.png" OnClientClick="return setPreviewImage('images/cloth/body_g2.png');" />
 
-            <asp:ImageButton ID="cloth3" runat="server" Height="200px" Width="200px" style="margin-left:30px; margin-top:30px;" src="images/clothing3A.png" OnClientClick="return setPreviewImage('images/clothing3A.png');" />
+            <asp:ImageButton ID="cloth3" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g3.png" OnClientClick="return setPreviewImage('images/cloth/body_g3.png');" />
         </div>
 
         <div class="DrePerson">
-            <asp:Image ID="now" runat="server" ImageUrl="images/person.png" Height="550px" Width="200px" ClientIDMode="Static"/>
+            <asp:Image ID="now" runat="server" ImageUrl="images/person.png" Height="360px" Width="310px" ClientIDMode="Static"/>
 
         </div>
 
@@ -31,7 +31,7 @@
 <%--            <input id="DreCancel" class="ButtonStyle3 ButtonSize2" type="button" value="取消修改" />
             <input id="DreConfirm" class="ButtonStyle3 ButtonSize2" type="button" value="確認更換" />--%>
             <asp:Button ID="btnCancel" runat="server" Text="取消修改" OnClientClick="return cancelChanges();" Enabled="false" />
-            <asp:Button ID="btnConfirm" runat="server" Text="确认修改" OnClick="btnConfirm_Click" Enabled="false" />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click" Enabled="false" />
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
 
