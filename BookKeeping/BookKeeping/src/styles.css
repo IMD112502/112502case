@@ -1279,48 +1279,6 @@ table.Gridview {
     transform: translate(-50%, -50%);
 }
 
-.GameMenuBody { /*小遊戲主畫面背景*/
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.SJGameTitle {
-    font-size: 40px;
-    font-weight: bold;
-    color: darkcyan;
-}
-
-.FirstGame {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    top: 55%;
-    left: 38%;
-    transform: translate(-50%, -50%);
-}
-
-.SecondGame {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    top: 55%;
-    left: 63%;
-    transform: translate(-50%, -50%);
-    }
-
-#JuniorGameButton {
-    Height: 300px;
-    Width: 300px;
-}
-
-#SeniorGameButton {
-    Height: 300px;
-    Width: 300px;
-}
-
 .GameMain {
     position: absolute;
     top: 70%;
@@ -1331,41 +1289,6 @@ table.Gridview {
     padding: 20px;
     line-height: 50px;
 }
-/*====================遊戲關卡======================*/
-.GameLevelTitle {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: darkcyan;
-    font-size: 60px;
-    font-weight: bold;
-}
-
-.GameLevel {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 400px;
-    line-height: 100px;
-}
-
-.GameLevelButton {
-    Height: 150px;
-    Width: 150px;
-}
-
-    .GameLevelButton::after {
-        content: "第1關";
-        font-size: 20px;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        text-align: center; /* 可选：根据需要居中文本 */
-    }
-/*================遊戲關卡結束==================*/
 
 /*====================認識錢幣======================*/
 .GTitle { /*第一關、第二關、......的標題*/
@@ -1384,7 +1307,7 @@ table.Gridview {
     Width: 800px;
     border-radius: 50px; /*圓角*/
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 35%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -1397,7 +1320,7 @@ table.Gridview {
     Width: 500px;
     border-radius: 50px; /*圓角*/
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 70%;
     transform: translate(-50%, -50%);
 }
@@ -1471,5 +1394,32 @@ table.Gridview {
     top: 95%;
     left: 93%;
     transform: translate(-50%, -50%);
+}
+
+/* 進度條 */
+.GameProgress {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 20px;
+    background-color: #ccc;
+    border: 1px solid #333;
+}
+
+.GameProgress-bar {
+    width: 20%; /* 進度條的填充寬度（根據任務完成進度設定） */
+    height: 100%;
+    background-color: #52BFBC;
+}
+
+.GameProgressText {
+    position: absolute;
+    top: 90%;
+    left: 59%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 25px;
 }
 /*------------------------------------小遊戲結束------------------------------------*/

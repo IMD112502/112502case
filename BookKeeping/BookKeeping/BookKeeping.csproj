@@ -149,13 +149,10 @@
     <Content Include="src\bucket_trashcan.aspx" />
     <Content Include="src\dressing_room.aspx" />
     <Content Include="src\forget_pw.aspx" />
-    <Content Include="src\game_first_level.aspx" />
-    <Content Include="src\game_first_menu.aspx" />
-    <Content Include="src\game_first_coin_learning.aspx" />
-    <Content Include="src\game_main_menu.aspx" />
-    <Content Include="src\game_second_level.aspx" />
-    <Content Include="src\game_second_menu.aspx" />
-    <Content Include="src\game_second_playing.aspx" />
+    <Content Include="src\game_menu.aspx" />
+    <Content Include="src\game_first.aspx" />
+    <Content Include="src\game_second.aspx" />
+    <Content Include="src\game_third.aspx" />
     <Content Include="src\images\ach.png" />
     <Content Include="src\images\ach_bg.png" />
     <Content Include="src\images\back.png" />
@@ -430,54 +427,33 @@
     <Compile Include="src\forget_pw.aspx.designer.cs">
       <DependentUpon>forget_pw.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\game_first_level.aspx.cs">
-      <DependentUpon>game_first_level.aspx</DependentUpon>
+    <Compile Include="src\game_menu.aspx.cs">
+      <DependentUpon>game_menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\game_first_level.aspx.designer.cs">
-      <DependentUpon>game_first_level.aspx</DependentUpon>
+    <Compile Include="src\game_menu.aspx.designer.cs">
+      <DependentUpon>game_menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\game_first_menu.aspx.cs">
-      <DependentUpon>game_first_menu.aspx</DependentUpon>
+    <Compile Include="src\game_first.aspx.cs">
+      <DependentUpon>game_first.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\game_first_menu.aspx.designer.cs">
-      <DependentUpon>game_first_menu.aspx</DependentUpon>
+    <Compile Include="src\game_first.aspx.designer.cs">
+      <DependentUpon>game_first.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\game_first_coin_learning.aspx.cs">
-      <DependentUpon>game_first_coin_learning.aspx</DependentUpon>
+    <Compile Include="src\game_second.aspx.cs">
+      <DependentUpon>game_second.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\game_first_coin_learning.aspx.designer.cs">
-      <DependentUpon>game_first_coin_learning.aspx</DependentUpon>
+    <Compile Include="src\game_second.aspx.designer.cs">
+      <DependentUpon>game_second.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\game_main_menu.aspx.cs">
-      <DependentUpon>game_main_menu.aspx</DependentUpon>
+    <Compile Include="src\game_third.aspx.cs">
+      <DependentUpon>game_third.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\game_main_menu.aspx.designer.cs">
-      <DependentUpon>game_main_menu.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\game_second_level.aspx.cs">
-      <DependentUpon>game_second_level.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\game_second_level.aspx.designer.cs">
-      <DependentUpon>game_second_level.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\game_second_menu.aspx.cs">
-      <DependentUpon>game_second_menu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\game_second_menu.aspx.designer.cs">
-      <DependentUpon>game_second_menu.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\game_second_playing.aspx.cs">
-      <DependentUpon>game_second_playing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\game_second_playing.aspx.designer.cs">
-      <DependentUpon>game_second_playing.aspx</DependentUpon>
+    <Compile Include="src\game_third.aspx.designer.cs">
+      <DependentUpon>game_third.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

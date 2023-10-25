@@ -24,7 +24,7 @@
         <asp:Button ID="Closet" runat="server" PostBackUrl="~/src/dressing_room.aspx"/><%--更衣室--%>
         <asp:Button ID="Wishes" runat="server" PostBackUrl="~/src/bucket_list.aspx"/><%--願望清單--%>
         <asp:Button ID="Ach" runat="server" PostBackUrl="~/src/achievement.aspx"/><%--成就--%>
-        <asp:Button ID="Game" runat="server" PostBackUrl="~/src/game_main_menu.aspx"/><%--小遊戲--%>
+        <asp:Button ID="Game" runat="server" PostBackUrl="~/src/game_menu.aspx"/><%--小遊戲--%>
         <asp:Button ID="Bookkeeping" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--記帳--%>
 
         <asp:Button ID="ChatBot" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--小幫手--%>
