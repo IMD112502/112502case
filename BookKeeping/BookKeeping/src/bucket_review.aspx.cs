@@ -33,7 +33,7 @@ namespace BookKeeping.src
             {
                 label1.Text = FindName() + "想要";
                 label2.Text = GetArray()[0];
-                label3.Text = "可以嗎><？";
+                label3.Text = "可以嗎？ > <";
                 IndexCount.Text = "0";
             }
             else
@@ -48,9 +48,7 @@ namespace BookKeeping.src
                 Button3.Text = "返回";
                 Button3.Click -= Submit_Click;
                 Button3.PostBackUrl = "bucket_list.aspx";
-                Label l = new Label();
-                l.Text = "目前沒有要審核的願望喔!";
-                Panel1.Controls.Add(l);
+                label3.Text = "目前沒有要審核的願望喔!";
             }
         }
 
@@ -65,20 +63,19 @@ namespace BookKeeping.src
         protected string FindName()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = @user_id" ;
+            string sql = "SELECT nickname FROM `112-112502`.user基本資料\r\nwhere user_id = @user_id";
             string user_name = string.Empty;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                int length = reader.GetString(0).Length;
-                user_name = reader.GetString(0).Substring(length - 2);
+                user_name = reader.GetString(0);
             }
 
             return user_name;
-
         }
+
         protected string[] GetArray()
         {
             MySqlConnection conn = DBConnection();

@@ -984,10 +984,9 @@ table.Gridview {
 /*    background-color: burlywood;
 */}
 
-.BucBotton12 {
+.BucButton12 {
     display: flex;
     flex-direction: row;
-    background-color: aquamarine;
 }
 /*.ExchangeButton {*/ /* 兌換按鈕大小 */
     /*font-size: large;

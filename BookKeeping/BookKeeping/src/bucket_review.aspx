@@ -40,7 +40,6 @@
                 <asp:Label ID="IndexCount" runat="server" Text="" Visible="false"></asp:Label> 
             </div>
         </div>
-        <asp:Panel ID="Panel1" runat="server" Class ="NoRev"></asp:Panel>
         <asp:Button class="BucButton ButtonStyle ButtonSize2" ID="Button3" runat="server" Text="確認" OnClick="Submit_Click" />
        
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
