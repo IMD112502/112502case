@@ -94,9 +94,6 @@
                     <!-- 任務內容 -->
                     <p><%# Eval("TaskDescription") %></p>
                     <!-- 進度條 -->
-                    <div class="progress">
-                        <div class="progress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
-                    </div>
                 </div>
                 <asp:Image ID="MyImage" runat="server" ImageUrl='<%# Eval("ImageURLField") %>' AlternateText="Image" Width="50px" Height="50px" />
                 
