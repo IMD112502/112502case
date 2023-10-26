@@ -10,12 +10,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="CoinLearningLeft"><%--左半邊題目--%>
+        <div class="GameLeft"><%--左半邊題目--%>
             <asp:Label ID="question" runat="server" Text="Label">請問下圖中為多少金額？</asp:Label></br>
             <asp:Image ID="Image1" runat="server"/>
         </div>
 
-        <div class="CoinLearningRight"><%--右半邊答案--%>
+        <div class="GameRight"><%--右半邊答案--%>
             <asp:Button class="CoinAnsButton" ID="Ans1" runat="server"  OnClick="CheckAnswer" />
             <asp:Button class="CoinAnsButton" ID="Ans2" runat="server"  OnClick="CheckAnswer" />
             <asp:Button class="CoinAnsButton" ID="Ans3" runat="server"  OnClick="CheckAnswer"  />
