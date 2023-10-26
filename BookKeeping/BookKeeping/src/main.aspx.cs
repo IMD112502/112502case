@@ -22,6 +22,7 @@ namespace BookKeeping.src
         {
             
             user_id = Session["UserID"] as string; // 將 Session["UserID"] 賦值給成員變數 user_id
+            PigChange();
 
             if (!string.IsNullOrEmpty(user_id))
             {
@@ -256,6 +257,7 @@ namespace BookKeeping.src
             }
             else 
             {
+                Pig.ImageUrl = "images/main/pig/pig_cry.png";
                 PigProgress.Text = "目前沒有願望目標喔!";
             }
 

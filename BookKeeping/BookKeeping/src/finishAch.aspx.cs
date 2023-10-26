@@ -102,10 +102,11 @@ namespace _BookKeeping
                     if (finishTaskArray.Contains(i.ToString()))
                     {
                         int countIndex = i / 2;
+                        int clothIndex = countIndex + 1;
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
-                        task1["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + i.ToString() + ".png");
+                        task1["ImageUrl"] = ResolveUrl("~/src/images/cloth/body_" + gender + clothIndex.ToString() + ".png");
                         task1["TaskName"] = "記帳次數達" + cnt.ToString() + "次";
                         task1["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                         dt.Rows.Add(task1);
@@ -120,11 +121,12 @@ namespace _BookKeeping
                 {
                     if (finishTaskArray.Contains(j.ToString()))
                     {
-                        int countindex = j / 2 - 1;
-                        int cnt = taskCount[countindex];
+                        int countIndex = j / 2 - 1;
+                        int clothIndex = countIndex + 1;
+                        int cnt = taskCount[countIndex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
-                        task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + j.ToString() + ".png");
+                        task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + clothIndex.ToString() + ".png");
                         task2["TaskName"] = "許願" + cnt.ToString() + "次";
                         task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                         dt.Rows.Add(task2);
