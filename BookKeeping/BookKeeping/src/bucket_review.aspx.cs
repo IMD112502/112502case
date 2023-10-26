@@ -142,7 +142,7 @@ namespace BookKeeping.src
             string selectedValue = RadioButtonList1.SelectedValue;
             string wish_name = label2.Text;
 
-            string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @user_id;";
+            string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @user_id and `pass_state` = 'r'";
 
             MySqlCommand cmd = new MySqlCommand(dNum, conn);
             cmd.Parameters.AddWithValue("@wish_name", wish_name);

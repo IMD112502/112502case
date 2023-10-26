@@ -63,7 +63,7 @@ namespace _BookKeeping
             int currentMonth = Math.Max(1, Math.Min(DateTime.Now.Month, month));
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + currentMonth.ToString() + "月";
-            string sql = "SELECT num, date, b.cls_name, cost, mark FROM `112-112502`.記帳資料 as a\r\njoin `112-112502`.記帳類別 as b on a.class = b.cls_id where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
+            string sql = "SELECT num, date, b.cls_name, cost, mark FROM `112-112502`.記帳資料 as a\r\njoin `112-112502`.記帳類別 as b on a.class_id = b.cls_id where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", currentMonth);
@@ -145,7 +145,7 @@ namespace _BookKeeping
                     string mark = TextBox2.Text;
                     string category = Request.Form["radio"].ToString();
 
-                    string sql = "INSERT INTO `112-112502`.記帳資料(user_id, date, class, cost, mark) VALUES (@name, @date, @category, @cost, @mark)";
+                    string sql = "INSERT INTO `112-112502`.記帳資料(user_id, date, class_id, cost, mark) VALUES (@name, @date, @category, @cost, @mark)";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@name", user_id);
@@ -270,7 +270,7 @@ namespace _BookKeeping
             int cost = int.Parse(costStr);
 
             // 更新資料庫中的資料
-            string sql = "UPDATE `112-112502`.記帳資料 SET date = @date, class = @category, cost = @cost, mark = @mark WHERE user_id = @user_id AND num = @num";
+            string sql = "UPDATE `112-112502`.記帳資料 SET date = @date, class_id = @category, cost = @cost, mark = @mark WHERE user_id = @user_id AND num = @num";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@date", date);

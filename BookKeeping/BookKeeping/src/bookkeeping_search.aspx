@@ -68,10 +68,10 @@
 			<asp:Label ID="Label3" runat="server" Text="類別"></asp:Label>
 			<asp:DropDownList class="DropDownStyle" ID="CategoryList" runat="server">
 				<asp:ListItem Text="*" Value="all"  />
-				<asp:ListItem Text="願望" Value="1"  />
-				<asp:ListItem Text="飲食" Value="2" />
-				<asp:ListItem Text="娛樂" Value="3" />
-				<asp:ListItem Text="其他" Value="4" />
+				<asp:ListItem Text="願望" Value="願望"  />
+				<asp:ListItem Text="飲食" Value="飲食" />
+				<asp:ListItem Text="娛樂" Value="娛樂" />
+				<asp:ListItem Text="其他" Value="其他" />
 				<asp:ListItem Text="兌換願望" Value="兌換願望" />
 			</asp:DropDownList>
 			<asp:Label ID="Label10" runat="server" Text="關鍵字"></asp:Label>
