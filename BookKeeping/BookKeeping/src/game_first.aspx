@@ -12,19 +12,19 @@
     <form id="form1" runat="server">
         <div class="CoinLearningLeft"><%--左半邊題目--%>
             <asp:Label ID="question" runat="server" Text="Label">請問下圖中為多少金額？</asp:Label></br>
-            <asp:Image ID="Image1" runat="server" ImageUrl="images/game/money_100.png"/>
+            <asp:Image ID="Image1" runat="server"/>
         </div>
 
         <div class="CoinLearningRight"><%--右半邊答案--%>
-            <asp:Button class="CoinAnsButton" ID="Ans1" runat="server" Text="10元" />
-            <asp:Button class="CoinAnsButton" ID="Ans2" runat="server" Text="100元" />
-            <asp:Button class="CoinAnsButton" ID="Ans3" runat="server" Text="500元" />
+            <asp:Button class="CoinAnsButton" ID="Ans1" runat="server"  OnClick="CheckAnswer" />
+            <asp:Button class="CoinAnsButton" ID="Ans2" runat="server"  OnClick="CheckAnswer" />
+            <asp:Button class="CoinAnsButton" ID="Ans3" runat="server"  OnClick="CheckAnswer"  />
         </div>
         <!-- 進度條 -->
          <div class="GameProgress">
             <div class="GameProgress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
          </div>
-         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text="1/7" ></asp:Label>
+         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
 		<asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" PostBackUrl="~/src/game_menu.aspx" />
     </form>
 </body>
