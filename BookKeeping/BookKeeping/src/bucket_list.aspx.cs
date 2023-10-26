@@ -72,8 +72,8 @@ namespace _BookKeeping
                 // 计算当前存款
                 string depositQuery = @"
                     SELECT 
-                    COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class = '1'), 0) -
-                    COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class = '5'), 0) AS 現有存款";
+                    COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class_id = '1'), 0) -
+                    COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class_id = '5'), 0) AS 現有存款";
 
                 MySqlCommand depositCommand = new MySqlCommand(depositQuery, conn);
                 depositCommand.Parameters.AddWithValue("@user_id", user_id);
@@ -143,7 +143,7 @@ namespace _BookKeeping
                     }
 
                     //新增願望兌換的記帳資料
-                    string redeemQuery = "INSERT INTO `112-112502`.`記帳資料` (user_id, date ,class, cost, mark) VALUES (@user_id, @date , '5', @wish_amount, @wish_name);";
+                    string redeemQuery = "INSERT INTO `112-112502`.`記帳資料` (user_id, date ,class_id, cost, mark) VALUES (@user_id, @date , '5', @wish_amount, @wish_name);";
                     MySqlCommand redeemCmd = new MySqlCommand(redeemQuery, conn);
                     redeemCmd.Parameters.AddWithValue("@user_id", user_id);
                     redeemCmd.Parameters.AddWithValue("@date", DateTime.Now.Date);

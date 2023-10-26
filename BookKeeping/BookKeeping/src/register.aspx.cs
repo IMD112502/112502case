@@ -87,7 +87,7 @@ namespace _BookKeeping
                 // 在这里添加将用户信息插入数据库的代码
                 MySqlConnection conn = DBConnection();
 
-                string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, email, question1, answer1, birthday, cloth) VALUES (@user_id, @user_name, @nickname, @gender, @password, @email, @question1, @answer1, @birthdate, @defaultClothing)";
+                string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, email, question1, answer1, birthday, cloth, cloth2) VALUES (@user_id, @user_name, @nickname, @gender, @password, @email, @question1, @answer1, @birthdate, @defaultBody, @defaultClothing)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@user_id", userid);
@@ -102,20 +102,43 @@ namespace _BookKeeping
                 cmd.Parameters.AddWithValue("@defaultClothing", defaultClothing);
                 cmd.Parameters.AddWithValue("@defaultBody", defaultBody);
 
+                string SQL = "INSERT INTO `112-112502`.更衣間 (user_id, cloth_id) VALUES (@user_id, @cloth_id)";
+                MySqlCommand sqlcmd = new MySqlCommand(SQL, conn);
+
+                sqlcmd.Parameters.AddWithValue("@user_id", userid);
+                sqlcmd.Parameters.AddWithValue("@cloth_id", defaultClothing); // 插入默认衣物的路径
+
+                int rowsAffectedClothing = sqlcmd.ExecuteNonQuery();
+
+                sqlcmd.Parameters.Clear(); // 清除之前的参数
+
+                sqlcmd.Parameters.AddWithValue("@user_id", userid);
+                sqlcmd.Parameters.AddWithValue("@cloth_id", defaultBody); // 插入默认身体的路径
+
+                int rowsAffectedBody = sqlcmd.ExecuteNonQuery();
+
+
                 int rowsaffected = cmd.ExecuteNonQuery();
 
-                if (rowsaffected > 0)//彈出視窗
+                //彈出視窗
+                if (rowsaffected > 0)
                 {
-                    RegAcc.Text = "";
-                    RegName.Text = "";
-                    RegNickname.Text = "";
-                    RadioButton1.Checked = false;
-                    RadioButton2.Checked = false;
-                    RegPwd.Text = "";
-                    Email.Text = "";
-                    Answer1.Text = "";
-                    ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('註冊成功！');", true);
-                    Response.AddHeader("REFRESH", "0.5;URL=login.aspx");
+                    if (rowsAffectedBody > 0)
+                    {
+                        if(rowsAffectedClothing > 0)
+                        {
+                            RegAcc.Text = "";   
+                            RegName.Text = "";
+                            RegNickname.Text = "";
+                            RadioButton1.Checked = false;
+                            RadioButton2.Checked = false;
+                            RegPwd.Text = "";
+                            Email.Text = "";
+                            Answer1.Text = "";
+                            ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('註冊成功！');", true);
+                            Response.AddHeader("REFRESH", "0.5;URL=login.aspx");
+                        }  
+                    }
                 }
                 else
                 {

@@ -10,25 +10,25 @@
 </head>
 <body class="DreRoom">
     <form id="DreForm" runat="server">
-        <div class="Head" id="femaleHead"> <%--左上區塊(女生)--%>
+        <div class="Head" id="femaleHead"> 
             <asp:ImageButton ID="Headg1" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g1.png" OnClientClick="return setPreviewHead('images/cloth/head_g1.png');" />
             <asp:ImageButton ID="Headg2" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g2.png" OnClientClick="return setPreviewHead('images/cloth/head_g2.png');" />
             <asp:ImageButton ID="Headg3" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g3.png" OnClientClick="return setPreviewHead('images/cloth/head_g3.png');" />
-            <asp:ImageButton ID="Headg4" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g4.png" OnClientClick="return setPreviewHead('images/cloth/head_g4.png');" />
-            <asp:ImageButton ID="Headg5" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g5.png" OnClientClick="return setPreviewHead('images/cloth/head_g5.png');" />
-            <asp:ImageButton ID="Headg6" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g6.png" OnClientClick="return setPreviewHead('images/cloth/head_g6.png');" />
+            <asp:ImageButton ID="Headg4" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g4.png" OnClientClick="return setPreviewHead('images/cloth/head_g4.png');" />            
+            <asp:ImageButton ID="Headg5" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g5.png" OnClientClick="return setPreviewHead('images/cloth/head_g5.png');" />            
+            <asp:ImageButton ID="Headg6" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_g6.png" OnClientClick="return setPreviewHead('images/cloth/head_g6.png');" />           
         </div>
 
         <div class="Head" id="maleHead">
-            <asp:ImageButton ID="Headb1" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b1.png" OnClientClick="return setPreviewHead('images/cloth/head_b1.png');" />
-            <asp:ImageButton ID="Headb2" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b2.png" OnClientClick="return setPreviewHead('images/cloth/head_b2.png');" />
-            <asp:ImageButton ID="Headb3" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b3.png" OnClientClick="return setPreviewHead('images/cloth/head_b3.png');" />
-            <asp:ImageButton ID="Headb4" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b4.png" OnClientClick="return setPreviewHead('images/cloth/head_b4.png');" />
+            <asp:ImageButton ID="Headb1" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b1.png" OnClientClick="return setPreviewHead('images/cloth/head_b1.png');" />         
+            <asp:ImageButton ID="Headb2" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b2.png" OnClientClick="return setPreviewHead('images/cloth/head_b2.png');" />            
+            <asp:ImageButton ID="Headb3" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b3.png" OnClientClick="return setPreviewHead('images/cloth/head_b3.png');" />            
+            <asp:ImageButton ID="Headb4" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b4.png" OnClientClick="return setPreviewHead('images/cloth/head_b4.png');" />            
             <asp:ImageButton ID="Headb5" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b5.png" OnClientClick="return setPreviewHead('images/cloth/head_b5.png');" />
             <asp:ImageButton ID="Headb6" runat="server" Height="424px" Width="304px" style="margin-left:15px;" src="images/cloth/head_b6.png" OnClientClick="return setPreviewHead('images/cloth/head_b6.png');" />
         </div>
 
-        <div class="Cloth" id="femaleClothing"> <%--左下區塊(女生)--%>
+        <div class="Cloth" id="femaleClothing">
             <asp:ImageButton ID="Clothg1" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g1.png" OnClientClick="return setPreviewBody('images/cloth/body_g1.png');" />
             <asp:ImageButton ID="Clothg2" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g2.png" OnClientClick="return setPreviewBody('images/cloth/body_g2.png');" />
             <asp:ImageButton ID="Clothg3" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_g3.png" OnClientClick="return setPreviewBody('images/cloth/body_g3.png');" />
@@ -42,6 +42,10 @@
             <asp:ImageButton ID="Clothb3" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b3.png" OnClientClick="return setPreviewBody('images/cloth/body_b3.png');" />
             <asp:ImageButton ID="Clothb4" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b4.png" OnClientClick="return setPreviewBody('images/cloth/body_b4.png');" />
             <asp:ImageButton ID="Clothb5" runat="server" Height="360px" Width="310px" style="margin-left:10px; margin-top:10px;" src="images/cloth/body_b5.png" OnClientClick="return setPreviewBody('images/cloth/body_b5.png');" />
+        </div>
+
+        <div id="clothingGallery">
+        <!-- 这里将显示用户拥有的衣物图像 -->
         </div>
 
         <div class="DrePerson">
@@ -63,9 +67,12 @@
 
         <asp:HiddenField ID="hiddenBodyID" runat="server" />
         <asp:HiddenField ID="hiddenHeadID" runat="server" />
-        <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
+        <asp:label ID="gender" runat="server" text=""></asp:label>
 
         <script type="text/javascript">
+            var currentBodyPath = ''; // Variable to store the currently worn body image path
+            var currentHeadPath = ''; // Variable to store the currently worn head image path
+
             // 在页面加载时禁用按钮
             window.onload = function () {
                 var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');
@@ -108,31 +115,53 @@
                 var nowImage = document.getElementById("NowBody");
                 nowImage.src = imagePath;
 
-                // 設定隱藏字段的值為user所選的衣服ID
-                document.getElementById('<%= hiddenBodyID.ClientID %>').value = imagePath;
+                // Check if the selected image path is different from the current body image
+                if (imagePath !== currentBodyPath) {
+                    currentBodyPath = imagePath; // Update the current body image path
 
-                // 启用确认修改按钮
-                var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');
-                var cancelButton = document.getElementById('<%= btnCancel.ClientID %>');
-                confirmButton.disabled = false;
-                cancelButton.disabled = false;
+                    // Set the hidden field value and enable the confirmation button
+                    document.getElementById('<%= hiddenBodyID.ClientID %>').value = imagePath;
+                    enableConfirmationButton();
+                } else {
+                    disableConfirmationButton();
+                }
 
-                return false; // 阻止頁面刷新
+                return false; // Prevent page refresh
             }
-            function setPreviewHead(imagePath2) {
+
+            // Function to set the preview for head
+            function setPreviewHead(imagePath) {
                 var nowImage2 = document.getElementById("NowHead");
-                nowImage2.src = imagePath2;
+                nowImage2.src = imagePath;
 
-                // 設定隱藏字段的值為user所選的衣服ID
-                document.getElementById('<%= hiddenHeadID.ClientID %>').value = imagePath2;
+                // Check if the selected image path is different from the current head image
+                if (imagePath !== currentHeadPath) {
+                    currentHeadPath = imagePath; // Update the current head image path
 
-                // 启用确认修改按钮
+                    // Set the hidden field value and enable the confirmation button
+                    document.getElementById('<%= hiddenHeadID.ClientID %>').value = imagePath;
+                    enableConfirmationButton();
+                } else {
+                    disableConfirmationButton();
+                }
+
+                return false; // Prevent page refresh
+            }
+
+            // Enable the confirmation button
+            function enableConfirmationButton() {
                 var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');
                 var cancelButton = document.getElementById('<%= btnCancel.ClientID %>');
                 confirmButton.disabled = false;
                 cancelButton.disabled = false;
+            }
 
-                return false; // 阻止頁面刷新
+            // Disable the confirmation button
+            function disableConfirmationButton() {
+                var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');
+                var cancelButton = document.getElementById('<%= btnCancel.ClientID %>');
+                confirmButton.disabled = true;
+                cancelButton.disabled = true;
             }
         </script>
     </form>
