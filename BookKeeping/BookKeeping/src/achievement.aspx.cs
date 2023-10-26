@@ -207,14 +207,24 @@ namespace _BookKeeping
                     rowsAffected += cmd.ExecuteNonQuery();
 
                 }
-                string sql_cloth = "INSERT INTO `112-112502`.`更衣間` (user_id, cloth_id) VALUES (@user_id , @cloth_id);";
 
-                using (MySqlCommand cmd_cloth = new MySqlCommand(sql_cloth, connection)) 
+                // 确保 task_id 是一个整数
+                if (int.TryParse(taskId, out int taskIdValue))
                 {
-                    cmd_cloth.Parameters.AddWithValue("@user_id", user_id);
-                    cmd_cloth.Parameters.AddWithValue("@cloth_id", taskId + gender);
+                    // 基于 task_id 是否为奇数来构建 @cloth_id
+                    string clothIdValue = (taskIdValue % 2 == 1)
+                        ? "images/cloth/body_" + taskId + gender + ".png"
+                        : "images/cloth/head_" + taskId + gender + ".png";
 
-                    rowsAffected += cmd_cloth.ExecuteNonQuery();
+                    string sql_cloth = "INSERT INTO `112-112502`.`更衣間` (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
+
+                    using (MySqlCommand cmd_cloth = new MySqlCommand(sql_cloth, connection))
+                    {
+                        cmd_cloth.Parameters.AddWithValue("@user_id", user_id);
+                        cmd_cloth.Parameters.AddWithValue("@cloth_id", clothIdValue);
+
+                        rowsAffected += cmd_cloth.ExecuteNonQuery();
+                    }
                 }
 
                 if (rowsAffected > 1)

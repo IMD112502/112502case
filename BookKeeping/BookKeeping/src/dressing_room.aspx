@@ -63,7 +63,7 @@
 
         <asp:HiddenField ID="hiddenBodyID" runat="server" />
         <asp:HiddenField ID="hiddenHeadID" runat="server" />
-        <asp:label ID="gender" runat="server" text=""></asp:label>
+        <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
 
         <script type="text/javascript">
             // 在页面加载时禁用按钮
