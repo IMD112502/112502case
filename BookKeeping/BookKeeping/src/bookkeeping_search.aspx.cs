@@ -78,9 +78,9 @@ namespace _BookKeeping
 
         protected void Search_Click(object sender, EventArgs e)
         {
-           string sql = "SELECT num,date, class, cost, mark FROM `112-112502`.記帳資料 where user_id=@user_id and year(date)=@year ";
+            string sql = "SELECT num, date, b.cls_name, cost, mark FROM `112-112502`.記帳資料 as a\r\njoin `112-112502`.記帳類別 as b on a.class = b.cls_id where user_id=@user_id and year(date)=@year ";
 
-           string year = YearList.SelectedValue;
+            string year = YearList.SelectedValue;
            string month = MonthList.SelectedValue;
            string day = DayList.SelectedValue;
 
@@ -102,7 +102,7 @@ namespace _BookKeeping
             if (category != "all")
             {
                 sql += " ";
-                sql += "and class=@category ";
+                sql += "and b.cls_name=@category ";
             }
 
             string keyword = TxtBox.Text.Trim();

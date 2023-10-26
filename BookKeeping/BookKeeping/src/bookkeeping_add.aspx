@@ -62,13 +62,13 @@
 
 					<asp:TemplateField HeaderText="類別">
 						<ItemTemplate>
-							<asp:Label ID="class" runat="server" Text='<%# Eval("class") %>'></asp:Label>
+							<asp:Label ID="class" runat="server" Text='<%# Eval("cls_name") %>'></asp:Label>
 						</ItemTemplate>
 							<EditItemTemplate>
 								<asp:DropDownList ID="txtclass" runat="server">
-									<asp:ListItem Text="飲食" Value="飲食" />
-									<asp:ListItem Text="娛樂" Value="娛樂" />
-									<asp:ListItem Text="其他" Value="其他" />
+									<asp:ListItem Text="飲食" Value="2" />
+									<asp:ListItem Text="娛樂" Value="3" />
+									<asp:ListItem Text="其他" Value="4" />
 								</asp:DropDownList>
 							</EditItemTemplate>
 					</asp:TemplateField>
@@ -124,7 +124,7 @@
 				<br />
 				<div class="RadioButtons">
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="願望" checked="checked" />
+						<input type="radio" name="radio" value="1" checked="checked" />
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_dre.png');">
@@ -134,7 +134,7 @@
 						</span>
 					</label>
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="飲食" />
+						<input type="radio" name="radio" value="2" />
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_eat.png');">
@@ -144,7 +144,7 @@
 						</span>
 					</label>
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="娛樂"/>
+						<input type="radio" name="radio" value="3"/>
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_play.png');">
@@ -154,7 +154,7 @@
 						</span>
 					</label>
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="其他"/>
+						<input type="radio" name="radio" value="4"/>
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_other.png');">

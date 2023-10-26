@@ -68,11 +68,26 @@ namespace _BookKeeping
             }
             else if (IsValidEmail(email))
             {
+
+                string defaultClothing = string.Empty;
+                string defaultBody = string.Empty;
+                if (RadioButton1.Checked)
+                {
+                    // 用户选择了男生，设置男性衣服的默认值
+                    defaultClothing = "images/cloth/Head_b1.png"; // 请根据实际情况设置男性衣服的值
+                    defaultBody = "images/cloth/body_b1.png";
+                }
+                else if (RadioButton2.Checked)
+                {
+                    // 用户选择了女生，设置女性衣服的默认值
+                    defaultClothing = "images/cloth/Head_g1.png"; // 请根据实际情况设置女性衣服的值
+                    defaultBody = "images/cloth/body_g1.png";
+                }
                 // 电子邮件地址格式正确，可以继续注册流程
                 // 在这里添加将用户信息插入数据库的代码
                 MySqlConnection conn = DBConnection();
 
-                string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, email, question1, answer1, birthday) VALUES (@user_id, @user_name, @nickname, @gender, @password, @email, @question1, @answer1, @birthdate)";
+                string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, user_name, nickname, gender, password, email, question1, answer1, birthday, cloth) VALUES (@user_id, @user_name, @nickname, @gender, @password, @email, @question1, @answer1, @birthdate, @defaultClothing)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@user_id", userid);
@@ -84,6 +99,8 @@ namespace _BookKeeping
                 cmd.Parameters.AddWithValue("@question1", selectedQuestion1);
                 cmd.Parameters.AddWithValue("@answer1", answer1);
                 cmd.Parameters.AddWithValue("@birthdate", selectedDate);
+                cmd.Parameters.AddWithValue("@defaultClothing", defaultClothing);
+                cmd.Parameters.AddWithValue("@defaultBody", defaultBody);
 
                 int rowsaffected = cmd.ExecuteNonQuery();
 

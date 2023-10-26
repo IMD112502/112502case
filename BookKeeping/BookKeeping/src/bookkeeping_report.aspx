@@ -26,7 +26,7 @@
 			<div class="BookTable">
 				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
-						<asp:BoundField DataField="class" HeaderText="記帳類別" />
+						<asp:BoundField DataField="cls_name" HeaderText="記帳類別" />
 						<asp:BoundField DataField="total_cost" HeaderText="總金額" />
 					</Columns>
 				</asp:GridView>

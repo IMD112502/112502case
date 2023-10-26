@@ -130,6 +130,12 @@ body {
         background-color: lightseagreen;
     }
 
+    /* 禁用效果 */
+    .DisabledButtonStyle {
+        /* 在这里定义禁用时的样式 */
+        pointer-events: none; /* 禁用点击事件 */
+    }
+
     .ButtonStyle3:after {
         content: "";
         display: block;

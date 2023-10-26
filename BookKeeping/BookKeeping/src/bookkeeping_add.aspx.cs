@@ -63,7 +63,7 @@ namespace _BookKeeping
             int currentMonth = Math.Max(1, Math.Min(DateTime.Now.Month, month));
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + currentMonth.ToString() + "月";
-            string sql = "SELECT num, date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
+            string sql = "SELECT num, date, b.cls_name, cost, mark FROM `112-112502`.記帳資料 as a\r\njoin `112-112502`.記帳類別 as b on a.class = b.cls_id where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", currentMonth);
@@ -308,7 +308,7 @@ namespace _BookKeeping
             {
                 // 获取当前行数据
                 DataRowView rowView = (DataRowView)e.Row.DataItem;
-                string category = rowView["class"].ToString(); // 这里假设你的类别信息在 "class" 列中
+                string category = rowView["cls_name"].ToString(); // 这里假设你的类别信息在 "class" 列中
 
                 // 找到编辑和删除按钮的控件
                 Button btnEdit = (Button)e.Row.FindControl("btnEdit");

@@ -68,7 +68,7 @@ namespace _BookKeeping
             int currentMonth = Math.Max(1, Math.Min(DateTime.Now.Month, month));
 
             Label1.Text = DateTime.Now.Year.ToString() + "年" + currentMonth.ToString() + "月";
-            string sql = "SELECT num, date, class, cost, mark FROM `112-112502`.記帳資料 where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
+            string sql = "SELECT num, date, b.cls_name, cost, mark FROM `112-112502`.記帳資料 as a\r\njoin `112-112502`.記帳類別 as b on a.class = b.cls_id \r\n where user_id = @user_id and year(date) = @year and month(date) = @month order by date;";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@year", DateTime.Now.Year);
             cmd.Parameters.AddWithValue("@month", currentMonth);
@@ -98,7 +98,7 @@ namespace _BookKeeping
 
             foreach (string category in categories)
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT sum(cost) FROM `112-112502`.記帳資料 WHERE user_id=@user_id AND class=@class AND YEAR(date)=@year AND MONTH(date)=@month", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT sum(cost) FROM `112-112502`.記帳資料 as a\r\njoin `112-112502`.記帳類別 as b on a.class = b.cls_id  WHERE user_id=@user_id AND b.cls_name=@class AND YEAR(date)=@year AND MONTH(date)=@month", connection);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
                 cmd.Parameters.AddWithValue("@class", category);
                 cmd.Parameters.AddWithValue("@year", year);
@@ -176,10 +176,12 @@ namespace _BookKeeping
         {
             DataTable dt = new DataTable();
 
-            string query = "SELECT class, SUM(cost) AS total_cost " +
-                           "FROM `112-112502`.記帳資料 " +
+            string query = "SELECT b.cls_name, SUM(cost) AS total_cost " +
+                           "FROM `112-112502`.記帳資料 as a\r\n" +
+                           "join `112-112502`.記帳類別 as b on a.class = b.cls_id " +
                            "WHERE MONTH(date) = @month AND YEAR(date) = @year AND user_id = @user_id " +
-                           "GROUP BY class";
+                           "GROUP BY b.cls_name";
+
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@month", month);
@@ -194,7 +196,7 @@ namespace _BookKeeping
 
             foreach (DataRow row in dt.Rows)
             {
-                string category = row["class"].ToString();
+                string category = row["cls_name"].ToString();
                 decimal totalCost = Convert.ToDecimal(row["total_cost"]);
 
                 if (category == "願望")

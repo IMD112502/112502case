@@ -26,7 +26,7 @@ namespace BookKeeping.src
                     conn.Open();
 
                     // 搜尋資料庫
-                    string query = "SELECT cloth, cloth2 FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
+                    string query = "SELECT cloth, cloth2, gender FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -37,10 +37,12 @@ namespace BookKeeping.src
                                 // 從資料庫抓出剛剛更新的衣服ID
                                 string currentBodyURL = reader["cloth"].ToString();
                                 string currentHeadURL = reader["cloth2"].ToString();
+                                string gen = reader["gender"].ToString();
 
                                 // 設置 <asp:Image> 的 ImageUrl 屬性
                                 NowBody.ImageUrl = currentBodyURL;
                                 NowHead.ImageUrl = currentHeadURL;
+                                gender.Text = gen;
                             }
                         }
                     }
