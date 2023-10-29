@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Web.UI;
 using System.Linq;
 using System.Runtime.InteropServices;
+using MySqlX.XDevAPI.Relational;
 
 
 namespace BookKeeping.src
@@ -49,6 +50,30 @@ namespace BookKeeping.src
                             }
                         }
                     }
+
+                    // 查询用户的所有衣服ID頭部
+                    string clothQuery = "SELECT cloth_id FROM `112-112502`.更衣間 WHERE user_id = @user_id and cloth_id like '%body%'";
+                    using (MySqlCommand clothCmd = new MySqlCommand(clothQuery, conn))
+                    {
+                        clothCmd.Parameters.AddWithValue("@user_id", user_id);
+                        using (MySqlDataReader clothReader = clothCmd.ExecuteReader())
+                        {
+                            imageRepeater.DataSource = clothReader;
+                            imageRepeater.DataBind();
+                        }
+                    }
+
+                    // 查询用户的所有衣服ID套裝
+                    string headQuery = "SELECT cloth_id FROM `112-112502`.更衣間 WHERE user_id = @user_id and cloth_id like '%Head%'";
+                    using (MySqlCommand headCmd = new MySqlCommand(headQuery, conn))
+                    {
+                        headCmd.Parameters.AddWithValue("@user_id", user_id);
+                        using (MySqlDataReader headReader = headCmd.ExecuteReader())
+                        {
+                            headRepeater.DataSource = headReader;
+                            headRepeater.DataBind();
+                        }
+                    }
                 }
             }
         }
@@ -56,8 +81,8 @@ namespace BookKeeping.src
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
             // 獲取user選擇的新衣物ID
-            string selectedBodyID = hiddenBodyID.Value;
-            string selectedHeadID = hiddenHeadID.Value;
+            string selectedClothingID = hiddenClothingID.Value;
+            string selectedHeadwearID = hiddenHeadwearID.Value;
 
             // 獲取資料庫連接字串
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
@@ -67,69 +92,55 @@ namespace BookKeeping.src
                 conn.Open();
 
                 // 更新資料庫
-                string updateQuery = "UPDATE `112-112502`.user基本資料 SET ";
-                List<string> updatedColumns = new List<string>();
+                string updateQuery = "UPDATE `112-112502`.user基本資料 SET cloth = @newClothingID, cloth2 = @newHeadwearID WHERE user_id = @user_id ";
+                using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
+                {
+                    updateCmd.Parameters.AddWithValue("@newClothingID", selectedClothingID);
+                    updateCmd.Parameters.AddWithValue("@newHeadwearID", selectedHeadwearID);
+                    updateCmd.Parameters.AddWithValue("@user_id", user_id);
 
-                if (!string.IsNullOrEmpty(selectedBodyID))
-                {
-                    updateQuery += "cloth = @newBodyID";
-                    updatedColumns.Add("cloth");
-                }
-                if (!string.IsNullOrEmpty(selectedHeadID))
-                {
-                    if (updatedColumns.Count > 0)
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
                     {
-                        updateQuery += ", ";
+                        // 更新成功，执行服务器端数据绑定以更新页面上的控件
+                        BindUserData(); // 这是一个自定义的函数，用于将数据库中的用户数据绑定到控件
+
+                        ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
                     }
-                    updateQuery += "cloth2 = @newHeadID";
-                    updatedColumns.Add("cloth2");
-                }
-
-                if (updatedColumns.Count > 0)
-                {
-                    updateQuery += " WHERE user_id = @user_id";
-
-                    using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
+                    else
                     {
-                        if (updatedColumns.Contains("cloth"))
-                        {
-                            updateCmd.Parameters.AddWithValue("@newBodyID", selectedBodyID);
-                        }
-                        if (updatedColumns.Contains("cloth2"))
-                        {
-                            updateCmd.Parameters.AddWithValue("@newHeadID", selectedHeadID);
-                        }
-                        updateCmd.Parameters.AddWithValue("@user_id", user_id);
+                        ClientScript.RegisterStartupScript(GetType(), "新增失敗", "alert('新增失敗！');", true);
+                    }
+                }
+            }
+        }
 
-                        int rowsAffected = updateCmd.ExecuteNonQuery();
+        protected void BindUserData()
+        {
+            // 获取数据库连接字符串
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
-                        if (rowsAffected > 0)
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 查询用户的衣物和头饰数据
+                string userQuery = "SELECT cloth, cloth2 FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
+                using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
+                {
+                    userCmd.Parameters.AddWithValue("@user_id", user_id);
+                    using (MySqlDataReader userReader = userCmd.ExecuteReader())
+                    {
+                        if (userReader.Read())
                         {
-                            // 更新成功，從資料庫抓出剛剛更新的衣服ID
-                            string selectQuery = "SELECT cloth, cloth2 FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
-                            using (MySqlCommand selectCmd = new MySqlCommand(selectQuery, conn))
-                            {
-                                selectCmd.Parameters.AddWithValue("@user_id", user_id);
+                            // 从数据库抓出用户的衣物URL和头饰URL
+                            string currentClothingURL = userReader["cloth"].ToString();
+                            string currentHeadURL = userReader["cloth2"].ToString();
 
-                                using (MySqlDataReader reader = selectCmd.ExecuteReader())
-                                {
-                                    if (reader.Read())
-                                    {
-                                        // 從資料庫中獲取user當前穿著衣物的URL
-                                        string currentBodyURL = reader["cloth"].ToString();
-                                        string currentHeadURL = reader["cloth2"].ToString();
-
-                                        // 設置 <asp:Image> 的 ImageUrl 屬性
-                                        NowBody.ImageUrl = currentBodyURL;
-                                        NowHead.ImageUrl = currentHeadURL;
-                                    }
-                                }
-                            }
-                            ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('更新成功！');", true);
-                        }
-                        else
-                        {
-                            ClientScript.RegisterStartupScript(GetType(), "更新失敗", "alert('更新失敗！');", true);
+                            // 设置<asp:Image>的ImageUrl属性
+                            NowBody.ImageUrl = currentClothingURL;
+                            NowHead.ImageUrl = currentHeadURL;
                         }
                     }
                 }
