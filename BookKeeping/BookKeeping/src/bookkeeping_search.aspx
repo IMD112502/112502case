@@ -21,7 +21,7 @@
 <%--				<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />--%>
 			</div>
 
-			<h1 class="BookTitle">查詢結果</h1>
+			<h1 class="BookTitleL">查詢結果</h1>
 			<div class="BookTable">
 				<asp:GridView class="Gridview" ID="SearchView" runat="server" AutoGenerateColumns="False" DataKeyNames="num" >
 					<Columns>
@@ -44,7 +44,7 @@
 			<asp:ImageButton class="BookmarkUp SearchBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_ser1.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
 			<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">查詢</h1>
-        <div class="BookChange">
+        <div class="BookReport">
 			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
 			<asp:DropDownList class="DropDownStyle" ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
 			<asp:Label ID="YearLabel" runat="server" Text="年"></asp:Label>
@@ -77,6 +77,7 @@
 			</asp:DropDownList>
 			<asp:Label ID="Label10" runat="server" Text="關鍵字"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
+			<br />
 			<br />
 			<br />
 			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button3" runat="server" Text="查詢" OnClick="Search_Click"/>

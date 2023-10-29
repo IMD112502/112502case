@@ -22,19 +22,22 @@
 				<asp:Button class="ButtonStyle3 DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
 			</div>
 
-			<h1 class="BookTitle">本月類別統計</h1>
-			<div class="BookTable">
+			<h1 class="BookTitleL">本月類別統計</h1>
+			<div class="BookTableReport">
 				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="cls_name" HeaderText="記帳類別" />
 						<asp:BoundField DataField="total_cost" HeaderText="總金額" />
 					</Columns>
 				</asp:GridView>
+			</div>
+			<div class="BookTotal">
 				<asp:Label ID="total_in" runat="server" Text="當月總收入: "></asp:Label>
 				<asp:Label ID="amount_in" runat="server" Text=""></asp:Label>
 				<br>
 				<asp:Label ID="total_out" runat="server" Text="當月總支出: "></asp:Label>
 				<asp:Label ID="amount_out" runat="server" Text=""></asp:Label>
+			</div>
 				<%--<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="date" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}"/>
@@ -43,7 +46,7 @@
 						<asp:BoundField DataField="mark" HeaderText="備註"/>
 					</Columns>
 				</asp:GridView>--%>
-			</div>
+			
 
 			<%--<div class="BookTotal">
 				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
@@ -56,15 +59,15 @@
 			<asp:ImageButton class="BookmarkDown SearchBookmark" ID="ImageButton3" runat="server" ImageUrl="images/boo/boo_button_ser2.png" PostBackUrl="~/src/bookkeeping_search.aspx" />
 			<asp:ImageButton class="BookmarkUp ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep1.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">圖表分析</h1>
-		<div class="BookChange">
-			<asp:Chart ID="Chart1" runat="server" BackColor="#00000">
+		<div class="BookReport">
+			<asp:Chart ID="Chart1" runat="server" BackColor="#00000" Width="400px" >
 				<Series>
 					<asp:Series Name="Series1" ChartType="Column" Color="#006666" LabelBackColor="#ffffff" LabelForeColor="#006666">
-						
 					</asp:Series>
 				</Series>
 				<ChartAreas>
-					<asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+					<asp:ChartArea Name="ChartArea1">
+					</asp:ChartArea>
 				</ChartAreas>
 			</asp:Chart>
 		</div>

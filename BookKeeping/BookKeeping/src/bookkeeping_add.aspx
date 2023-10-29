@@ -20,7 +20,7 @@
 				<asp:Button class="ButtonStyle3 DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
 				<%--<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />--%>
 			</div>
-
+			<h1 class="BookTitleL">記帳紀錄</h1>
 			<div class="BookTable">
                 <%--<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="num" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
                     OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating">
@@ -44,7 +44,6 @@
 						</asp:TemplateField>
 					</Columns>
 				</asp:GridView>--%>
-				<h1 class="BookTitle">記帳紀錄</h1>
 				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="num"
 				  OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
 				  OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDataBound="GridView1_RowDataBound">
@@ -120,7 +119,7 @@
 		<h1 class="BookTitle">新增</h1>
 		<div class="BookChange">
 			<div class="SortContainer">
-				<p>選擇類別</p>
+				<p style="font-weight: bold;">選擇類別</p>
 				<br />
 				<div class="RadioButtons">
 					<label class="SortRadio">
@@ -188,11 +187,11 @@
 			<br /> <n/><n /><n />
 			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
-			<br />
-			<br />
-			<br />
+
+			<div class="AddButton">
 			<input class="ButtonStyle3 ButtonSize1" type="reset" value="重新輸入" />
 			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
+			</div>
 		</div>
 		</div>
 	</div>

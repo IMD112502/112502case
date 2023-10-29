@@ -672,22 +672,35 @@ body {
 /*---------------記帳左---------------*/
 .BookLeft {
     position: absolute;
-    top: 48%;
-    left: 35%;
-    transform: translate(-50%, -50%);
+    top: 48.5%;
+    left: 50%;
+    width: 500px;
+    height: 710px;
+    transform: translate(-105%, -50%);
 }
 
 .BookDate { /* 記帳月份區塊 */
     font-weight: bold;
-    margin-top: 20px;
     height: 80px;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, 50%);
 }
 
 .DateButtonSize { /* 記帳月份切換按鈕 */
     width: 25px;
     height: 25px;
+}
+
+.BookTitleL { /* 功能標題 */
+    position: absolute;
+    font-size: 40px;
+    left: 50%;
+    top: 3%;
+    transform: translate(-50%, 50%);
 }
 
 .EditButton { /* 編輯按鈕 */
@@ -700,23 +713,36 @@ body {
 
 .BookTable { /* 記帳紀錄 */
     margin-left: -20px;
-    position: center;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, 0%);
     padding: 20px;
-    height: 480px; /* 設定高度，使其出現滾動條 */
+    height: 400px; /* 設定高度，使其出現滾動條 */
     width: 455px;
     overflow-y: scroll; /* 垂直滾動條 */
 }
 
+.BookTableReport { /* 記帳報表 */
+    margin-left: -20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
 table.Gridview {
     width: 395px;
-    height: 50px;
+    height: 80px;
     margin-top: 5px;
-    margin-left: 30px;
+    margin-left: 55px;
     border: none; /* 不要框線 */
 }
 
     table.Gridview tr {
         text-align: center;
+        font-size: 17px;
     }
 
     table.Gridview th, table.Gridview td { /* 不要左右框線 */
@@ -729,58 +755,81 @@ table.Gridview {
         }*/
 
 .BookTotal { /* 總收入、總支出 */
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
     font-size: 25px;
-    margin-bottom: 3px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
+    transform: translate(-50%, -50%);
 }
 /*-------------記帳左結束-------------*/
 
 /*---------------記帳右---------------*/
 .BookRight {
     position: absolute;
-    top: 48%;
-    left: 65%;
-    transform: translate(-50%, -50%);
+    top: 48.5%;
+    left: 50%;
+    width: 500px;
+    height: 710px;
+    transform: translate(8%, -50%);
 }
 
 /* -----書籤按鈕位置----- */
 .BookmarkUp {
-    position: fixed;
-    top: 25px;
+    position: absolute;
+    top: -10%;
     height: 80px;
     width: 80px;
 }
 
 .BookmarkDown {
-    position: fixed;
-    top: 52px;
+    position: absolute;
+    top: -6%;
     height: 44.27px;
     width: 80px;
 }
 
 .AddBookmark {
-    right: 750px;
+    position: absolute;
+    left: 10%;
 }
 
 .SearchBookmark {
-    right: 660px;
+    position: absolute;
+    left: 26%;
 }
 
 .ReportBookmark {
-    right: 570px;
+    position: absolute;
+    left: 42%;
 }
 
 .BookTitle { /* 功能標題 */
-    text-align: center;
-    margin-top: 20px;
+    position: absolute;
+    font-size: 40px;
+    left: 50%;
+    top: 3%;
+    transform: translate(-50%, 50%);
 }
 /* ---書籤按鈕位置結束--- */
 
 .BookChange { /* 功能區塊 */
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    top: 21%;
     text-align: center;
-    margin-top: 65px;
-    margin-left: 5px;
+    transform: translate(-50%, 0%);
+}
+
+.BookReport {
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }
 
 /*---類別---*/
@@ -858,6 +907,14 @@ table.Gridview {
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
+
+.AddButton {
+    position: absolute;
+    left: 50%;
+    top: 130%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+}
 /*---類別結束---*/
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/

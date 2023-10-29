@@ -80,7 +80,7 @@ namespace BookKeeping.src
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
-            // 獲取user選擇的新衣物ID
+            // 獲取user選擇的新衣物ID和新頭饰ID
             string selectedClothingID = hiddenClothingID.Value;
             string selectedHeadwearID = hiddenHeadwearID.Value;
 
@@ -91,20 +91,25 @@ namespace BookKeeping.src
             {
                 conn.Open();
 
+                // 獲取用戶目前的衣物ID和頭饰ID
+                string currentClothingID = NowBody.ImageUrl;
+                string currentHeadwearID = NowHead.ImageUrl;
+
                 // 更新資料庫
                 string updateQuery = "UPDATE `112-112502`.user基本資料 SET cloth = @newClothingID, cloth2 = @newHeadwearID WHERE user_id = @user_id ";
                 using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
                 {
-                    updateCmd.Parameters.AddWithValue("@newClothingID", selectedClothingID);
-                    updateCmd.Parameters.AddWithValue("@newHeadwearID", selectedHeadwearID);
+                    // 根據用戶的選擇來更新或保留衣物ID和頭饰ID
+                    updateCmd.Parameters.AddWithValue("@newClothingID", string.IsNullOrEmpty(selectedClothingID) ? currentClothingID : selectedClothingID);
+                    updateCmd.Parameters.AddWithValue("@newHeadwearID", string.IsNullOrEmpty(selectedHeadwearID) ? currentHeadwearID : selectedHeadwearID);
                     updateCmd.Parameters.AddWithValue("@user_id", user_id);
 
                     int rowsAffected = updateCmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
-                        // 更新成功，执行服务器端数据绑定以更新页面上的控件
-                        BindUserData(); // 这是一个自定义的函数，用于将数据库中的用户数据绑定到控件
+                        // 更新成功，執行服务器端数据绑定以更新页面上的控件
+                        BindUserData();
 
                         ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
                     }
