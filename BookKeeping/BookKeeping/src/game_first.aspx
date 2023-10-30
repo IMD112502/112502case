@@ -16,16 +16,18 @@
         </div>
 
         <div class="GameRight"><%--右半邊答案--%>
-            <asp:Button class="CoinAnsButton" ID="Ans1" runat="server"  OnClick="CheckAnswer" />
-            <asp:Button class="CoinAnsButton" ID="Ans2" runat="server"  OnClick="CheckAnswer" />
-            <asp:Button class="CoinAnsButton" ID="Ans3" runat="server"  OnClick="CheckAnswer"  />
+            <asp:Button class="CoinAnsButton" ID="Ans1" runat="server" OnClick="CheckAnswer" CommandArgument="0" />
+            <asp:Button class="CoinAnsButton" ID="Ans2" runat="server" OnClick="CheckAnswer" CommandArgument="1" />
+            <asp:Button class="CoinAnsButton" ID="Ans3" runat="server" OnClick="CheckAnswer" CommandArgument="2" />
+
         </div>
         <!-- 進度條 -->
-         <div class="GameProgress">
-            <div class="GameProgress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
-         </div>
+            <div class="GameProgress" id="GameProgressBar" runat="server" style='<%# Eval("ProgressBarStyle") %>'></div>
+
+
          <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
 		<asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" PostBackUrl="~/src/game_menu.aspx" />
+        <asp:Label ID="randomNum" runat="server" Text="" Visible="false"></asp:Label>
     </form>
 </body>
 </html>
