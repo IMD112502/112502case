@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Web.SessionState;
 using MySqlX.XDevAPI;
+using System.Threading.Tasks;
 
 namespace _BookKeeping
 {
@@ -102,14 +103,14 @@ namespace _BookKeeping
                 dt.Columns.Add("ProgressBarStyle", typeof(string));
                 dt.Columns.Add("IsTaskCompleted", typeof(bool));
 
-               
+
                 // 任務1：記帳次數達5次 (finishTaskArray 不包含 '1' 才新增）
                 for (int i = 1; i <= 7; i += 2)
                 {
                     if (!finishTaskArray.Contains(i.ToString()))
                     {
                         int countIndex = i / 2;
-                        int clothIndex = countIndex + 1;
+                        int clothIndex = countIndex + 2; // 更改为从2号衣服开始
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
@@ -131,7 +132,7 @@ namespace _BookKeeping
                     if (!finishTaskArray.Contains(j.ToString()))
                     {
                         int countIndex = j / 2 - 1;
-                        int clothIndex = countIndex + 1;
+                        int clothIndex = countIndex + 2;
                         int cnt = taskCount[countIndex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
@@ -216,8 +217,8 @@ namespace _BookKeeping
                 {
                     // 基于 task_id 是否为奇数来构建 @cloth_id
                     string clothIdValue = (taskIdValue % 2 == 1)
-                        ? "images/cloth/body_" + taskId + gender + ".png"
-                        : "images/cloth/head_" + taskId + gender + ".png";
+                    ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId) + 1}.png"
+                    : $"images/cloth/head_{gender}{Convert.ToInt32(taskId) + 1}.png";
 
                     string sql_cloth = "INSERT INTO `112-112502`.`更衣間` (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
 

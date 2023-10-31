@@ -12,22 +12,18 @@
     <form class="SetForm" id="form2" runat="server">
         <h1 class="SetTitle">個人資料</h1>
         <div class="SetContent">
-            <p>
-                <label>姓名 </label>
-                <asp:TextBox class="SetTextBoxStyle" ID="SetName" runat="server"></asp:TextBox>
-            </p>
+
             <p>
                 <label>暱稱 </label>
                 <asp:TextBox class="SetTextBoxStyle" ID="SetNickname" runat="server"></asp:TextBox>
             </p>
             <p>
                 <label>性別 </label>            
-                <asp:RadioButton ID="RadioButton1" runat="server" GroupName="gendergroup" OnCheckedChanged="RadioButton1_CheckedChanged" Text="男生" />
-                <asp:RadioButton ID="RadioButton2" runat="server" GroupName="gendergroup" OnCheckedChanged="RadioButton2_CheckedChanged" Text="女生" />
+                <asp:Label ID="gender" runat="server" Text=""></asp:Label>
             </p>
             <p>
                 <label>帳號 </label>
-                <asp:TextBox class="SetTextBoxStyle" ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:Label ID="account" runat="server" Text=""></asp:Label>
             </p>
             <p>
                 <label>生日 </label>

@@ -44,7 +44,6 @@ namespace BookKeeping.src
                                 if (reader.Read())
                                 {
                                     // 从数据库中获取用户数据并填充到 Label 中
-                                    name.Text = reader["user_name"].ToString();
                                     nickname.Text = reader["nickname"].ToString();
                                     gender.Text = reader["gender"].ToString();
                                     account.Text = reader["user_id"].ToString();
