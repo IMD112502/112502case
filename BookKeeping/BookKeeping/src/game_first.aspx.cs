@@ -63,7 +63,7 @@ namespace BookKeeping.src
            
 
             // 设置问题和选项
-            question.Text = "請問下圖中為多少金額？";
+            question1.Text = "請問下圖中為多少金額？";
             Image1.ImageUrl = "images/game/money_" + faceValues[currentQuestionIndex] + ".png";
             Ans1.Text = options[0];
             Ans2.Text = options[1];

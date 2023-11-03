@@ -1408,7 +1408,7 @@ table.Gridview {
     transform: translate(-50%, -50%);
 }
 
-#question {
+.question {
     font-size: 50px;
     color: darkcyan;
     font-weight: bold;
