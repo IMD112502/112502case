@@ -17,12 +17,13 @@
                 <p>
                    暱稱
                     <asp:TextBox class="TextBoxStyle" ID="RegNickname" runat="server" Width="90px" Height="25px" style ="margin-bottom:10px;  padding-left:10px;" PlaceHolder="請輸入暱稱"></asp:TextBox>
-                </p>
-                <p>性別
+                    性別
                     <asp:RadioButton ID="RadioButton1" runat="server" GroupName="gendergroup" style="margin-bottom:10px; padding-left:10px;" OnCheckedChanged="RadioButton1_CheckedChanged" Text="男" />
                     <asp:RadioButton ID="RadioButton2" runat="server" GroupName="gendergroup" style="margin-bottom:10px;" OnCheckedChanged="RadioButton2_CheckedChanged" Text="女" />
+                </p>
+                <p>
                    生日
-                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:130px; height:25px;"/>
+                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:250px; height:25px;"/>
                 </p>
                 
                 <p>帳號

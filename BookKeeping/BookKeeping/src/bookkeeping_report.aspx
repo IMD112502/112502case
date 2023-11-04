@@ -24,7 +24,7 @@
 
 			<h1 class="BookTitleL">本月類別統計</h1>
 			<div class="BookTableReport">
-				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False">
+				<asp:GridView class="Gridview2" ID="GridView1" runat="server" AutoGenerateColumns="False">
 					<Columns>
 						<asp:BoundField DataField="cls_name" HeaderText="記帳類別" />
 						<asp:BoundField DataField="total_cost" HeaderText="總金額" />
@@ -32,7 +32,7 @@
 				</asp:GridView>
 			</div>
 			<div class="BookTotal">
-				<asp:Label ID="total_in" runat="server" Text="當月總收入: "></asp:Label>
+				<asp:Label ID="total_in" runat="server" Text="當月總願望: "></asp:Label>
 				<asp:Label ID="amount_in" runat="server" Text=""></asp:Label>
 				<br>
 				<asp:Label ID="total_out" runat="server" Text="當月總支出: "></asp:Label>

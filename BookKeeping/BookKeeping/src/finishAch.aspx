@@ -19,8 +19,8 @@
         /* 左側圖片 */
         .task-image {
             flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
-            width: 100px; /* 指定圖片的寬度 */
-            height: 100px; /* 指定圖片的高度 */
+            width: 180px; /* 指定圖片的寬度 */
+            height: 155px; /* 指定圖片的高度 */
             object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
         }
 
@@ -85,12 +85,12 @@
         <ItemTemplate>
             <div class="task-container">
                 <!-- 左側圖片 -->
-                <asp:Image CssClass="task-image" ID="Image1" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText="Task Image" Height="100" />
+                <asp:Image CssClass="task-image" ID="Image1" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText="Task Image" Width="180" Height="155" />
 
                 <!-- 任務內容 -->
                 <div class="task-content">
                     <!-- 任務主題 -->
-                    <h3><%# Eval("TaskName") %></h3>
+                    <h3 style="font-size: 25px;"><%# Eval("TaskName") %></h3>
                     <!-- 任務內容 -->
                     <p><%# Eval("TaskDescription") %></p>
                     <!-- 進度條 -->

@@ -15,6 +15,7 @@
                 <asp:Label ID="label1" runat="server" Text=""></asp:Label>
                 <asp:Label ID="label2" runat="server" Text=""></asp:Label><br />
                 <asp:Label ID="label3" runat="server" Text=""></asp:Label><br />
+                <asp:Label ID="label7" runat="server" Text="" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:300px;"></asp:Label>
 
                 <div class="YesNo">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal">

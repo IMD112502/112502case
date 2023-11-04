@@ -92,12 +92,12 @@
 
 					<asp:TemplateField>
 						<ItemTemplate>
-							<asp:Button ID="btnEdit" runat="server" Text="編輯" CommandName="Edit" ToolTip="Edit" CommandArgument='<%# Eval("date") %>' />
-							<asp:Button ID="btnDelete" runat="server" Text="刪除" CommandName="Delete" CommandArgument='<%# Eval("date") %>' OnClientClick="return confirm('確定要刪除該筆資料嗎？');" />
+							<asp:Button class="GButton" ID="btnEdit" runat="server" CommandName="Edit" ToolTip="編輯" CommandArgument='<%# Eval("date") %>' style="background-image: url('images/boo/revise.png'); background-size: 20px 20px;" />
+							<asp:Button class="GButton" ID="btnDelete" runat="server" CommandName="Delete" ToolTip="刪除" CommandArgument='<%# Eval("date") %>' OnClientClick="return confirm('確定要刪除該筆資料嗎？');" style="background-image: url('images/boo/delete.png'); background-size: 20px 20px;" />
 						</ItemTemplate>
 						<EditItemTemplate>
-							<asp:Button ID="btnSave" runat="server" Text="儲存" CommandName="Update" ToolTip="Update" CommandArgument='<%# Eval("date") %>' />
-							<asp:Button ID="btnCancel" runat="server" Text="取消" CommandName="Cancel" ToolTip="Cancel" CommandArgument='<%# Eval("date") %>' />
+							<asp:Button class="GButton" ID="btnSave" runat="server" CommandName="Update" ToolTip="確認" CommandArgument='<%# Eval("date") %>' style="background-image: url('images/boo/correct.png'); background-size: 20px 20px;" />
+							<asp:Button class="GButton" ID="btnCancel" runat="server" CommandName="Cancel" ToolTip="取消" CommandArgument='<%# Eval("date") %>' style="background-image: url('images/boo/reject.png'); background-size: 20px 20px;" />
 						</EditItemTemplate>
 					</asp:TemplateField>
 				</Columns>
@@ -184,7 +184,7 @@
 			<br />
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<asp:Label ID="ErrorMessageLabel" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red"></asp:Label>
-			<br /> <n/><n /><n />
+			<br />
 			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
 

@@ -48,7 +48,7 @@ namespace BookKeeping.src
                 Button3.Text = "返回";
                 Button3.Click -= Submit_Click;
                 Button3.PostBackUrl = "bucket_list.aspx";
-                label3.Text = "目前沒有要審核的願望喔!";
+                label7.Text = "目前沒有要審核的願望喔!";
             }
         }
 

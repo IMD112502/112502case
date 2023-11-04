@@ -15,6 +15,23 @@ body {
     width: 1200px;
 }
 
+::-webkit-scrollbar {
+    width: 8px; /* 滾輪寬度 */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* 滾輪軌道的背景色 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #808080; /* 滾輪滑塊的背景色 */
+}
+
+/* 滾輪滑塊的圓角 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
 .ButtonStyle,
 .ButtonStyle:focus {
     position: absolute; /*指定絕對位置*/
@@ -703,6 +720,20 @@ body {
     transform: translate(-50%, 50%);
 }
 
+.GButton {
+    border: none; /* 移除邊框 */
+    transition: transform 0.2s; /* 添加變換動畫效果 */
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    outline: none;
+}
+
+    .GButton:hover {
+        transform: scale(1.2); /* 鼠標懸停時按鈕變大 1.2 倍 */
+        cursor: pointer; /* 變換游標形狀為手型 */
+    }
+
 .EditButton { /* 編輯按鈕 */
     position: absolute;
     margin-left: 50%;
@@ -754,12 +785,31 @@ table.Gridview {
             border-left: none;
         }*/
 
+table.Gridview2 {
+    width: 395px;
+    height: 80px;
+    margin-top: 5px;
+    margin-left: 55px;
+    border: none; /* 不要框線 */
+}
+
+    table.Gridview2 tr {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    table.Gridview2 th, table.Gridview2 td { /* 不要左右框線 */
+        border-left: none;
+        border-right: none;
+    }
+
 .BookTotal { /* 總收入、總支出 */
     position: absolute;
     bottom: 4%;
     left: 50%;
+    width: 450px;
     font-size: 25px;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     transform: translate(-50%, -50%);
 }
@@ -1257,7 +1307,7 @@ table.Gridview {
 /*----------願望審核區結束----------*/
 /*------------------------------------更衣室------------------------------------*/
 .DreRoom {
-    background-image: url('images/main/home_bg.png');
+    background-image: url('images/cloth/cloth_bg.png');
     background-size: 1047px 877.2px;
 }
 
@@ -1273,24 +1323,24 @@ table.Gridview {
 .Head {
     background-color: #BEE3E2;
     height: 320px;
-    width: 350px;
+    width: 325px;
     position: absolute;
     top: 30%;
     left: 13%;
     transform: translate(-50%, -50%);
-    border-radius: 40px; /*圓角*/
+    border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
 
 .Cloth {
     background-color: #BEE3E2;
     height: 400px;
-    width: 350px;
+    width: 325px;
     position: absolute;
     top: 70%;
     left: 13%;
     transform: translate(-50%, -50%);
-    border-radius: 40px; /*圓角*/
+    border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
 
@@ -1320,12 +1370,12 @@ table.Gridview {
 .Pet {
     background-color: #BEE3E2;
     height: 600px;
-    width: 350px;
+    width: 325px;
     position: absolute;
     top: 50%;
     left: 87%;
     transform: translate(-50%, -50%);
-    border-radius: 40px; /*圓角*/
+    border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
 /*------------------------------------更衣室結束------------------------------------*/

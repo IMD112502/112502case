@@ -137,7 +137,7 @@ namespace _BookKeeping
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
                         task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + clothIndex.ToString() + ".png");
-                        task2["TaskName"] = "許願" + cnt.ToString() + "次";
+                        task2["TaskName"] = "許願次數達" + cnt.ToString() + "次";
                         task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
                         task2["ProgressBarStyle"] = $"width: {(wishingCount >= cnt ? 100 : (wishingCount * 100 / cnt))}%";
                         task2["IsTaskCompleted"] = (wishingCount >= cnt);

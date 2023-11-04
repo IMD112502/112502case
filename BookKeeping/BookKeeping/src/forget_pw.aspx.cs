@@ -31,8 +31,7 @@ namespace BookKeeping.src
                 string selectquestion = secretQuestion.SelectedValue;
 			    string selectanswer = secretAnswer.Text.Trim();
 			    string newpwd = newanswer.Text.Trim();
-			    string selectemail = emailans.Text.Trim();
-                //string account = enteraccount.Text.Trim();
+                string account = enteraccount.Text.Trim();
 
                 string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
@@ -40,13 +39,12 @@ namespace BookKeeping.src
                 {
                     conn.Open();
 
-                    string selectQuery = "UPDATE `112-112502`.user基本資料 SET password = @password WHERE user_id = @user_id and email = @email and question1 = @question1 and answer1 = @answer1";
+                    string selectQuery = "UPDATE `112-112502`.user基本資料 SET password = @password WHERE user_id = @user_id and question1 = @question1 and answer1 = @answer1";
                     MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn);
-                    selectCommand.Parameters.AddWithValue("@email", selectemail);
                     selectCommand.Parameters.AddWithValue("@question1", selectquestion);
                     selectCommand.Parameters.AddWithValue("@answer1", selectanswer);
                     selectCommand.Parameters.AddWithValue("@password", newpwd);
-                    //selectCommand.Parameters.AddWithValue("@user_id", account);
+                    selectCommand.Parameters.AddWithValue("@user_id", account);
 
                     int rowsUpdated = selectCommand.ExecuteNonQuery();
 
@@ -56,8 +54,7 @@ namespace BookKeeping.src
                         // 清空文本框
                         secretAnswer.Text = "";
                         newanswer.Text = "";
-                        emailans.Text = "";
-                        //enteraccount.Text = "";
+                        enteraccount.Text = "";
 
                         // 显示成功消息
                         ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('密碼更新成功');", true);
