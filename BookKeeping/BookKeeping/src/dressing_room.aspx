@@ -13,7 +13,7 @@
         <div class="Head" id="femaleClothing">
             <asp:Repeater ID="headRepeater" runat="server" Visible="true">
                 <ItemTemplate>
-                    <asp:ImageButton ID="headImage" runat="server" Height="424px" Width="304px" ImageUrl='<%# Eval("cloth_id") %>' 
+                    <asp:ImageButton class="ClothButton" ID="headImage" runat="server" Height="424px" Width="304px" ImageUrl='<%# Eval("cloth_id") %>' 
                         OnClientClick='<%# "return setHeadwearImage(\"" + Eval("cloth_id") + "\");" %>' />
                 </ItemTemplate>
             </asp:Repeater>
@@ -22,7 +22,7 @@
         <div class="Cloth" id="femaleHead"> 
             <asp:Repeater ID="imageRepeater" runat="server" Visible="true">
                 <ItemTemplate>
-                    <asp:ImageButton ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
+                    <asp:ImageButton class="ClothButton" ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
                     OnClientClick='<%# "return setPreviewImage(\"" + Eval("cloth_id") + "\");" %>' />
                 </ItemTemplate>
             </asp:Repeater>

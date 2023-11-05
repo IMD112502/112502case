@@ -32,6 +32,15 @@ body {
     border-radius: 10px;
 }
 
+.custom-image {
+    position: absolute; /*指定絕對位置*/
+    top: 20%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+}
+
 .ButtonStyle,
 .ButtonStyle:focus {
     position: absolute; /*指定絕對位置*/
@@ -1170,6 +1179,24 @@ table.Gridview2 {
     background-image: url('images/dre_rev_button.png');
 }
 
+.Notebook { /* 歷史紀錄 */
+    background-image: url('images/notebook.png');
+    background-size: 497.5px 684.5px;
+    position: absolute; /*指定絕對位置*/
+    left: 50%;
+    top: 50%;
+    width: 497.5px;
+    height: 684.5px;
+    transform: translate(-50%, -50%);
+}
+
+.NotebookText {
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translate(-55%, 0%);
+}
+
 .MemoStyle { /* 便條區塊樣式 */
     background-size: 650px 650px;
     position: absolute; /*指定絕對位置*/
@@ -1320,14 +1347,22 @@ table.Gridview2 {
     height: 90px;
 }
 
+.ClothButton {
+    transition: transform 0.2s; /* 添加變換動畫效果 */
+}
+
+    .ClothButton:hover {
+        transform: scale(1.1); /* 鼠標懸停時按鈕變大 1.2 倍 */
+    }
+
 .Head {
     background-color: #BEE3E2;
     height: 320px;
-    width: 325px;
+    width: 335px;
     position: absolute;
-    top: 30%;
-    left: 13%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-260%, -110%);
     border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
@@ -1335,11 +1370,11 @@ table.Gridview2 {
 .Cloth {
     background-color: #BEE3E2;
     height: 400px;
-    width: 325px;
+    width: 335px;
     position: absolute;
-    top: 70%;
-    left: 13%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-260%, -5%);
     border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
@@ -1349,7 +1384,7 @@ table.Gridview2 {
     height: 800px;
     width: 380px;
     top: 55%;
-    left: 48.5%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 

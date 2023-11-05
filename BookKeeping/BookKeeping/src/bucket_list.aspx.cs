@@ -104,11 +104,21 @@ namespace _BookKeeping
 
                     if (rowsAffected > 0) // 彈出視窗
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "刪除成功", "alert('刪除成功！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_3Y.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "刪除成功", script, true);
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "刪除失敗", "alert('刪除失敗！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_3N.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "刪除失敗", script, true);
                     }
                 }
             }
@@ -161,11 +171,21 @@ namespace _BookKeeping
 
                     if (rowsAffected > 1) // 彈出視窗
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "兌換成功", "alert('兌換成功！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_6Y.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "兌換成功", script, true);
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "兌換失敗", "alert('兌換失敗！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_6N.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "兌換失敗", script, true);
                     }
                 }
             }

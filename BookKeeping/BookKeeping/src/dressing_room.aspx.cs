@@ -111,11 +111,21 @@ namespace BookKeeping.src
                         // 更新成功，執行服务器端数据绑定以更新页面上的控件
                         BindUserData();
 
-                        ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "新增失敗", "alert('新增失敗！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_1N.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "修改失败", script, true);
                     }
                 }
             }

@@ -89,7 +89,12 @@ namespace BookKeeping
                 // 用户尚未注册审核密码，将用户输入的密码更新到数据库
                 UpdateAuditPasswordForUser(user_id, enteredPassword, ques, Answer);
 
-                ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('密碼註冊成功');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_5Y.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "註冊成功", script, true);
 
                 // 密码更新后，将用户重定向回原始页面
                 Response.AddHeader("REFRESH", "0.5;URL=bucket_password.aspx");

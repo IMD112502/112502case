@@ -24,7 +24,7 @@ namespace BookKeeping.src
 
 
 
-        protected void Comfirm_Click (object sender, EventArgs e)
+        protected void Comfirm_Click(object sender, EventArgs e)
 		{
             if (Page.IsValid) // 检查页面是否通过验证
             {
@@ -57,7 +57,12 @@ namespace BookKeeping.src
                         enteraccount.Text = "";
 
                         // 显示成功消息
-                        ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('密碼更新成功');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
 
                         // 重定向到登录页面
                         Response.AddHeader("REFRESH", "0.5;URL=login.aspx"); // 替换为实际的登录页面路径
@@ -66,13 +71,24 @@ namespace BookKeeping.src
                     {
                         // 密码更新失败或没有匹配的记录
                         // 可以显示错误消息
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_pw_n_same.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "密碼不一致", script, true);
                     }
                 }
             }
             else
             {
                 // 显示错误消息，提示用户填写信息
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('請填寫信息');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_n_whole.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "請填寫完整", script, true);
             }
         }
     }

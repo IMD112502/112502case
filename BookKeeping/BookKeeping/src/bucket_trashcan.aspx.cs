@@ -75,7 +75,8 @@ namespace _BookKeeping
 
                     else
                     {
-                        CantBuy.Text = "目前沒有被拒絕的願望喔~";
+                        NoCantBuy.Text = "目前沒有被拒絕的願望喔~";
+                        CantBuy.Text = "";
                         Cause.Text = "";
                     }
                 }

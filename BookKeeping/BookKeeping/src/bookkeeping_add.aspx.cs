@@ -159,13 +159,24 @@ namespace _BookKeeping
                     {
                         TextBox1.Text = null;
                         TextBox2.Text = null;
-                        ClientScript.RegisterStartupScript(GetType(), "新增成功", "alert('新增成功！');", true);
+                        ErrorMessageLabel.Text = "";
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
 
                         SearchSelectMonth(conn, date.Month);
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(GetType(), "新增失敗", "alert('新增失敗！');", true);
+                        string script = "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                     }
 
 
@@ -220,11 +231,21 @@ namespace _BookKeeping
 
             if (rowsAffected > 0)
             {
-                ClientScript.RegisterStartupScript(GetType(), "刪除成功", "alert('資料已成功刪除！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_3Y.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "刪除成功", script, true);
             }
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "刪除失敗", "alert('資料刪除失敗！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_3N.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "刪除失敗", script, true);
             }
 
             conn.Close();
@@ -284,11 +305,21 @@ namespace _BookKeeping
 
             if (rowsAffected > 0)
             {
-                ClientScript.RegisterStartupScript(GetType(), "更新成功", "alert('資料已成功更新！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
             }
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "更新失敗", "alert('資料更新失敗！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_1N.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "修改失敗", script, true);
             }
 
             GridView1.EditIndex = -1;

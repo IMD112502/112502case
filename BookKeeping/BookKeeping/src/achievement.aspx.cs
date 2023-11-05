@@ -233,11 +233,21 @@ namespace _BookKeeping
 
                 if (rowsAffected > 1)
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "領取成功", "alert('領取成功！');", true);
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_4Y.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "領取成功", script, true);
                 }
                 else
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "領取失敗", "alert('領取失敗！');", true);
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_4N.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "領取失敗", script, true);
                 }
 
                 // 重新绑定任务清单以更新任务状态

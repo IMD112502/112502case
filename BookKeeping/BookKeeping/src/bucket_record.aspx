@@ -10,8 +10,9 @@
 </head>
 <body>
     <form class="BucForm" id="form1" runat="server">
-        <div class="YMemo MemoStyle">
-            <asp:Label ID="Label1" runat="server" style="font-size:40px; font-weight: bold;" Text="願望歷史紀錄"></asp:Label><br />
+        <div class="Notebook">
+            <div class="NotebookText">
+            <asp:Label ID="Label1" runat="server" style="font-size:40px; font-weight: bold; " Text="願望歷史紀錄"></asp:Label><br />
 
             <asp:GridView class="Gridview" ID="GridView2" runat="server" AutoGenerateColumns="False">
                 <Columns>
@@ -26,6 +27,7 @@
                     <asp:BoundField DataField="exchange_time" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}" />
                 </Columns>
             </asp:GridView>
+            </div>
 
 
         </div>
