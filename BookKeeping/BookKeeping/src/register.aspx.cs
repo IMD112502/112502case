@@ -131,7 +131,7 @@ namespace _BookKeeping
                         // 在这里添加将用户信息插入数据库的代码
                         MySqlConnection conn = DBConnection();
 
-                        string sql = "INSERT INTO `112-112502`.user基本資料 (user_id, nickname, gender, password, question1, answer1, birthday, cloth, cloth2) VALUES (@user_id, @nickname, @gender, @password, @question1, @answer1, @birthdate, @defaultBody, @defaultClothing)";
+                        string sql = "INSERT INTO `112-112502`.user (user_id, nickname, gender, password, question1, answer1, birthday, cloth, cloth2) VALUES (@user_id, @nickname, @gender, @password, @question1, @answer1, @birthdate, @defaultBody, @defaultClothing)";
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                         cmd.Parameters.AddWithValue("@user_id", userid);
@@ -144,7 +144,7 @@ namespace _BookKeeping
                         cmd.Parameters.AddWithValue("@defaultClothing", defaultClothing);
                         cmd.Parameters.AddWithValue("@defaultBody", defaultBody);
 
-                        string SQL = "INSERT INTO `112-112502`.更衣間 (user_id, cloth_id) VALUES (@user_id, @cloth_id)";
+                        string SQL = "INSERT INTO `112-112502`.dressing_room (user_id, cloth_id) VALUES (@user_id, @cloth_id)";
                         MySqlCommand sqlcmd = new MySqlCommand(SQL, conn);
 
                         sqlcmd.Parameters.AddWithValue("@user_id", userid);
@@ -193,7 +193,7 @@ namespace _BookKeeping
         {
             using (MySqlConnection conn = DBConnection())
             {
-                string sql = "SELECT COUNT(*) FROM `112-112502`.user基本資料 WHERE user_id = @userid";
+                string sql = "SELECT COUNT(*) FROM `112-112502`.user WHERE user_id = @userid";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@userid", userid);
 

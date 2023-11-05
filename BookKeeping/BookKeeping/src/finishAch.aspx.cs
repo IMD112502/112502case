@@ -28,7 +28,7 @@ namespace _BookKeeping
         private string UserGender(MySqlConnection connection)
         {
             string gender = "";
-            string query = "SELECT gender FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
+            string query = "SELECT gender FROM `112-112502`.user WHERE user_id = @user_id";
             string user_id = Session["UserID"].ToString();
 
             using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -61,7 +61,7 @@ namespace _BookKeeping
                 List<string> finishTaskLists = new List<string>();
                 int[] taskCount = { 5, 10, 20, 50 };
 
-                string query = "SELECT a_id FROM `112-112502`.使用者成就完成 WHERE user_id = @user_id";
+                string query = "SELECT a_id FROM `112-112502`.achievement WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user_id", user_id);
 

@@ -37,7 +37,7 @@ namespace _BookKeeping
         protected string FindName()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT user_name FROM `112-112502`.user基本資料\r\nwhere user_id = @user_id";
+            string sql = "SELECT user_name FROM `112-112502`.user\r\nwhere user_id = @user_id";
             string user_name = string.Empty;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -72,7 +72,7 @@ namespace _BookKeeping
                 ErrorMessage1.Visible = true;
                 return;
             }
-            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id and exchange_state is null;";
+            string sql_count = "SELECT count(*) FROM `112-112502`.bucket_list where user_id = @user_id and exchange_state is null;";
             MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
             cmd_count.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd_count.ExecuteReader();
@@ -85,7 +85,7 @@ namespace _BookKeeping
             if (wish_count < 4)
             {
                 conn.Open();
-                string sql = "insert into `112-112502`.願望清單(user_id, d_name, pass_state) values (@name, @d_name, 'r')";
+                string sql = "insert into `112-112502`.bucket_list(user_id, d_name, pass_state) values (@name, @d_name, 'r')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@name", user_id);

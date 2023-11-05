@@ -71,7 +71,7 @@ namespace _BookKeeping
             MySqlConnection conn = new MySqlConnection(connection);
             conn.Open();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `112-112502`.user基本資料 WHERE user_id = @userid AND password = @password", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `112-112502`.user WHERE user_id = @userid AND password = @password", conn);
             cmd.Parameters.AddWithValue("@userid", UserAcc.Text);
             cmd.Parameters.AddWithValue("@password", UserPwd.Text);
 

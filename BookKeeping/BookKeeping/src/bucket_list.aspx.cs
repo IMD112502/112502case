@@ -44,7 +44,7 @@ namespace _BookKeeping
 
 
             //搜尋願望
-            string wishQuery = "SELECT d_num, d_name, pass_amount FROM 願望清單 WHERE user_id = @user_id AND pass_state = 'y' and exchange_state is null";
+            string wishQuery = "SELECT d_num, d_name, pass_amount FROM bucket_list WHERE user_id = @user_id AND pass_state = 'y' and exchange_state is null";
             MySqlCommand cmd = new MySqlCommand(wishQuery, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
             
@@ -72,8 +72,8 @@ namespace _BookKeeping
                 // 计算当前存款
                 string depositQuery = @"
                     SELECT 
-                    COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class_id = '1'), 0) -
-                    COALESCE((SELECT SUM(cost) FROM `112-112502`.記帳資料 WHERE user_id = @user_id AND class_id = '5'), 0) AS 現有存款";
+                    COALESCE((SELECT SUM(cost) FROM `112-112502`.bookkeeping_data WHERE user_id = @user_id AND class_id = '1'), 0) -
+                    COALESCE((SELECT SUM(cost) FROM `112-112502`.bookkeeping_data WHERE user_id = @user_id AND class_id = '5'), 0) AS 現有存款";
 
                 MySqlCommand depositCommand = new MySqlCommand(depositQuery, conn);
                 depositCommand.Parameters.AddWithValue("@user_id", user_id);
@@ -95,7 +95,7 @@ namespace _BookKeeping
 
                 using (MySqlConnection conn = DBConnection())
                 {
-                    string deleteQuery = "UPDATE 願望清單 SET run_state = 'd' , exchange_state = 'D', exchange_time = now() WHERE d_num = @dNum";
+                    string deleteQuery = "UPDATE bucket_list SET run_state = 'd' , exchange_state = 'D', exchange_time = now() WHERE d_num = @dNum";
                     MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
                     deleteCmd.Parameters.AddWithValue("@dNum", dNum);
                     int rowsAffected = deleteCmd.ExecuteNonQuery();
@@ -122,13 +122,13 @@ namespace _BookKeeping
                 using (MySqlConnection conn = DBConnection())
                 {
                     //更新願望狀態
-                    string deleteQuery = "UPDATE 願望清單 SET run_state = 'r' , exchange_state = 'Y' , exchange_time = now() WHERE d_num = @dNum";
+                    string deleteQuery = "UPDATE bucket_list SET run_state = 'r' , exchange_state = 'Y' , exchange_time = now() WHERE d_num = @dNum";
                     MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, conn);
                     deleteCmd.Parameters.AddWithValue("@dNum", dNum);
                     int deleteRowsAffected = deleteCmd.ExecuteNonQuery();
 
                     //獲取願望金額以及願望名稱
-                    string wishDataQuery = "SELECT d_name,pass_amount FROM `112-112502`.願望清單 where d_num = @dNum";
+                    string wishDataQuery = "SELECT d_name,pass_amount FROM `112-112502`.bucket_list where d_num = @dNum";
                     
                     MySqlCommand wishAmountCmd = new MySqlCommand(wishDataQuery, conn);
                     wishAmountCmd.Parameters.AddWithValue("dNum", dNum);
@@ -143,7 +143,7 @@ namespace _BookKeeping
                     }
 
                     //新增願望兌換的記帳資料
-                    string redeemQuery = "INSERT INTO `112-112502`.`記帳資料` (user_id, date ,class_id, cost, mark) VALUES (@user_id, @date , '5', @wish_amount, @wish_name);";
+                    string redeemQuery = "INSERT INTO `112-112502`.bookkeeping_data (user_id, date ,class_id, cost, mark) VALUES (@user_id, @date , '5', @wish_amount, @wish_name);";
                     MySqlCommand redeemCmd = new MySqlCommand(redeemQuery, conn);
                     redeemCmd.Parameters.AddWithValue("@user_id", user_id);
                     redeemCmd.Parameters.AddWithValue("@date", DateTime.Now.Date);

@@ -63,7 +63,7 @@ namespace BookKeeping.src
         protected string FindName()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT nickname FROM `112-112502`.user基本資料\r\nwhere user_id = @user_id";
+            string sql = "SELECT nickname FROM `112-112502`.user\r\nwhere user_id = @user_id";
             string user_name = string.Empty;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -79,7 +79,7 @@ namespace BookKeeping.src
         protected string[] GetArray()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT d_name FROM `112-112502`.願望清單\r\nwhere user_id = @user_id and pass_state = \'r\';";
+            string sql = "SELECT d_name FROM `112-112502`.bucket_list\r\nwhere user_id = @user_id and pass_state = \'r\';";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -142,7 +142,7 @@ namespace BookKeeping.src
             string selectedValue = RadioButtonList1.SelectedValue;
             string wish_name = label2.Text;
 
-            string dNum = "SELECT d_num FROM `112-112502`.願望清單 where `d_name` = @wish_name and `user_id` = @user_id and `pass_state` = 'r'";
+            string dNum = "SELECT d_num FROM `112-112502`.bucket_list where `d_name` = @wish_name and `user_id` = @user_id and `pass_state` = 'r'";
 
             MySqlCommand cmd = new MySqlCommand(dNum, conn);
             cmd.Parameters.AddWithValue("@wish_name", wish_name);
@@ -186,7 +186,7 @@ namespace BookKeeping.src
 
                 //}
 
-                string sql = "update `112-112502`.願望清單 set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
+                string sql = "update `112-112502`.bucket_list set pass_amount = @amount , pass_state = 'y' where(`d_num` = @dName)";
 
                 conn.Open();
                 MySqlCommand command = new MySqlCommand(sql, conn);
@@ -220,7 +220,7 @@ namespace BookKeeping.src
                     ErrorMessage2.Visible = true;
                     return;
                 }
-                string sql = "update `112-112502`.願望清單 set reason = @reason , pass_state = 'n' where(`d_num` = @dName)";
+                string sql = "update `112-112502`.bucket_list set reason = @reason , pass_state = 'n' where(`d_num` = @dName)";
 
                 conn.Open();
 

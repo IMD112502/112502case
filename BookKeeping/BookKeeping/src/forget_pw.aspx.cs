@@ -39,7 +39,7 @@ namespace BookKeeping.src
                 {
                     conn.Open();
 
-                    string selectQuery = "UPDATE `112-112502`.user基本資料 SET password = @password WHERE user_id = @user_id and question1 = @question1 and answer1 = @answer1";
+                    string selectQuery = "UPDATE `112-112502`.user SET password = @password WHERE user_id = @user_id and question1 = @question1 and answer1 = @answer1";
                     MySqlCommand selectCommand = new MySqlCommand(selectQuery, conn);
                     selectCommand.Parameters.AddWithValue("@question1", selectquestion);
                     selectCommand.Parameters.AddWithValue("@answer1", selectanswer);

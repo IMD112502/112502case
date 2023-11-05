@@ -30,7 +30,7 @@ namespace BookKeeping.src
                     conn.Open();
 
                     // 搜尋資料庫
-                    string query = "SELECT cloth, cloth2, gender FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
+                    string query = "SELECT cloth, cloth2, gender FROM `112-112502`.user WHERE user_id = @user_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -52,7 +52,7 @@ namespace BookKeeping.src
                     }
 
                     // 查询用户的所有衣服ID頭部
-                    string clothQuery = "SELECT cloth_id FROM `112-112502`.更衣間 WHERE user_id = @user_id and cloth_id like '%body%'";
+                    string clothQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%body%'";
                     using (MySqlCommand clothCmd = new MySqlCommand(clothQuery, conn))
                     {
                         clothCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -64,7 +64,7 @@ namespace BookKeeping.src
                     }
 
                     // 查询用户的所有衣服ID套裝
-                    string headQuery = "SELECT cloth_id FROM `112-112502`.更衣間 WHERE user_id = @user_id and cloth_id like '%Head%'";
+                    string headQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%Head%'";
                     using (MySqlCommand headCmd = new MySqlCommand(headQuery, conn))
                     {
                         headCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -96,7 +96,7 @@ namespace BookKeeping.src
                 string currentHeadwearID = NowHead.ImageUrl;
 
                 // 更新資料庫
-                string updateQuery = "UPDATE `112-112502`.user基本資料 SET cloth = @newClothingID, cloth2 = @newHeadwearID WHERE user_id = @user_id ";
+                string updateQuery = "UPDATE `112-112502`.user SET cloth = @newClothingID, cloth2 = @newHeadwearID WHERE user_id = @user_id ";
                 using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
                 {
                     // 根據用戶的選擇來更新或保留衣物ID和頭饰ID
@@ -131,7 +131,7 @@ namespace BookKeeping.src
                 conn.Open();
 
                 // 查询用户的衣物和头饰数据
-                string userQuery = "SELECT cloth, cloth2 FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
+                string userQuery = "SELECT cloth, cloth2 FROM `112-112502`.user WHERE user_id = @user_id";
                 using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
                 {
                     userCmd.Parameters.AddWithValue("@user_id", user_id);

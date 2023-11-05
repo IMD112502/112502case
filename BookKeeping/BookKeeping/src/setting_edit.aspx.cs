@@ -47,7 +47,7 @@ namespace BookKeeping.src
                 connection.Open();
 
                 // 创建 SQL 查询，根据用户ID检索用户数据
-                string query = "SELECT nickname, gender, user_id, birthday FROM `112-112502`.user基本資料 WHERE user_id = @UserId";
+                string query = "SELECT nickname, gender, user_id, birthday FROM `112-112502`.user WHERE user_id = @UserId";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
@@ -125,7 +125,7 @@ namespace BookKeeping.src
                 connection.Open();
 
                 // 创建 SQL 命令，更新用户数据
-                string query = "UPDATE `112-112502`.user基本資料 " +
+                string query = "UPDATE `112-112502`.user " +
                                "SET nickname = @Nickname, " +
                                "    birthday = @Birthdate " +
                                "WHERE user_id = @Account";

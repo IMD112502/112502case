@@ -33,7 +33,7 @@ namespace BookKeeping.src
                     connection.Open();
 
                     // 创建 SQL 查询
-                    string query = "SELECT nickname, user_id, gender, cloth, cloth2 FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
+                    string query = "SELECT nickname, user_id, gender, cloth, cloth2 FROM `112-112502`.user WHERE user_id = @UserID";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
@@ -95,7 +95,7 @@ namespace BookKeeping.src
             MySqlConnection conn = DBConnection();
 
             //判斷願望類別是否有資料
-            string sql_count = "SELECT count(*) FROM `112-112502`.記帳資料 where user_id = @user_id and class_id = \"願望\"";
+            string sql_count = "SELECT count(*) FROM `112-112502`.bookkeeping_data where user_id = @user_id and class_id = \"願望\"";
             MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
             cmd_count.Parameters.AddWithValue("@user_id", user_id);
              MySqlDataReader reader_count = cmd_count.ExecuteReader(); 
@@ -107,7 +107,7 @@ namespace BookKeeping.src
             if (count>0) 
             {
                 conn.Open ();
-                string sql_wish = "SELECT sum(cost) FROM `112-112502`.記帳資料 where user_id = @user_id and class_id = \"願望\";";
+                string sql_wish = "SELECT sum(cost) FROM `112-112502`.bookkeeping_data where user_id = @user_id and class_id = \"願望\";";
                 MySqlCommand cmd_wish = new MySqlCommand(sql_wish, conn);
                 cmd_wish.Parameters.AddWithValue("@user_id", user_id);
                 MySqlDataReader reader_wish = cmd_wish.ExecuteReader();
@@ -135,7 +135,7 @@ namespace BookKeeping.src
             MySqlConnection conn = DBConnection();
 
             //判斷願望類別是否有資料
-            string sql_count = "SELECT count(*) FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y' and exchange_state is null ";
+            string sql_count = "SELECT count(*) FROM `112-112502`.bucket_list where user_id = @user_id and pass_state='y' and exchange_state is null ";
             MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
             cmd_count.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader_count = cmd_count.ExecuteReader();
@@ -147,7 +147,7 @@ namespace BookKeeping.src
             if (count > 0) 
             {
                 conn.Open ();
-                string sql_target = "SELECT pass_amount FROM `112-112502`.願望清單 where user_id = @user_id and pass_state='y'and exchange_state is null";
+                string sql_target = "SELECT pass_amount FROM `112-112502`.bucket_list where user_id = @user_id and pass_state='y'and exchange_state is null";
                 using (MySqlCommand cmd_target = new MySqlCommand(sql_target, conn)) 
                 {
                     cmd_target.Parameters.AddWithValue("@user_id", user_id);

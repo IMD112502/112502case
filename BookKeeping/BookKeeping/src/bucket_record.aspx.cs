@@ -27,7 +27,7 @@ namespace BookKeeping.src
 
         protected void BucketRecord(MySqlConnection connection)
         {
-            string sql = "SELECT d_num, d_name, pass_amount, exchange_time, exchange_state FROM `112-112502`.願望清單 WHERE user_id = @user_id and exchange_state in ('D', 'R', 'Y');";
+            string sql = "SELECT d_num, d_name, pass_amount, exchange_time, exchange_state FROM `112-112502`.bucket_list WHERE user_id = @user_id and exchange_state in ('D', 'R', 'Y');";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@user_id", user_id);
 

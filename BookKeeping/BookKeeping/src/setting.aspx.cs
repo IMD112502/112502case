@@ -31,7 +31,7 @@ namespace BookKeeping.src
                         connection.Open();
 
                         // 创建 SQL 查询
-                        string query = "SELECT user_name, nickname, gender, user_id, birthday FROM `112-112502`.user基本資料 WHERE user_id = @UserID";
+                        string query = "SELECT user_name, nickname, gender, user_id, birthday FROM `112-112502`.user WHERE user_id = @UserID";
 
                         using (MySqlCommand cmd = new MySqlCommand(query, connection))
                         {

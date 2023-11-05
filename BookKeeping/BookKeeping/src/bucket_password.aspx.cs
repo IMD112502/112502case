@@ -50,7 +50,7 @@ namespace BookKeeping
             {
                 conn.Open();
 
-                string sql = "SELECT COUNT(*) FROM `112-112502`.user基本資料 WHERE user_id = @user_id AND YNpassword IS NOT NULL";
+                string sql = "SELECT COUNT(*) FROM `112-112502`.user WHERE user_id = @user_id AND YNpassword IS NOT NULL";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
 
@@ -104,7 +104,7 @@ namespace BookKeeping
             {
                 conn.Open();
 
-                string sql = "UPDATE `112-112502`.user基本資料 SET YNpassword = @newPassword, question2 = @question, answer2 = @answer WHERE user_id = @user_id";
+                string sql = "UPDATE `112-112502`.user SET YNpassword = @newPassword, question2 = @question, answer2 = @answer WHERE user_id = @user_id";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@newPassword", newPassword);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -124,7 +124,7 @@ namespace BookKeeping
             {
                 conn.Open();
 
-                string sql = "SELECT YNpassword FROM `112-112502`.user基本資料 where user_id = @user_id";
+                string sql = "SELECT YNpassword FROM `112-112502`.user where user_id = @user_id";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
 

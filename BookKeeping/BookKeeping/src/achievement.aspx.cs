@@ -30,7 +30,7 @@ namespace _BookKeeping
         private string UserGender(MySqlConnection connection) 
         {
             string gender = "";
-            string query = "SELECT gender FROM `112-112502`.user基本資料 WHERE user_id = @user_id";
+            string query = "SELECT gender FROM `112-112502`.user WHERE user_id = @user_id";
             string user_id = Session["UserID"].ToString();
            
 
@@ -68,7 +68,7 @@ namespace _BookKeeping
                 List<string> finishTaskLists = new List<string>();
                 int[] taskCount = { 5, 10, 20, 50 };
 
-                string query = "SELECT a_id FROM `112-112502`.使用者成就完成 WHERE user_id = @user_id";
+                string query = "SELECT a_id FROM `112-112502`.achievement WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user_id", user_id);
 
@@ -156,7 +156,7 @@ namespace _BookKeeping
         private int GetAccountingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取記帳次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.記帳資料 WHERE user_id = @user_id";
+            string query = "SELECT COUNT(*) FROM `112-112502`.bookkeeping_data WHERE user_id = @user_id";
             string user_id = Session["UserID"].ToString();
 
             using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -169,7 +169,7 @@ namespace _BookKeeping
         private int GetWishingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取許願次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.願望清單 WHERE user_id = @user_id";
+            string query = "SELECT COUNT(*) FROM `112-112502`.bucket_list WHERE user_id = @user_id";
             string user_id = Session["UserID"].ToString();
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
@@ -198,7 +198,7 @@ namespace _BookKeeping
 
                 // 根据 taskId 执行相应的操作，例如发放奖励
 
-                string sql_ach = "INSERT INTO `112-112502`.使用者成就完成 (user_id, a_id , get_state) VALUES (@user_id , @task_id , 'y')";
+                string sql_ach = "INSERT INTO `112-112502`.achievement (user_id, a_id , get_state) VALUES (@user_id , @task_id , 'y')";
 
                 // 使用 Session 中的用户ID
                 string user_id = Session["UserID"].ToString();
@@ -220,7 +220,7 @@ namespace _BookKeeping
                     ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId) + 1}.png"
                     : $"images/cloth/head_{gender}{Convert.ToInt32(taskId) + 1}.png";
 
-                    string sql_cloth = "INSERT INTO `112-112502`.`更衣間` (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
+                    string sql_cloth = "INSERT INTO `112-112502`.dressing_room (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
 
                     using (MySqlCommand cmd_cloth = new MySqlCommand(sql_cloth, connection))
                     {

@@ -31,7 +31,7 @@ namespace _BookKeeping
             {
                 conn.Open();
 
-                string sql = "SELECT d_name, reason FROM `112-112502`.願望清單 WHERE user_id = @user_id AND exchange_state is null and pass_state = 'n'";
+                string sql = "SELECT d_name, reason FROM `112-112502`.bucket_list WHERE user_id = @user_id AND exchange_state is null and pass_state = 'n'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@user_id", user_id);
 
@@ -119,7 +119,7 @@ namespace _BookKeeping
                 conn.Open();
 
                 // 使用 UPDATE SQL 語句將 exchange_state 更新為 "R"，確保只更新符合特定條件的資料行
-                string updateSql = "UPDATE `112-112502`.願望清單 SET exchange_state = 'R', exchange_time = now() WHERE d_name = @d_name and user_id = @user_id";
+                string updateSql = "UPDATE `112-112502`.bucket_list SET exchange_state = 'R', exchange_time = now() WHERE d_name = @d_name and user_id = @user_id";
 
                 using (MySqlCommand cmd = new MySqlCommand(updateSql, conn))
                 {
