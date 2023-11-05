@@ -110,7 +110,7 @@ namespace _BookKeeping
                     if (!finishTaskArray.Contains(i.ToString()))
                     {
                         int countIndex = i / 2;
-                        int clothIndex = countIndex + 2; // 更改为从2号衣服开始
+                        int clothIndex = countIndex + 1; // 更改为从2号衣服开始
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
@@ -132,7 +132,7 @@ namespace _BookKeeping
                     if (!finishTaskArray.Contains(j.ToString()))
                     {
                         int countIndex = j / 2 - 1;
-                        int clothIndex = countIndex + 2;
+                        int clothIndex = countIndex + 1;
                         int cnt = taskCount[countIndex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
