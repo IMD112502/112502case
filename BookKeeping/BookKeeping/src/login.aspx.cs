@@ -82,7 +82,7 @@ namespace _BookKeeping
             {
                 Session["UserID"] = UserAcc.Text;
                 // 成功
-                Response.Redirect("main.aspx");
+                Response.Redirect("src/main.aspx");
             }
             else
             {
