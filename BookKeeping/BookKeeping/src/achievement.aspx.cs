@@ -110,7 +110,7 @@ namespace _BookKeeping
                     if (!finishTaskArray.Contains(i.ToString()))
                     {
                         int countIndex = i / 2;
-                        int clothIndex = countIndex + 2; // 更改为从2号衣服开始
+                        int clothIndex = countIndex + 1; // 更改为从2号衣服开始
                         int cnt = taskCount[countIndex];
                         DataRow task1 = dt.NewRow();
                         task1["TaskID"] = i.ToString();
@@ -132,7 +132,7 @@ namespace _BookKeeping
                     if (!finishTaskArray.Contains(j.ToString()))
                     {
                         int countIndex = j / 2 - 1;
-                        int clothIndex = countIndex + 2;
+                        int clothIndex = countIndex + 1;
                         int cnt = taskCount[countIndex];
                         DataRow task2 = dt.NewRow();
                         task2["TaskID"] = 2;
@@ -217,8 +217,8 @@ namespace _BookKeeping
                 {
                     // 基于 task_id 是否为奇数来构建 @cloth_id
                     string clothIdValue = (taskIdValue % 2 == 1)
-                    ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId) + 1}.png"
-                    : $"images/cloth/head_{gender}{Convert.ToInt32(taskId) + 1}.png";
+                    ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId)}.png"
+                    : $"images/cloth/head_{gender}{Convert.ToInt32(taskId)}.png";
 
                     string sql_cloth = "INSERT INTO `112-112502`.dressing_room (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
 
