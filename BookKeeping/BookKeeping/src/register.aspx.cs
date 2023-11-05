@@ -118,14 +118,14 @@ namespace _BookKeeping
                         if (RadioButton1.Checked)
                         {
                             // 用户选择了男生，设置男性衣服的默认值
-                            defaultClothing = "images/cloth/head_b1.png"; // 请根据实际情况设置男性衣服的值
-                            defaultBody = "images/cloth/body_b1.png";
+                            defaultClothing = "images/cloth/defaulthead_b.png"; // 请根据实际情况设置男性衣服的值
+                            defaultBody = "images/cloth/defaultbody_b.png";
                         }
                         else if (RadioButton2.Checked)
                         {
                             // 用户选择了女生，设置女性衣服的默认值
-                            defaultClothing = "images/cloth/head_g1.png"; // 请根据实际情况设置女性衣服的值
-                            defaultBody = "images/cloth/body_g1.png";
+                            defaultClothing = "images/cloth/defaulthead_g.png"; // 请根据实际情况设置女性衣服的值
+                            defaultBody = "images/cloth/defaultbody_g.png";
                         }
                         // 电子邮件地址格式正确，可以继续注册流程
                         // 在这里添加将用户信息插入数据库的代码

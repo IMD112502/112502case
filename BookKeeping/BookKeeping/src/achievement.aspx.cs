@@ -217,8 +217,8 @@ namespace _BookKeeping
                 {
                     // 基于 task_id 是否为奇数来构建 @cloth_id
                     string clothIdValue = (taskIdValue % 2 == 1)
-                    ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId) + 1}.png"
-                    : $"images/cloth/head_{gender}{Convert.ToInt32(taskId) + 1}.png";
+                    ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId)}.png"
+                    : $"images/cloth/head_{gender}{Convert.ToInt32(taskId)}.png";
 
                     string sql_cloth = "INSERT INTO `112-112502`.dressing_room (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
 
