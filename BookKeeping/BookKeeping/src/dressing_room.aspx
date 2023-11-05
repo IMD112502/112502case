@@ -10,24 +10,6 @@
 </head>
 <body class="DreRoom">
     <form id="DreForm" runat="server">
-        <div class="Head" id="femaleClothing">
-            <asp:Repeater ID="headRepeater" runat="server" Visible="true">
-                <ItemTemplate>
-                    <asp:ImageButton class="ClothButton" ID="headImage" runat="server" Height="424px" Width="304px" ImageUrl='<%# Eval("cloth_id") %>' 
-                        OnClientClick='<%# "return setHeadwearImage(\"" + Eval("cloth_id") + "\");" %>' />
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>
-
-        <div class="Cloth" id="femaleHead"> 
-            <asp:Repeater ID="imageRepeater" runat="server" Visible="true">
-                <ItemTemplate>
-                    <asp:ImageButton class="ClothButton" ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
-                    OnClientClick='<%# "return setPreviewImage(\"" + Eval("cloth_id") + "\");" %>' />
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>
-
         <div class="DrePerson" id="imageContainer">
             <asp:Image ID="NowHead" runat="server" Height="424px" Width="304px" ClientIDMode="Static" ImageUrl="default_head_image.jpg" />
             <asp:Image ID="NowBody" runat="server" Height="360px" Width="310px" ClientIDMode="Static" ImageUrl="default_body_image.jpg" />
@@ -37,6 +19,26 @@
             <asp:Image ID="NowHead" runat="server" Height="424px" Width="304px" ClientIDMode="Static"/>
             <asp:Image ID="NowBody" runat="server" Height="360px" Width="310px" ClientIDMode="Static"/>
         </div>--%>
+
+        <div class="Left">
+            <div class="Head" id="femaleClothing">
+                <asp:Repeater ID="headRepeater" runat="server" Visible="true">
+                    <ItemTemplate>
+                        <asp:ImageButton class="ClothButton" ID="headImage" runat="server" Height="424px" Width="304px" ImageUrl='<%# Eval("cloth_id") %>' 
+                            OnClientClick='<%# "return setHeadwearImage(\"" + Eval("cloth_id") + "\");" %>' />
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+
+            <div class="Cloth" id="femaleHead"> 
+                <asp:Repeater ID="imageRepeater" runat="server" Visible="true">
+                    <ItemTemplate>
+                        <asp:ImageButton class="ClothButton" ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
+                        OnClientClick='<%# "return setPreviewImage(\"" + Eval("cloth_id") + "\");" %>' />
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
 
         <div class="Pet"> <%--右區塊--%>
             
