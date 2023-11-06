@@ -15,6 +15,32 @@ body {
     width: 1200px;
 }
 
+::-webkit-scrollbar {
+    width: 8px; /* 滾輪寬度 */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* 滾輪軌道的背景色 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #808080; /* 滾輪滑塊的背景色 */
+}
+
+/* 滾輪滑塊的圓角 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.custom-image {
+    position: absolute; /*指定絕對位置*/
+    top: 20%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+}
+
 .ButtonStyle,
 .ButtonStyle:focus {
     position: absolute; /*指定絕對位置*/
@@ -130,27 +156,27 @@ body {
         background-color: lightseagreen;
     }
 
-    /* 禁用效果 */
-    .DisabledButtonStyle {
-        /* 在这里定义禁用时的样式 */
-        pointer-events: none; /* 禁用点击事件 */
-    }
+/* 禁用效果 */
+.DisabledButtonStyle {
+    /* 在这里定义禁用时的样式 */
+    pointer-events: none; /* 禁用点击事件 */
+}
 
-    .ButtonStyle3:after {
-        content: "";
-        display: block;
-        position: absolute;
-        margin-left: -20px !important;
-        opacity: 0;
-        transition: all 0.8s
-    }
+.ButtonStyle3:after {
+    content: "";
+    display: block;
+    position: absolute;
+    margin-left: -20px !important;
+    opacity: 0;
+    transition: all 0.8s
+}
 
-    .ButtonStyle3:active:after {
-        padding: 0;
-        margin: 0;
-        opacity: 1;
-        transition: 0s;
-    }
+.ButtonStyle3:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
 
 .ButtonStylePick {
     position: relative;
@@ -166,6 +192,7 @@ body {
     overflow: hidden;
     box-shadow: 0px 2px 10px 5px teal;
 }
+
 .ButtonSize1 { /* 按鈕大小(較寬) */
     width: 150px;
     height: 40px;
@@ -346,16 +373,16 @@ body {
         left: 79%;
     }
 
-#ChatBot { /* 聊天機器人 */
-    background-color: transparent;
+/*#ChatBot {*/ /* 聊天機器人 */
+    /*background-color: transparent;
     background-image: url('images/main/home_chatbot.png');
     background-size: 41.4px 53.4px;
     border: none;
     cursor: pointer;
     position: absolute;
-    Height: 53.4px; /* 原圖0.6倍 */
-    Width: 41.4px; /* 原圖0.6倍 */
-    top: 67%;
+    Height: 53.4px;*/ /* 原圖0.6倍 */
+    /*Width: 41.4px;*/ /* 原圖0.6倍 */
+    /*top: 67%;
     left: 52%;
     transform: translate(-50%, -50%);
 }
@@ -364,11 +391,11 @@ body {
         background-image: url('images/main/home_chatbot_2.png');
         background-size: 147.7px 133px;
         border: none;
-        Height: 133px; /* 原圖0.7倍 */
-        Width: 147.7px; /* 原圖0.7倍 */
-        top: 62%;
+        Height: 133px;*/ /* 原圖0.7倍 */
+        /*Width: 147.7px;*/ /* 原圖0.7倍 */
+        /*top: 62%;
         left: 52.25%;
-    }
+    }*/
 
 .MainPerson { /* 人物 */
     position: absolute;
@@ -396,7 +423,7 @@ body {
 #Pig { /* 撲滿 */
     position: fixed;
     bottom: 35px;
-    left: 210px;
+    left: 10px;
     Height: 242.4px;
     Width: 373.5px;
 }
@@ -404,7 +431,7 @@ body {
 .PigText {
     position: fixed;
     bottom: 10px;
-    left: 215px;
+    left: 15px;
     font-size: 40px;
     color: black;
     font-weight: bold;
@@ -493,7 +520,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-    .AvatarSmall:hover {  /*鼠標放在按鈕上 */
+    .AvatarSmall:hover { /*鼠標放在按鈕上 */
         width: 120px;
         height: 120px;
     }
@@ -516,8 +543,8 @@ body {
     transform: translate(-50%, -50%);
 }
 
-    /*.Avatar:hover {*/ /* 鼠標放在按鈕上 */
-        /*width: 330px;
+/*.Avatar:hover {*/ /* 鼠標放在按鈕上 */
+/*width: 330px;
         height: 330px;
     }*/
 
@@ -666,7 +693,7 @@ body {
     width: 1050px;
     height: 650px;
     padding: 20px;
-/*    background-color: bisque;*/
+    /*    background-color: bisque;*/
 }
 
 /*---------------記帳左---------------*/
@@ -702,6 +729,20 @@ body {
     top: 3%;
     transform: translate(-50%, 50%);
 }
+
+.GButton {
+    border: none; /* 移除邊框 */
+    transition: transform 0.2s; /* 添加變換動畫效果 */
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    outline: none;
+}
+
+    .GButton:hover {
+        transform: scale(1.2); /* 鼠標懸停時按鈕變大 1.2 倍 */
+        cursor: pointer; /* 變換游標形狀為手型 */
+    }
 
 .EditButton { /* 編輯按鈕 */
     position: absolute;
@@ -754,12 +795,31 @@ table.Gridview {
             border-left: none;
         }*/
 
+table.Gridview2 {
+    width: 395px;
+    height: 80px;
+    margin-top: 5px;
+    margin-left: 55px;
+    border: none; /* 不要框線 */
+}
+
+    table.Gridview2 tr {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    table.Gridview2 th, table.Gridview2 td { /* 不要左右框線 */
+        border-left: none;
+        border-right: none;
+    }
+
 .BookTotal { /* 總收入、總支出 */
     position: absolute;
     bottom: 4%;
     left: 50%;
+    width: 450px;
     font-size: 25px;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
     transform: translate(-50%, -50%);
 }
@@ -922,28 +982,53 @@ table.Gridview {
 .AchBody {
     background-image: url('images/ach_bg.png');
     background-size: 851.4px 872.4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 851.4px;
+    height: 872.4px;
+    transform: translate(-50%, -50%);
 }
 
 .AchHeader { /* 上部分區塊 */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    height: 150px;
+    width: 500px;
+    transform: translate(-50%, -50%);
 }
 
 .AchTopTitle { /* 頁面標題 */
-    position: fixed;
+    position: absolute;
     color: darkcyan;
     font-size: 60px;
-    left: 46%;
-    top: 60px;
+    left: 48%;
+    top: 10%;
+    transform: translate(-50%, 0%);
 }
 
 .AchTopButton { /* 成就頂端按鈕區塊 */
-    position: fixed;
-    top: 160px;
+    position: absolute;
     left: 50%;
+    top: 65%;
+    width: 500px;
+    height: 50px;
+    transform: translate(-50%, 0%);
+}
+
+.NoFin {
+    position: absolute;
+    left: 32%;
+    top: 40%;
+    transform: translate(-50%, 0%);
+}
+
+.Fin {
+    position: absolute;
+    left: 65%;
+    top: 40%;
+    transform: translate(-50%, 0%);
 }
 
 .AchButtonGet { /* 成就領取紐 */
@@ -954,47 +1039,57 @@ table.Gridview {
 }
 
 .AchContent { /* 成就區塊 */
-    position: fixed;
-    margin: 35%;
-    margin-top: 200px; /* 留出標題欄的高度 */
+    position: absolute;
+    left: 50%;
+    top: 21%;
+    transform: translate(-50%, 0%);
     padding: 20px;
-    height: 550px; /* 設定內容區域的高度，使其可以出現滾動條 */
+    height: 540px; /* 設定內容區域的高度，使其可以出現滾動條 */
     width: 510px;
     overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
 }
 
-.AchTit { /* 成就標題 */
-    font-size: xx-large;
-    font-weight: bold;
-    color: teal;
-    margin-left: 50px;
+.task-container { /* 定義任務容器 */
+    display: flex; /* 使用 Flexbox 佈局 */
+    align-items: center; /* 垂直置中對齊 */
+    margin-bottom: 20px; /* 底邊距，控制每個任務之間的間距 */
 }
 
-.AchCon { /* 成就內容 */
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: 50px;
+.task-image { /* 左側圖片 */
+    flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
+    width: 180px; /* 指定圖片的寬度 */
+    height: 155px; /* 指定圖片的高度 */
+    object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
 }
 
-.Literal { /* 進度條 */
-    margin-top: -15px;
+.task-content { /* 任務內容 */
+    flex: 2.3; /* 占用可用空間的一部分，使任務內容在中間 */
+    padding: 10px; /* 內邊距，增加內容區塊的間距 */
 }
 
-.AchContent ul li { /* 清單(單項成就) */
-    list-style: none;
-    width: 100%;
-    height: 150px;
+.progress { /* 進度條 */
+    margin-top: 6px;
+    width: 250px;
+    height: 20px;
+    background-color: #ccc;
+    border: 2px solid teal;
+    border-radius: 15px;
 }
 
-    .AchContent ul li img { /* 成就圖片 */
-        Height: 130px;
-        Width: 130px;
-        float: left;
-        margin-left: -10px;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-    }
+.progress-bar {
+    width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
+    height: 100%;
+    background-color: teal;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.claim-button { /* 領取按鈕 */
+    flex: 0.5; /* 占用可用空間的一部分，使按鈕在右側 */
+    text-align: center; /* 文字置中 */
+    width: 5px;
+    height: 50%;
+}
 /*--------------------------------成就結束------------------------------------*/
 
 /*--------------------------------願望清單------------------------------------*/
@@ -1044,15 +1139,16 @@ table.Gridview {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-/*    background-color: burlywood;
-*/}
+    /*    background-color: burlywood;
+*/
+}
 
 .BucButton12 {
     display: flex;
     flex-direction: row;
 }
 /*.ExchangeButton {*/ /* 兌換按鈕大小 */
-    /*font-size: large;
+/*font-size: large;
     height: 40px;
     width: 90px;
 }*/
@@ -1065,6 +1161,7 @@ table.Gridview {
     left: 6%;
     transform: translate(-50%, -50%);
 }
+
     #BucTrashcan:hover {
         width: 176.88px; /* 1.1倍 */
         height: 285.78px; /* 1.1倍 */
@@ -1078,6 +1175,7 @@ table.Gridview {
     left: 88%;
     transform: translate(-50%, -50%);
 }
+
     #ReviewButton:hover {
         width: 220px; /* 1.1倍 */
         height: 242px; /* 1.1倍 */
@@ -1091,6 +1189,7 @@ table.Gridview {
     left: 87%;
     transform: translate(-50%, -50%);
 }
+
     #BucketAdd:hover {
         width: 96px; /* 1.2倍 */
         height: 96px; /* 1.2倍 */
@@ -1118,6 +1217,24 @@ table.Gridview {
 
 .BMemo { /* 藍色便條 */
     background-image: url('images/dre_rev_button.png');
+}
+
+.Notebook { /* 歷史紀錄 */
+    background-image: url('images/notebook.png');
+    background-size: 497.5px 684.5px;
+    position: absolute; /*指定絕對位置*/
+    left: 50%;
+    top: 50%;
+    width: 497.5px;
+    height: 684.5px;
+    transform: translate(-50%, -50%);
+}
+
+.NotebookText {
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translate(-55%, 0%);
 }
 
 .MemoStyle { /* 便條區塊樣式 */
@@ -1257,7 +1374,7 @@ table.Gridview {
 /*----------願望審核區結束----------*/
 /*------------------------------------更衣室------------------------------------*/
 .DreRoom {
-    background-image: url('images/main/home_bg.png');
+    background-image: url('images/cloth/cloth_bg.png');
     background-size: 1047px 877.2px;
 }
 
@@ -1270,27 +1387,36 @@ table.Gridview {
     height: 90px;
 }
 
+.ClothButton {
+    transition: transform 0.2s; /* 添加變換動畫效果 */
+}
+
+    .ClothButton:hover {
+        transform: scale(1.1); /* 鼠標懸停時按鈕變大 1.2 倍 */
+    }
+
+.Left {
+    height: 730px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 13%;
+}
+
 .Head {
     background-color: #BEE3E2;
     height: 320px;
-    width: 350px;
-    position: absolute;
-    top: 30%;
-    left: 13%;
-    transform: translate(-50%, -50%);
-    border-radius: 40px; /*圓角*/
+    width: 335px;
+    border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
 
 .Cloth {
     background-color: #BEE3E2;
     height: 400px;
-    width: 350px;
-    position: absolute;
-    top: 70%;
-    left: 13%;
-    transform: translate(-50%, -50%);
-    border-radius: 40px; /*圓角*/
+    width: 335px;
+    margin-top: 10px;
+    border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
 
@@ -1299,7 +1425,7 @@ table.Gridview {
     height: 800px;
     width: 380px;
     top: 55%;
-    left: 48.5%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -1320,12 +1446,12 @@ table.Gridview {
 .Pet {
     background-color: #BEE3E2;
     height: 600px;
-    width: 350px;
+    width: 325px;
     position: absolute;
     top: 50%;
     left: 87%;
     transform: translate(-50%, -50%);
-    border-radius: 40px; /*圓角*/
+    border-radius: 15px; /*圓角*/
     overflow-y: scroll; /* 垂直滾動條 */
 }
 /*------------------------------------更衣室結束------------------------------------*/
@@ -1429,12 +1555,14 @@ table.Gridview {
     overflow: hidden;
     transition-duration: 0.4s;
 }
+
     .CoinAnsButton:hover {
         border: 3px solid #ffffff;
         box-shadow: 0px 2px 10px 5px teal;
         color: white;
         background-color: lightseagreen;
     }
+
     .CoinAnsButton:after {
         content: "";
         display: block;
@@ -1585,20 +1713,269 @@ table.Gridview {
 /*======================買文具===================*/
 .GameLeft3_1 {
     background-image: url('images/game/game_buylist.png');
-    background-size: 600px 650px;
-    width: 600px;
-    height: 650px;
+    background-size: 720px 750px;
+    width: 720px;
+    height: 750px;
     position: absolute;
     top: 50%;
-    left: 22%;
+    left: 30%;
     transform: translate(-50%, -50%);
 }
 
+.SisQ {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
 
-.GameLeft3_2{
+.GlueQ {
+    position: absolute;
+    top: 38%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
 
+.CorQ {
+    position: absolute;
+    top: 59%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.RulerQ {
+    position: absolute;
+    top: 78%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.RedQ {
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.GreenQ {
+    position: absolute;
+    top: 38%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.BlueQ {
+    position: absolute;
+    top: 59%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.BlackQ {
+    position: absolute;
+    top: 78%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.Stationery { /*文具區*/
+    background-image: url('images/game/game3_cab.png');
+    background-size: 750px 400px;
+    width: 750px;
+    height: 400px;
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.ShoppingCart {
+    background-color: #9CD9C5;
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px; /*圓角*/
+}
+
+#Trolley { /*購物車*/
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+}
+
+#Red {
+    position: absolute;
+    top: 16%;
+    left: 20.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Red:hover {
+        background-image: url('images/main/game3_red2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 20.5%;
+    }
+
+#Green {
+    position: absolute;
+    top: 16%;
+    left: 40.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Green:hover {
+        background-image: url('images/main/game3_green2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 40.5%;
+    }
+
+#Blue {
+    position: absolute;
+    top: 16%;
+    left: 59.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Blue:hover {
+        background-image: url('images/main/game3_blue2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 59.5%;
+    }
+
+#Black {
+    position: absolute;
+    top: 16%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Black:hover {
+        background-image: url('images/main/game3_black2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 78.5%;
+    }
+
+#Sis {
+    position: absolute;
+    top: 62%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+}
+
+    #Sis:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 18%;
+    }
+
+#Glue {
+    position: absolute;
+    top: 62%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+    #Glue:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 40%;
+    }
+
+#Cor {
+    position: absolute;
+    top: 62%;
+    left: 61%;
+    transform: translate(-50%, -50%);
+}
+
+    #Cor:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 61%;
+    }
+
+#Ruler {
+    position: absolute;
+    top: 62%;
+    left: 81%;
+    transform: translate(-50%, -50%);
+}
+
+    #Ruler:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 81%;
+    }
+
+#Correct {
+    position: absolute;
+    top: 82%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+}
+
+.GameLeft3_2 {
 }
 /*====================買文具結束=================*/
-
-
 /*------------------------------------小遊戲結束------------------------------------*/
