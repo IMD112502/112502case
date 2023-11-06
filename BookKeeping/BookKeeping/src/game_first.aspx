@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Panel ID="FirstGamePanel" runat="server" Visible="false"><%--遊戲一--%>
+        <asp:Panel ID="FirstGamePanel" runat="server" Visible="false">
             <div class="GameLeft"><%--左半邊題目--%>
                 <asp:Label ID="question1" class="question" runat="server" Text="Label">請問下圖中為多少金額？</asp:Label></br>
                 <asp:Image ID="Image1" runat="server"/>
@@ -23,7 +23,7 @@
             </div>
         </asp:Panel>
 
-        <asp:Panel ID="SecondGamePanel" runat="server" ><%--遊戲二--%>
+        <asp:Panel ID="SecondGamePanel" runat="server" >
             <div class="GameLeft2"><%--左半邊題目--%>
                 <asp:Label ID="question2" class="question" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label></br>
                 <div class="Thousand"><%--$1000--%>
@@ -53,19 +53,8 @@
                 <asp:Button class="CoinAnsButton" ID="Ans5" runat="server"  />
                 <asp:Button class="CoinAnsButton" ID="Ans6" runat="server"  />
             </div>
-        </asp:Panel>
+            </asp:Panel>
 
-        <asp:Panel ID="ThirdGamePanel1" runat="server" Visible="false"><%--遊戲三--%>
-            <div class="GameLeft3_1"><%--左半邊題目--%>
-
-            </div>
-        </asp:Panel>
-        
-        <asp:Panel ID="ThirdGamePane2" runat="server" Visible="false"><%--遊戲三--%>
-            <div class="GameLeft3_2"><%--左半邊題目--%>
-
-            </div>
-        </asp:Panel>
         <!-- 進度條 -->
         <div class="GameProgress" id="GameProgressBar" runat="server" style='<%# Eval("ProgressBarStyle") %>'></div>
 
