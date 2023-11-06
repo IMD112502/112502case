@@ -87,6 +87,14 @@ namespace BookKeeping
             else
             {
                 // 用户尚未注册审核密码，将用户输入的密码更新到数据库
+                // 添加验证逻辑，检查输入是否为空
+                if (string.IsNullOrEmpty(enteredPassword) || string.IsNullOrEmpty(Answer) || string.IsNullOrEmpty(ques))
+                {
+                    ErrorMessageLabel.Text = "請填寫所有必要信息。"; // 显示错误消息
+                    return; // 如果有空字段，不继续执行
+                }
+
+                // 用户尚未注册审核密码，将用户输入的密码更新到数据库
                 UpdateAuditPasswordForUser(user_id, enteredPassword, ques, Answer);
 
                 string script = "var imageBox = document.createElement('img');";

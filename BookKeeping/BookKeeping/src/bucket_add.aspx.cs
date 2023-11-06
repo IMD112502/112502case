@@ -37,15 +37,14 @@ namespace _BookKeeping
         protected string FindName()
         {
             MySqlConnection conn = DBConnection();
-            string sql = "SELECT user_name FROM `112-112502`.user\r\nwhere user_id = @user_id";
+            string sql = "SELECT nickname FROM `112-112502`.user\r\nwhere user_id = @user_id";
             string user_name = string.Empty;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user_id", user_id);
             MySqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                int length = reader.GetString(0).Length;
-                user_name = reader.GetString(0).Substring(length - 2);
+                user_name = reader.GetString(0);
             }
 
             return user_name;
