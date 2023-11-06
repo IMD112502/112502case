@@ -373,16 +373,16 @@ body {
         left: 79%;
     }
 
-#ChatBot { /* 聊天機器人 */
-    background-color: transparent;
+/*#ChatBot {*/ /* 聊天機器人 */
+    /*background-color: transparent;
     background-image: url('images/main/home_chatbot.png');
     background-size: 41.4px 53.4px;
     border: none;
     cursor: pointer;
     position: absolute;
-    Height: 53.4px; /* 原圖0.6倍 */
-    Width: 41.4px; /* 原圖0.6倍 */
-    top: 67%;
+    Height: 53.4px;*/ /* 原圖0.6倍 */
+    /*Width: 41.4px;*/ /* 原圖0.6倍 */
+    /*top: 67%;
     left: 52%;
     transform: translate(-50%, -50%);
 }
@@ -391,11 +391,11 @@ body {
         background-image: url('images/main/home_chatbot_2.png');
         background-size: 147.7px 133px;
         border: none;
-        Height: 133px; /* 原圖0.7倍 */
-        Width: 147.7px; /* 原圖0.7倍 */
-        top: 62%;
+        Height: 133px;*/ /* 原圖0.7倍 */
+        /*Width: 147.7px;*/ /* 原圖0.7倍 */
+        /*top: 62%;
         left: 52.25%;
-    }
+    }*/
 
 .MainPerson { /* 人物 */
     position: absolute;
@@ -1709,4 +1709,275 @@ table.Gridview2 {
     text-align: left;
 }
 /*======================金幣加總結束===================*/
+
+/*======================買文具===================*/
+.GameLeft3_1 {
+    background-image: url('images/game/game_buylist.png');
+    background-size: 720px 750px;
+    width: 720px;
+    height: 750px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.SisQ {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.GlueQ {
+    position: absolute;
+    top: 38%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.CorQ {
+    position: absolute;
+    top: 59%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.RulerQ {
+    position: absolute;
+    top: 78%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.RedQ {
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.GreenQ {
+    position: absolute;
+    top: 38%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.BlueQ {
+    position: absolute;
+    top: 59%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.BlackQ {
+    position: absolute;
+    top: 78%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 168px;
+    align-items: center;
+}
+
+.Stationery { /*文具區*/
+    background-image: url('images/game/game3_cab.png');
+    background-size: 750px 400px;
+    width: 750px;
+    height: 400px;
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.ShoppingCart {
+    background-color: #9CD9C5;
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px; /*圓角*/
+}
+
+#Trolley { /*購物車*/
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+}
+
+#Red {
+    position: absolute;
+    top: 16%;
+    left: 20.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Red:hover {
+        background-image: url('images/main/game3_red2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 20.5%;
+    }
+
+#Green {
+    position: absolute;
+    top: 16%;
+    left: 40.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Green:hover {
+        background-image: url('images/main/game3_green2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 40.5%;
+    }
+
+#Blue {
+    position: absolute;
+    top: 16%;
+    left: 59.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Blue:hover {
+        background-image: url('images/main/game3_blue2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 59.5%;
+    }
+
+#Black {
+    position: absolute;
+    top: 16%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+}
+
+    #Black:hover {
+        background-image: url('images/main/game3_black2.png');
+        background-size: 100.75px 156px;
+        border: none;
+        Height: 156px; /*原圖0.65倍*/
+        Width: 100.75px; /*原圖0.65倍*/
+        top: 14%;
+        left: 78.5%;
+    }
+
+#Sis {
+    position: absolute;
+    top: 62%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+}
+
+    #Sis:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 18%;
+    }
+
+#Glue {
+    position: absolute;
+    top: 62%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+    #Glue:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 40%;
+    }
+
+#Cor {
+    position: absolute;
+    top: 62%;
+    left: 61%;
+    transform: translate(-50%, -50%);
+}
+
+    #Cor:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 61%;
+    }
+
+#Ruler {
+    position: absolute;
+    top: 62%;
+    left: 81%;
+    transform: translate(-50%, -50%);
+}
+
+    #Ruler:hover {
+        background-image: url('images/main/game3_sis2.png');
+        background-size: 128px 104px;
+        border: none;
+        Height: 104px; /*原圖0.8倍*/
+        Width: 128px; /*原圖0.8倍*/
+        top: 60%;
+        left: 81%;
+    }
+
+#Correct {
+    position: absolute;
+    top: 82%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+}
+
+.GameLeft3_2 {
+}
+/*====================買文具結束=================*/
+/*------------------------------------小遊戲結束------------------------------------*/
+
 /*------------------------------------小遊戲結束------------------------------------*/

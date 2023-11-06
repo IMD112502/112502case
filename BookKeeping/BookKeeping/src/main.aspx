@@ -27,7 +27,7 @@
         <asp:Button ID="Game" runat="server" PostBackUrl="~/src/game_menu.aspx"/><%--小遊戲--%>
         <asp:Button ID="Bookkeeping" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--記帳--%>
 
-        <asp:Button ID="ChatBot" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--小幫手--%>
+<%--        <asp:Button ID="ChatBot" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--小幫手--%>--%>
 
         <asp:Image ID="Pig" runat="server"   />
         <asp:Label ID="PigProgress" class="PigText" runat="server" Text=" " ></asp:Label>
