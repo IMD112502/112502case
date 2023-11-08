@@ -8,9 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>題型一-認識錢幣</title>
 </head>
-<body>
+<body >
     <form id="form1" runat="server">
-        <asp:Panel ID="FirstGamePanel" runat="server" Visible="false">
+        <asp:Panel ID="FirstGamePanel" runat="server" ><%--遊戲一--%>
             <div class="GameLeft"><%--左半邊題目--%>
                 <asp:Label ID="question1" class="question" runat="server" Text="Label">請問下圖中為多少金額？</asp:Label></br>
                 <asp:Image ID="Image1" runat="server"/>
@@ -23,7 +23,7 @@
             </div>
         </asp:Panel>
 
-        <asp:Panel ID="SecondGamePanel" runat="server" >
+        <asp:Panel ID="SecondGamePanel" runat="server" Visible="false"><%--遊戲二--%>
             <div class="GameLeft2"><%--左半邊題目--%>
                 <asp:Label ID="question2" class="question" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label></br>
                 <div class="Thousand"><%--$1000--%>
@@ -54,7 +54,7 @@
                 <asp:Button class="CoinAnsButton" ID="Ans6" runat="server"  />
             </div>
             </asp:Panel>
-        <asp:Panel ID="ThirdGamePanel1" runat="server" ><%--遊戲三--%>
+        <asp:Panel ID="ThirdGamePanel1" runat="server" Visible="false"><%--遊戲三之一--%>
             <div class="GameLeft3_1"><%--左半邊題目--%>
                 <div class="SisQ"><asp:Image ID="Image9" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_sis.png"/><asp:Label ID="Label1" runat="server" Text="Label" Style="font-size: 50px;">X1</asp:Label></div> 
                 <div class="GlueQ"><asp:Image ID="Image10" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_glue.png"/><asp:Label ID="Label2" runat="server" Text="Label" Style="font-size: 50px;">X1</asp:Label></div> 
@@ -82,14 +82,33 @@
             <div class="ShoppingCart"></div><%--購物車--%>
 
             <asp:Image ID="Trolley" runat="server" ImageUrl="images/game/game_trolley.png"/>
+            <asp:Button class="ButtonStyle3 ButtonSize3" ID="Correct1" runat="server" Text="V"/>
         </asp:Panel>
 
-        <asp:Panel ID="ThirdGamePane2" runat="server" Visible="false"><%--遊戲三--%>
+        <asp:Panel ID="ThirdGamePane2" runat="server" Visible="false"><%--遊戲三之二--%>
             <div class="GameLeft3_2"><%--左半邊題目--%>
-
+                <p id="TotalMoney">一共是<span id="TotalMoney2"><%# Eval("pass_amount") %>&nbsp;&nbsp;&nbsp;&nbsp;</span>元</p> <%--結帳金額--%>
+                <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk2.png"/>
+                <asp:Button class="ButtonStyle3 ButtonSize2" ID="Correct2" runat="server" Text="完成"/>
+                <div class="Checkout">
+                    <asp:Label ID="Label9" runat="server" Text="Label" Style="font-size: 100px;">結帳區</asp:Label>
+                </div>
             </div>
+            <div class="Wallet"> <%--右半邊錢包--%>
+                <asp:Image ID="Thousand" runat="server" alt="money1000" draggable="false" ImageUrl="images/game/money_1000.png"/>
+                <asp:Image ID="FiveHundred" runat="server" alt="money500" draggable="false" ImageUrl="images/game/money_500.png"/>
+                <asp:Image ID="Hundred" runat="server" alt="money100" draggable="false" ImageUrl="images/game/money_100.png"/>
+                <asp:Image ID="Fifty" runat="server" alt="money50" draggable="false" ImageUrl="images/game/money_50.png"/>
+                <asp:Image ID="Ten" runat="server" alt="money10" draggable="false" ImageUrl="images/game/money_10.png"/>
+                <asp:Image ID="Five" runat="server" alt="money5" draggable="false" ImageUrl="images/game/money_5.png"/>
+                <asp:Image ID="One" runat="server" alt="money1" draggable="false" ImageUrl="images/game/money_1.png"/>
+            </div>
+
+            <script src="game.js">
+
+            </script>
         </asp:Panel>
-        <asp:Button class="ButtonStyle3 ButtonSize3" ID="Correct" runat="server" Text="V"/>
+        
 
         <!-- 進度條 -->
         <div class="GameProgress" id="GameProgressBar" runat="server" style='<%# Eval("ProgressBarStyle") %>'></div>
