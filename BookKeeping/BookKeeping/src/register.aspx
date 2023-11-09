@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>註冊</title>
 </head>
-<body class="LogBody">
+<body class="LogBody" onload="restoreFormData()">
     <form class="LogForm" id="form1" runat="server">
         <h1 class="LogTitle">註冊帳號</h1>
         <div class="RegText">
@@ -23,7 +23,7 @@
                 </p>
                 <p>
                    生日
-                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:250px; height:25px;"/>
+                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:10px; padding-left:10px; width:250px; height:25px;" value="<%= BirthDate.ToString("yyyy-MM-dd") %>" />
                 </p>
                 
                 <p>帳號
@@ -57,5 +57,43 @@
             </div>
         </div>
     </form>
+
+    <script type="text/javascript">
+        // 存储表单数据到本地存储
+        function storeFormData() {
+            var regNickname = document.getElementById("RegNickname").value;
+            var regAcc = document.getElementById("RegAcc").value;
+            var regPwd = document.getElementById("RegPwd").value;
+            var reRegPwd = document.getElementById("ReRegPwd").value;
+            var question1 = document.getElementById("Question1").value;
+            var answer1 = document.getElementById("Answer1").value;
+
+            var formData = {
+                regNickname: regNickname,
+                regAcc: regAcc,
+                regPwd: regPwd,
+                reRegPwd: reRegPwd,
+                question1: question1,
+                answer1: answer1,
+            };
+
+            localStorage.setItem("formData", JSON.stringify(formData));
+        }
+
+        // 恢复表单数据
+        function restoreFormData() {
+            var formData = localStorage.getItem("formData");
+            if (formData) {
+                formData = JSON.parse(formData);
+
+                document.getElementById("RegNickname").value = formData.regNickname;
+                document.getElementById("RegAcc").value = formData.regAcc;
+                document.getElementById("RegPwd").value = formData.regPwd;
+                document.getElementById("ReRegPwd").value = formData.reRegPwd;
+                document.getElementById("Question1").value = formData.question1;
+                document.getElementById("Answer1").value = formData.answer1;
+            }
+        }
+    </script>
 </body>
 </html>

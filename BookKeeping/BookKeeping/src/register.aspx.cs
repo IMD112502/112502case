@@ -18,7 +18,7 @@ namespace _BookKeeping
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-
+            Session["UserBirthDate"] = DateTime.Now;
             if (IsPostBack)
             {
                 // 获取用户选择的出生日期
@@ -26,16 +26,21 @@ namespace _BookKeeping
                 {
                     BirthDate = birthdate;
                 }
+            }
+            if (!IsPostBack)
+            {
+                // 检查 Session 是否包含生日值，如果不存在，则创建一个空的 Session 变量
+                if (Session["UserBirthDate"] == null)
+                {
+                    Session["UserBirthDate"] = DateTime.Now; // 设置为今天的日期
+                }
 
-                // 檢查是否有存儲的帳號和密碼值
-                if (!string.IsNullOrEmpty(HiddenAccount.Value))
-                {
-                    RegAcc.Text = HiddenAccount.Value;
-                }
-                if (!string.IsNullOrEmpty(HiddenPassword.Value))
-                {
-                    RegPwd.Text = HiddenPassword.Value;
-                }
+                // 获取生日值并将其设置给日期选择器
+                DateTime birthDate = (DateTime)Session["UserBirthDate"];
+                BirthDate = birthDate;
+
+                // 更新日期选择器的值
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "SetBirthDate", "document.getElementById('BirthDate').value = '" + birthDate.ToString("yyyy-MM-dd") + "';", true);
             }
 
         }
@@ -63,6 +68,12 @@ namespace _BookKeeping
             string answer1 = Answer1.Text;
             string confirmPassword = ReRegPwd.Text;
             DateTime selectedDate = BirthDate.Date;
+
+            if (selectedDate != DateTime.MinValue)
+            {
+                // 将生日存储在 Session 中
+                Session["UserBirthDate"] = selectedDate;
+            }
 
             // 检查是否有字段为空
             if (string.IsNullOrWhiteSpace(userid) || string.IsNullOrWhiteSpace(nickname) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(answer1))
