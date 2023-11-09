@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Linq;
 using System.Runtime.InteropServices;
 using MySqlX.XDevAPI.Relational;
+using System.Web.UI.WebControls;
+using System.Web;
 
 
 namespace BookKeeping.src
@@ -76,6 +78,7 @@ namespace BookKeeping.src
                     }
                 }
             }
+            CompareClothingPaths();
         }
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
@@ -110,7 +113,7 @@ namespace BookKeeping.src
                     {
                         // 更新成功，執行服务器端数据绑定以更新页面上的控件
                         BindUserData();
-
+                        UpdatePage();
                         string script = "var imageBox = document.createElement('img');";
                         script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
                         script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
@@ -131,8 +134,11 @@ namespace BookKeeping.src
             }
         }
 
-        protected void BindUserData()
+        protected (string BodyClothingURL, string HeadClothingURL) BindUserData()
         {
+
+            string currentUserBodyClothingURL = "";
+            string currentUserHeadClothingURL = "";
             // 获取数据库连接字符串
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
@@ -156,9 +162,162 @@ namespace BookKeeping.src
                             // 设置<asp:Image>的ImageUrl属性
                             NowBody.ImageUrl = currentClothingURL;
                             NowHead.ImageUrl = currentHeadURL;
+
+                            currentUserBodyClothingURL = currentClothingURL;
+                            currentUserHeadClothingURL = currentClothingURL;
                         }
                     }
                 }
+            }
+            return (currentUserBodyClothingURL, currentUserHeadClothingURL);
+        }
+
+        protected List<string> GetUserDataBodyClothing()
+        {
+            List<string> clothingUrls = new List<string>();
+
+            // 获取数据库连接字符串
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 查询用户的衣物数据
+                string userQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%body%'";
+                using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
+                {
+                    userCmd.Parameters.AddWithValue("@user_id", user_id);
+                    using (MySqlDataReader userReader = userCmd.ExecuteReader())
+                    {
+                        while (userReader.Read())
+                        {
+                            // 从数据库中读取每行的 "cloth" 数据并添加到列表
+                            string currentClothingURL = userReader["cloth_id"].ToString();
+                            clothingUrls.Add(currentClothingURL);
+                        }
+                    }
+                }
+            }
+
+            return clothingUrls;
+
+        }
+
+        protected List<string> GetUserDataHeadClothing()
+        {
+            List<string> clothingUrls = new List<string>();
+
+            // 获取数据库连接字符串
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 查询用户的衣物数据
+                string userQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%head%'";
+                using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
+                {
+                    userCmd.Parameters.AddWithValue("@user_id", user_id);
+                    using (MySqlDataReader userReader = userCmd.ExecuteReader())
+                    {
+                        while (userReader.Read())
+                        {
+                            // 从数据库中读取每行的 "cloth" 数据并添加到列表
+                            string currentClothingURL = userReader["cloth_id"].ToString();
+                            clothingUrls.Add(currentClothingURL);
+                        }
+                    }
+                }
+            }
+
+            return clothingUrls;
+
+        }
+
+        protected void UpdatePage()
+        {
+            // 在这个函数中执行服务器端数据绑定以更新页面上的控件
+            BindUserData();
+            CompareClothingPaths();
+        }
+
+        protected void CompareClothingPaths()
+        {
+            // 获取用户当前穿着的衣物路径
+            var userClothingPaths = BindUserData();
+
+            // 遍历身体衣物的 Repeater 中的每个项
+            foreach (RepeaterItem item in imageRepeater.Items)
+            {
+                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                {
+                    // 获取当前项的ImageButton控件和Label控件
+                    ImageButton imgButtonClothing = item.FindControl("image") as ImageButton;
+                    Label statusLabel = item.FindControl("bodystatus") as Label;
+
+                    // 获取与当前项相关的衣物路径
+                    string clothingPath = imgButtonClothing.ImageUrl; // 从图像的 URL 获取 cloth_id
+
+                    // 检查当前穿着的身体衣物路径是否与当前项的衣物路径匹配
+                    if (string.Equals(userClothingPaths.BodyClothingURL, clothingPath, StringComparison.OrdinalIgnoreCase))
+                    {
+                        // 如果匹配，应用灰度样式和显示 "使用中" 文本
+                        imgButtonClothing.Enabled = false; // 禁用按钮
+                        statusLabel.Visible = true; // 显示 "使用中" 文本
+                    }
+                    else
+                    {
+                        // 如果不匹配，移除灰度样式和隐藏 "使用中" 文本
+                        imgButtonClothing.Enabled = true; // 启用按钮
+                        statusLabel.Visible = false; // 隐藏 "使用中" 文本
+                    }
+                }
+            }
+
+            if (imageRepeater.Items.Count == 1)
+            {
+                ImageButton imgButtonClothing = imageRepeater.Items[0].FindControl("image") as ImageButton;
+                Label statusLabel = imageRepeater.Items[0].FindControl("bodystatus") as Label;
+                imgButtonClothing.Enabled = false; // 禁用按钮
+                statusLabel.Visible = true; // 显示 "使用中" 文本
+            }
+
+            // 遍历头部衣物的 Repeater 中的每个项
+            foreach (RepeaterItem item in headRepeater.Items)
+            {
+                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                {
+                    // 获取当前项的ImageButton控件和Label控件
+                    ImageButton imgButtonClothing = item.FindControl("headImage") as ImageButton;
+                    Label statusLabel = item.FindControl("headstatus") as Label;
+
+                    // 获取与当前项相关的衣物路径
+                    string clothingPath = imgButtonClothing.ImageUrl; // 从图像的 URL 获取 cloth_id
+
+                    // 检查当前穿着的头部衣物路径是否与当前项的衣物路径匹配
+                    if (string.Equals(userClothingPaths.HeadClothingURL, clothingPath, StringComparison.OrdinalIgnoreCase))
+                    {
+                        // 如果匹配，应用灰度样式和显示 "使用中" 文本
+                        imgButtonClothing.Enabled = false; // 禁用按钮
+                        statusLabel.Visible = true; // 显示 "使用中" 文本
+                    }
+                    else
+                    {
+                        // 如果不匹配，移除灰度样式和隐藏 "使用中" 文本
+                        imgButtonClothing.Enabled = true; // 启用按钮
+                        statusLabel.Visible = false; // 隐藏 "使用中" 文本
+                    }
+                }
+            }
+
+            if (headRepeater.Items.Count == 1)
+            {
+                Label statusLabel = headRepeater.Items[0].FindControl("headstatus") as Label;
+                ImageButton imgButtonClothing = headRepeater.Items[0].FindControl("headImage") as ImageButton;
+                statusLabel.Visible = true;
+                imgButtonClothing.Enabled = false;
             }
         }
     }

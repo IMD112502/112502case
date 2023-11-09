@@ -26,6 +26,7 @@
                     <ItemTemplate>
                         <asp:ImageButton class="ClothButton" ID="headImage" runat="server" Height="424px" Width="304px" ImageUrl='<%# Eval("cloth_id") %>' 
                             OnClientClick='<%# "return setHeadwearImage(\"" + Eval("cloth_id") + "\");" %>' />
+                        <asp:Label ID="headstatus" runat="server" text="使用中" Visible="false"></asp:Label>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -35,6 +36,7 @@
                     <ItemTemplate>
                         <asp:ImageButton class="ClothButton" ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
                         OnClientClick='<%# "return setPreviewImage(\"" + Eval("cloth_id") + "\");" %>' />
+                        <asp:Label ID="bodystatus" runat="server" text="使用中" Visible="false"></asp:Label>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -54,7 +56,7 @@
         <asp:HiddenField ID="hiddenClothingID" runat="server" />
         <asp:HiddenField ID="hiddenHeadwearID" runat="server" />
 
-        <asp:label ID="gender" runat="server" text=""></asp:label>
+        <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
 
         <script type="text/javascript">
             function updateImages(newClothingURL, newHeadwearURL) {
