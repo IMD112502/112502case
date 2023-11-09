@@ -33,67 +33,67 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Label question;
 
         /// <summary>
-        /// Image1 控制項。
+        /// Panel1000 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Panel Panel1000;
 
         /// <summary>
-        /// Image2 控制項。
+        /// Panel500 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Panel Panel500;
 
         /// <summary>
-        /// Image3 控制項。
+        /// Panel100 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image3;
+        protected global::System.Web.UI.WebControls.Panel Panel100;
 
         /// <summary>
-        /// Image4 控制項。
+        /// Panel50 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image4;
+        protected global::System.Web.UI.WebControls.Panel Panel50;
 
         /// <summary>
-        /// Image5 控制項。
+        /// Panel10 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image5;
+        protected global::System.Web.UI.WebControls.Panel Panel10;
 
         /// <summary>
-        /// Image6 控制項。
+        /// Panel5 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image6;
+        protected global::System.Web.UI.WebControls.Panel Panel5;
 
         /// <summary>
-        /// Image7 控制項。
+        /// Panel1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image7;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
         /// Ans4 控制項。
@@ -139,5 +139,14 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button LeaveGame;
+
+        /// <summary>
+        /// randomNum 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label randomNum;
     }
 }
