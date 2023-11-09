@@ -32,11 +32,6 @@
 					</Columns>
 				</asp:GridView>
 			</div>
-
-			<%--<div class="BookTotal">
-				<asp:Label ID="Label2" runat="server" Text="總收入__元"></asp:Label>
-				<asp:Label ID="Label3" runat="server" Text="總支出__元"></asp:Label>
-			</div>--%>
 		</div>
 
         <div class="BookRight">
@@ -45,14 +40,17 @@
 			<asp:ImageButton class="BookmarkDown ReportBookmark" ID="ImageButton5" runat="server" ImageUrl="images/boo/boo_button_rep2.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">查詢</h1>
         <div class="BookReport">
+			<br />
+			<br />
+			<br />
 			<asp:Label ID="Label2" runat="server" Text="日期"></asp:Label>
 			<asp:DropDownList class="DropDownStyle" ID="YearList" runat="server" OnSelectedIndexChanged="YearList_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
 			<asp:Label ID="YearLabel" runat="server" Text="年"></asp:Label>
-			<asp:DropDownList class="DropDownStyle" ID="MonthList" runat="server" OnSelectedIndexChanged="MonthList_SelectedIndexChanged" AutoPostBack="true">
+			<asp:DropDownList class="DropDownStyle2" ID="MonthList" runat="server" OnSelectedIndexChanged="MonthList_SelectedIndexChanged" AutoPostBack="true">
 				<asp:ListItem Text="*" Value="0"  />
 			</asp:DropDownList>
 			<asp:Label ID="MonthLabel" runat="server" Text="月" ></asp:Label>
-			<asp:DropDownList class="DropDownStyle" ID="DayList" runat="server">
+			<asp:DropDownList class="DropDownStyle2" ID="DayList" runat="server">
 				<asp:ListItem Text="*" Value="0"  />
 			</asp:DropDownList>
 			<asp:Label ID="DayLabel" runat="server" Text="日"></asp:Label>
@@ -77,6 +75,8 @@
 			</asp:DropDownList>
 			<asp:Label ID="Label10" runat="server" Text="關鍵字"></asp:Label>
 			<asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
+			<br />
+			<br />
 			<br />
 			<br />
 			<br />

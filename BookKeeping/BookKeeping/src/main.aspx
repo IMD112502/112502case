@@ -8,8 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>主畫面</title>
 </head>
-<body class="MainBody">
-    <form class="MainForm" id="Form1" runat="server">
+<body>
+    <div class="MainBody">
+    <form id="Form1" runat="server">
         <asp:Label ID="userid" runat="server"></asp:Label>
         <div class="Setting"><%--使用者設定--%>
             <asp:ImageButton ID="Setting" runat="server" ImageUrl="images/main/user_set.png" PostBackUrl="~/src/setting.aspx"/>
@@ -18,8 +19,8 @@
             <asp:Label ID="UId" runat="server"></asp:Label>
         </div>
         <div class="MainPerson"> <%--*0.8--%>
-            <asp:Image ID="MainHead" runat="server" ImageUrl="images/cloth/Head_g1.png" Height="339.2px" Width="243.2px" ClientIDMode="Static"/>
-            <asp:Image ID="MainBody" runat="server" ImageUrl="images/cloth/body_g1.png" Height="288px" Width="248px" ClientIDMode="Static"/>
+            <asp:Image ID="MainHead" runat="server" ImageUrl="images/cloth/Head_g1.png" ClientIDMode="Static"/>
+            <asp:Image ID="MainBody" runat="server" ImageUrl="images/cloth/body_g1.png" ClientIDMode="Static"/>
         </div>
         <asp:Button ID="Closet" runat="server" PostBackUrl="~/src/dressing_room.aspx"/><%--更衣室--%>
         <asp:Button ID="Wishes" runat="server" PostBackUrl="~/src/bucket_list.aspx"/><%--願望清單--%>
@@ -27,10 +28,9 @@
         <asp:Button ID="Game" runat="server" PostBackUrl="~/src/game_menu.aspx"/><%--小遊戲--%>
         <asp:Button ID="Bookkeeping" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--記帳--%>
 
-<%--        <asp:Button ID="ChatBot" runat="server" PostBackUrl="~/src/bookkeeping_add.aspx"/><%--小幫手--%>--%>
-
         <asp:Image ID="Pig" runat="server"   />
         <asp:Label ID="PigProgress" class="PigText" runat="server" Text=" " ></asp:Label>
     </form>
+    </div>
 </body>
 </html>

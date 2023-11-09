@@ -193,39 +193,100 @@ body {
     box-shadow: 0px 2px 10px 5px teal;
 }
 
-.ButtonSize1 { /* 按鈕大小(較寬) */
-    width: 150px;
-    height: 40px;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .ButtonSize1 { /* 按鈕大小(較寬) */
+        width: 150px;
+        height: 40px;
+    }
+
+    .ButtonSize2 { /* 按鈕大小(較窄) */
+        width: 120px;
+        height: 60px;
+    }
+
+    .ButtonSize3 { /* 按鈕大小(小方塊) */
+        width: 50px;
+        height: 50px;
+    }
+
+    .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
+        width: 120px;
+        height: 25px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
+
+    .DropDownStyle { /* 下拉式選單樣式 */
+        width: 70px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
+
+    .DropDownStyle2 { /* 下拉式選單樣式 */
+        width: 50px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
 }
 
-.ButtonSize2 { /* 按鈕大小(較窄) */
-    width: 120px;
-    height: 60px;
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .ButtonSize1 { /* 按鈕大小(較寬) */
+        width: 150px;
+        height: 40px;
+    }
 
-.ButtonSize3 { /* 按鈕大小(小方塊) */
-    width: 50px;
-    height: 50px;
-}
+    .ButtonSize2 { /* 按鈕大小(較窄) */
+        width: 120px;
+        height: 60px;
+    }
 
-.TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
-    width: 150px;
-    height: 25px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
+    .ButtonSize3 { /* 按鈕大小(小方塊) */
+        width: 50px;
+        height: 50px;
+    }
 
-.DropDownStyle { /* 下拉式選單樣式 */
-    width: 70px;
-    height: 30px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
+    .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
+        width: 150px;
+        height: 25px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
+
+    .DropDownStyle { /* 下拉式選單樣式 */
+        width: 70px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
+
+    .DropDownStyle2 { /* 下拉式選單樣式 */
+        width: 70px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
 }
 
 .Back { /* 返回按鈕 */
@@ -236,243 +297,396 @@ body {
     width: 80px;
 }
 /*--------------------------------主畫面---------------------------------------*/
-.MainBody {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}
+/* 手機*0.6 */
+@media only screen and (max-width: 1023px) {
+    .MainBody {
+        position: absolute;
+        background-image: url('images/main/home_bg.png');
+        background-size: 565.38px 473.688px;
+        height: 473.688px;
+        width: 565.38px;
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        overflow-y: hidden;
+    }
 
-.MainForm {
-    background-image: url('images/main/home_bg.png');
-    background-size: 1047px 877.2px;
-    position: fixed;
-    text-align: center;
-    height: 877.2px;
-    width: 1047px;
-}
-
-#Closet { /* 更衣室 */
-    background-color: transparent;
-    background-image: url('images/main/home_clo.png');
-    background-size: 256.2px 547.8px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    Height: 547.8px; /* 原圖0.6倍 */
-    Width: 256.2px; /* 原圖0.6倍 */
-    top: 55%;
-    left: 0%;
-    transform: translate(0, -50%);
-}
-
-    #Closet:hover {
+    #Closet { /* 更衣室 */
+        background-color: transparent;
         background-image: url('images/main/home_clo_2.png');
-        background-size: 277.55px 623.35px;
+        background-size: 142.74px 320.58px;
         border: none;
-        Height: 623.35px; /* 原圖0.65倍 */
-        Width: 277.55px; /* 原圖0.65倍 */
-        top: 55%;
+        cursor: pointer;
+        position: absolute;
+        Height: 320.58px;
+        Width: 142.74px;
+        top: 52.5%;
+        left: 0%;
+        transform: translate(0, -50%);
+    }
+
+    #Wishes { /* 願望清單 */
+        background-color: transparent;
+        background-image: url('images/main/home_dre_2.png');
+        background-size: 117.334px 162.797px;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        Height: 162.797px; /* 原圖0.6倍 */
+        Width: 117.334px; /* 原圖0.6倍 */
+        top: 27%;
+        left: 37%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Ach { /* 成就 */
+        background-color: transparent;
+        background-image: url('images/main/home_ach_2.png');
+        background-size: 48.806px 81.566px;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        Height: 81.566px; /* 原圖0.6倍 */
+        Width: 48.806px; /* 原圖0.6倍 */
+        top: 21%;
+        left: 72%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Bookkeeping { /* 記帳 */
+        background-color: transparent;
+        background-image: url('images/main/home_boo_2.png');
+        background-size: 96.12px 51.84px;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        Height: 51.84px; /* 原圖0.6倍 */
+        Width: 96.12px; /* 原圖0.6倍 */
+        top: 58.5%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Game { /* 小遊戲 */
+        background-color: transparent;
+        background-image: url('images/main/home_game_2.png');
+        background-size: 102.96px 163.8px;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        Height: 163.8px; /* 原圖0.6倍 */
+        Width: 102.96px; /* 原圖0.6倍 */
+        top: 53%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    .MainPerson { /* 人物 */
+        position: absolute;
+        height: 345.6px;
+        width: 164.16px;
+        top: 62%;
+        left: 46%;
+        transform: translate(-50%, -50%);
+    }
+
+    #MainBody {
+        position: absolute;
+        height: 155.52px;
+        width: 133.92px;
+        top: 60%;
+        left: 50%;
+        transform: translate(-49%, -52%);
+    }
+
+    #MainHead {
+        position: absolute;
+        height: 183.168px;
+        width: 131.328px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Pig { /* 撲滿 */
+        position: fixed;
+        bottom: 35px;
+        left: 0px;
+        Height: 104.7168px;
+        Width: 161.352px;
+    }
+
+    .PigText {
+        position: fixed;
+        bottom: 10px;
+        left: 15px;
+        font-size: 17.3px;
+        color: black;
+        font-weight: bold;
+    }
+
+    #Setting {
+        position: absolute;
+        Height: 61.884px;
+        Width: 185.328px;
+        top: 2%;
         left: 0%;
     }
 
-#Wishes { /* 願望清單 */
-    background-color: transparent;
-    background-image: url('images/main/home_dre.png');
-    background-size: 210.6px 228px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    Height: 228px; /* 原圖0.6倍 */
-    Width: 210.6px; /* 原圖0.6倍 */
-    top: 25%;
-    left: 37%;
-    transform: translate(-50%, -50%);
+    #AvatarHead {
+        position: absolute;
+        Height: 52.92px;
+        Width: 52.92px;
+        top: 8.6%;
+        left: 5.6%;
+        border-radius: 98px;
+        transform: translate(-50%, -50%);
+    }
+
+    #NickName {
+        position: absolute;
+        top: 7.5%;
+        left: 10.7%;
+        border-radius: 98px;
+        font-size: 20.52px;
+        color: paleturquoise;
+        transform: translate(0, -50%);
+    }
+
+    #UId {
+        position: absolute;
+        top: 10.7%;
+        left: 10.8%;
+        border-radius: 98px;
+        font-size: 10px;
+        color: paleturquoise;
+        transform: translate(0, -50%);
+    }
 }
 
-    #Wishes:hover {
-        background-image: url('images/main/home_dre_2.png');
-        background-size: 228.15px 316.55px;
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .MainBody {
+        position: absolute;
+        background-image: url('images/main/home_bg.png');
+        background-size: 837.6px 701.76px;
+        height: 701.76px;
+        width: 837.6px;
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        overflow-y: hidden;
+    }
+
+    #Closet { /* 更衣室 */
+        background-color: transparent;
+        background-image: url('images/main/home_clo.png');
+        background-size: 204.96px 438.24px;
         border: none;
-        Height: 316.55px; /* 原圖0.65倍 */
-        Width: 228.15px; /* 原圖0.65倍 */
-        top: 22%;
+        cursor: pointer;
+        position: absolute;
+        Height: 438.24px; /* 原圖0.6倍 */
+        Width: 204.96px; /* 原圖0.6倍 */
+        top: 55%;
+        left: 0%;
+        transform: translate(0, -50%);
+    }
+
+        #Closet:hover {
+            background-image: url('images/main/home_clo_2.png');
+            background-size: 222.04px 498.68px;
+            border: none;
+            Height: 498.68px; /* 原圖0.65倍 */
+            Width: 222.04px; /* 原圖0.65倍 */
+            top: 55%;
+            left: 0%;
+        }
+
+    #Wishes { /* 願望清單 */
+        background-color: transparent;
+        background-image: url('images/main/home_dre.png');
+        background-size: 168.48px 182.4px;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        Height: 182.4px; /* 原圖0.6倍 */
+        Width: 168.48px; /* 原圖0.6倍 */
+        top: 30%;
         left: 37%;
+        transform: translate(-50%, -50%);
     }
 
-#Ach { /* 成就 */
-    background-color: transparent;
-    background-image: url('images/main/home_ach.png');
-    background-size: 73.2px 105.6px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    Height: 105.6px; /* 原圖0.6倍 */
-    Width: 73.2px; /* 原圖0.6倍 */
-    top: 23%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-}
+        #Wishes:hover {
+            background-image: url('images/main/home_dre_2.png');
+            background-size: 182.52px 253.24px;
+            border: none;
+            Height: 253.24px; /* 原圖0.65倍 */
+            Width: 182.52px; /* 原圖0.65倍 */
+            top: 27%;
+            left: 37%;
+        }
 
-    #Ach:hover {
-        background-image: url('images/main/home_ach_2.png');
-        background-size: 94.9px 158.6px;
+    #Ach { /* 成就 */
+        background-color: transparent;
+        background-image: url('images/main/home_ach.png');
+        background-size: 58.56px 84.48px;
         border: none;
-        Height: 158.6px; /* 原圖0.65倍 */
-        Width: 94.9px; /* 原圖0.65倍 */
-        top: 20.5%;
-        left: 70.8%;
+        cursor: pointer;
+        position: absolute;
+        Height: 84.48px; /* 原圖0.6倍 */
+        Width: 58.56px; /* 原圖0.6倍 */
+        top: 23%;
+        left: 70%;
+        transform: translate(-50%, -50%);
     }
 
-#Bookkeeping { /* 成就 */
-    background-color: transparent;
-    background-image: url('images/main/home_boo.png');
-    background-size: 160.2px 49.2px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    Height: 49.2px; /* 原圖0.6倍 */
-    Width: 160.2px; /* 原圖0.6倍 */
-    top: 61%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-}
+        #Ach:hover {
+            background-image: url('images/main/home_ach_2.png');
+            background-size: 75.92px 126.88px;
+            border: none;
+            Height: 126.88px; /* 原圖0.65倍 */
+            Width: 75.92px; /* 原圖0.65倍 */
+            top: 20.5%;
+            left: 70.8%;
+        }
 
-    #Bookkeeping:hover {
-        background-image: url('images/main/home_boo_2.png');
-        background-size: 186.9px 100.8px;
+    #Bookkeeping { /* 記帳 */
+        background-color: transparent;
+        background-image: url('images/main/home_boo.png');
+        background-size: 128.16px 39.36px;
         border: none;
-        Height: 100.8px; /* 原圖0.7倍 */
-        Width: 186.9px; /* 原圖0.7倍 */
-        top: 58.8%;
-        left: 65.5%;
+        cursor: pointer;
+        position: absolute;
+        Height: 39.36px; /* 原圖0.6倍 */
+        Width: 128.16px; /* 原圖0.6倍 */
+        top: 61%;
+        left: 65%;
+        transform: translate(-50%, -50%);
     }
 
-#Game { /* 小遊戲 */
-    background-color: transparent;
-    background-image: url('images/main/home_game.png');
-    background-size: 184.8px 258px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    Height: 258px; /* 原圖0.6倍 */
-    Width: 184.8px; /* 原圖0.6倍 */
-    top: 55%;
-    left: 79%;
-    transform: translate(-50%, -50%);
-}
+        #Bookkeeping:hover {
+            background-image: url('images/main/home_boo_2.png');
+            background-size: 149.52px 80.64px;
+            border: none;
+            Height: 80.64px; /* 原圖0.7倍 */
+            Width: 149.52px; /* 原圖0.7倍 */
+            top: 58.8%;
+            left: 65.5%;
+        }
 
-    #Game:hover {
-        background-image: url('images/main/home_game_2.png');
-        background-size: 200.2px 318.5px;
+    #Game { /* 小遊戲 */
+        background-color: transparent;
+        background-image: url('images/main/home_game.png');
+        background-size: 147.84px 206.4px;
         border: none;
-        Height: 318.5px; /* 原圖0.65倍 */
-        Width: 200.2px; /* 原圖0.65倍 */
-        top: 53%;
+        cursor: pointer;
+        position: absolute;
+        Height: 206.4px; /* 原圖0.6倍 */
+        Width: 147.84px; /* 原圖0.6倍 */
+        top: 55%;
         left: 79%;
+        transform: translate(-50%, -50%);
     }
 
-/*#ChatBot {*/ /* 聊天機器人 */
-    /*background-color: transparent;
-    background-image: url('images/main/home_chatbot.png');
-    background-size: 41.4px 53.4px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    Height: 53.4px;*/ /* 原圖0.6倍 */
-    /*Width: 41.4px;*/ /* 原圖0.6倍 */
-    /*top: 67%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-}
+        #Game:hover {
+            background-image: url('images/main/home_game_2.png');
+            background-size: 160.16px 254.8px;
+            border: none;
+            Height: 254.8px; /* 原圖0.65倍 */
+            Width: 160.16px; /* 原圖0.65倍 */
+            top: 53%;
+            left: 79%;
+        }
 
-    #ChatBot:hover {
-        background-image: url('images/main/home_chatbot_2.png');
-        background-size: 147.7px 133px;
-        border: none;
-        Height: 133px;*/ /* 原圖0.7倍 */
-        /*Width: 147.7px;*/ /* 原圖0.7倍 */
-        /*top: 62%;
-        left: 52.25%;
-    }*/
+    .MainPerson { /* 人物 */
+        position: absolute;
+        height: 512px;
+        width: 243.2px;
+        top: 62%;
+        left: 46%;
+        transform: translate(-50%, -50%);
+    }
 
-.MainPerson { /* 人物 */
-    position: absolute;
-    height: 640px;
-    width: 304px;
-    top: 60%;
-    left: 46%;
-    transform: translate(-50%, -50%);
-}
+    #MainBody {
+        position: absolute;
+        height: 230.4px;
+        width: 198.4px;
+        top: 60%;
+        left: 50%;
+        transform: translate(-49%, -52%);
+    }
 
-#MainBody {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-49%, -52%);
-}
+    #MainHead {
+        position: absolute;
+        height: 271.36px;
+        width: 194.56px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-#MainHead {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    #Pig { /* 撲滿 */
+        position: fixed;
+        bottom: 35px;
+        left: 0px;
+        Height: 155.136px;
+        Width: 239.04px;
+    }
 
-#Pig { /* 撲滿 */
-    position: fixed;
-    bottom: 35px;
-    left: 10px;
-    Height: 242.4px;
-    Width: 373.5px;
-}
+    .PigText {
+        position: fixed;
+        bottom: 10px;
+        left: 5px;
+        font-size: 25.6px;
+        color: black;
+        font-weight: bold;
+    }
 
-.PigText {
-    position: fixed;
-    bottom: 10px;
-    left: 15px;
-    font-size: 40px;
-    color: black;
-    font-weight: bold;
-}
+    #Setting {
+        position: absolute;
+        Height: 83.512px;
+        Width: 247.104px;
+        top: 2%;
+        left: 0%;
+    }
 
-#Setting {
-    position: absolute;
-    Height: 103.14px;
-    Width: 308.88px;
-    top: 2%;
-    left: 0%;
-}
+    #AvatarHead {
+        position: absolute;
+        Height: 70.56px;
+        Width: 70.56px;
+        top: 7.95%;
+        left: 5.3%;
+        border-radius: 98px;
+        transform: translate(-50%, -50%);
+    }
 
-#AvatarHead {
-    position: absolute;
-    Height: 88.2px;
-    Width: 88.2px;
-    top: 7.95%;
-    left: 5.3%;
-    border-radius: 98px;
-    transform: translate(-50%, -50%);
-}
+    #NickName {
+        position: absolute;
+        top: 7%;
+        left: 10.5%;
+        border-radius: 98px;
+        font-size: 27.36px;
+        color: paleturquoise;
+        transform: translate(0, -50%);
+    }
 
-#NickName {
-    position: absolute;
-    top: 7%;
-    left: 10.5%;
-    border-radius: 98px;
-    font-size: 34.2px;
-    color: paleturquoise;
-    transform: translate(0, -50%);
-}
-
-#UId {
-    position: absolute;
-    top: 10.2%;
-    left: 10.6%;
-    border-radius: 98px;
-    font-size: 13.5px;
-    color: paleturquoise;
-    transform: translate(0, -50%);
+    #UId {
+        position: absolute;
+        top: 10.2%;
+        left: 10.6%;
+        border-radius: 98px;
+        font-size: 11px;
+        color: paleturquoise;
+        transform: translate(0, -50%);
+    }
 }
 /*--------------------------------主畫面結束---------------------------------------*/
 /*-----------------------------------設定------------------------------------------*/
@@ -589,393 +803,908 @@ body {
 
 /*---------------------------------設定結束----------------------------------------*/
 /*--------------------------------登入、註冊---------------------------------------*/
-.LogBody {
-    background-image: url('images/log_o_door.png');
-    background-size: 1405px 700.8px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}
-
-.LogForm {
-    position: fixed;
-    text-align: center;
-    padding: 20px;
-    border-style: solid;
-    height: 560px;
-    width: 668px;
-}
-
 /*------------登入------------*/
-.LogBody {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .LogBody {
+        position: absolute;
+        background-image: url('images/log_o_door.png');
+        background-size: 843px 420.48px;
+        width: 843px;
+        height: 420.48px;
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+    }
 
-.LogForm {
-    position: fixed;
-    text-align: center;
-    padding: 20px;
-    border-style: solid;
-    height: 560px;
-    width: 668px;
-}
+    .LogForm {
+        position: absolute;
+        text-align: center;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        width: 80%; /* 使用百分比宽度，以适应不同屏幕大小 */
+        max-width: 380px; /* 设置最大宽度，防止在大屏幕上过于拉伸 */
+        height: 330px;
+        transform: translate(-50%, -55%);
+    }
 
-.LogTitle {
-    margin-top: 20px;
-    font-size: 60px;
-}
+    .LogTitle {
+        position: absolute;
+        top: 16%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+    }
 
-.LogText {
-    margin-top: 80px;
-}
+    .LogText {
+        width: 350px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-.LogButton { /* 按鈕區塊 */
-    margin-top: 80px;
-}
+    .LogButton { /* 按鈕 */
+        position: absolute;
+        top: 83%;
+        left: 50%;
+        height: 80px;
+        width: 200px;
+        transform: translate(-50%, -50%);
+    }
 
-.LogForgetPwd {
-    margin-left: 250px;
+    .LogButton1 { /* 按鈕 */
+        transform: translate(-16%, -0%);
+    }
+
+    .LogButton2 { /* 按鈕 */
+        margin-top: 5px;
+        transform: translate(-16%, -0%);
+    }
+
+    .LogForgetPwd {
+        position: absolute;
+        top: 120%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    #state {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .LogBody {
+        position: absolute;
+        background-image: url('images/log_o_door.png');
+        background-size: 1264px 630.72px;
+        width: 1264px;
+        height: 630.72px;
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+    }
+
+    .LogForm {
+        position: absolute;
+        text-align: center;
+        padding: 20px;
+        top: 50%;
+        left: 50%;
+        height: 500.72px;
+        width: 80%; /* 使用百分比宽度，以适应不同屏幕大小 */
+        max-width: 600px; /* 设置最大宽度，防止在大屏幕上过于拉伸 */
+        transform: translate(-50%, -55%);
+    }
+
+    .LogTitle {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+    }
+
+    .LogText {
+        width: 350px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .LogButton { /* 按鈕 */
+        position: absolute;
+        top: 84%;
+        left: 50%;
+        height: 80px;
+        width: 200px;
+        transform: translate(-50%, -50%);
+    }
+
+    .LogButton1 { /* 按鈕 */
+        transform: translate(-16%, -0%);
+    }
+
+    .LogButton2 { /* 按鈕 */
+        margin-top: 10px;
+        transform: translate(-16%, -0%);
+    }
+
+    .LogForgetPwd {
+        position: absolute;
+        top: 120%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    #state {
+        font-size: 20px;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 /*----------登入結束-----------*/
 /*----------忘記密碼-----------*/
-.ForgetPwdText {
-    margin-left: 50%;
-    margin-top: 40px;
-    transform: translate(-60%, 0);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .ForgetPwdTitle {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+    }
+
+    .ForgetPwdText {
+        position: absolute;
+        left: 50%;
+        top: 72%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ForgetButton {
+        position: absolute;
+        left: 50%;
+        top: 67.5%;
+        width: 320px;
+        transform: translate(-50%, -50%);
+    }
+
+    .ForgetPwError {
+        font-size: 13px;
+    }
 }
 
-.DropDownList { /* 下拉式選單 */
-    padding: 18px;
-    margin-bottom: 10px;
-    margin-top: 15px;
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .ForgetPwdTitle {
+        position: absolute;
+        left: 50%;
+        top: 15%;
+        transform: translate(-50%, -50%);
+        font-size: 60px;
+    }
+
+    .ForgetPwdText {
+        position: absolute;
+        left: 50%;
+        top: 65%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ForgetButton {
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        width: 320px;
+        transform: translate(-50%, -50%);
+    }
+
+    .ForgetPwError {
+        font-size: 15px;
+    }
 }
 /*--------忘記密碼結束---------*/
 /*------------註冊-------------*/
-.RegText {
-    margin-left: 50%;
-    margin-top: 30px;
-    transform: translate(-60%, 0);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .RegTitle {
+        position: absolute;
+        left: 50%;
+        top: 9%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+    }
+
+    .RegText {
+        position: absolute;
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+    }
+
+    .RegTextBlock {
+        text-align: right;
+        width: 365px;
+        height: 400px;
+        font-size: 20px;
+    }
+
+    .RegButton {
+        position: absolute;
+        left: 50%;
+        top: 69%;
+        width: 320px;
+        transform: translate(-50%, -50%);
+    }
 }
 
-.RegTextBlock {
-    text-align: right;
-    width: 365px;
-    height: 400px;
-    font-size: 20px;
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .RegTitle {
+        position: absolute;
+        left: 50%;
+        top: 15%;
+        transform: translate(-50%, -50%);
+        font-size: 60px;
+    }
 
-.RegButton {
-    margin-top: -20px;
-    transform: translate(12%, 0);
+    .RegText {
+        position: absolute;
+        left: 50%;
+        top: 65%;
+        transform: translate(-55%, -50%);
+    }
+
+    .RegTextBlock {
+        text-align: right;
+        width: 365px;
+        height: 400px;
+        font-size: 20px;
+    }
+
+    .RegButton {
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        width: 320px;
+        transform: translate(-45%, -50%);
+    }
 }
 /*----------註冊結束-----------*/
-
 /*----------------------------登入、註冊結束----------------------------------*/
 /*----------------------------------記帳--------------------------------------*/
-.BookBody {
-    background-image: url('images/boo_bg.png');
-    background-size: 1093.8px 753.6px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .BookBody {
+        background-image: url('images/boo_bg.png');
+        background-size: 721.908px 497.376px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 93vh;
+    }
+
+    .BookContent { /* 記帳區塊 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 675px;
+        height: 445px;
+        padding: 12px;
+        transform: translate(-33%, -28%);
+    }
 }
 
-.BookContent { /* 記帳區塊 */
-    position: center;
-    width: 1050px;
-    height: 650px;
-    padding: 20px;
-    /*    background-color: bisque;*/
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .BookBody {
+        background-image: url('images/boo_bg.png');
+        background-size: 875.04px 602.88px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 93vh;
+    }
 
+    .BookContent { /* 記帳區塊 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 810px;
+        height: 540px;
+        padding: 20px;
+        transform: translate(-49%, -50%);
+    }
+}
 /*---------------記帳左---------------*/
-.BookLeft {
-    position: absolute;
-    top: 48.5%;
-    left: 50%;
-    width: 500px;
-    height: 710px;
-    transform: translate(-105%, -50%);
-}
-
-.BookDate { /* 記帳月份區塊 */
-    font-weight: bold;
-    height: 80px;
-    text-align: center;
-    font-size: 25px;
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    transform: translate(-50%, 50%);
-}
-
-.DateButtonSize { /* 記帳月份切換按鈕 */
-    width: 25px;
-    height: 25px;
-}
-
-.BookTitleL { /* 功能標題 */
-    position: absolute;
-    font-size: 40px;
-    left: 50%;
-    top: 3%;
-    transform: translate(-50%, 50%);
-}
-
-.GButton {
-    border: none; /* 移除邊框 */
-    transition: transform 0.2s; /* 添加變換動畫效果 */
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    outline: none;
-}
-
-    .GButton:hover {
-        transform: scale(1.2); /* 鼠標懸停時按鈕變大 1.2 倍 */
-        cursor: pointer; /* 變換游標形狀為手型 */
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .BookLeft {
+        position: absolute;
+        top: 48.5%;
+        left: 50%;
+        width: 330px;
+        height: 468.6px;
+        transform: translate(-105%, -62%);
     }
 
-.EditButton { /* 編輯按鈕 */
-    position: absolute;
-    margin-left: 50%;
-    transform: translate(-550%, 15%);
-    width: 40px;
-    height: 30px;
-}
-
-.BookTable { /* 記帳紀錄 */
-    margin-left: -20px;
-    position: absolute;
-    left: 50%;
-    top: 25%;
-    transform: translate(-50%, 0%);
-    padding: 20px;
-    height: 400px; /* 設定高度，使其出現滾動條 */
-    width: 455px;
-    overflow-y: scroll; /* 垂直滾動條 */
-}
-
-.BookTableReport { /* 記帳報表 */
-    margin-left: -20px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-}
-
-table.Gridview {
-    width: 395px;
-    height: 80px;
-    margin-top: 5px;
-    margin-left: 55px;
-    border: none; /* 不要框線 */
-}
-
-    table.Gridview tr {
+    .BookDate { /* 記帳月份區塊 */
+        font-weight: bold;
+        height: 52.8px;
+        width: 220px;
         text-align: center;
-        font-size: 17px;
+        font-size: 16.5px;
+        position: absolute;
+        left: 50%;
+        top: 8%;
+        transform: translate(-50%, 50%);
     }
 
-    table.Gridview th, table.Gridview td { /* 不要左右框線 */
-        border-left: none;
-        border-right: none;
+    .DateButtonSize { /* 記帳月份切換按鈕 */
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
     }
 
-/*        table.Gridview th:first-child, table.Gridview td:first-child {
+    .BookTitleL { /* 功能標題 */
+        position: absolute;
+        font-size: 24px;
+        left: 50%;
+        top: 0%;
+        transform: translate(-50%, 50%);
+    }
+
+    .GButton {
+        border: none; /* 移除邊框 */
+        transition: transform 0.2s; /* 添加變換動畫效果 */
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        outline: none;
+    }
+
+        .GButton:hover {
+            transform: scale(1.2); /* 鼠標懸停時按鈕變大 1.2 倍 */
+            cursor: pointer; /* 變換游標形狀為手型 */
+        }
+
+    .BookTable { /* 記帳紀錄 */
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, 0%);
+        height: 370px; /* 設定高度，使其出現滾動條 */
+        width: 330px;
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
+
+    .BookTableReport { /* 記帳報表 */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+    }
+
+    table.Gridview {
+        width: 395px;
+        height: 80px;
+        margin-top: 5px;
+        border: none; /* 不要框線 */
+    }
+
+        table.Gridview tr {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        table.Gridview th, table.Gridview td { /* 不要左右框線 */
+            border-left: none;
+            border-right: none;
+        }
+
+    table.Gridview2 {
+        width: 320.7px;
+        height: 80px;
+        border: none; /* 不要框線 */
+    }
+
+        table.Gridview2 tr {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        table.Gridview2 th, table.Gridview2 td { /* 不要左右框線 */
+            border-left: none;
+            border-right: none;
+        }
+
+    .BookTotal { /* 總收入、總支出 */
+        position: absolute;
+        bottom: 1%;
+        left: 50%;
+        width: 450px;
+        font-size: 25px;
+        text-align: center;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .BookLeft {
+        position: absolute;
+        top: 48.5%;
+        left: 50%;
+        width: 400px;
+        height: 580px;
+        transform: translate(-105%, -49%);
+    }
+
+    .BookDate { /* 記帳月份區塊 */
+        font-weight: bold;
+        height: 64px;
+        width: 400px;
+        text-align: center;
+        font-size: 25px;
+        position: absolute;
+        left: 50%;
+        top: 12%;
+        transform: translate(-50%, 50%);
+    }
+
+    .DateButtonSize { /* 記帳月份切換按鈕 */
+        width: 25px;
+        height: 25px;
+        font-size: 15px;
+    }
+
+    .BookTitleL { /* 功能標題 */
+        position: absolute;
+        font-size: 32px;
+        left: 50%;
+        top: 1%;
+        transform: translate(-50%, 50%);
+    }
+
+    .GButton {
+        border: none; /* 移除邊框 */
+        transition: transform 0.2s; /* 添加變換動畫效果 */
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        outline: none;
+    }
+
+        .GButton:hover {
+            transform: scale(1.2); /* 鼠標懸停時按鈕變大 1.2 倍 */
+            cursor: pointer; /* 變換游標形狀為手型 */
+        }
+
+    .BookTable { /* 記帳紀錄 */
+        position: absolute;
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%, 0%);
+        height: 320px; /* 設定高度，使其出現滾動條 */
+        width: 400px;
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
+
+    .BookTableReport { /* 記帳報表 */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+    }
+
+    table.Gridview {
+        width: 392px;
+        height: 80px;
+        margin-top: 5px;
+        border: none; /* 不要框線 */
+    }
+
+        table.Gridview tr {
+            text-align: center;
+            font-size: 17px;
+        }
+
+        table.Gridview th, table.Gridview td { /* 不要左右框線 */
+            border-left: none;
+            border-right: none;
+        }
+
+    /*        table.Gridview th:first-child, table.Gridview td:first-child {
             border-left: none;
         }*/
 
-table.Gridview2 {
-    width: 395px;
-    height: 80px;
-    margin-top: 5px;
-    margin-left: 55px;
-    border: none; /* 不要框線 */
-}
+    table.Gridview2 {
+        width: 395px;
+        height: 80px;
+        margin-top: 5px;
+        border: none; /* 不要框線 */
+    }
 
-    table.Gridview2 tr {
-        text-align: center;
+        table.Gridview2 tr {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        table.Gridview2 th, table.Gridview2 td { /* 不要左右框線 */
+            border-left: none;
+            border-right: none;
+        }
+
+    .BookTotal { /* 總收入、總支出 */
+        position: absolute;
+        bottom: 4%;
+        left: 50%;
+        width: 450px;
         font-size: 25px;
+        text-align: center;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
     }
-
-    table.Gridview2 th, table.Gridview2 td { /* 不要左右框線 */
-        border-left: none;
-        border-right: none;
-    }
-
-.BookTotal { /* 總收入、總支出 */
-    position: absolute;
-    bottom: 4%;
-    left: 50%;
-    width: 450px;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    transform: translate(-50%, -50%);
 }
 /*-------------記帳左結束-------------*/
 
 /*---------------記帳右---------------*/
-.BookRight {
-    position: absolute;
-    top: 48.5%;
-    left: 50%;
-    width: 500px;
-    height: 710px;
-    transform: translate(8%, -50%);
-}
-
-/* -----書籤按鈕位置----- */
-.BookmarkUp {
-    position: absolute;
-    top: -10%;
-    height: 80px;
-    width: 80px;
-}
-
-.BookmarkDown {
-    position: absolute;
-    top: -6%;
-    height: 44.27px;
-    width: 80px;
-}
-
-.AddBookmark {
-    position: absolute;
-    left: 10%;
-}
-
-.SearchBookmark {
-    position: absolute;
-    left: 26%;
-}
-
-.ReportBookmark {
-    position: absolute;
-    left: 42%;
-}
-
-.BookTitle { /* 功能標題 */
-    position: absolute;
-    font-size: 40px;
-    left: 50%;
-    top: 3%;
-    transform: translate(-50%, 50%);
-}
-/* ---書籤按鈕位置結束--- */
-
-.BookChange { /* 功能區塊 */
-    position: absolute;
-    width: 500px;
-    left: 50%;
-    top: 21%;
-    text-align: center;
-    transform: translate(-50%, 0%);
-}
-
-.BookReport {
-    position: absolute;
-    width: 500px;
-    left: 50%;
-    top: 50%;
-    text-align: center;
-    transform: translate(-50%, -50%);
-}
-
-/*---類別---*/
-.SortContainer { /* 類別區塊 */
-    display: flex;
-    align-items: center; /* 在主軸上居中對齊flex子元素 */
-    justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
-    flex-direction: column; /* 將flex子元素的排列方向設置為垂直排列 */
-    font-size: 20px;
-}
-
-.RadioButtons {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.SortRadio input {
-    display: none; /* 隱藏radio button輸入框 */
-}
-
-.RadioBtn { /* 類別按鈕樣式 */
-    margin: 0px;
-    width: 100px;
-    height: 100px;
-    border: 3px solid aliceblue;
-    display: inline-block;
-    border-radius: 10px;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 0 20px #c3c3c367; /* 陰影 */
-    cursor: pointer;
-}
-
-    .RadioBtn > i { /* 勾勾 */
-        color: #ffffff;
-        background-color: teal;
-        font-size: 15px;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .BookRight {
         position: absolute;
-        top: -18px;
+        top: 48.5%;
         left: 50%;
-        transform: translateX(-50%) scale(4); /* 向左平移50%，並放大4倍 */
-        border-radius: 50px;
-        padding: 4px; /* 內邊距 */
-        transition: 0.2s; /* 過渡效果秒數 */
-        pointer-events: none; /* 設鼠標事件不可用 */
-        opacity: 0; /* 透明度 */
+        width: 330px;
+        height: 468.6px;
+        transform: translate(4.5%, -62%);
     }
 
-    .RadioBtn .SortIcon { /* 類別圖片 */
-        border-radius: 10px;
-        width: 162px;
-        height: 162px;
+    /* -----書籤按鈕位置----- */
+    .BookmarkUp {
         position: absolute;
+        top: -9.4%;
+        height: 52.8px;
+        width: 52.8px;
+    }
+
+    .BookmarkDown {
+        position: absolute;
+        top: -6%;
+        height: 29.2182px;
+        width: 52.8px;
+    }
+
+    .AddBookmark {
+        position: absolute;
+        left: 10%;
+    }
+
+    .SearchBookmark {
+        position: absolute;
+        left: 26%;
+    }
+
+    .ReportBookmark {
+        position: absolute;
+        left: 42%;
+    }
+
+    .BookTitle { /* 功能標題 */
+        position: absolute;
+        font-size: 26.4px;
+        left: 50%;
+        top: 0%;
+        transform: translate(-50%, 50%);
+    }
+    /* ---書籤按鈕位置結束--- */
+
+    .BookChange { /* 功能區塊 */
+        position: absolute;
+        width: 500px;
+        left: 50%;
+        top: 21%;
+        text-align: center;
+        transform: translate(-50%, 0%);
+    }
+
+    .BookReport {
+        position: absolute;
+        width: 330px;
+        height: 300px;
+        left: 50%;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
+        text-align: center;
+        transform: translate(-50%, -50%);
     }
 
-        .RadioBtn .SortIcon i {
-            line-height: 145px;
-            font-size: 60px;
+    /*---類別---*/
+    .SortContainer { /* 類別區塊 */
+        position: absolute;
+        display: flex;
+        top: 80%;
+        left: 50%;
+        align-items: center; /* 在主軸上居中對齊flex子元素 */
+        justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
+        flex-direction: column; /* 將flex子元素的排列方向設置為垂直排列 */
+        font-size: 20px;
+        width: 330px;
+        transform: translate(-50%, -50%);
+    }
+
+    .RadioButtons {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .SortRadio input {
+        display: none; /* 隱藏radio button輸入框 */
+    }
+
+    .RadioBtn { /* 類別按鈕樣式 */
+        margin: 0px;
+        width: 66px;
+        height: 66px;
+        border: 3px solid aliceblue;
+        display: inline-block;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c367; /* 陰影 */
+        cursor: pointer;
+    }
+
+        .RadioBtn > i { /* 勾勾 */
+            color: #ffffff;
+            background-color: teal;
+            font-size: 15px;
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%) scale(4); /* 向左平移50%，並放大4倍 */
+            border-radius: 50px;
+            padding: 4px; /* 內邊距 */
+            transition: 0.2s; /* 過渡效果秒數 */
+            pointer-events: none; /* 設鼠標事件不可用 */
+            opacity: 0; /* 透明度 */
         }
 
-    .RadioBtn h3 { /* 類別文字 */
-        margin-top: -10px;
-        font-size: large;
+        .RadioBtn .SortIcon { /* 類別圖片 */
+            border-radius: 10px;
+            width: 107px;
+            height: 107px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
+        }
+
+            .RadioBtn .SortIcon i {
+                line-height: 145px;
+                font-size: 60px;
+            }
+
+        .RadioBtn h3 { /* 類別文字 */
+            margin-top: -55px;
+            font-size: large;
+        }
+
+    .SortRadio input:checked + .RadioBtn { /* 如果選取類別 */
+        border: 3px solid teal;
     }
 
-.SortRadio input:checked + .RadioBtn { /* 如果選取類別 */
-    border: 3px solid teal;
-}
+        .SortRadio input:checked + .RadioBtn > i {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+    /*---類別結束---*/
 
-    .SortRadio input:checked + .RadioBtn > i {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
+    .BooAddText {
+        position: absolute;
+        left: 50%;
+        top: 500%;
+        width: 500px;
+        transform: translate(-50%, -50%);
     }
 
-.AddButton {
-    position: absolute;
-    left: 50%;
-    top: 130%;
-    width: 500px;
-    transform: translate(-50%, -50%);
+    .AddButton {
+        position: absolute;
+        left: 50%;
+        top: 135%;
+        width: 500px;
+        transform: translate(-50%, -50%);
+    }
 }
-/*---類別結束---*/
+
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .BookRight {
+        position: absolute;
+        top: 48.5%;
+        left: 50%;
+        width: 400px;
+        height: 580px;
+        transform: translate(4%, -49%);
+    }
+
+    /* -----書籤按鈕位置----- */
+    .BookmarkUp {
+        position: absolute;
+        top: -9.4%;
+        height: 64px;
+        width: 64px;
+    }
+
+    .BookmarkDown {
+        position: absolute;
+        top: -6%;
+        height: 35.416px;
+        width: 64px;
+    }
+
+    .AddBookmark {
+        position: absolute;
+        left: 10%;
+    }
+
+    .SearchBookmark {
+        position: absolute;
+        left: 26%;
+    }
+
+    .ReportBookmark {
+        position: absolute;
+        left: 42%;
+    }
+
+    .BookTitle { /* 功能標題 */
+        position: absolute;
+        font-size: 32px;
+        left: 50%;
+        top: 1%;
+        transform: translate(-50%, 50%);
+    }
+    /* ---書籤按鈕位置結束--- */
+
+    .BookChange { /* 功能區塊 */
+        position: absolute;
+        width: 400px;
+        left: 50%;
+        top: 21%;
+        text-align: center;
+        transform: translate(-50%, 0%);
+    }
+
+    .BookReport {
+        position: absolute;
+        width: 400px;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
+
+    /*---類別---*/
+    .SortContainer { /* 類別區塊 */
+        position: absolute;
+        display: flex;
+        width: 400px;
+        top: 120%;
+        left: 50%;
+        align-items: center; /* 在主軸上居中對齊flex子元素 */
+        justify-content: center; /* 在交叉軸上居中對齊flex子元素 */
+        flex-direction: column; /* 將flex子元素的排列方向設置為垂直排列 */
+        font-size: 20px;
+        transform: translate(-50%, -50%);
+    }
+
+    .RadioButtons {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .SortRadio input {
+        display: none; /* 隱藏radio button輸入框 */
+    }
+
+    .RadioBtn { /* 類別按鈕樣式 */
+        margin: 0px;
+        width: 80px;
+        height: 80px;
+        border: 3px solid aliceblue;
+        display: inline-block;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c367; /* 陰影 */
+        cursor: pointer;
+    }
+
+        .RadioBtn > i { /* 勾勾 */
+            color: #ffffff;
+            background-color: teal;
+            font-size: 15px;
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%) scale(4); /* 向左平移50%，並放大4倍 */
+            border-radius: 50px;
+            padding: 4px; /* 內邊距 */
+            transition: 0.2s; /* 過渡效果秒數 */
+            pointer-events: none; /* 設鼠標事件不可用 */
+            opacity: 0; /* 透明度 */
+        }
+
+        .RadioBtn .SortIcon { /* 類別圖片 */
+            border-radius: 10px;
+            width: 162px;
+            height: 162px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 將圖片向上向左平移50%的宽度和高度 */
+        }
+
+            .RadioBtn .SortIcon i {
+                line-height: 145px;
+                font-size: 60px;
+            }
+
+        .RadioBtn h3 { /* 類別文字 */
+            margin-top: -10px;
+            font-size: large;
+        }
+
+    .SortRadio input:checked + .RadioBtn { /* 如果選取類別 */
+        border: 3px solid teal;
+    }
+
+        .SortRadio input:checked + .RadioBtn > i {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+    /*---類別結束---*/
+
+    .BooAddText {
+        position: absolute;
+        left: 50%;
+        top: 600%;
+        width: 500px;
+        transform: translate(-50%, -50%);
+    }
+
+    .AddButton {
+        position: absolute;
+        left: 50%;
+        top: 150%;
+        width: 500px;
+        transform: translate(-50%, -50%);
+    }
+}
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/
 /*----------------------------------成就--------------------------------------*/

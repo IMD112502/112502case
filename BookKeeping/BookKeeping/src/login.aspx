@@ -9,7 +9,8 @@
     <title>記帳趣 登入</title>
 </head>
         
-<body class="LogBody">
+<body>
+    <div class="LogBody">
     <form class="LogForm" id="form1" runat="server">
         <h1 class="LogTitle" align="center">記帳趣</h1>
         <div class="LogText">
@@ -22,16 +23,14 @@
             <label style="font-size:25px;">密碼</label>
             <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
         </p>
-        <br />
         <a class="LogForgetPwd" href="forget_pw.aspx">忘記密碼</a>
         </div>
-        <br />
-            <asp:Label ID="state" runat="server" style="color:red"></asp:Label>
+        <asp:Label ID="state" runat="server" style="color:red"></asp:Label>
         <div class="LogButton">
-        <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle3" ID="LoginButton" runat="server" Text="登入" Width="300" Height="35" Font-Size="13" OnClick="Login_click"/></p>
-            <br />
-        <p>&nbsp;&nbsp;<asp:Button class="ButtonStyle3" ID="RegisterButton" runat="server" Text="我要註冊！" Width="300" Height="35" Font-Size="13" PostBackUrl="register.aspx" /></p>
+            <asp:Button class="ButtonStyle3 LogButton1" ID="LoginButton" runat="server" Text="登入" Width="300" Height="35" Font-Size="13" OnClick="Login_click"/>
+            <asp:Button class="ButtonStyle3 LogButton2" ID="RegisterButton" runat="server" Text="我要註冊！" Width="300" Height="35" Font-Size="13" PostBackUrl="register.aspx" />
         </div>
     </form>
+    </div>
 </body>
 </html>

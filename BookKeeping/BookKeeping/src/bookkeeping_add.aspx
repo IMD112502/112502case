@@ -18,7 +18,6 @@
 				<asp:Button class="ButtonStyle3 DateButtonSize" ID="Button1" runat="server" Text="<" OnClick="MinusMonth_Click" CommandArgument="minus" />
 				<asp:Label ID="Label1" runat="server"></asp:Label>
 				<asp:Button class="ButtonStyle3 DateButtonSize" ID="Button2" runat="server" Text=">" OnClick="PlusMonth_Click" CommandArgument="plus" />
-				<%--<asp:Button class="ButtonStyle EditButton" ID="Button4" runat="server" Text="編輯" OnClick="PlusMonth_Click" PostBackUrl="~/src/bookkeeping_edit.aspx" />--%>
 			</div>
 			<h1 class="BookTitleL">記帳紀錄</h1>
 			<div class="BookTable">
@@ -126,7 +125,7 @@
 						<input type="radio" name="radio" value="1" checked="checked" />
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon" style="background:url('images/c_dre.png');">
+							<div class="SortIcon" style="background:url('images/c_dre.png'); background-size: contain;">
 								<i></i>
 								<h3>願望</h3>
 							</div>
@@ -136,7 +135,7 @@
 						<input type="radio" name="radio" value="2" />
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon" style="background:url('images/c_eat.png');">
+							<div class="SortIcon" style="background:url('images/c_eat.png'); background-size: contain;">
 								<i></i>
 								<h3>飲食</h3>
 							</div>
@@ -146,7 +145,7 @@
 						<input type="radio" name="radio" value="3"/>
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon" style="background:url('images/c_play.png');">
+							<div class="SortIcon" style="background:url('images/c_play.png'); background-size: contain;">
 								<i></i>
 								<h3>娛樂</h3>
 							</div>
@@ -156,7 +155,7 @@
 						<input type="radio" name="radio" value="4"/>
 						<span class="RadioBtn">
 							<i>v</i>
-							<div class="SortIcon" style="background:url('images/c_other.png');">
+							<div class="SortIcon" style="background:url('images/c_other.png'); background-size: contain;">
 								<i></i>
 								<h3>其他</h3>
 							</div>
@@ -166,31 +165,31 @@
 			</div>
 			<br />
 			<br />
-			<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
-			<input type="date" id="Start" name="date" value="<%= DateTime.Now.ToString("yyyy-MM-dd") %>"
-				min="2022-01-01" max="" />
-			<script>
-                var tomorrow = new Date()
-                tomorrow.setDate(tomorrow.getDate());
-                var tomorrowDate = tomorrow.toISOString().split('T')[0];
-				document.getElementById("Start").max = tomorrowDate;
+			<div class="BooAddText">
+				<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
+				<input type="date" id="Start" name="date" value="<%= DateTime.Now.ToString("yyyy-MM-dd") %>"
+					min="2022-01-01" max="" />
+				<script>
+                    var tomorrow = new Date()
+                    tomorrow.setDate(tomorrow.getDate());
+                    var tomorrowDate = tomorrow.toISOString().split('T')[0];
+                    document.getElementById("Start").max = tomorrowDate;
+                </script>
+				<br />
+				<br />
+				<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
+				<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox1" runat="server"></asp:TextBox>
+				<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<asp:Label ID="ErrorMessageLabel" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red"></asp:Label>
+				<br />
+				<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
+				<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
 
-                
-            </script>
-			<br />
-			<br />
-			<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
-			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox1" runat="server"></asp:TextBox>
-			<br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<asp:Label ID="ErrorMessageLabel" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red"></asp:Label>
-			<br />
-			<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
-			<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
-
-			<div class="AddButton">
-			<input class="ButtonStyle3 ButtonSize1" type="reset" value="重新輸入" />
-			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
+				<div class="AddButton">
+				<input class="ButtonStyle3 ButtonSize1" type="reset" value="重新輸入" />
+				<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
+				</div>
 			</div>
 		</div>
 		</div>

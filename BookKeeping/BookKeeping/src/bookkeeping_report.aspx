@@ -60,7 +60,7 @@
 			<asp:ImageButton class="BookmarkUp ReportBookmark" ID="ImageButton4" runat="server" ImageUrl="images/boo/boo_button_rep1.png" PostBackUrl="~/src/bookkeeping_report.aspx" />
 		<h1 class="BookTitle">圖表分析</h1>
 		<div class="BookReport">
-			<asp:Chart ID="Chart1" runat="server" BackColor="#00000" Width="400px" >
+			<asp:Chart ID="Chart1" runat="server" BackColor="#00000" >
 				<Series>
 					<asp:Series Name="Series1" ChartType="Column" Color="#006666" LabelBackColor="#ffffff" LabelForeColor="#006666">
 					</asp:Series>
