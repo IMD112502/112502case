@@ -196,8 +196,9 @@ body {
 /* 手機 */
 @media only screen and (max-width: 1023px) {
     .ButtonSize1 { /* 按鈕大小(較寬) */
-        width: 150px;
-        height: 40px;
+        width: 80px;
+        height: 25px;
+        font-size: 15px;
     }
 
     .ButtonSize2 { /* 按鈕大小(較窄) */
@@ -1708,116 +1709,250 @@ body {
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/
 /*----------------------------------成就--------------------------------------*/
-.AchBody {
-    background-image: url('images/ach_bg.png');
-    background-size: 851.4px 872.4px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 851.4px;
-    height: 872.4px;
-    transform: translate(-50%, -50%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .AchBody {
+        background-image: url('images/ach_bg.png');
+        background-size: 459.756px 471.096px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 459.756px;
+        height: 471.096px;
+        transform: translate(-50%, -50%);
+    }
+
+    .AchHeader { /* 上部分區塊 */
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        height: 100px;
+        width: 270px;
+        transform: translate(-50%, -50%);
+    }
+
+    .AchTopTitle { /* 頁面標題 */
+        position: absolute;
+        color: darkcyan;
+        font-size: 32.4px;
+        left: 48%;
+        top: 10%;
+        transform: translate(-50%, 0%);
+    }
+
+    .AchTopButton { /* 成就頂端按鈕區塊 */
+        position: absolute;
+        left: 50%;
+        top: 65%;
+        width: 270px;
+        height: 27px;
+        transform: translate(-50%, 0%);
+    }
+
+    .NoFin {
+        position: absolute;
+        left: 32%;
+        top: 40%;
+        transform: translate(-50%, 0%);
+    }
+
+    .Fin {
+        position: absolute;
+        left: 65%;
+        top: 40%;
+        transform: translate(-50%, 0%);
+    }
+
+    .AchButtonGet { /* 成就領取紐 */
+        Height: 27px;
+        Width: 27px;
+        margin-top: -20px;
+        margin-left: 300px;
+    }
+
+    .AchContent { /* 成就區塊 */
+        position: absolute;
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%, 0%);
+        height: 295px; /* 設定內容區域的高度，使其可以出現滾動條 */
+        width: 300.4px;
+        overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
+    }
+
+    .task-container { /* 定義任務容器 */
+        display: flex; /* 使用 Flexbox 佈局 */
+        align-items: center; /* 垂直置中對齊 */
+        margin-bottom: 10px; /* 底邊距，控制每個任務之間的間距 */
+    }
+
+    .task-image { /* 左側圖片 */
+        flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
+        object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
+        width: 108px;
+        height: 93px;
+    }
+
+    .task-main { /* 任務主題 */
+        font-size: 18px;
+    }
+
+    .task-content { /* 任務內容 */
+        flex: 2.3; /* 占用可用空間的一部分，使任務內容在中間 */
+        padding: 10px; /* 內邊距，增加內容區塊的間距 */
+    }
+
+    .progress { /* 進度條 */
+        margin-top: 6px;
+        width: 135px;
+        height: 10.8px;
+        background-color: #ccc;
+        border: 2px solid teal;
+        border-radius: 15px;
+    }
+
+    .progress-bar {
+        width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
+        height: 100%;
+        background-color: teal;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+
+    .claim-button { /* 領取按鈕 */
+        flex: 0.5; /* 占用可用空間的一部分，使按鈕在右側 */
+        text-align: center; /* 文字置中 */
+        width: 5px;
+        height: 50%;
+    }
+
+    .check {
+        width: 30px;
+        height: 30px;
+    }
 }
 
-.AchHeader { /* 上部分區塊 */
-    position: absolute;
-    top: 13%;
-    left: 50%;
-    height: 150px;
-    width: 500px;
-    transform: translate(-50%, -50%);
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .AchBody {
+        background-image: url('images/ach_bg.png');
+        background-size: 681.12px 697.92px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 681.12px;
+        height: 697.92px;
+        transform: translate(-50%, -50%);
+    }
 
-.AchTopTitle { /* 頁面標題 */
-    position: absolute;
-    color: darkcyan;
-    font-size: 60px;
-    left: 48%;
-    top: 10%;
-    transform: translate(-50%, 0%);
-}
+    .AchHeader { /* 上部分區塊 */
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        height: 150px;
+        width: 500px;
+        transform: translate(-50%, -50%);
+    }
 
-.AchTopButton { /* 成就頂端按鈕區塊 */
-    position: absolute;
-    left: 50%;
-    top: 65%;
-    width: 500px;
-    height: 50px;
-    transform: translate(-50%, 0%);
-}
+    .AchTopTitle { /* 頁面標題 */
+        position: absolute;
+        color: darkcyan;
+        font-size: 52px;
+        left: 48%;
+        top: 10%;
+        transform: translate(-50%, 0%);
+    }
 
-.NoFin {
-    position: absolute;
-    left: 32%;
-    top: 40%;
-    transform: translate(-50%, 0%);
-}
+    .AchTopButton { /* 成就頂端按鈕區塊 */
+        position: absolute;
+        left: 50%;
+        top: 55%;
+        width: 500px;
+        height: 50px;
+        transform: translate(-50%, 0%);
+    }
 
-.Fin {
-    position: absolute;
-    left: 65%;
-    top: 40%;
-    transform: translate(-50%, 0%);
-}
+    .NoFin {
+        position: absolute;
+        left: 32%;
+        top: 40%;
+        transform: translate(-50%, 0%);
+    }
 
-.AchButtonGet { /* 成就領取紐 */
-    Height: 50px;
-    Width: 50px;
-    margin-top: -20px;
-    margin-left: 300px;
-}
+    .Fin {
+        position: absolute;
+        left: 65%;
+        top: 40%;
+        transform: translate(-50%, 0%);
+    }
 
-.AchContent { /* 成就區塊 */
-    position: absolute;
-    left: 50%;
-    top: 21%;
-    transform: translate(-50%, 0%);
-    padding: 20px;
-    height: 540px; /* 設定內容區域的高度，使其可以出現滾動條 */
-    width: 510px;
-    overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
-}
+    .AchButtonGet { /* 成就領取紐 */
+        Height: 40px;
+        Width: 40px;
+        margin-top: -20px;
+        margin-left: 300px;
+    }
 
-.task-container { /* 定義任務容器 */
-    display: flex; /* 使用 Flexbox 佈局 */
-    align-items: center; /* 垂直置中對齊 */
-    margin-bottom: 20px; /* 底邊距，控制每個任務之間的間距 */
-}
+    .AchContent { /* 成就區塊 */
+        position: absolute;
+        left: 50%;
+        top: 24%;
+        transform: translate(-50%, 0%);
+        height: 445px; /* 設定內容區域的高度，使其可以出現滾動條 */
+        width: 450px;
+        overflow-y: scroll; /* 讓內容區域出現垂直滾動條 */
+    }
 
-.task-image { /* 左側圖片 */
-    flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
-    width: 180px; /* 指定圖片的寬度 */
-    height: 155px; /* 指定圖片的高度 */
-    object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
-}
+    .task-container { /* 定義任務容器 */
+        display: flex; /* 使用 Flexbox 佈局 */
+        align-items: center; /* 垂直置中對齊 */
+        margin-bottom: 16px; /* 底邊距，控制每個任務之間的間距 */
+    }
 
-.task-content { /* 任務內容 */
-    flex: 2.3; /* 占用可用空間的一部分，使任務內容在中間 */
-    padding: 10px; /* 內邊距，增加內容區塊的間距 */
-}
+    .task-image { /* 左側圖片 */
+        flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
+        width: 144px; /* 指定圖片的寬度 */
+        height: 148px; /* 指定圖片的高度 */
+        object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
+    }
 
-.progress { /* 進度條 */
-    margin-top: 6px;
-    width: 250px;
-    height: 20px;
-    background-color: #ccc;
-    border: 2px solid teal;
-    border-radius: 15px;
-}
+    .task-main { /* 任務主題 */
+        font-size: 23px;
+    }
 
-.progress-bar {
-    width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
-    height: 100%;
-    background-color: teal;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
+    .task-content { /* 任務內容 */
+        flex: 2.3; /* 占用可用空間的一部分，使任務內容在中間 */
+        padding: 10px; /* 內邊距，增加內容區塊的間距 */
+    }
 
-.claim-button { /* 領取按鈕 */
-    flex: 0.5; /* 占用可用空間的一部分，使按鈕在右側 */
-    text-align: center; /* 文字置中 */
-    width: 5px;
-    height: 50%;
+    .progress { /* 進度條 */
+        margin-top: 6px;
+        width: 200px;
+        height: 16px;
+        background-color: #ccc;
+        border: 2px solid teal;
+        border-radius: 15px;
+    }
+
+    .progress-bar {
+        width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
+        height: 100%;
+        background-color: teal;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+
+    .claim-button { /* 領取按鈕 */
+        flex: 0.5; /* 占用可用空間的一部分，使按鈕在右側 */
+        text-align: center; /* 文字置中 */
+        width: 5px;
+        height: 50%;
+    }
+
+    .check {
+        width: 40px;
+        height: 40px;
+    }
 }
 /*--------------------------------成就結束------------------------------------*/
 

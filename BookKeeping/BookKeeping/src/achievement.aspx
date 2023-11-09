@@ -24,12 +24,12 @@
                     <ItemTemplate>
                         <div class="task-container">
                             <!-- 左側圖片 -->
-                            <asp:Image CssClass="task-image" ID="Image1" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText="Task Image" Width="180" Height="155" />
+                            <asp:Image CssClass="task-image" ID="Image1" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' AlternateText="Task Image" />
 
                             <!-- 任務內容 -->
                             <div class="task-content">
                                 <!-- 任務主題 -->
-                                <h3 style="font-size: 25px;"><%# Eval("TaskName") %></h3>
+                                <h3 class="task-main"><%# Eval("TaskName") %></h3>
                                 <!-- 任務內容 -->
                                 <p><%# Eval("TaskDescription") %></p>
                                 <!-- 進度條 -->
