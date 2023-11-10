@@ -2692,6 +2692,7 @@ body {
     top: 30%;
     left: 70%;
     transform: translate(-50%, -50%);
+    cursor: grab;
 }
 
 .ShoppingCart {
@@ -2703,6 +2704,9 @@ body {
     left: 70%;
     transform: translate(-50%, -50%);
     border-radius: 50px; /*圓角*/
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
 }
 
 #Trolley { /*購物車*/
@@ -2713,141 +2717,61 @@ body {
     left: 50%;
 }
 
-#Red {
+#Redd {
     position: absolute;
     top: 16%;
     left: 20.5%;
     transform: translate(-50%, -50%);
 }
 
-    #Red:hover {
-        background-image: url('images/main/game3_red2.png');
-        background-size: 100.75px 156px;
-        border: none;
-        Height: 156px; /*原圖0.65倍*/
-        Width: 100.75px; /*原圖0.65倍*/
-        top: 14%;
-        left: 20.5%;
-    }
-
-#Green {
+#Greenn {
     position: absolute;
     top: 16%;
     left: 40.5%;
     transform: translate(-50%, -50%);
 }
 
-    #Green:hover {
-        background-image: url('images/main/game3_green2.png');
-        background-size: 100.75px 156px;
-        border: none;
-        Height: 156px; /*原圖0.65倍*/
-        Width: 100.75px; /*原圖0.65倍*/
-        top: 14%;
-        left: 40.5%;
-    }
-
-#Blue {
+#Bluee {
     position: absolute;
     top: 16%;
     left: 59.5%;
     transform: translate(-50%, -50%);
 }
 
-    #Blue:hover {
-        background-image: url('images/main/game3_blue2.png');
-        background-size: 100.75px 156px;
-        border: none;
-        Height: 156px; /*原圖0.65倍*/
-        Width: 100.75px; /*原圖0.65倍*/
-        top: 14%;
-        left: 59.5%;
-    }
-
-#Black {
+#Blackk {
     position: absolute;
     top: 16%;
     left: 78.5%;
     transform: translate(-50%, -50%);
 }
 
-    #Black:hover {
-        background-image: url('images/main/game3_black2.png');
-        background-size: 100.75px 156px;
-        border: none;
-        Height: 156px; /*原圖0.65倍*/
-        Width: 100.75px; /*原圖0.65倍*/
-        top: 14%;
-        left: 78.5%;
-    }
-
-#Sis {
+#Siss {
     position: absolute;
     top: 62%;
     left: 18%;
     transform: translate(-50%, -50%);
 }
 
-    #Sis:hover {
-        background-image: url('images/main/game3_sis2.png');
-        background-size: 128px 104px;
-        border: none;
-        Height: 104px; /*原圖0.8倍*/
-        Width: 128px; /*原圖0.8倍*/
-        top: 60%;
-        left: 18%;
-    }
-
-#Glue {
+#Gluee {
     position: absolute;
     top: 62%;
     left: 40%;
     transform: translate(-50%, -50%);
 }
 
-    #Glue:hover {
-        background-image: url('images/main/game3_sis2.png');
-        background-size: 128px 104px;
-        border: none;
-        Height: 104px; /*原圖0.8倍*/
-        Width: 128px; /*原圖0.8倍*/
-        top: 60%;
-        left: 40%;
-    }
-
-#Cor {
+#Corr {
     position: absolute;
     top: 62%;
     left: 61%;
     transform: translate(-50%, -50%);
 }
 
-    #Cor:hover {
-        background-image: url('images/main/game3_sis2.png');
-        background-size: 128px 104px;
-        border: none;
-        Height: 104px; /*原圖0.8倍*/
-        Width: 128px; /*原圖0.8倍*/
-        top: 60%;
-        left: 61%;
-    }
-
-#Ruler {
+#Rulerr {
     position: absolute;
     top: 62%;
     left: 81%;
     transform: translate(-50%, -50%);
 }
-
-    #Ruler:hover {
-        background-image: url('images/main/game3_sis2.png');
-        background-size: 128px 104px;
-        border: none;
-        Height: 104px; /*原圖0.8倍*/
-        Width: 128px; /*原圖0.8倍*/
-        top: 60%;
-        left: 81%;
-    }
 
 #Correct1 {
     position: absolute;
@@ -2856,6 +2780,11 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.dragged-image {
+    position: absolute;
+    pointer-events: none; /* 拖曳圖片，但原本的圖片不會消失*/
+}
+/*=====================================================================*/
 #Clerk {
     Height: 780px;
     Width: 554.4px;
@@ -2874,7 +2803,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#TotalMoney2{
+#TotalMoney2 {
     color: darkred;
 }
 
@@ -2887,7 +2816,7 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 20px; /*圓角*/
     border: 10px dashed darkcyan; /*虛線外框*/
-    display: flex; 
+    display: flex;
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
 }
@@ -2910,6 +2839,7 @@ body {
     top: 50%;
     left: 65%;
     transform: translate(-50%, -50%);
+    cursor: grab; /*小手手鼠標*/
 }
 
 #Thousand {

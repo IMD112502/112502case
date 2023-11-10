@@ -96,67 +96,67 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Label question2;
 
         /// <summary>
-        /// Panel1000 控制項。
+        /// Image2 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1000;
+        protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
-        /// Panel500 控制項。
+        /// Image3 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel500;
+        protected global::System.Web.UI.WebControls.Image Image3;
 
         /// <summary>
-        /// Panel100 控制項。
+        /// Image4 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel100;
+        protected global::System.Web.UI.WebControls.Image Image4;
 
         /// <summary>
-        /// Panel50 控制項。
+        /// Image5 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel50;
+        protected global::System.Web.UI.WebControls.Image Image5;
 
         /// <summary>
-        /// Panel10 控制項。
+        /// Image6 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel10;
+        protected global::System.Web.UI.WebControls.Image Image6;
 
         /// <summary>
-        /// Panel5 控制項。
+        /// Image7 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel5;
+        protected global::System.Web.UI.WebControls.Image Image7;
 
         /// <summary>
-        /// Panel1 控制項。
+        /// Image8 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Image Image8;
 
         /// <summary>
         /// Ans4 控制項。
@@ -204,15 +204,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image Image9;
 
         /// <summary>
-        /// Label1 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// Image10 控制項。
         /// </summary>
         /// <remarks>
@@ -220,15 +211,6 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image10;
-
-        /// <summary>
-        /// Label2 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// Image11 控制項。
@@ -240,15 +222,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image Image11;
 
         /// <summary>
-        /// Label3 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
         /// Image12 控制項。
         /// </summary>
         /// <remarks>
@@ -256,15 +229,6 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image12;
-
-        /// <summary>
-        /// Label4 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
         /// Image13 控制項。
@@ -276,15 +240,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image Image13;
 
         /// <summary>
-        /// Label5 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
         /// Image14 控制項。
         /// </summary>
         /// <remarks>
@@ -292,15 +247,6 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image14;
-
-        /// <summary>
-        /// Label6 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
         /// Image15 控制項。
@@ -312,15 +258,6 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image Image15;
 
         /// <summary>
-        /// Label7 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
-
-        /// <summary>
         /// Image16 控制項。
         /// </summary>
         /// <remarks>
@@ -330,85 +267,85 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image Image16;
 
         /// <summary>
-        /// Label8 控制項。
+        /// Redd 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Image Redd;
 
         /// <summary>
-        /// Red 控制項。
+        /// Greenn 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Red;
+        protected global::System.Web.UI.WebControls.Image Greenn;
 
         /// <summary>
-        /// Green 控制項。
+        /// Bluee 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Green;
+        protected global::System.Web.UI.WebControls.Image Bluee;
 
         /// <summary>
-        /// Blue 控制項。
+        /// Blackk 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Blue;
+        protected global::System.Web.UI.WebControls.Image Blackk;
 
         /// <summary>
-        /// Black 控制項。
+        /// Siss 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Black;
+        protected global::System.Web.UI.WebControls.Image Siss;
 
         /// <summary>
-        /// Sis 控制項。
+        /// Gluee 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Sis;
+        protected global::System.Web.UI.WebControls.Image Gluee;
 
         /// <summary>
-        /// Glue 控制項。
+        /// Corr 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Glue;
+        protected global::System.Web.UI.WebControls.Image Corr;
 
         /// <summary>
-        /// Cor 控制項。
+        /// Rulerr 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Cor;
+        protected global::System.Web.UI.WebControls.Image Rulerr;
 
         /// <summary>
-        /// Ruler 控制項。
+        /// ShoppingCartText 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Ruler;
+        protected global::System.Web.UI.WebControls.Label ShoppingCartText;
 
         /// <summary>
         /// Trolley 控制項。
