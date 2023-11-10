@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <asp:Panel ID="FirstGamePanel" runat="server" Visible="false"><%--遊戲一--%>
             <div class="GameLeft"><%--左半邊題目--%>
-                <asp:Label ID="question1" class="question" runat="server" Text="Label">請問下圖中為多少金額？</asp:Label></br>
+                <asp:Label ID="question1" class="question" runat="server" Text="">請問下圖中為多少金額？</asp:Label></br>
                 <asp:Image ID="Image1" runat="server"/>
             </div>
 
@@ -27,34 +27,42 @@
             <div class="GameLeft2"><%--左半邊題目--%>
                 <asp:Label ID="question2" class="question" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label></br>
                 <div class="Thousand"><%--$1000--%>
-                    <asp:Image ID="Image2" runat="server" Height="90px" Width="240px" ImageUrl="images/game/money_1000.png"/></div>
+                    <asp:Panel ID="Panel1000" runat="server"></asp:Panel>
+                </div>
             
                 <div class="FiveHundred"><%--$500--%>
-                    <asp:Image ID="Image3" runat="server" Height="85px" Width="220px" ImageUrl="images/game/money_500.png"/></div>
+                    <asp:Panel ID="Panel500" runat="server"></asp:Panel>
+                </div>
             
                 <div class="OneHundred"><%--$100--%>
-                    <asp:Image ID="Image4" runat="server" Height="80px" Width="190px" ImageUrl="images/game/money_100.png"/></div>
+                    <asp:Panel ID="Panel100" runat="server"></asp:Panel>
+                </div>
             
                 <div class="Fifty"><%--$50--%>
-                    <asp:Image ID="Image5" runat="server" Height="90px" Width="90px" ImageUrl="images/game/money_50.png"/></div>
+                    <asp:Panel ID="Panel50" runat="server"></asp:Panel>
+                </div>
            
                 <div class="Ten"><%--$10--%>
-                    <asp:Image ID="Image6" runat="server" Height="80px" Width="80px" ImageUrl="images/game/money_10.png"/></div>
+                    <asp:Panel ID="Panel10" runat="server"></asp:Panel>
+                </div>
             
                 <div class="Five"><%--$5--%>
-                    <asp:Image ID="Image7" runat="server" Height="75px" Width="75px" ImageUrl="images/game/money_5.png"/></div> 
+                    <asp:Panel ID="Panel5" runat="server"></asp:Panel>
+                </div>
 
                 <div class="One"><%--$1--%>
-                    <asp:Image ID="Image8" runat="server" Height="65px" Width="65px" ImageUrl="images/game/money_1.png"/></div> 
+                    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                </div> 
             </div>
 
             <div class="GameRight2"><%--右半邊答案--%>
-                <asp:Button class="CoinAnsButton" ID="Ans4" runat="server"  />
-                <asp:Button class="CoinAnsButton" ID="Ans5" runat="server"  />
-                <asp:Button class="CoinAnsButton" ID="Ans6" runat="server"  />
+                <asp:Button class="CoinAnsButton" ID="Ans4" runat="server" OnClick="CheckAnswer" CommandArgument="4" />
+                <asp:Button class="CoinAnsButton" ID="Ans5" runat="server" OnClick="CheckAnswer" CommandArgument="5" />
+                <asp:Button class="CoinAnsButton" ID="Ans6" runat="server" OnClick="CheckAnswer" CommandArgument="6" />
             </div>
             </asp:Panel>
-        <asp:Panel ID="ThirdGamePanel1" runat="server" Visible="false"><%--遊戲三之一--%>
+
+        <asp:Panel ID="ThirdGamePanel1" runat="server"><%--遊戲三之一--%>
             <div class="GameLeft3_1"><%--左半邊題目--%>
                 <div class="SisQ"><asp:Image ID="Image9" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_sis.png"/><span>X<%# Eval("pass_amount") %></span></div> 
                 <div class="GlueQ"><asp:Image ID="Image10" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_glue.png"/><span>X<%# Eval("pass_amount") %></span></div> 
@@ -102,7 +110,7 @@
                             // 把clone下的圖片加到body裡
                             document.body.appendChild(draggedElement);
 
-                            // 設定拖曳跟放下
+                            // 設定拖曳和放下
                             event.dataTransfer.setData('text/plain', draggedElement.id);
                         });
 
@@ -125,8 +133,13 @@
                         var draggedElement = document.getElementById(data);
 
                         if (draggedElement && draggedElement.classList.contains('draggable')) {
-                            // 把正在拖曳的照片放到購物車內
+                            // 把正在拖曳的照片放到結帳區
                             var clonedElement = draggedElement.cloneNode(true);
+                            clonedElement.classList.add('draggable-item');
+                            clonedElement.addEventListener('click', function () {
+                            // 移除點擊的元素
+                            clonedElement.parentNode.removeChild(clonedElement);
+                            });
                             ShoppingCart.appendChild(clonedElement);
                         }
                     });
@@ -134,7 +147,7 @@
             </script>
         </asp:Panel>
 
-        <asp:Panel ID="ThirdGamePane2" runat="server" ><%--遊戲三之二--%>
+        <asp:Panel ID="ThirdGamePane2" runat="server" Visible="false" ><%--遊戲三之二--%>
             <div class="GameLeft3_2"><%--左半邊題目--%>
                 <p id="TotalMoney">一共是<span id="TotalMoney2"><%# Eval("pass_amount") %>&nbsp;&nbsp;&nbsp;&nbsp;</span>元</p> <%--結帳金額--%>
                 <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk2.png"/>
@@ -196,6 +209,11 @@
                         if (draggedElement && draggedElement.classList.contains('draggable')) {
                             // 把正在拖曳的照片放到結帳區
                             var clonedElement = draggedElement.cloneNode(true);
+                            clonedElement.classList.add('draggable-item');
+                            clonedElement.addEventListener('click', function () {
+                            // 移除點擊的元素
+                            clonedElement.parentNode.removeChild(clonedElement);
+                            });
                             Checkout.appendChild(clonedElement);
                         }
                     });
