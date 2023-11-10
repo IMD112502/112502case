@@ -135,7 +135,7 @@ namespace _BookKeeping
                         int clothIndex = countIndex + 1;
                         int cnt = taskCount[countIndex];
                         DataRow task2 = dt.NewRow();
-                        task2["TaskID"] = 2;
+                        task2["TaskID"] = j.ToString();
                         task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + clothIndex.ToString() + ".png");
                         task2["TaskName"] = "許願次數達" + cnt.ToString() + "次";
                         task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
@@ -194,6 +194,7 @@ namespace _BookKeeping
                     Button claimButton = (Button)sender;
                     string taskId = claimButton.CommandArgument.ToString();
                     string gender = UserGender(connection);
+                    
 
                     // 根据 taskId 执行相应的操作，例如发放奖励
 
@@ -203,10 +204,14 @@ namespace _BookKeeping
                     // 确保 task_id 是一个整数
                     if (int.TryParse(taskId, out int taskIdValue))
                     {
+                        RepeaterItem item = (RepeaterItem)claimButton.NamingContainer;
+                        Image imgTask = (Image)item.FindControl("Image1");
+
+                        // 獲取 ImageUrl
+                        string imageUrl = imgTask.ImageUrl;
+
                         // 基于 task_id 是否为奇数来构建 @cloth_id
-                        string clothIdValue = (taskIdValue % 2 == 1)
-                            ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId)}.png"
-                            : $"images/cloth/head_{gender}{Convert.ToInt32(taskId)}.png";
+                        string clothIdValue = imageUrl;
 
                         string sql_ach = "INSERT INTO `112-112502`.achievement_complete (user_id, a_id, cloth_id) VALUES (@user_id, @task_id, @cloth_id)";
 
