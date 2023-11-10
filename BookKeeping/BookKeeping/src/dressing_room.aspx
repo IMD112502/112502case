@@ -8,55 +8,49 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>更衣室</title>
 </head>
-<body class="DreRoom">
+<body>
     <form id="DreForm" runat="server">
-        <div class="DrePerson" id="imageContainer">
-            <asp:Image ID="NowHead" runat="server" Height="424px" Width="304px" ClientIDMode="Static" ImageUrl="default_head_image.jpg" />
-            <asp:Image ID="NowBody" runat="server" Height="360px" Width="310px" ClientIDMode="Static" ImageUrl="default_body_image.jpg" />
-        </div>
-
-        <%--<div class="DrePerson">
-            <asp:Image ID="NowHead" runat="server" Height="424px" Width="304px" ClientIDMode="Static"/>
-            <asp:Image ID="NowBody" runat="server" Height="360px" Width="310px" ClientIDMode="Static"/>
-        </div>--%>
-
-        <div class="Left">
-            <div class="Head" id="femaleClothing">
-                <asp:Repeater ID="headRepeater" runat="server" Visible="true">
-                    <ItemTemplate>
-                        <asp:ImageButton class="ClothButton" ID="headImage" runat="server" Height="424px" Width="304px" ImageUrl='<%# Eval("cloth_id") %>' 
-                            OnClientClick='<%# "return setHeadwearImage(\"" + Eval("cloth_id") + "\");" %>' />
-                        <asp:Label ID="headstatus" runat="server" text="使用中" Visible="false"></asp:Label>
-                    </ItemTemplate>
-                </asp:Repeater>
+        <div class="DreRoom">
+            <div class="DrePerson" id="imageContainer">
+                <asp:Image ID="NowHead" runat="server" ClientIDMode="Static" ImageUrl="default_head_image.jpg" />
+                <asp:Image ID="NowBody" runat="server" ClientIDMode="Static" ImageUrl="default_body_image.jpg" />
             </div>
 
-            <div class="Cloth" id="femaleHead"> 
-                <asp:Repeater ID="imageRepeater" runat="server" Visible="true">
-                    <ItemTemplate>
-                        <asp:ImageButton class="ClothButton" ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
-                        OnClientClick='<%# "return setPreviewImage(\"" + Eval("cloth_id") + "\");" %>' />
-                        <asp:Label ID="bodystatus" runat="server" text="使用中" Visible="false"></asp:Label>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
-        </div>
+            <div class="Left">
+                <div class="Head" id="femaleClothing">
+                    <asp:Repeater ID="headRepeater" runat="server" Visible="true">
+                        <ItemTemplate>
+                            <asp:ImageButton CssClass="ClothButton HeadImage" ID="headImage" runat="server" ImageUrl='<%# Eval("cloth_id") %>' 
+                                OnClientClick='<%# "return setHeadwearImage(\"" + Eval("cloth_id") + "\");" %>' />
+                            <asp:Label ID="headstatus" runat="server" text="使用中" Visible="false"></asp:Label>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
 
-        <div class="Pet"> <%--右區塊--%>
+                <div class="Cloth" id="femaleHead"> 
+                    <asp:Repeater ID="imageRepeater" runat="server" Visible="true">
+                        <ItemTemplate>
+                            <asp:ImageButton CssClass="ClothButton ClothImage" ID="image" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
+                            OnClientClick='<%# "return setPreviewImage(\"" + Eval("cloth_id") + "\");" %>' />
+                            <asp:Label ID="bodystatus" runat="server" text="使用中" Visible="false"></asp:Label>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+
+            <div class="Pet"> <%--右區塊--%>
             
-        </div>
+            </div>
 
-        <div class="DreButton">
-        <asp:Button ID="btnCancel" CssClass="ButtonStyle3 ButtonSize2" runat="server" Text="取消修改" OnClientClick="return cancelChanges();" Enabled="false" />
-        <asp:Button ID="btnConfirm" CssClass="ButtonStyle3 ButtonSize2" runat="server" Text="確認修改" OnClick="BtnConfirm_Click" Enabled="false" />
+            <div class="DreButton">
+            <asp:Button ID="btnCancel" CssClass="ButtonStyle3 ButtonSize4" runat="server" Text="取消修改" OnClientClick="return cancelChanges();" Enabled="false" />
+            <asp:Button ID="btnConfirm" CssClass="ButtonStyle3 ButtonSize4" runat="server" Text="確認修改" OnClick="BtnConfirm_Click" Enabled="false" />
+            </div>
+            <asp:HiddenField ID="hiddenClothingID" runat="server" />
+            <asp:HiddenField ID="hiddenHeadwearID" runat="server" />
+            <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
         </div>
-
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
-
-        <asp:HiddenField ID="hiddenClothingID" runat="server" />
-        <asp:HiddenField ID="hiddenHeadwearID" runat="server" />
-
-        <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
 
         <script type="text/javascript">
             function updateImages(newClothingURL, newHeadwearURL) {
@@ -108,8 +102,6 @@
 
                 return false;
             }
-
-
         </script>
     </form>
 </body>

@@ -32,9 +32,9 @@ namespace BookKeeping
                 else
                 {
                     // 用户尚未注册审核密码，更改页面元素以显示相应的信息
-                    ErrorMessageLabel.Text = "尚未註冊審核密碼，請在上方設定密碼";
+                    ErrorMessageLabel.Text = "尚未註冊審核密碼，請於上方設定";
                     UserPwd.Visible = true; // 显示审核密码输入框
-                    LoginButton.Text = "確認註冊"; // 更改按钮文本
+                    LoginButton.Text = "註冊"; // 更改按钮文本
                     question.Visible = true;
                     securityQuestion.Visible = true;
                     securityAnswer.Visible = true;

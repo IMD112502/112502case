@@ -9,7 +9,8 @@
     <title>願望新增</title>
 </head>
 <body>
-    <form class="BucForm" id="form1" runat="server">
+    <form id="form1" runat="server">
+        <div class="BucDiv">
         <div class="YMemo MemoStyle">
             <div class="BucWord">
                 <asp:Label ID="WishUser" runat="server" Text=""></asp:Label><br />
@@ -21,7 +22,7 @@
             </div>
                 <asp:Label ID="ErrorMessage1" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red;font-size:20px"></asp:Label>
         </div>
-
+        </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
 </body>

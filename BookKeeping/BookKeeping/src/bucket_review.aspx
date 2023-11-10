@@ -10,12 +10,15 @@
 </head>
 <body>
     <form class="BucForm" id="form1" runat="server">
-        <div class="BMemo MemoStyle">
-            <div class="BucWord">
-                <asp:Label ID="label1" runat="server" Text=""></asp:Label>
-                <asp:Label ID="label2" runat="server" Text=""></asp:Label><br />
-                <asp:Label ID="label3" runat="server" Text=""></asp:Label><br />
-                <asp:Label ID="label7" runat="server" Text="" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:300px;"></asp:Label>
+        <div class="BucDiv">
+        <div class="BMemo MemoStyle2">
+            <div class="TraWord">
+                <div class="RevText">
+                    <asp:Label ID="label1" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="label2" runat="server" Text=""></asp:Label><br />
+                    <asp:Label ID="label3" runat="server" Text=""></asp:Label>
+                </div>
+                <asp:Label ID="label7" class="NoRev" runat="server" Text=""></asp:Label>
 
                 <div class="YesNo">
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged" AutoPostBack="true" RepeatDirection="Horizontal">
@@ -31,23 +34,26 @@
                         <br />
                         <asp:Label ID="ErrorMessagel" runat="server" CssClass="ErrorMessage" style="color:red;font-size:20px" Visible="false"></asp:Label>
                     </asp:Panel>
+                </div>
+                <div class="RevTextbox2">
                     <asp:Panel ID="Panel3" runat="server" Visible="false">
                     <asp:Label ID="label6" runat="server" Text="拒絕原因："></asp:Label><br />
                     <asp:TextBox class="TextBoxStyle" type="text" ID="Textbox2" placeholder="請輸入原因" runat="server" height="30px" width="250px"></asp:TextBox>
                         <br />
                     <asp:Label ID="ErrorMessage2" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red;font-size:20px"></asp:Label>
                      </asp:Panel>
-                        </div>
+                </div>
                 <asp:Label ID="IndexCount" runat="server" Text="" Visible="false"></asp:Label> 
             </div>
         </div>
         <asp:Button class="BucButton ButtonStyle ButtonSize2" ID="Button3" runat="server" Text="確認" OnClick="Submit_Click" />
-       
-        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
+
         <div class="LastNext">
             <div><asp:Button class="ButtonStyle LastNextSize" ID="Last" runat="server" Text="<" CommandArgument="minus" OnClick="ChangeWish_Click"/></div><%--上一個願望--%>
             <div><asp:Button class="ButtonStyle LastNextSize" ID="Next" runat="server" Text=">" CommandArgument= "plus" OnClick="ChangeWish_Click"/></div><%--下一個願望--%>
         </div>
+        </div>
+        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
 
 </body>

@@ -10,21 +10,25 @@
 </head>
 
 <body>
-    <form class="BucForm" id="form1" runat="server">
-        <div class="BMemo MemoStyle">
-            <div class="BucWord">
-                <asp:Label ID="CantBuy" runat="server" Text="不能買"></asp:Label><br />
-                <asp:Label ID="Cause" runat="server" Text="因為"></asp:Label><br />
-                <asp:Label ID="NoCantBuy" runat="server" Text="" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:300px;"></asp:Label><br />
+    <form id="form1" runat="server">
+        <div class="BucDiv">
+        <div class="BMemo MemoStyle2">
+            <div class="TraWord">
+                <div class="TraCause">
+                    <asp:Label ID="CantBuy" runat="server" Text="不能買"></asp:Label><br />
+                    <asp:Label ID="Cause" runat="server" Text="因為"></asp:Label>
+                </div>
+                <asp:Label ID="NoCantBuy" class="NoRev" runat="server" Text=""></asp:Label><br />
             </div>
             <asp:Button  class="TraButton ButtonStyle ButtonSize2" ID="Submit1" Text="知道了" runat="server" OnClick="Submit1_Click"/>
             <asp:Label ID="wish" runat="server"></asp:Label>
         </div>
-        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
         <div class="LastNext">
             <div><asp:Button class="ButtonStyle LastNextSize" ID="Last" runat="server" Text="<" Onclick="Last_Click"/></div><%--上一個願望--%>
             <div><asp:Button class="ButtonStyle LastNextSize" ID="Next" runat="server" Text=">" Onclick="Next_Click" /></div><%--下一個願望--%>
         </div>
+        </div>
+        <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>
 </body>
 </html>

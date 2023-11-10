@@ -9,27 +9,27 @@
     <title>願望歷史紀錄</title>
 </head>
 <body>
-    <form class="BucForm" id="form1" runat="server">
+    <form id="form1" runat="server">
+        <div class="BucDiv">
         <div class="Notebook">
             <div class="NotebookText">
-            <asp:Label ID="Label1" runat="server" style="font-size:40px; font-weight: bold; " Text="願望歷史紀錄"></asp:Label><br />
+            <asp:Label ID="Label1" runat="server" CssClass="NoteTitle" Text="願望歷史紀錄"></asp:Label><br />
 
-            <asp:GridView class="Gridview" ID="GridView2" runat="server" AutoGenerateColumns="False">
+            <asp:GridView class="Gridview3" ID="GridView2" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="d_num" HeaderText="編號" Visible="false"/>
                     <asp:BoundField DataField="d_name" HeaderText="名稱" />
                     <asp:BoundField DataField="pass_amount" HeaderText="金額" />
                     <asp:TemplateField HeaderText="狀態">
                         <ItemTemplate>
-                            <asp:Label ID="StatusLabel" runat="server" Text='<%# GetExchangeStatus(Eval("exchange_state")) %>' />
+                            <asp:Label ID="StatusLabel" style="color: #2f004b;" runat="server" Text='<%# GetExchangeStatus(Eval("exchange_state")) %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="exchange_time" HeaderText="日期" DataFormatString="{0:yyyy-MM-dd}" />
                 </Columns>
             </asp:GridView>
             </div>
-
-
+        </div>
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/bucket_list.aspx" />
     </form>

@@ -137,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\forget_bucket_pwd.aspx" />
-    <Content Include="src\bucket_password_set.aspx" />
     <Content Include="src\finishAch.aspx" />
     <Content Include="src\achievement.aspx" />
     <Content Include="src\avatar.aspx" />
@@ -324,13 +323,6 @@
     </Compile>
     <Compile Include="src\forget_bucket_pwd.aspx.designer.cs">
       <DependentUpon>forget_bucket_pwd.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\bucket_password_set.aspx.cs">
-      <DependentUpon>bucket_password_set.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\bucket_password_set.aspx.designer.cs">
-      <DependentUpon>bucket_password_set.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\finishAch.aspx.cs">
       <DependentUpon>finishAch.aspx</DependentUpon>

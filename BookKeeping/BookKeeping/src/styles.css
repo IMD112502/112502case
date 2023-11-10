@@ -202,13 +202,26 @@ body {
     }
 
     .ButtonSize2 { /* 按鈕大小(較窄) */
-        width: 120px;
-        height: 60px;
+        width: 72px;
+        height: 40px;
+        font-size: 18px;
     }
 
     .ButtonSize3 { /* 按鈕大小(小方塊) */
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    .ButtonSize4 { /* 按鈕大小(2變長) */
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .ButtonSize5 { /* 按鈕大小(正方) */
+        width: 30px;
+        height: 30px;
     }
 
     .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
@@ -255,6 +268,16 @@ body {
     }
 
     .ButtonSize3 { /* 按鈕大小(小方塊) */
+        width: 50px;
+        height: 40px;
+    }
+
+    .ButtonSize4 { /* 按鈕大小(2變長) */
+        width: 120px;
+        height: 60px;
+    }
+
+    .ButtonSize5 { /* 按鈕大小(正方) */
         width: 50px;
         height: 50px;
     }
@@ -691,117 +714,215 @@ body {
 }
 /*--------------------------------主畫面結束---------------------------------------*/
 /*-----------------------------------設定------------------------------------------*/
-.SetBody {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}
-
-.SetForm {
-    position: fixed;
-    text-align: left;
-    padding: 80px;
-    background-color: #95CACA;
-    height: 500px;
-    width: 900px;
-    border-radius: 30px;
-    border-style: solid;
-    font-size: 40px;
-    line-height: 70px;
-    font-weight: bold;
-}
-
-.SetTitle {
-    font-size: 70px;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.SetContent {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translate(0, -50%);
-}
-
-.AvatarSmall {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    transform: translate(-50%, -50%);
-}
-
-    .AvatarSmall:hover { /*鼠標放在按鈕上 */
-        width: 120px;
-        height: 120px;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .SetBody {
+        position: absolute;
+        height: 300px;
+        width: 540px;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        overflow-y: hidden;
     }
 
-.Ava {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    top: 50%;
-    left: 78%;
-    transform: translate(-50%, -50%);
+    .SetForm {
+        position: absolute;
+        text-align: left;
+        padding: 24px;
+        background-color: #95CACA;
+        height: 300px;
+        width: 540px;
+        top: 50%;
+        left: 50%;
+        border-radius: 30px;
+        border: 5px;
+        border-style: solid;
+        font-size: 24px;
+        line-height: 42px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
+    }
+
+    .SetTitle {
+        font-size: 42px;
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .SetContent {
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translate(0, -50%);
+    }
+
+    .Ava {
+        position: absolute;
+        width: 144px;
+        height: 144px;
+        top: 50%;
+        left: 78%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Xx {
+        font-size: 20px;
+        position: absolute;
+        top: 10%;
+        left: 93.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Logout, #GoBack {
+        position: absolute;
+        top: 90%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+
+    #EditOk {
+        position: absolute;
+        top: 90%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    .SetTextBoxStyle {
+        height: 24px;
+        width: 210px;
+        font-size: 24px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
+
+    .YearTextBox {
+        width: 60px;
+    }
+
+    .MonthDayTextBox {
+        width: 26px;
+    }
+
+    #Clear {
+        position: absolute;
+        top: 90%;
+        left: 77%;
+        transform: translate(-50%, -50%);
+    }
 }
 
-.Avatar {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    top: 50%;
-    left: 78%;
-    transform: translate(-50%, -50%);
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .SetBody {
+        position: absolute;
+        height: 500px;
+        width: 900px;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        overflow-y: hidden;
+    }
+
+    .SetForm {
+        position: absolute;
+        text-align: left;
+        padding: 40px;
+        background-color: #95CACA;
+        height: 500px;
+        width: 900px;
+        top: 50%;
+        left: 50%;
+        border-radius: 30px;
+        border: 5px;
+        border-style: solid;
+        font-size: 40px;
+        line-height: 70px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
+    }
+
+    .SetTitle {
+        font-size: 70px;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .SetContent {
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translate(0, -50%);
+    }
+
+    .Ava {
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        top: 50%;
+        left: 78%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Xx {
+        font-size: 40px;
+        position: absolute;
+        top: 10%;
+        left: 93.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Logout, #GoBack {
+        position: absolute;
+        top: 90%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+
+    #EditOk {
+        position: absolute;
+        top: 90%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    .SetTextBoxStyle {
+        height: 40px;
+        width: 330px;
+        font-size: 40px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        box-shadow: 1px 1px 3px gray;
+    }
+
+    .YearTextBox {
+        width: 90px;
+    }
+
+    .MonthDayTextBox {
+        width: 45px;
+    }
+
+    #Clear {
+        position: absolute;
+        top: 90%;
+        left: 77%;
+        transform: translate(-50%, -50%);
+    }
 }
-
-/*.Avatar:hover {*/ /* 鼠標放在按鈕上 */
-/*width: 330px;
-        height: 330px;
-    }*/
-
-#Xx {
-    position: absolute;
-    top: 10%;
-    left: 93.5%;
-    transform: translate(-50%, -50%);
-}
-
-#Logout, #GoBack {
-    position: absolute;
-    top: 90%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-}
-
-#EditOk {
-    position: absolute;
-    top: 90%;
-    left: 90%;
-    transform: translate(-50%, -50%);
-}
-
-.SetTextBoxStyle {
-    width: 150px;
-    height: 40px;
-    width: 350px;
-    font-size: 40px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 3px gray;
-}
-
-#Clear {
-    position: absolute;
-    top: 90%;
-    left: 77%;
-    transform: translate(-50%, -50%);
-}
-
 /*---------------------------------設定結束----------------------------------------*/
 /*--------------------------------登入、註冊---------------------------------------*/
 /*------------登入------------*/
@@ -981,7 +1102,7 @@ body {
 
     .ForgetButton {
         position: absolute;
-        left: 50%;
+        left: 32%;
         top: 67.5%;
         width: 320px;
         transform: translate(-50%, -50%);
@@ -1957,366 +2078,1009 @@ body {
 /*--------------------------------成就結束------------------------------------*/
 
 /*--------------------------------願望清單------------------------------------*/
-.BucBody {
-    background-image: url('images/dre_bg.png');
-    background-size: 907px 753.5px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}
-
-.BucMainForm {
-    position: fixed;
-    padding: 20px 50px;
-    height: 600px;
-    width: 800px;
-}
-
-.WishFlex { /*flex區塊(4個願望)*/
-    width: 570px;
-    height: 570px;
-    margin-left: 10%;
-    margin-top: 13%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.BucMemo { /* 單個願望便條 */
-    background: url('images/dre_memo.png');
-    background-size: 250px;
-    background-repeat: no-repeat;
-    width: 250px;
-    height: 250px;
-}
-
-.ContentFlex {
-    font-size: 40px;
-    width: 250px;
-    height: 250px;
-    font-weight: bold;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    /*    background-color: burlywood;
-*/
-}
-
-.BucButton12 {
-    display: flex;
-    flex-direction: row;
-}
-/*.ExchangeButton {*/ /* 兌換按鈕大小 */
-/*font-size: large;
-    height: 40px;
-    width: 90px;
-}*/
-
-#BucTrashcan { /* 垃圾桶按鈕 */
-    width: 160.8px;
-    height: 259.8px;
-    position: absolute;
-    top: 100%;
-    left: 6%;
-    transform: translate(-50%, -50%);
-}
-
-    #BucTrashcan:hover {
-        width: 176.88px; /* 1.1倍 */
-        height: 285.78px; /* 1.1倍 */
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .BucBody {
+        position: absolute;
+        background-image: url('images/dre_bg.png');
+        background-size: 544.2px 452.1px;
+        width: 544.2px;
+        height: 452.1px;
+        margin: auto;
+        display: flex;
+        background-repeat: no-repeat;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
-#ReviewButton { /* 審核區按鈕 */
-    width: 200px;
-    height: 220px;
-    position: absolute;
-    top: 60%;
-    left: 88%;
-    transform: translate(-50%, -50%);
-}
-
-    #ReviewButton:hover {
-        width: 220px; /* 1.1倍 */
-        height: 242px; /* 1.1倍 */
+    .WishFlex { /*flex區塊(4個願望)*/
+        position: absolute;
+        width: 342px;
+        height: 342px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -43%);
     }
 
-#BucketAdd { /* 新增願望按鈕 */
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 100%;
-    left: 87%;
-    transform: translate(-50%, -50%);
-}
-
-    #BucketAdd:hover {
-        width: 96px; /* 1.2倍 */
-        height: 96px; /* 1.2倍 */
+    .BucMemo { /* 單個願望便條 */
+        background: url('images/dre_memo.png');
+        background-size: 150px;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 150px;
     }
 
-#RecordButton {
-    position: absolute; /*指定絕對位置*/
-    width: 100px;
-    left: 16%;
-    top: 20%;
-    transform: translate(-50%, -50%);
+    .ContentFlex {
+        font-size: 24px;
+        width: 150px;
+        height: 150px;
+        font-weight: bold;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .BucButton12 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #BucTrashcan { /* 垃圾桶按鈕 */
+        width: 96.48px;
+        height: 155.88px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-300%, 50%);
+    }
+
+        #BucTrashcan:hover {
+            width: 106.128px; /* 1.1倍 */
+            height: 171.468px; /* 1.1倍 */
+            transform: translate(-280%, 40%);
+        }
+
+    #ReviewButton { /* 審核區按鈕 */
+        width: 120px;
+        height: 132px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(163%, -50%);
+    }
+
+        #ReviewButton:hover {
+            width: 132px; /* 1.1倍 */
+            height: 145.2px; /* 1.1倍 */
+            transform: translate(143%, -50%);
+        }
+
+    #BucketAdd { /* 新增願望按鈕 */
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(400%, 300%);
+    }
+
+        #BucketAdd:hover {
+            width: 57.6px; /* 1.2倍 */
+            height: 57.6px; /* 1.2倍 */
+            transform: translate(320%, 240%);
+        }
+
+    #RecordButton {
+        position: absolute; /*指定絕對位置*/
+        width: 70px;
+        left: 50%;
+        top: 50%;
+        font-size: 15px;
+        transform: translate(-340%, -600%);
+    }
+}
+
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .BucBody {
+        position: absolute;
+        background-image: url('images/dre_bg.png');
+        background-size: 725.6px 602.8px;
+        width: 725.6px;
+        height: 602.8px;
+        margin: auto;
+        display: flex;
+        background-repeat: no-repeat;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .WishFlex { /*flex區塊(4個願望)*/
+        position: absolute;
+        width: 456px;
+        height: 456px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -43%);
+    }
+
+    .BucMemo { /* 單個願望便條 */
+        background: url('images/dre_memo.png');
+        background-size: 200px;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 200px;
+    }
+
+    .ContentFlex {
+        font-size: 32px;
+        width: 200px;
+        height: 200px;
+        font-weight: bold;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .BucButton12 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #BucTrashcan { /* 垃圾桶按鈕 */
+        width: 128.64px;
+        height: 207.84px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-300%, 50%);
+    }
+
+        #BucTrashcan:hover {
+            width: 141.504px; /* 1.1倍 */
+            height: 228.624px; /* 1.1倍 */
+            transform: translate(-280%, 40%);
+        }
+
+    #ReviewButton { /* 審核區按鈕 */
+        width: 160px;
+        height: 176px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(163%, -50%);
+    }
+
+        #ReviewButton:hover {
+            width: 176px; /* 1.1倍 */
+            height: 193.6px; /* 1.1倍 */
+            transform: translate(143%, -50%);
+        }
+
+    #BucketAdd { /* 新增願望按鈕 */
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(400%, 300%);
+    }
+
+        #BucketAdd:hover {
+            width: 76.8px; /* 1.2倍 */
+            height: 76.8px; /* 1.2倍 */
+            transform: translate(320%, 240%);
+        }
+
+    #RecordButton {
+        position: absolute; /*指定絕對位置*/
+        width: 80px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-400%, -500%);
+    }
 }
 
 /*-----------------------願望功能----------------------------*/
-.BucWord { /* 願望功能內容文字 */
-    margin-top: 80px;
-    margin-left: 20px;
-    font-size: 40px;
-    font-weight: bold;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .BucWord { /* 願望功能內容文字 */
+        margin-top: 60px;
+        margin-left: 20px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .YMemo { /* 黃色便條 */
+        background-image: url('images/dre_add_memo.png');
+    }
+
+    .BMemo { /* 藍色便條 */
+        background-image: url('images/dre_rev_button.png');
+    }
+
+    .Notebook { /* 歷史紀錄 */
+        background-image: url('images/notebook.png');
+        background-size: 298.5px 410.7px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 298.5px;
+        height: 410.7px;
+        transform: translate(-50%, -50%);
+    }
+
+    .NoteTitle {
+        color: #2f004b;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .NotebookText {
+        position: absolute;
+        height: 320px;
+        left: 50%;
+        top: 12%;
+        transform: translate(-50%, 0%);
+    }
+
+    table.Gridview3 {
+        width: 250px;
+        height: 48px;
+        margin-top: 5px;
+        border: none; /* 不要框線 */
+    }
+
+        table.Gridview3 tr {
+            text-align: center;
+            color: #2f004b;
+            font-size: 14px;
+        }
+
+        table.Gridview3 th, table.Gridview3 td { /* 不要左右框線 */
+            color: #2f004b;
+            border-left: none;
+            border-right: none;
+        }
+
+    .MemoStyle { /* 便條區塊樣式 */
+        background-size: 390px 390px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 390px;
+        height: 390px;
+        transform: translate(-50%, -50%);
+    }
+
+    .MemoStyle2 { /* 便條區塊樣式 */
+        background-size: 420px 420px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 420px;
+        height: 420px;
+        transform: translate(-50%, -50%);
+    }
+
+    .BucDiv { /* 願望功能樣式 */
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 390px;
+        height: 390px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /*--換頁紐--*/
+    .LastNext { /* 區塊 */
+        position: absolute; /*指定絕對位置*/
+        width: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-51%, -50%);
+    }
+
+    .LastNextSize { /* 按鈕大小 */
+        height: 50px;
+        width: 50px;
+    }
+
+    #Last { /* 上一個願望 */
+        position: absolute;
+        left: 40px;
+    }
+
+    #Next { /* 下一個願望 */
+        position: absolute;
+        right: 0px;
+    }
 }
 
-.YMemo { /* 黃色便條 */
-    background-image: url('images/dre_add_memo.png');
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .BucWord { /* 願望功能內容文字 */
+        margin-top: 160px;
+        margin-left: 20px;
+        font-size: 60px;
+        font-weight: bold;
+    }
 
-.BMemo { /* 藍色便條 */
-    background-image: url('images/dre_rev_button.png');
-}
+    .YMemo { /* 黃色便條 */
+        background-image: url('images/dre_add_memo.png');
+    }
 
-.Notebook { /* 歷史紀錄 */
-    background-image: url('images/notebook.png');
-    background-size: 497.5px 684.5px;
-    position: absolute; /*指定絕對位置*/
-    left: 50%;
-    top: 50%;
-    width: 497.5px;
-    height: 684.5px;
-    transform: translate(-50%, -50%);
-}
+    .BMemo { /* 藍色便條 */
+        background-image: url('images/dre_rev_button.png');
+    }
 
-.NotebookText {
-    position: absolute;
-    left: 50%;
-    top: 12%;
-    transform: translate(-55%, 0%);
-}
+    .Notebook { /* 歷史紀錄 */
+        background-image: url('images/notebook.png');
+        background-size: 497.5px 684.5px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 497.5px;
+        height: 684.5px;
+        transform: translate(-50%, -50%);
+    }
 
-.MemoStyle { /* 便條區塊樣式 */
-    background-size: 650px 650px;
-    position: absolute; /*指定絕對位置*/
-    left: 50%;
-    top: 50%;
-    width: 650px;
-    height: 552px;
-    padding-top: 100px;
-    transform: translate(-50%, -50%);
-}
+    .NoteTitle {
+        font-size: 40px;
+        color: #2f004b;
+        font-weight: bold;
+    }
 
-.BucForm { /* 願望功能Form樣式 */
-    text-align: center;
-    padding: 20px;
-    width: 260px;
-    height: 535px;
-    margin-top: 180px;
-    margin-left: 50%;
-}
+    .NotebookText {
+        position: absolute;
+        left: 50%;
+        top: 12%;
+        height: 540px;
+        transform: translate(-50%, 0%);
+    }
 
-/*--換頁紐--*/
-.LastNext { /* 區塊 */
-    position: absolute; /*指定絕對位置*/
-    width: 700px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
+    table.Gridview3 {
+        width: 395px;
+        height: 80px;
+        margin-top: 5px;
+        border: none; /* 不要框線 */
+    }
 
-.LastNextSize { /* 按鈕大小 */
-    height: 50px;
-    width: 50px;
-}
+        table.Gridview3 tr {
+            text-align: center;
+            font-size: 15px;
+        }
 
-#Last { /* 上一個願望 */
-    position: absolute;
-    left: 40px;
-}
+        table.Gridview3 th, table.Gridview3 td { /* 不要左右框線 */
+            color: #2f004b;
+            border-left: none;
+            border-right: none;
+        }
 
-#Next { /* 下一個願望 */
-    position: absolute;
-    right: 0px;
+    .MemoStyle { /* 便條區塊樣式 */
+        background-size: 650px 650px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 650px;
+        height: 650px;
+        transform: translate(-50%, -50%);
+    }
+
+    .MemoStyle2 { /* 便條區塊樣式 */
+        background-size: 650px 650px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 650px;
+        height: 650px;
+        transform: translate(-50%, -50%);
+    }
+
+    .BucDiv { /* 願望功能樣式 */
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 650px;
+        height: 650px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /*--換頁紐--*/
+    .LastNext { /* 區塊 */
+        position: absolute; /*指定絕對位置*/
+        width: 700px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .LastNextSize { /* 按鈕大小 */
+        height: 50px;
+        width: 50px;
+    }
+
+    #Last { /* 上一個願望 */
+        position: absolute;
+        left: 40px;
+    }
+
+    #Next { /* 下一個願望 */
+        position: absolute;
+        right: 0px;
+    }
 }
 /*----------*/
 
 /*--------------願望新增---------------*/
-.BucAddButton { /* 按鈕區塊 */
-    position: absolute; /*指定絕對位置*/
-    width: 260px;
-    left: 50%;
-    top: 80%;
-    transform: translate(-50%, -50%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .BucAddButton { /* 按鈕區塊 */
+        position: absolute; /*指定絕對位置*/
+        width: 156px;
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+    }
+
+    #BucAdd {
+        position: absolute;
+        right: 0px;
+    }
+
+    #BucUnadd {
+        position: absolute;
+        left: 0px;
+    }
 }
 
-#BucAdd {
-    position: absolute;
-    right: 0px;
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .BucAddButton { /* 按鈕區塊 */
+        position: absolute; /*指定絕對位置*/
+        width: 260px;
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+    }
 
-#BucUnadd {
-    position: absolute;
-    left: 0px;
+    #BucAdd {
+        position: absolute;
+        right: 0px;
+    }
+
+    #BucUnadd {
+        position: absolute;
+        left: 0px;
+    }
 }
 /*------------願望新增結束------------*/
 
 /*-------------願望垃圾桶-------------*/
-.TraButton {
-    left: 50%;
-    top: 85%;
-    transform: translate(-50%, -50%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .TraButton {
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    .TraWord { /* 願望功能內容文字 */
+        position: absolute;
+        width: 330px;
+        height: 250px;
+        left: 52%;
+        top: 58%;
+        font-size: 38px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
+    }
+
+    .TraCause {
+        position: absolute;
+        width: 330px;
+        left: 50%;
+        top: 50%;
+        font-weight: bold;
+        transform: translate(-50%, -90%);
+    }
+}
+
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .TraButton {
+        left: 50%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    .TraWord { /* 願望功能內容文字 */
+        position: absolute;
+        left: 52%;
+        top: 60%;
+        width: 480px;
+        height: 300px;
+        font-size: 42px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
+    }
+
+    .TraCause {
+        position: absolute;
+        width: 480px;
+        left: 50%;
+        top: 50%;
+        font-weight: bold;
+        transform: translate(-50%, -100%);
+    }
 }
 /*-----------願望垃圾桶結束-----------*/
 
 /*-------------願望審核區-------------*/
-.RevPassForm {
-    position: absolute;
-    text-align: center;
-    padding: 20px;
-    border-style: solid;
-    width: 670px;
-    height: 580px;
-    margin-top: 50%;
-    margin-left: 50%;
-    transform: translate(-50%, -128%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .NoRev { /* 沒有要審核的願望 */
+        position: absolute;
+        width: 230px;
+        top: 50%;
+        left: 50%;
+        font-size: 30px;
+        font-weight: bold;
+        transform: translate(-50%, -80%);
+    }
+
+    .BucPwTitle {
+        font-size: 30px;
+        margin-left: 10px;
+    }
+
+    .YesNo { /* 可以、不可以 */
+        font-size: 20px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 170px;
+        transform: translate(-50%, -80%);
+    }
+
+    .RevText {
+        font-size: 28px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 30%;
+        width: 650px;
+        transform: translate(-50%, -80%);
+    }
+
+    .RevTextbox { /* 輸入金額或原因 */
+        font-size: 20px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 60%;
+        width: 650px;
+        transform: translate(-50%, -35%);
+    }
+
+    .RevTextbox2 { /* 輸入金額或原因 */
+        font-size: 20px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 60%;
+        width: 650px;
+        transform: translate(-50%, -30%);
+    }
+
+    .BucButton { /* 審核確認紐 */
+        left: 50%;
+        top: 87%;
+        transform: translate(-50%, -50%);
+    }
+
+    .BucPwButton { /* 審核確認紐 */
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .BucButton2 { /* 審核確認紐 */
+        left: 50%;
+        top: 85%;
+        transform: translate(-50%, -50%);
+    }
+
+    .RevForgetPwd {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-32%, -80%);
+        font-size: 15px;
+    }
+
+    .Qua {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 80%);
+        font-size: 20px;
+    }
+
+    #ErrorMessageLabel {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        color: red;
+        transform: translate(-50%, 40%);
+        font-size: 16px;
+    }
+
+    .ForgetRevPwText {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-48%, -45%);
+        font-size: 18px;
+    }
+
+    .ForgetRevPwButtn {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 145%);
+    }
 }
 
-.NoRev { /* 沒有要審核的願望 */
-    position: absolute;
-    margin-top: 14%;
-    margin-left: 6%;
-    font-size: 35px;
-    font-weight: bold;
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .NoRev { /* 沒有要審核的願望 */
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        left: 50%;
+        font-size: 40px;
+        font-weight: bold;
+        transform: translate(-50%, -100%);
+    }
 
-.YesNo { /* 可以、不可以 */
-    font-size: 30px;
-    position: absolute; /*指定絕對位置*/
-    left: 50%;
-    top: 50%;
-    width: 650px;
-    transform: translate(-15%);
-    border-block-color: blueviolet;
-}
+    .BucPwTitle {
+        font-size: 40px;
+    }
 
-.RevTextbox { /* 輸入金額或原因 */
-    font-size: 30px;
-    position: absolute; /*指定絕對位置*/
-    left: 1%;
-    top: 60%;
-    width: 650px;
-    border-block-color: blueviolet;
-}
+    .YesNo { /* 可以、不可以 */
+        font-size: 30px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 220px;
+        transform: translate(-50%, -60%);
+    }
 
-.BucButton { /* 審核確認紐 */
-    left: 50%;
-    top: 75%;
-    transform: translate(-50%, -50%);
-}
+    .RevTextbox { /* 輸入金額或原因 */
+        font-size: 30px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 650px;
+        transform: translate(-50%, 70%);
+    }
 
-.BucPwButton { /* 審核確認紐 */
-    left: 50%;
-    top: 85%;
-    transform: translate(-50%, -50%);
-}
+    .RevTextbox2 { /* 輸入金額或原因 */
+        font-size: 30px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 50%;
+        width: 650px;
+        transform: translate(-50%, 20%);
+    }
 
-.BucButton2 { /* 審核確認紐 */
-    left: 50%;
-    top: 85%;
-    transform: translate(-50%, -50%);
-}
+    .BucButton { /* 審核確認紐 */
+        left: 50%;
+        top: 85%;
+        transform: translate(-50%, -50%);
+    }
 
-.RevForgetPwd {
-    margin-left: 190px;
+    .BucPwButton { /* 審核確認紐 */
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .BucButton2 { /* 審核確認紐 */
+        left: 50%;
+        top: 85%;
+        transform: translate(-50%, -50%);
+    }
+
+    .RevForgetPwd {
+        position: absolute;
+        width: 500px;
+        top: 48%;
+        left: 50%;
+        transform: translate(-32%, -80%);
+        font-size: 18px;
+    }
+
+    .Qua {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        font-size: 25px;
+    }
+
+    #ErrorMessageLabel {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        color: red;
+        transform: translate(-50%, 50%);
+        font-size: 18px;
+    }
+
+    .ForgetRevPwText {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-48%, -50%);
+        font-size: 25px;
+    }
+
+    .ForgetRevPwButtn {
+        position: absolute;
+        width: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 160%);
+    }
 }
 /*----------願望審核區結束----------*/
 /*------------------------------------更衣室------------------------------------*/
-.DreRoom {
-    background-image: url('images/cloth/cloth_bg.png');
-    background-size: 1047px 877.2px;
-}
-
-.DreButton { /* 底部按鈕區塊 */
-    position: absolute;
-    top: 92%;
-    left: 51%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 90px;
-}
-
-.ClothButton {
-    transition: transform 0.2s; /* 添加變換動畫效果 */
-}
-
-    .ClothButton:hover {
-        transform: scale(1.1); /* 鼠標懸停時按鈕變大 1.2 倍 */
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .DreRoom {
+        position: absolute;
+        background-image: url('images/cloth/cloth_bg.png');
+        background-size: 628.2px 526.32px;
+        height: 526.32px;
+        width: 628.2px;
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        overflow-y: hidden;
     }
 
-.Left {
-    height: 730px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 13%;
+    .DreButton { /* 底部按鈕區塊 */
+        position: absolute;
+        bottom: 5%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+        width: 215px;
+        height: 40px;
+    }
+
+    .ClothButton {
+        transition: transform 0.2s; /* 添加變換動畫效果 */
+    }
+
+        .ClothButton:hover {
+            transform: scale(1.1); /* 鼠標懸停時按鈕變大 1.2 倍 */
+        }
+
+    .HeadImage {
+        width: 182.4px;
+        height: 254.4px;
+    }
+
+    .ClothImage {
+        width: 186px;
+        height: 216px;
+    }
+
+    .Left {
+        height: 438px;
+        position: absolute;
+        transform: translate(0%, -50%);
+        top: 50%;
+        left: 0%;
+    }
+
+    .Head {
+        background-color: #BEE3E2;
+        height: 192px;
+        width: 201px;
+        border-radius: 15px; /*圓角*/
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
+
+    .Cloth {
+        background-color: #BEE3E2;
+        height: 240px;
+        width: 201px;
+        margin-top: 6px;
+        border-radius: 15px; /*圓角*/
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
+
+    .DrePerson { /* 人物 */
+        position: absolute;
+        height: 480px;
+        width: 228px;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #NowBody {
+        position: absolute;
+        width: 186px;
+        height: 216px;
+        top: 60%;
+        left: 50%;
+        transform: translate(-49%, -52%);
+    }
+
+    #NowHead {
+        position: absolute;
+        width: 182.4px;
+        height: 254.4px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .Pet {
+        background-color: #BEE3E2;
+        height: 360px;
+        width: 195px;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -50%);
+        border-radius: 15px; /*圓角*/
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
 }
 
-.Head {
-    background-color: #BEE3E2;
-    height: 320px;
-    width: 335px;
-    border-radius: 15px; /*圓角*/
-    overflow-y: scroll; /* 垂直滾動條 */
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .DreRoom {
+        position: absolute;
+        background-image: url('images/cloth/cloth_bg.png');
+        background-size: 1047px 877.2px;
+        height: 877.2px;
+        width: 1047px;
+        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        overflow-y: hidden;
+    }
 
-.Cloth {
-    background-color: #BEE3E2;
-    height: 400px;
-    width: 335px;
-    margin-top: 10px;
-    border-radius: 15px; /*圓角*/
-    overflow-y: scroll; /* 垂直滾動條 */
-}
+    .DreButton { /* 底部按鈕區塊 */
+        position: absolute;
+        bottom: 1%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+        width: 254px;
+        height: 90px;
+    }
 
-.DrePerson { /* 人物 */
-    position: absolute;
-    height: 800px;
-    width: 380px;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    .ClothButton {
+        transition: transform 0.2s; /* 添加變換動畫效果 */
+    }
 
-#NowBody {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-49%, -52%);
-}
+        .ClothButton:hover {
+            transform: scale(1.1); /* 鼠標懸停時按鈕變大 1.2 倍 */
+        }
 
-#NowHead {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    .HeadImage {
+        width: 304px;
+        height: 424px;
+    }
 
-.Pet {
-    background-color: #BEE3E2;
-    height: 600px;
-    width: 325px;
-    position: absolute;
-    top: 50%;
-    left: 87%;
-    transform: translate(-50%, -50%);
-    border-radius: 15px; /*圓角*/
-    overflow-y: scroll; /* 垂直滾動條 */
+    .ClothImage {
+        width: 310px;
+        height: 360px;
+    }
+
+    .Left {
+        height: 730px;
+        position: absolute;
+        transform: translate(0%, -50%);
+        top: 50%;
+        left: 0%;
+    }
+
+    .Head {
+        background-color: #BEE3E2;
+        height: 320px;
+        width: 335px;
+        border-radius: 15px; /*圓角*/
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
+
+    .Cloth {
+        background-color: #BEE3E2;
+        height: 400px;
+        width: 335px;
+        margin-top: 10px;
+        border-radius: 15px; /*圓角*/
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
+
+    .DrePerson { /* 人物 */
+        position: absolute;
+        height: 800px;
+        width: 380px;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #NowBody {
+        position: absolute;
+        width: 310px;
+        height: 360px;
+        top: 60%;
+        left: 50%;
+        transform: translate(-49%, -52%);
+    }
+
+    #NowHead {
+        position: absolute;
+        width: 304px;
+        height: 424px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .Pet {
+        background-color: #BEE3E2;
+        height: 600px;
+        width: 325px;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -50%);
+        border-radius: 15px; /*圓角*/
+        overflow-y: scroll; /* 垂直滾動條 */
+    }
 }
 /*------------------------------------更衣室結束------------------------------------*/
 
