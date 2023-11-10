@@ -54,7 +54,7 @@ namespace BookKeeping.src
                     }
 
                     // 查询用户的所有衣服ID頭部
-                    string clothQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%body%'";
+                    string clothQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%body%'";
                     using (MySqlCommand clothCmd = new MySqlCommand(clothQuery, conn))
                     {
                         clothCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -66,7 +66,7 @@ namespace BookKeeping.src
                     }
 
                     // 查询用户的所有衣服ID套裝
-                    string headQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%Head%'";
+                    string headQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%Head%'";
                     using (MySqlCommand headCmd = new MySqlCommand(headQuery, conn))
                     {
                         headCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -184,7 +184,7 @@ namespace BookKeeping.src
                 conn.Open();
 
                 // 查询用户的衣物数据
-                string userQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%body%'";
+                string userQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%body%'";
                 using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
                 {
                     userCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -216,7 +216,7 @@ namespace BookKeeping.src
                 conn.Open();
 
                 // 查询用户的衣物数据
-                string userQuery = "SELECT cloth_id FROM `112-112502`.dressing_room WHERE user_id = @user_id and cloth_id like '%head%'";
+                string userQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%head%'";
                 using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
                 {
                     userCmd.Parameters.AddWithValue("@user_id", user_id);

@@ -156,7 +156,7 @@ namespace _BookKeeping
             cmd.Parameters.AddWithValue("@defaultClothing", defaultClothing);
             cmd.Parameters.AddWithValue("@defaultBody", defaultBody);
 
-            string SQL = "INSERT INTO `112-112502`.dressing_room (user_id, cloth_id) VALUES (@user_id, @cloth_id)";
+            string SQL = "INSERT INTO `112-112502`.achievement_complete (user_id, cloth_id, a_id) VALUES (@user_id, @cloth_id, 'DB')";
             MySqlCommand sqlcmd = new MySqlCommand(SQL, conn);
 
             sqlcmd.Parameters.AddWithValue("@user_id", userid);
@@ -166,10 +166,13 @@ namespace _BookKeeping
 
             sqlcmd.Parameters.Clear(); // 清除之前的参数
 
-            sqlcmd.Parameters.AddWithValue("@user_id", userid);
-            sqlcmd.Parameters.AddWithValue("@cloth_id", defaultBody); // 插入默认身体的路径
+            string clothSQL = "INSERT INTO `112-112502`.achievement_complete (user_id, cloth_id, a_id) VALUES (@user_id, @cloth_id, 'DH')";
+            MySqlCommand clothcmd = new MySqlCommand(clothSQL, conn);
 
-            int rowsAffectedBody = sqlcmd.ExecuteNonQuery();
+            clothcmd.Parameters.AddWithValue("@user_id", userid);
+            clothcmd.Parameters.AddWithValue("@cloth_id", defaultBody); // 插入默认身体的路径
+
+            int rowsAffectedBody = clothcmd.ExecuteNonQuery();
 
             int rowsaffected = cmd.ExecuteNonQuery();
 

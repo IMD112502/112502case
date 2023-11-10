@@ -68,7 +68,7 @@ namespace _BookKeeping
                 List<string> finishTaskLists = new List<string>();
                 int[] taskCount = { 5, 10, 20, 50 };
 
-                string query = "SELECT a_id FROM `112-112502`.achievement WHERE user_id = @user_id";
+                string query = "SELECT a_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user_id", user_id);
 
@@ -180,74 +180,47 @@ namespace _BookKeeping
 
         protected void ClaimButton_Click(object sender, EventArgs e)
         {
-
             int rowsAffected = 0;
-            
 
             // 验证是否成功获取了用户ID
             if (Session["UserID"] != null)
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
-                MySqlConnection connection = new MySqlConnection(connectionString);
-                connection.Open();
-
-                Button claimButton = (Button)sender;
-                string taskId = claimButton.CommandArgument.ToString();
-                string gender = UserGender(connection);
-
-                // 根据 taskId 执行相应的操作，例如发放奖励
-
-                string sql_ach = "INSERT INTO `112-112502`.achievement (user_id, a_id , get_state) VALUES (@user_id , @task_id , 'y')";
-
-                // 使用 Session 中的用户ID
-                string user_id = Session["UserID"].ToString();
-
-                using (MySqlCommand cmd = new MySqlCommand(sql_ach, connection))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@user_id", user_id); // 使用 userId 而不是 user_id
-                    cmd.Parameters.AddWithValue("@task_id", taskId);
+                    connection.Open();
 
-                    rowsAffected += cmd.ExecuteNonQuery();
+                    Button claimButton = (Button)sender;
+                    string taskId = claimButton.CommandArgument.ToString();
+                    string gender = UserGender(connection);
 
-                }
+                    // 根据 taskId 执行相应的操作，例如发放奖励
 
-                // 确保 task_id 是一个整数
-                if (int.TryParse(taskId, out int taskIdValue))
-                {
-                    // 基于 task_id 是否为奇数来构建 @cloth_id
-                    string clothIdValue = (taskIdValue % 2 == 1)
-                    ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId)}.png"
-                    : $"images/cloth/head_{gender}{Convert.ToInt32(taskId)}.png";
+                    // 使用 Session 中的用户ID
+                    string user_id = Session["UserID"].ToString();
 
-                    string sql_cloth = "INSERT INTO `112-112502`.dressing_room (user_id, cloth_id) VALUES (@user_id, @cloth_id);";
-
-                    using (MySqlCommand cmd_cloth = new MySqlCommand(sql_cloth, connection))
+                    // 确保 task_id 是一个整数
+                    if (int.TryParse(taskId, out int taskIdValue))
                     {
-                        cmd_cloth.Parameters.AddWithValue("@user_id", user_id);
-                        cmd_cloth.Parameters.AddWithValue("@cloth_id", clothIdValue);
+                        // 基于 task_id 是否为奇数来构建 @cloth_id
+                        string clothIdValue = (taskIdValue % 2 == 1)
+                            ? $"images/cloth/body_{gender}{Convert.ToInt32(taskId)}.png"
+                            : $"images/cloth/head_{gender}{Convert.ToInt32(taskId)}.png";
 
-                        rowsAffected += cmd_cloth.ExecuteNonQuery();
+                        string sql_ach = "INSERT INTO `112-112502`.achievement_complete (user_id, a_id, cloth_id) VALUES (@user_id, @task_id, @cloth_id)";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql_ach, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@user_id", user_id);
+                            cmd.Parameters.AddWithValue("@task_id", taskId);
+                            cmd.Parameters.AddWithValue("@cloth_id", clothIdValue);
+
+                            rowsAffected = cmd.ExecuteNonQuery();
+                        }
                     }
-                }
 
-                if (rowsAffected > 1)
-                {
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_4Y.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
-                    script += "document.body.appendChild(imageBox);";
-                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                    ClientScript.RegisterStartupScript(GetType(), "領取成功", script, true);
-                }
-                else
-                {
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_4N.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
-                    script += "document.body.appendChild(imageBox);";
-                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                    ClientScript.RegisterStartupScript(GetType(), "領取失敗", script, true);
+                    ShowResultMessage(rowsAffected);
                 }
 
                 // 重新绑定任务清单以更新任务状态
@@ -259,6 +232,17 @@ namespace _BookKeeping
                 // 例如：ClientScript.RegisterStartupScript(GetType(), "UserIDMissing", "alert('未能获取用户ID！');", true);
             }
         }
+
+        private void ShowResultMessage(int rowsAffected)
+        {
+            string script = "var imageBox = document.createElement('img');";
+            script += rowsAffected > 0 ? "imageBox.src = 'images/alert_4Y.png';" : "imageBox.src = 'images/alert_4N.png';";
+            script += "imageBox.className = 'custom-image';";
+            script += "document.body.appendChild(imageBox);";
+            script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+            ClientScript.RegisterStartupScript(GetType(), rowsAffected > 0 ? "領取成功" : "領取失敗", script, true);
+        }
+
 
     }
 }

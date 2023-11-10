@@ -61,7 +61,7 @@ namespace _BookKeeping
                 List<string> finishTaskLists = new List<string>();
                 int[] taskCount = { 5, 10, 20, 50 };
 
-                string query = "SELECT a_id FROM `112-112502`.achievement WHERE user_id = @user_id";
+                string query = "SELECT a_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@user_id", user_id);
 
