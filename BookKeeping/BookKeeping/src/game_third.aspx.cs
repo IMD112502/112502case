@@ -53,19 +53,19 @@ namespace BookKeeping.src
             {
                 int randomNumber = rand.Next(1, 4);
                 questionQuantities.Add(itemName, randomNumber);
-
-                images.Add(new GameImage
-                {
-                    SisRandomNumber = (itemName == "Siss") ? questionQuantities["Siss"] : rand.Next(1, 4),
-                    GlueRandomNumber = (itemName == "Gluee") ? questionQuantities[itemName] : rand.Next(1, 4),
-                    CorRandomNumber = (itemName == "Corr") ? questionQuantities[itemName] : rand.Next(1, 4),
-                    RulerRandomNumber = (itemName == "Rulerr") ? questionQuantities[itemName] : rand.Next(1, 4),
-                    RedRandomNumber = (itemName == "Redd") ? questionQuantities[itemName] : rand.Next(1, 4),
-                    GreenRandomNumber = (itemName == "Greenn") ? questionQuantities[itemName] : rand.Next(1, 4),
-                    BlueRandomNumber = (itemName == "Bluee") ? questionQuantities[itemName] : rand.Next(1, 4),
-                    BlackRandomNumber = (itemName == "Blackk") ? questionQuantities[itemName] : rand.Next(1, 4),
-                });
             }
+            images.Add(new GameImage
+            {
+                RedRandomNumber = questionQuantities["Redd"],
+                GreenRandomNumber = questionQuantities["Greenn"],
+                BlueRandomNumber = questionQuantities["Bluee"],
+                BlackRandomNumber = questionQuantities["Blackk"],
+                SisRandomNumber = questionQuantities["Siss"],
+                GlueRandomNumber = questionQuantities["Gluee"],
+                CorRandomNumber = questionQuantities["Corr"],
+                RulerRandomNumber = questionQuantities["Rulerr"]
+
+            });
 
             return images;
         }
