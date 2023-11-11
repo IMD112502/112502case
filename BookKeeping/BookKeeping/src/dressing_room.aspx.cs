@@ -164,7 +164,7 @@ namespace BookKeeping.src
                             NowHead.ImageUrl = currentHeadURL;
 
                             currentUserBodyClothingURL = currentClothingURL;
-                            currentUserHeadClothingURL = currentClothingURL;
+                            currentUserHeadClothingURL = currentHeadURL;
                         }
                     }
                 }
