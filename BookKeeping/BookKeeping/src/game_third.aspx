@@ -6,22 +6,57 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>題型三-買文具</title>
+    <title>題型三-認識錢幣</title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Panel ID="ThirdGamePanel1" runat="server"><%--遊戲三之一--%>
+        <asp:Repeater ID="Repeater1" runat="server">
+            <ItemTemplate>
+         <asp:Panel ID="ThirdGamePanel1" runat="server"><%--遊戲三之一--%>
             <div class="GameLeft3_1"><%--左半邊題目--%>
-                <div class="SisQ"><asp:Image ID="Image9" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_sis.png"/><span>X<%# Eval("pass_amount") %></span></div> 
-                <div class="GlueQ"><asp:Image ID="Image10" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_glue.png"/><span>X<%# Eval("pass_amount") %></span></div> 
-                <div class="CorQ"><asp:Image ID="Image11" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_cor.png"/><span>X<%# Eval("pass_amount") %></span></div> 
-                <div class="RulerQ"><asp:Image ID="Image12" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_ruler.png"/><span>X<%# Eval("pass_amount") %></span></div> 
+                <div class="SisQ" draggable="true" id='<%# Eval("SisRandomNumber") %>'>
+                        <asp:Image ID="Image9" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_sis.png" />
+                        <span><%# Eval("SisRandomNumber") %></span>
+                    </div>
 
-                <div class="RedQ"><asp:Image ID="Image13" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_red.png"/><span>X<%# Eval("pass_amount") %></span></div> 
-                <div class="GreenQ"><asp:Image ID="Image14" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_green.png"/><span>X<%# Eval("pass_amount") %></span></div> 
-                <div class="BlueQ"><asp:Image ID="Image15" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_blue.png"/><span>X<%# Eval("pass_amount") %></span></div> 
-                <div class="BlackQ"><asp:Image ID="Image16" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_black.png"/><span>X<%# Eval("pass_amount") %></span></div> 
+                    <div class="GlueQ" draggable="true" id='<%# Eval("GlueRandomNumber") %>'>
+                        <asp:Image ID="Image10" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_glue.png" />
+                        <span><%# Eval( "GlueRandomNumber") %></span>
+                    </div>
+
+                    <div class="CorQ" draggable="true" id='<%# Eval("CorRandomNumber") %>'>
+                        <asp:Image ID="Image11" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_cor.png" />
+                        <span><%# Eval("CorRandomNumber") %></span>
+                    </div>
+
+                    <div class="RulerQ" draggable="true" id='<%# Eval("RulerRandomNumber") %>'>
+                        <asp:Image ID="Image12" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_ruler.png" />
+                        <span><%# Eval("RulerRandomNumber") %></span>
+                    </div>
+
+                    <div class="RedQ" draggable="true" id='<%# Eval("RedRandomNumber") %>'> 
+                        <asp:Image ID="Image13" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_red.png" />
+                        <span><%# Eval("RedRandomNumber") %></span>
+                    </div>
+
+                    <div class="GreenQ" draggable="true" id='<%# Eval("GreenRandomNumber") %>'>
+                        <asp:Image ID="Image14" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_green.png" />
+                        <span><%# Eval("GreenRandomNumber") %></span>
+                    </div>
+
+                    <div class="BlueQ" draggable="true" id='<%# Eval("BlueRandomNumber") %>'>
+                        <asp:Image ID="Image15" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_blue.png" />
+                        <span><%# Eval("BlueRandomNumber") %></span>
+                    </div>
+
+                    <div class="BlackQ" draggable="true" id='<%# Eval("BlackRandomNumber") %>'>
+                        <asp:Image ID="Image16" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_black.png" />
+                        <span><%# Eval("BlackRandomNumber") %></span>
+                    </div>
             </div>
+              </asp:Panel>
+         </ItemTemplate>
+        </asp:Repeater>
 
             <div class="Stationery"><%--文具區--%>
                 <asp:Image class="draggable" ID="Redd" runat="server" Height="240px" Width="155px" ImageUrl="images/game/game3_red2.png"/>
@@ -40,30 +75,35 @@
             </div><%--購物車--%>
 
             <asp:Image ID="Trolley" runat="server" ImageUrl="images/game/game_trolley.png"/>
-            <asp:Button class="ButtonStyle3 ButtonSize3" ID="Correct1" runat="server" Text="V"/>
+            <asp:Button class="ButtonStyle3 ButtonSize3" ID="Correct1" runat="server" Text="V" OnClientClick="checkCart()"/>
+               <asp:Label ID="ResultLabel" runat="server" Text="" />
 
             <script type="text/javascript">
-                document.addEventListener('DOMContentLoaded', function () {
+                var itemQuantities = {
+                    "Redd": 0,
+                    "Greenn": 0,
+                    "Bluee": 0,
+                    "Blackk": 0,
+                    "Siss": 0,
+                    "Gluee": 0,
+                    "Corr": 0,
+                    "Rulerr": 0,
+                };
+
+                window.onload = function () {
                     var draggableElements = document.querySelectorAll('.draggable');
                     var ShoppingCart = document.getElementById('ShoppingCart');
+                    console.log('題目數量：', questionQuantities);
 
                     draggableElements.forEach(function (draggable) {
                         draggable.addEventListener('dragstart', function (event) {
-                            // 把拖曳的照片clone下來
                             var draggedElement = event.target.cloneNode(true);
-
-                            // 把clone下的圖片加到'dragged-image'類別裡
                             draggedElement.classList.add('dragged-image');
-
-                            // 把clone下的圖片加到body裡
                             document.body.appendChild(draggedElement);
-
-                            // 設定拖曳和放下
                             event.dataTransfer.setData('text/plain', draggedElement.id);
                         });
 
                         draggable.addEventListener('dragend', function (event) {
-                            // 滑鼠放開後要移除拖曳中的圖片
                             var draggedElement = document.querySelector('.dragged-image');
                             if (draggedElement) {
                                 draggedElement.parentNode.removeChild(draggedElement);
@@ -79,95 +119,61 @@
                         event.preventDefault();
                         var data = event.dataTransfer.getData('text/plain');
                         var draggedElement = document.getElementById(data);
+                        console.log("拖曳的為" + draggedElement.id);
 
                         if (draggedElement && draggedElement.classList.contains('draggable')) {
-                            // 把正在拖曳的照片放到結帳區
+                            if (isNaN(itemQuantities[draggedElement.id])) {
+                                itemQuantities[draggedElement.id] = 0;
+                            }
+
+                            itemQuantities[draggedElement.id]++;
+                            console.log(itemQuantities[draggedElement.id]);
+
                             var clonedElement = draggedElement.cloneNode(true);
                             clonedElement.classList.add('draggable-item');
                             clonedElement.addEventListener('click', function () {
-                            // 移除點擊的元素
-                            clonedElement.parentNode.removeChild(clonedElement);
+                                clonedElement.parentNode.removeChild(clonedElement);
+                                if (!isNaN(itemQuantities[draggedElement.id])) {
+                                    itemQuantities[draggedElement.id]--;
+                                }
                             });
                             ShoppingCart.appendChild(clonedElement);
                         }
                     });
-                });
-            </script>
-        </asp:Panel>
+                };
 
-        <asp:Panel ID="ThirdGamePane2" runat="server" Visible="false" ><%--遊戲三之二--%>
-            <div class="GameLeft3_2"><%--左半邊題目--%>
-                <p id="TotalMoney">一共是<span id="TotalMoney2"><%# Eval("pass_amount") %>&nbsp;&nbsp;&nbsp;&nbsp;</span>元</p> <%--結帳金額--%>
-                <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk2.png"/>
-                <asp:Button class="ButtonStyle3 ButtonSize2" ID="Correct2" runat="server" Text="完成"/>
+                function checkCart() {
+                    var itemsInCart = document.querySelectorAll('.draggable-item');
+                    console.log('購物車中的物品：');
 
-                <div class="Checkout" id="Checkout">
-                    <asp:Label ID="Label9" runat="server" Text="Label" Style="font-size: 80px; ">結帳區</asp:Label>
-                </div>
-            </div>
-            
-            <div class="Wallet"> <%--右半邊錢包--%>
-                <asp:Image class="draggable" ID="Thousand" runat="server" alt="money1000" draggable="true" ImageUrl="images/game/money_1000.png"/>
-                <asp:Image class="draggable" ID="FiveHundred" runat="server" alt="money500" draggable="true" ImageUrl="images/game/money_500.png"/>
-                <asp:Image class="draggable" ID="Hundred" runat="server" alt="money100" draggable="true" ImageUrl="images/game/money_100.png"/>
-                <asp:Image class="draggable" ID="Fifty" runat="server" alt="money50" draggable="true" ImageUrl="images/game/money_50.png"/>
-                <asp:Image class="draggable" ID="Ten" runat="server" alt="money10" draggable="true" ImageUrl="images/game/money_10.png"/>
-                <asp:Image class="draggable" ID="Five" runat="server" alt="money5" draggable="true" ImageUrl="images/game/money_5.png"/>
-                <asp:Image class="draggable" ID="One" runat="server" alt="money1" draggable="true" ImageUrl="images/game/money_1.png"/>
-            </div>
+                    itemsInCart.forEach(function (item) {
+                        var itemName = item.id;
+                        console.log(itemName + ' - 數量: ' + itemQuantities[itemName]);
+                    });
 
-            <script type="text/javascript">
-                document.addEventListener('DOMContentLoaded', function () {
-                    var draggableElements = document.querySelectorAll('.draggable');
-                    var Checkout = document.getElementById('Checkout');
+                    var correct = true;
 
-                    draggableElements.forEach(function (draggable) {
-                        draggable.addEventListener('dragstart', function (event) {
-                            // 把拖曳的照片clone下來
-                            var draggedElement = event.target.cloneNode(true);
+                    for (var itemName in questionQuantities) {
+                        if (questionQuantities.hasOwnProperty(itemName)) {
+                            var questionQuantity = questionQuantities[itemName];
+                            var itemQuantity = itemQuantities[itemName] || 0;
 
-                            // 把clone下的圖片加到'dragged-image'類別裡
-                            draggedElement.classList.add('dragged-image');
+                            console.log(itemName + ' - 預期數量: ' + questionQuantity + ', 實際數量: ' + itemQuantity);
 
-                            // 把clone下的圖片加到body裡
-                            document.body.appendChild(draggedElement);
-
-                            // 設定拖曳和放下
-                            event.dataTransfer.setData('text/plain', draggedElement.id);
-                        });
-
-                        draggable.addEventListener('dragend', function (event) {
-                            // 滑鼠放開後要移除拖曳中的圖片
-                            var draggedElement = document.querySelector('.dragged-image');
-                            if (draggedElement) {
-                                draggedElement.parentNode.removeChild(draggedElement);
+                            if (itemQuantity !== questionQuantity) {
+                                correct = false;
+                                break;
                             }
-                        });
-                    });
-
-                    Checkout.addEventListener('dragover', function (event) {
-                        event.preventDefault();
-                    });
-
-                    Checkout.addEventListener('drop', function (event) {
-                        event.preventDefault();
-                        var data = event.dataTransfer.getData('text/plain');
-                        var draggedElement = document.getElementById(data);
-
-                        if (draggedElement && draggedElement.classList.contains('draggable')) {
-                            // 把正在拖曳的照片放到結帳區
-                            var clonedElement = draggedElement.cloneNode(true);
-                            clonedElement.classList.add('draggable-item');
-                            clonedElement.addEventListener('click', function () {
-                            // 移除點擊的元素
-                            clonedElement.parentNode.removeChild(clonedElement);
-                            });
-                            Checkout.appendChild(clonedElement);
                         }
-                    });
-                });
+                    }
+
+                    if (correct) {
+                        alert('文具數量正確！');
+                    } else {
+                        alert('文具數量不正確，請檢查！');
+                    }
+                }
             </script>
-        </asp:Panel>
     </form>
 </body>
 </html>
