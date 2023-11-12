@@ -261,20 +261,13 @@ namespace BookKeeping.src
         private void UpdateProgressText()
         {
             int count = int.Parse(GameProgress.Text[0].ToString());
-            if (count == totalQuestions)
-            {
-                ClientScript.RegisterStartupScript(GetType(), "答題結束", "alert('答題結束！');", true);
-                Response.Redirect("game_menu.aspx");
-            }
-            else
-            {
                 count++;
                 GameProgress.Text = count.ToString() + "/" + totalQuestions.ToString();
 
                 // 更新进度条样式
                 double progress = (double)count / totalQuestions * 100;
                 GameProgressBar.Style["width"] = progress + "%";
-            }
+            
 
         }
 
