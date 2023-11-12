@@ -67,6 +67,7 @@ namespace _BookKeeping
                 //將已完成的成就存放至陣列中
                 List<string> finishTaskLists = new List<string>();
                 int[] taskCount = { 5, 10, 20, 50 };
+                int[] scoreCount = { 10, 20, 30 };
 
                 string query = "SELECT a_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
@@ -92,6 +93,7 @@ namespace _BookKeeping
                 // 獲取記帳次數、許願次數和使用者性別
                 int accountingCount = GetAccountingCount(connection);
                 int wishingCount = GetWishingCount(connection);
+                int gameCount = GetGameCount(connection);
                 string gender = UserGender(connection);
 
                 // 創建任務清單數據
@@ -145,6 +147,24 @@ namespace _BookKeeping
                         break;
                     }
                 }
+                for (int k = 9; k <= 11; k += 1)
+                {
+                    if (!finishTaskArray.Contains(k.ToString()))
+                    {
+                        int countIndex =k-9;
+                        int clothIndex = countIndex + 1;
+                        int cnt = scoreCount[countIndex];
+                        DataRow task3 = dt.NewRow();
+                        task3["TaskID"] = k.ToString();
+                        task3["ImageUrl"] = ResolveUrl("~/src/images/cloth/pet_" +  clothIndex.ToString() + ".png");
+                        task3["TaskName"] = "小遊戲答對題數達" + cnt.ToString() + "次";
+                        task3["TaskDescription"] = $"您已答對 {gameCount} 次";
+                        task3["ProgressBarStyle"] = $"width: {(gameCount >= cnt ? 100 : (gameCount * 100 / cnt))}%";
+                        task3["IsTaskCompleted"] = (gameCount >= cnt);
+                        dt.Rows.Add(task3);
+                        break;
+                    }
+                }
 
 
                 TaskRepeater.DataSource = dt;
@@ -170,6 +190,18 @@ namespace _BookKeeping
         {
             // 執行 SQL 查詢以獲取許願次數
             string query = "SELECT COUNT(*) FROM `112-112502`.bucket_list WHERE user_id = @user_id";
+            string user_id = Session["UserID"].ToString();
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@user_id", user_id);
+                return Convert.ToInt32(command.ExecuteScalar());
+            }
+        }
+
+        private int GetGameCount(MySqlConnection connection)
+        {
+            // 執行 SQL 查詢以獲取許願次數
+            string query = "SELECT COALESCE(SUM(score), 0)  FROM `112-112502`.gamedata WHERE user_id = @user_id";
             string user_id = Session["UserID"].ToString();
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {

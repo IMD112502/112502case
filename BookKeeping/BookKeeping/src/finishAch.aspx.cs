@@ -60,6 +60,7 @@ namespace _BookKeeping
                 //將已完成的成就存放至陣列中
                 List<string> finishTaskLists = new List<string>();
                 int[] taskCount = { 5, 10, 20, 50 };
+                int[] scoreCount = { 10, 20, 30 };
 
                 string query = "SELECT a_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id";
                 MySqlCommand command = new MySqlCommand(query, connection);
@@ -130,6 +131,22 @@ namespace _BookKeeping
                         task2["TaskName"] = "許願次數達" + cnt.ToString() + "次";
                         task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                         dt.Rows.Add(task2);
+                       
+                    }
+                }
+                for (int k = 9; k <= 11; k += 1)
+                {
+                    if (finishTaskArray.Contains(k.ToString()))
+                    {
+                        int countIndex = k - 9;
+                        int clothIndex = countIndex + 1;
+                        int cnt =scoreCount[countIndex];
+                        DataRow task3 = dt.NewRow();
+                        task3["TaskID"] = k.ToString();
+                        task3["ImageUrl"] = ResolveUrl("~/src/images/cloth/pet_" + clothIndex.ToString() + ".png");
+                        task3["TaskName"] = "小遊戲答對題數達" + cnt.ToString() + "次";
+                        task3["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
+                        dt.Rows.Add(task3);
                        
                     }
                 }
