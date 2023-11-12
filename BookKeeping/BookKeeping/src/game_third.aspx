@@ -16,41 +16,49 @@
             <div class="GameLeft3_1"><%--左半邊題目--%>
                 <div class="SisQ" draggable="true" id='<%# Eval("SisRandomNumber") %>'>
                         <asp:Image ID="Image9" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_sis.png" />
+                        <asp:Label ID="Sis" ClientIDMode="Static" runat="server" Text='<%# Eval("SisRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("SisRandomNumber") %></span>
                     </div>
 
                     <div class="GlueQ" draggable="true" id='<%# Eval("GlueRandomNumber") %>'>
                         <asp:Image ID="Image10" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_glue.png" />
+                        <asp:Label ID="Glue" runat="server" Text='<%# Eval("GlueRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval( "GlueRandomNumber") %></span>
                     </div>
 
                     <div class="CorQ" draggable="true" id='<%# Eval("CorRandomNumber") %>'>
                         <asp:Image ID="Image11" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_cor.png" />
+                        <asp:Label ID="Cor" runat="server" Text='<%# Eval("CorRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("CorRandomNumber") %></span>
                     </div>
 
                     <div class="RulerQ" draggable="true" id='<%# Eval("RulerRandomNumber") %>'>
                         <asp:Image ID="Image12" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_ruler.png" />
+                        <asp:Label ID="Ruler" runat="server" Text='<%# Eval("RulerRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("RulerRandomNumber") %></span>
                     </div>
 
                     <div class="RedQ" draggable="true" id='<%# Eval("RedRandomNumber") %>'> 
                         <asp:Image ID="Image13" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_red.png" />
+                        <asp:Label ID="Red" runat="server" Text='<%# Eval("RedRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("RedRandomNumber") %></span>
                     </div>
 
                     <div class="GreenQ" draggable="true" id='<%# Eval("GreenRandomNumber") %>'>
                         <asp:Image ID="Image14" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_green.png" />
+                        <asp:Label ID="Green" runat="server" Text='<%# Eval("GreenRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("GreenRandomNumber") %></span>
                     </div>
 
                     <div class="BlueQ" draggable="true" id='<%# Eval("BlueRandomNumber") %>'>
                         <asp:Image ID="Image15" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_blue.png" />
+                        <asp:Label ID="Blue" runat="server" Text='<%# Eval("BlueRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("BlueRandomNumber") %></span>
                     </div>
 
                     <div class="BlackQ" draggable="true" id='<%# Eval("BlackRandomNumber") %>'>
                         <asp:Image ID="Image16" runat="server" Height="168px" Width="88px" ImageUrl="images/game/game3_black.png" />
+                        <asp:Label ID="Black" runat="server" Text='<%# Eval("BlackRandomNumber") %>' Visible="false"></asp:Label>
                         <span><%# Eval("BlackRandomNumber") %></span>
                     </div>
             </div>
@@ -75,7 +83,7 @@
             </div><%--購物車--%>
 
             <asp:Image ID="Trolley" runat="server" ImageUrl="images/game/game_trolley.png"/>
-            <asp:Button class="ButtonStyle3 ButtonSize3" ID="Correct1" runat="server" Text="V" OnClientClick="checkCart()"/>
+            <asp:Button class="ButtonStyle3 ButtonSize3" ID="Correct1" runat="server" Text="V" OnClick="Check3_1_Click"/>
                <asp:Label ID="ResultLabel" runat="server" Text="" />
 
             <script type="text/javascript">
@@ -127,6 +135,22 @@
                             }
 
                             itemQuantities[draggedElement.id]++;
+                            updateQuantityLabel('<%= RedLabel.ClientID %>', 'Redd');
+                            updateQuantityLabel('<%= GreenLabel.ClientID %>', 'Greenn');
+                            updateQuantityLabel('<%= BlueLabel.ClientID %>', 'Bluee');
+                            updateQuantityLabel('<%= BlackLabel.ClientID %>', 'Blackk');
+                            updateQuantityLabel('<%= SisLabel.ClientID %>', 'Siss');
+                            updateQuantityLabel('<%= GlueLabel.ClientID %>', 'Gluee');
+                            updateQuantityLabel('<%= CorLabel.ClientID %>', 'Corr');
+                            updateQuantityLabel('<%= RulerLabel.ClientID %>', 'Rulerr');
+                            document.getElementById('hiddenred').value = document.getElementById('RedLabel').innerText;
+                            document.getElementById('hiddengreen').value = document.getElementById('GreenLabel').innerText;
+                            document.getElementById('hiddenblue').value = document.getElementById('BlueLabel').innerText;
+                            document.getElementById('hiddenblack').value = document.getElementById('BlackLabel').innerText;
+                            document.getElementById('hiddensis').value = document.getElementById('SisLabel').innerText;
+                            document.getElementById('hiddenglue').value = document.getElementById('GlueLabel').innerText;
+                            document.getElementById('hiddencor').value = document.getElementById('CorLabel').innerText;
+                            document.getElementById('hiddenruler').value = document.getElementById('RulerLabel').innerText;
                             console.log(itemQuantities[draggedElement.id]);
 
                             var clonedElement = draggedElement.cloneNode(true);
@@ -135,45 +159,55 @@
                                 clonedElement.parentNode.removeChild(clonedElement);
                                 if (!isNaN(itemQuantities[draggedElement.id])) {
                                     itemQuantities[draggedElement.id]--;
+                                    updateQuantityLabel('<%= RedLabel.ClientID %>', 'Redd');
+                                    updateQuantityLabel('<%= GreenLabel.ClientID %>', 'Greenn');
+                                    updateQuantityLabel('<%= BlueLabel.ClientID %>', 'Bluee');
+                                    updateQuantityLabel('<%= BlackLabel.ClientID %>', 'Blackk');
+                                    updateQuantityLabel('<%= SisLabel.ClientID %>', 'Siss');
+                                    updateQuantityLabel('<%= GlueLabel.ClientID %>', 'Gluee');
+                                    updateQuantityLabel('<%= CorLabel.ClientID %>', 'Corr');
+                                    updateQuantityLabel('<%= RulerLabel.ClientID %>', 'Rulerr');
+                                    document.getElementById('hiddenred').value = document.getElementById('RedLabel').innerText;
+                                    document.getElementById('hiddengreen').value = document.getElementById('GreenLabel').innerText;
+                                    document.getElementById('hiddenblue').value = document.getElementById('BlueLabel').innerText;
+                                    document.getElementById('hiddenblack').value = document.getElementById('BlackLabel').innerText;
+                                    document.getElementById('hiddensis').value = document.getElementById('SisLabel').innerText;
+                                    document.getElementById('hiddenglue').value = document.getElementById('GlueLabel').innerText;
+                                    document.getElementById('hiddencor').value = document.getElementById('CorLabel').innerText;
+                                    document.getElementById('hiddenruler').value = document.getElementById('RulerLabel').innerText;
                                 }
                             });
                             ShoppingCart.appendChild(clonedElement);
                         }
                     });
                 };
-
-                function checkCart() {
-                    var itemsInCart = document.querySelectorAll('.draggable-item');
-                    console.log('購物車中的物品：');
-
-                    itemsInCart.forEach(function (item) {
-                        var itemName = item.id;
-                        console.log(itemName + ' - 數量: ' + itemQuantities[itemName]);
-                    });
-
-                    var correct = true;
-
-                    for (var itemName in questionQuantities) {
-                        if (questionQuantities.hasOwnProperty(itemName)) {
-                            var questionQuantity = questionQuantities[itemName];
-                            var itemQuantity = itemQuantities[itemName] || 0;
-
-                            console.log(itemName + ' - 預期數量: ' + questionQuantity + ', 實際數量: ' + itemQuantity);
-
-                            if (itemQuantity !== questionQuantity) {
-                                correct = false;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (correct) {
-                        alert('文具數量正確！');
-                    } else {
-                        alert('文具數量不正確，請檢查！');
+                function updateQuantityLabel(labelId, itemName) {
+                    var label = document.getElementById(labelId);
+                    if (label) {
+                        label.textContent= itemQuantities[itemName] || 0;
                     }
                 }
+               
             </script>
+        <asp:Label ID="RedLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="GreenLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="BlueLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="BlackLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="SisLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="GlueLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="CorLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="RulerLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+        <asp:Label ID="ImageDataLabel" runat="server" Text=""></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <input type="hidden" name="hiddenred" id="hiddenred" value="0"/>
+        <input type="hidden" name="hiddengreen" id="hiddengreen" value="0"/>
+        <input type="hidden" name="hiddenblue" id="hiddenblue" value="0"/>
+        <input type="hidden" name="hiddenblack" id="hiddenblack" value="0"/>
+        <input type="hidden" name="hiddensis" id="hiddensis" value="0"/>
+        <input type="hidden" name="hiddenglue" id="hiddenglue" value="0"/>
+        <input type="hidden" name="hiddencor" id="hiddencor" value="0"/>
+        <input type="hidden" name="hiddenruler" id="hiddenruler" value="0"/>
+
     </form>
 </body>
 </html>

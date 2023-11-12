@@ -29,7 +29,7 @@ namespace BookKeeping.src
             FirstGamePanel.Visible = true;
             SecondGamePanel.Visible = false;
             ThirdGamePanel1.Visible = false;
-            ThirdGamePane2.Visible = false;
+            ThirdGamePanel2.Visible = false;
 
             currentQuestionIndex = random.Next(faceValues.Count);
 
@@ -80,7 +80,7 @@ namespace BookKeeping.src
             FirstGamePanel.Visible = false;
             SecondGamePanel.Visible = true;
             ThirdGamePanel1.Visible = false;
-            ThirdGamePane2.Visible = false;
+            ThirdGamePanel2.Visible = false;
             // 生成隨機數量（例如，0到3之間的隨機數量）
             Random random = new Random();
 

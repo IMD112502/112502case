@@ -147,7 +147,7 @@
             </script>
         </asp:Panel>
 
-        <asp:Panel ID="ThirdGamePane2" runat="server" Visible="false" ><%--遊戲三之二--%>
+        <asp:Panel ID="ThirdGamePanel2" runat="server" Visible="false" ><%--遊戲三之二--%>
             <div class="GameLeft3_2"><%--左半邊題目--%>
                 <p id="TotalMoney">一共是<span id="TotalMoney2"><%# Eval("pass_amount") %>&nbsp;&nbsp;&nbsp;&nbsp;</span>元</p> <%--結帳金額--%>
                 <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk2.png"/>
@@ -211,8 +211,8 @@
                             var clonedElement = draggedElement.cloneNode(true);
                             clonedElement.classList.add('draggable-item');
                             clonedElement.addEventListener('click', function () {
-                            // 移除點擊的元素
-                            clonedElement.parentNode.removeChild(clonedElement);
+                                // 移除點擊的元素
+                                clonedElement.parentNode.removeChild(clonedElement);
                             });
                             Checkout.appendChild(clonedElement);
                         }
