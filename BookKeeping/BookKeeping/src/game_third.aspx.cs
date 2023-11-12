@@ -12,23 +12,30 @@ namespace BookKeeping.src
     public partial class game_third : System.Web.UI.Page
     {
         public Dictionary<string, int> questionQuantities;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+           if (!IsPostBack) 
             {
-                Repeater1.DataSource = GetImageData();
-                Repeater1.DataBind();
-
-                // Serialize questionQuantities to JSON
-                var jsonQuestionQuantities = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(questionQuantities);
-
-                // Inject the JSON string into the JavaScript code
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "QuestionQuantitiesScript", $"var questionQuantities = {jsonQuestionQuantities};", true);
+                InitializeGame3_1();
             }
+                
         }
 
+        protected void InitializeGame3_1()
+        {
+            ThirdGamePanel1.Visible = true;
+            ThirdGamePanel2.Visible = false;
+            Repeater1.DataSource = GetImageData();
+            Repeater1.DataBind();
 
+            // Serialize questionQuantities to JSON
+            var jsonQuestionQuantities = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(questionQuantities);
+
+            // Inject the JSON string into the JavaScript code
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "QuestionQuantitiesScript", $"var questionQuantities = {jsonQuestionQuantities};", true);
+        }
 
         public class GameImage
         {
@@ -73,12 +80,25 @@ namespace BookKeeping.src
             return images;
         }
 
+        protected int[] GetRandomList(int r , int g , int b , int k ,  int s , int gl , int c , int ru ) 
+        {
+            int[] randomList = new int[8];
+            randomList[0] = r;
+            randomList[1] = g;
+            randomList[2] = b;
+            randomList[3] = k;
+            randomList[4] = s;
+            randomList[5] = gl;
+            randomList[6] = c;
+            randomList[7] = ru;
+
+            return randomList;
+        }
+
         protected void Check3_1_Click(object sender, EventArgs e)
         {
             int redQ, greenQ, blueQ, blackQ, sisQ, glueQ, corQ, rulerQ;
             int cnt = 0;
-            string redstr = Request.Form["hiddenred"].ToString();
-            Label1.Text = redstr;
             int red = Convert.ToInt32(Request.Form["hiddenred"].ToString());
             int green = Convert.ToInt32(Request.Form["hiddengreen"].ToString());
             int blue = Convert.ToInt32(Request.Form["hiddenblue"].ToString());
@@ -120,14 +140,6 @@ namespace BookKeeping.src
             Label rulerLabel = (Label)Repeater1.Controls[0].FindControl("Ruler");
             rulerQ = Convert.ToInt32(rulerLabel.Text);
 
-            //RedLabel.Text = redQ.ToString();
-            //GreenLabel.Text = greenQ.ToString();
-            //BlueLabel.Text = blueQ.ToString();
-            //BlackLabel.Text = blackQ.ToString();
-            //SisLabel.Text = sisQ.ToString();
-            //GlueLabel.Text = glueQ.ToString();
-            //CorLabel.Text = corQ.ToString();
-            //RulerLabel.Text = rulerQ.ToString();
 
             if (red == redQ)
             {
@@ -165,12 +177,88 @@ namespace BookKeeping.src
             if (cnt == 8)
             {
                 ClientScript.RegisterStartupScript(GetType(), "答對了", "alert('答對了！');", true);
+                InitializeGame3_2();
             }
             else
             {
                 ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
             }
+        }
+        protected void InitializeGame3_2()
+        {
+            ThirdGamePanel1.Visible = false;
+            ThirdGamePanel2.Visible = true;
+            int paymentAmount = CalculatePaymentAmount();
 
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "PaymentAmountScript", $"var totalPaymentAmount = {paymentAmount}; updateTotalPayment();", true);
+        }
+
+        private int CalculatePaymentAmount()
+        {
+            int redQ, greenQ, blueQ, blackQ, sisQ, glueQ, corQ, rulerQ;
+
+            // 获取 Red 的数量
+            Label redLabel = (Label)Repeater1.Controls[0].FindControl("Red");
+            redQ = Convert.ToInt32(redLabel.Text);
+
+            // 获取 Green 的数量
+            Label greenLabel = (Label)Repeater1.Controls[0].FindControl("Green");
+            greenQ = Convert.ToInt32(greenLabel.Text);
+
+            // 获取 Blue 的数量
+            Label blueLabel = (Label)Repeater1.Controls[0].FindControl("Blue");
+            blueQ = Convert.ToInt32(blueLabel.Text);
+
+            // 获取 Black 的数量
+            Label blackLabel = (Label)Repeater1.Controls[0].FindControl("Black");
+            blackQ = Convert.ToInt32(blackLabel.Text);
+
+            // 获取 Sis 的数量
+            Label sisLabel = (Label)Repeater1.Controls[0].FindControl("Sis");
+            sisQ = Convert.ToInt32(sisLabel.Text);
+
+            // 获取 Glue 的数量
+            Label glueLabel = (Label)Repeater1.Controls[0].FindControl("Glue");
+            glueQ = Convert.ToInt32(glueLabel.Text);
+
+            // 获取 Cor 的数量
+            Label corLabel = (Label)Repeater1.Controls[0].FindControl("Cor");
+            corQ = Convert.ToInt32(corLabel.Text);
+
+            // 获取 Ruler 的数量
+            Label rulerLabel = (Label)Repeater1.Controls[0].FindControl("Ruler");
+            rulerQ = Convert.ToInt32(rulerLabel.Text);
+            int[] prices = { 25, 10, 53, 37, 8, 20, 45, 12 };
+            int[] items = GetRandomList(redQ, greenQ, blueQ, blackQ, sisQ, glueQ, corQ, rulerQ);
+            int totalAmount = 0;
+
+            for (int i = 0; i < prices.Length; i++)
+            {
+                int quantity = items[i];
+                int price = prices[i];
+
+                totalAmount += quantity * price;
+            }
+
+            return totalAmount;
+        }
+
+        protected void Check3_2_Click(object sender, EventArgs e)
+        {
+            int paymentAmount = CalculatePaymentAmount();
+            int totalAmount = Convert.ToInt32(Request.Form["hiddentotal"].ToString());
+            if (paymentAmount == totalAmount)
+            {
+
+                ClientScript.RegisterStartupScript(GetType(), "答對了", "alert('答對了！');", true);
+
+            }
+            else
+            {
+
+                ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
+            }
+           
         }
 
     }
