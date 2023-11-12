@@ -42,6 +42,15 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image NowBody;
 
         /// <summary>
+        /// NowPet 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image NowPet;
+
+        /// <summary>
         /// headRepeater 控制項。
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater imageRepeater;
+
+        /// <summary>
+        /// petRepeater 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater petRepeater;
 
         /// <summary>
         /// btnCancel 控制項。
@@ -94,6 +112,15 @@ namespace BookKeeping.src
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hiddenHeadwearID;
+
+        /// <summary>
+        /// hiddenPetID 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenPetID;
 
         /// <summary>
         /// gender 控制項。

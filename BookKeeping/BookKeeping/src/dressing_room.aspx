@@ -14,6 +14,7 @@
             <div class="DrePerson" id="imageContainer">
                 <asp:Image ID="NowHead" runat="server" ClientIDMode="Static" ImageUrl="default_head_image.jpg" />
                 <asp:Image ID="NowBody" runat="server" ClientIDMode="Static" ImageUrl="default_body_image.jpg" />
+                <asp:Image ID="NowPet" runat="server" ClientIDMode="Static"/>
             </div>
 
             <div class="Left">
@@ -39,7 +40,13 @@
             </div>
 
             <div class="Pet"> <%--右區塊--%>
-            
+                <asp:Repeater ID="petRepeater" runat="server" Visible="true">
+                    <ItemTemplate>
+                        <asp:ImageButton CssClass="ClothButton HeadImage" ID ="petImage" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
+                            OnClientClick='<%# "return setPetImage(\"" + Eval("cloth_id") + "\");" %>'/>
+                        <asp:Label ID="petstatus" runat="server" Text="使用中" Visible="true"></asp:Label>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
 
             <div class="DreButton">
@@ -48,21 +55,40 @@
             </div>
             <asp:HiddenField ID="hiddenClothingID" runat="server" />
             <asp:HiddenField ID="hiddenHeadwearID" runat="server" />
+            <asp:HiddenField ID="hiddenPetID" runat="server" />
             <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
 
         <script type="text/javascript">
-            function updateImages(newClothingURL, newHeadwearURL) {
+            function updateImages(newClothingURL, newHeadwearURL, newPetURL) {
                 // 更新衣物图片
                 document.getElementById("NowBody").src = newClothingURL;
                 // 更新头饰图片
                 document.getElementById("NowHead").src = newHeadwearURL;
+
+                document.getElementById("NowPet").src = newPetURL;
             }
 
             // 在页面加载时执行检查和设置状态
             window.onload = function () {
                 checkImagesInRepeater();
+            }
+
+            function setPetImage(imagePath) {
+                var petImage = document.getElementById("NowPet");
+                petImage.src = imagePath;
+
+                document.getElementById('<%= hiddenPetID.ClientID %>').value = imagePath;
+
+                var confirmButton = document.getElementById('<%= btnConfirm.ClientID %>');
+                var cancelButton = document.getElementById('<%= btnCancel.ClientID %>');
+                confirmButton.disabled = false;
+                cancelButton.disabled = false;
+
+                updateImages(imagePath, document.getElementById("NowHead").src, null);
+
+                return false;
             }
 
             function setPreviewImage(imagePath) {

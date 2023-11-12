@@ -32,7 +32,7 @@ namespace BookKeeping.src
                     conn.Open();
 
                     // 搜尋資料庫
-                    string query = "SELECT cloth, cloth2, gender FROM `112-112502`.user WHERE user_id = @user_id";
+                    string query = "SELECT cloth, cloth2, gender, pet FROM `112-112502`.user WHERE user_id = @user_id";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@user_id", user_id);
@@ -43,11 +43,13 @@ namespace BookKeeping.src
                                 // 從資料庫抓出剛剛更新的衣服ID
                                 string currentBodyURL = reader["cloth"].ToString();
                                 string currentHeadURL = reader["cloth2"].ToString();
+                                string currentPetURL = reader["pet"].ToString();
                                 string gen = reader["gender"].ToString();
 
                                 // 設置 <asp:Image> 的 ImageUrl 屬性
                                 NowBody.ImageUrl = currentBodyURL;
                                 NowHead.ImageUrl = currentHeadURL;
+                                NowPet.ImageUrl = currentPetURL;
                                 gender.Text = gen;
                             }
                         }
@@ -66,7 +68,7 @@ namespace BookKeeping.src
                     }
 
                     // 查询用户的所有衣服ID套裝
-                    string headQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%Head%'";
+                    string headQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%head%'";
                     using (MySqlCommand headCmd = new MySqlCommand(headQuery, conn))
                     {
                         headCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -74,6 +76,17 @@ namespace BookKeeping.src
                         {
                             headRepeater.DataSource = headReader;
                             headRepeater.DataBind();
+                        }
+                    }
+
+                    string petQuery = "SELECT cloth_id FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%pet%'";
+                    using (MySqlCommand petCmd = new MySqlCommand(petQuery, conn))
+                    {
+                        petCmd.Parameters.AddWithValue("@user_id", user_id);
+                        using (MySqlDataReader petReader = petCmd.ExecuteReader())
+                        {
+                            petRepeater.DataSource = petReader;
+                            petRepeater.DataBind();
                         }
                     }
                 }
@@ -86,6 +99,7 @@ namespace BookKeeping.src
             // 獲取user選擇的新衣物ID和新頭饰ID
             string selectedClothingID = hiddenClothingID.Value;
             string selectedHeadwearID = hiddenHeadwearID.Value;
+            string selectedPetID = hiddenPetID.Value;
 
             // 獲取資料庫連接字串
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
@@ -97,14 +111,16 @@ namespace BookKeeping.src
                 // 獲取用戶目前的衣物ID和頭饰ID
                 string currentClothingID = NowBody.ImageUrl;
                 string currentHeadwearID = NowHead.ImageUrl;
+                string currentPetID = NowPet.ImageUrl;
 
                 // 更新資料庫
-                string updateQuery = "UPDATE `112-112502`.user SET cloth = @newClothingID, cloth2 = @newHeadwearID WHERE user_id = @user_id ";
+                string updateQuery = "UPDATE `112-112502`.user SET cloth = @newClothingID, cloth2 = @newHeadwearID, pet = @newPetID WHERE user_id = @user_id ";
                 using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
                 {
                     // 根據用戶的選擇來更新或保留衣物ID和頭饰ID
                     updateCmd.Parameters.AddWithValue("@newClothingID", string.IsNullOrEmpty(selectedClothingID) ? currentClothingID : selectedClothingID);
                     updateCmd.Parameters.AddWithValue("@newHeadwearID", string.IsNullOrEmpty(selectedHeadwearID) ? currentHeadwearID : selectedHeadwearID);
+                    updateCmd.Parameters.AddWithValue("@newPetID", string.IsNullOrEmpty(selectedPetID) ? currentPetID : selectedPetID);
                     updateCmd.Parameters.AddWithValue("@user_id", user_id);
 
                     int rowsAffected = updateCmd.ExecuteNonQuery();
@@ -134,11 +150,12 @@ namespace BookKeeping.src
             }
         }
 
-        protected (string BodyClothingURL, string HeadClothingURL) BindUserData()
+        protected (string BodyClothingURL, string HeadClothingURL, string PetURL) BindUserData()
         {
 
             string currentUserBodyClothingURL = "";
             string currentUserHeadClothingURL = "";
+            string currentUserPetURL = "";
             // 获取数据库连接字符串
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
@@ -147,7 +164,7 @@ namespace BookKeeping.src
                 conn.Open();
 
                 // 查询用户的衣物和头饰数据
-                string userQuery = "SELECT cloth, cloth2 FROM `112-112502`.user WHERE user_id = @user_id";
+                string userQuery = "SELECT cloth, cloth2, pet FROM `112-112502`.user WHERE user_id = @user_id";
                 using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
                 {
                     userCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -158,18 +175,21 @@ namespace BookKeeping.src
                             // 从数据库抓出用户的衣物URL和头饰URL
                             string currentClothingURL = userReader["cloth"].ToString();
                             string currentHeadURL = userReader["cloth2"].ToString();
+                            string currentPetURL = userReader["pet"].ToString();
 
                             // 设置<asp:Image>的ImageUrl属性
                             NowBody.ImageUrl = currentClothingURL;
                             NowHead.ImageUrl = currentHeadURL;
+                            NowPet.ImageUrl = currentPetURL;
 
                             currentUserBodyClothingURL = currentClothingURL;
                             currentUserHeadClothingURL = currentHeadURL;
+                            currentUserPetURL = currentPetURL;
                         }
                     }
                 }
             }
-            return (currentUserBodyClothingURL, currentUserHeadClothingURL);
+            return (currentUserBodyClothingURL, currentUserHeadClothingURL, currentUserPetURL);
         }
 
         protected List<string> GetUserDataBodyClothing()
@@ -227,6 +247,38 @@ namespace BookKeeping.src
                             // 从数据库中读取每行的 "cloth" 数据并添加到列表
                             string currentClothingURL = userReader["cloth_id"].ToString();
                             clothingUrls.Add(currentClothingURL);
+                        }
+                    }
+                }
+            }
+
+            return clothingUrls;
+
+        }
+
+        protected List<string> GetUserDataPet()
+        {
+            List<string> clothingUrls = new List<string>();
+
+            // 获取数据库连接字符串
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // 查询用户的衣物数据
+                string userQuery = "SELECT pet FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%pet%'";
+                using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
+                {
+                    userCmd.Parameters.AddWithValue("@user_id", user_id);
+                    using (MySqlDataReader userReader = userCmd.ExecuteReader())
+                    {
+                        while (userReader.Read())
+                        {
+                            // 从数据库中读取每行的 "cloth" 数据并添加到列表
+                            string currentPetURL = userReader["pet"].ToString();
+                            clothingUrls.Add(currentPetURL);
                         }
                     }
                 }
@@ -316,6 +368,41 @@ namespace BookKeeping.src
             {
                 Label statusLabel = headRepeater.Items[0].FindControl("headstatus") as Label;
                 ImageButton imgButtonClothing = headRepeater.Items[0].FindControl("headImage") as ImageButton;
+                statusLabel.Visible = true;
+                imgButtonClothing.Enabled = false;
+            }
+
+            foreach (RepeaterItem item in petRepeater.Items)
+            {
+                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                {
+                    // 获取当前项的ImageButton控件和Label控件
+                    ImageButton imgButtonClothing = item.FindControl("petImage") as ImageButton;
+                    Label statusLabel = item.FindControl("petstatus") as Label;
+
+                    // 获取与当前项相关的衣物路径
+                    string clothingPath = imgButtonClothing.ImageUrl; // 从图像的 URL 获取 cloth_id
+
+                    // 检查当前穿着的头部衣物路径是否与当前项的衣物路径匹配
+                    if (string.Equals(userClothingPaths.PetURL, clothingPath, StringComparison.OrdinalIgnoreCase))
+                    {
+                        // 如果匹配，应用灰度样式和显示 "使用中" 文本
+                        imgButtonClothing.Enabled = false; // 禁用按钮
+                        statusLabel.Visible = true; // 显示 "使用中" 文本
+                    }
+                    else
+                    {
+                        // 如果不匹配，移除灰度样式和隐藏 "使用中" 文本
+                        imgButtonClothing.Enabled = true; // 启用按钮
+                        statusLabel.Visible = false; // 隐藏 "使用中" 文本
+                    }
+                }
+            }
+
+            if (petRepeater.Items.Count == 1)
+            {
+                Label statusLabel = petRepeater.Items[0].FindControl("petstatus") as Label;
+                ImageButton imgButtonClothing = petRepeater.Items[0].FindControl("petImage") as ImageButton;
                 statusLabel.Visible = true;
                 imgButtonClothing.Enabled = false;
             }
