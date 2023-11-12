@@ -305,7 +305,7 @@ namespace BookKeeping.src
             {
                 if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                 {
-                    // 获取当前项的ImageButton控件和Label控件
+                    // 获取当前项的 ImageButton 控件和 Label 控件
                     ImageButton imgButtonClothing = item.FindControl("image") as ImageButton;
                     Label statusLabel = item.FindControl("bodystatus") as Label;
 
@@ -315,15 +315,15 @@ namespace BookKeeping.src
                     // 检查当前穿着的身体衣物路径是否与当前项的衣物路径匹配
                     if (string.Equals(userClothingPaths.BodyClothingURL, clothingPath, StringComparison.OrdinalIgnoreCase))
                     {
-                        // 如果匹配，应用灰度样式和显示 "使用中" 文本
-                        imgButtonClothing.Enabled = false; // 禁用按钮
-                        statusLabel.Visible = true; // 显示 "使用中" 文本
+                        // 如果匹配，应用圆角背景
+                        imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
+                        imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
                     }
                     else
                     {
-                        // 如果不匹配，移除灰度样式和隐藏 "使用中" 文本
-                        imgButtonClothing.Enabled = true; // 启用按钮
-                        statusLabel.Visible = false; // 隐藏 "使用中" 文本
+                        // 如果不匹配，移除圆角背景
+                        imgButtonClothing.Style.Remove("border-radius");
+                        imgButtonClothing.Style.Remove("background-color");
                     }
                 }
             }
@@ -333,7 +333,6 @@ namespace BookKeeping.src
                 ImageButton imgButtonClothing = imageRepeater.Items[0].FindControl("image") as ImageButton;
                 Label statusLabel = imageRepeater.Items[0].FindControl("bodystatus") as Label;
                 imgButtonClothing.Enabled = false; // 禁用按钮
-                statusLabel.Visible = true; // 显示 "使用中" 文本
             }
 
             // 遍历头部衣物的 Repeater 中的每个项
@@ -341,7 +340,7 @@ namespace BookKeeping.src
             {
                 if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                 {
-                    // 获取当前项的ImageButton控件和Label控件
+                    // 获取当前项的 ImageButton 控件和 Label 控件
                     ImageButton imgButtonClothing = item.FindControl("headImage") as ImageButton;
                     Label statusLabel = item.FindControl("headstatus") as Label;
 
@@ -351,15 +350,15 @@ namespace BookKeeping.src
                     // 检查当前穿着的头部衣物路径是否与当前项的衣物路径匹配
                     if (string.Equals(userClothingPaths.HeadClothingURL, clothingPath, StringComparison.OrdinalIgnoreCase))
                     {
-                        // 如果匹配，应用灰度样式和显示 "使用中" 文本
-                        imgButtonClothing.Enabled = false; // 禁用按钮
-                        statusLabel.Visible = true; // 显示 "使用中" 文本
+                        // 如果匹配，应用圆角背景
+                        imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
+                        imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
                     }
                     else
                     {
-                        // 如果不匹配，移除灰度样式和隐藏 "使用中" 文本
-                        imgButtonClothing.Enabled = true; // 启用按钮
-                        statusLabel.Visible = false; // 隐藏 "使用中" 文本
+                        // 如果不匹配，移除圆角背景
+                        imgButtonClothing.Style.Remove("border-radius");
+                        imgButtonClothing.Style.Remove("background-color");
                     }
                 }
             }
@@ -368,33 +367,33 @@ namespace BookKeeping.src
             {
                 Label statusLabel = headRepeater.Items[0].FindControl("headstatus") as Label;
                 ImageButton imgButtonClothing = headRepeater.Items[0].FindControl("headImage") as ImageButton;
-                statusLabel.Visible = true;
                 imgButtonClothing.Enabled = false;
             }
 
+            // 遍历宠物的 Repeater 中的每个项
             foreach (RepeaterItem item in petRepeater.Items)
             {
                 if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                 {
-                    // 获取当前项的ImageButton控件和Label控件
+                    // 获取当前项的 ImageButton 控件和 Label 控件
                     ImageButton imgButtonClothing = item.FindControl("petImage") as ImageButton;
                     Label statusLabel = item.FindControl("petstatus") as Label;
 
                     // 获取与当前项相关的衣物路径
                     string clothingPath = imgButtonClothing.ImageUrl; // 从图像的 URL 获取 cloth_id
 
-                    // 检查当前穿着的头部衣物路径是否与当前项的衣物路径匹配
+                    // 检查当前穿着的宠物路径是否与当前项的衣物路径匹配
                     if (string.Equals(userClothingPaths.PetURL, clothingPath, StringComparison.OrdinalIgnoreCase))
                     {
-                        // 如果匹配，应用灰度样式和显示 "使用中" 文本
-                        imgButtonClothing.Enabled = false; // 禁用按钮
-                        statusLabel.Visible = true; // 显示 "使用中" 文本
+                        // 如果匹配，应用圆角背景
+                        imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
+                        imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
                     }
                     else
                     {
-                        // 如果不匹配，移除灰度样式和隐藏 "使用中" 文本
-                        imgButtonClothing.Enabled = true; // 启用按钮
-                        statusLabel.Visible = false; // 隐藏 "使用中" 文本
+                        // 如果不匹配，移除圆角背景
+                        imgButtonClothing.Style.Remove("border-radius");
+                        imgButtonClothing.Style.Remove("background-color");
                     }
                 }
             }

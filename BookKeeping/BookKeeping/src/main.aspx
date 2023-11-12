@@ -19,8 +19,9 @@
             <asp:Label ID="UId" runat="server"></asp:Label>
         </div>
         <div class="MainPerson"> <%--*0.8--%>
-            <asp:Image ID="MainHead" runat="server" ImageUrl="images/cloth/Head_g1.png" ClientIDMode="Static"/>
-            <asp:Image ID="MainBody" runat="server" ImageUrl="images/cloth/body_g1.png" ClientIDMode="Static"/>
+            <asp:Image ID="MainHead" runat="server" ClientIDMode="Static"/>
+            <asp:Image ID="MainBody" runat="server" ClientIDMode="Static"/>
+            <asp:Image ID="MainPet" runat="server" ClientIDMode="Static"/>
         </div>
         <asp:Button ID="Closet" runat="server" PostBackUrl="~/src/dressing_room.aspx"/><%--更衣室--%>
         <asp:Button ID="Wishes" runat="server" PostBackUrl="~/src/bucket_list.aspx"/><%--願望清單--%>

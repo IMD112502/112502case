@@ -436,6 +436,15 @@ body {
         transform: translate(-50%, -50%);
     }
 
+    #MainPet {
+        position: absolute;
+        width: 108px;
+        height: 108px;
+        top: 68%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+
     #Pig { /* 撲滿 */
         position: fixed;
         bottom: 35px;
@@ -476,7 +485,7 @@ body {
         top: 7.5%;
         left: 10.7%;
         border-radius: 98px;
-        font-size: 20.52px;
+        font-size: 18px;
         color: paleturquoise;
         transform: translate(0, -50%);
     }
@@ -657,6 +666,15 @@ body {
         transform: translate(-50%, -50%);
     }
 
+    #MainPet {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        top: 68%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+
     #Pig { /* 撲滿 */
         position: fixed;
         bottom: 35px;
@@ -697,7 +715,7 @@ body {
         top: 7%;
         left: 10.5%;
         border-radius: 98px;
-        font-size: 27.36px;
+        font-size: 23px;
         color: paleturquoise;
         transform: translate(0, -50%);
     }
@@ -2899,13 +2917,18 @@ body {
         }
 
     .HeadImage {
-        width: 182.4px;
-        height: 254.4px;
+        width: 116.736px;
+        height: 162.816px;
     }
 
     .ClothImage {
-        width: 186px;
-        height: 216px;
+        width: 119.04px;
+        height: 138.24px;
+    }
+
+    .PetImage {
+        width: 119.04px;
+        height: 119.04px;
     }
 
     .Left {
@@ -2919,7 +2942,7 @@ body {
     .Head {
         background-color: #BEE3E2;
         height: 192px;
-        width: 201px;
+        width: 130px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
     }
@@ -2927,7 +2950,7 @@ body {
     .Cloth {
         background-color: #BEE3E2;
         height: 240px;
-        width: 201px;
+        width: 130px;
         margin-top: 6px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
@@ -2960,10 +2983,19 @@ body {
         transform: translate(-50%, -50%);
     }
 
+    #NowPet {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: 68%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+
     .Pet {
         background-color: #BEE3E2;
         height: 360px;
-        width: 195px;
+        width: 130px;
         position: absolute;
         top: 50%;
         left: 100%;
@@ -3009,13 +3041,18 @@ body {
         }
 
     .HeadImage {
-        width: 304px;
-        height: 424px;
+        width: 194.56px;
+        height: 271.36px;
     }
 
     .ClothImage {
-        width: 310px;
-        height: 360px;
+        width: 198.4px;
+        height: 230.4px;
+    }
+
+    .PetImage {
+        width: 198.4px;
+        height: 198.4px;
     }
 
     .Left {
@@ -3029,7 +3066,7 @@ body {
     .Head {
         background-color: #BEE3E2;
         height: 320px;
-        width: 335px;
+        width: 220px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
     }
@@ -3037,7 +3074,7 @@ body {
     .Cloth {
         background-color: #BEE3E2;
         height: 400px;
-        width: 335px;
+        width: 220px;
         margin-top: 10px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
@@ -3070,10 +3107,19 @@ body {
         transform: translate(-50%, -50%);
     }
 
+    #NowPet {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        top: 68%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+    }
+
     .Pet {
         background-color: #BEE3E2;
         height: 600px;
-        width: 325px;
+        width: 220px;
         position: absolute;
         top: 50%;
         left: 100%;

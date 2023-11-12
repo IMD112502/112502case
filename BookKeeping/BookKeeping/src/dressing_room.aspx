@@ -12,9 +12,9 @@
     <form id="DreForm" runat="server">
         <div class="DreRoom">
             <div class="DrePerson" id="imageContainer">
-                <asp:Image ID="NowHead" runat="server" ClientIDMode="Static" ImageUrl="default_head_image.jpg" />
-                <asp:Image ID="NowBody" runat="server" ClientIDMode="Static" ImageUrl="default_body_image.jpg" />
-                <asp:Image ID="NowPet" runat="server" ClientIDMode="Static"/>
+                <asp:Image ID="NowHead" runat="server" ClientIDMode="Static" />
+                <asp:Image ID="NowBody" runat="server" ClientIDMode="Static" />
+                <asp:Image ID="NowPet" runat="server" ClientIDMode="Static" />
             </div>
 
             <div class="Left">
@@ -42,9 +42,8 @@
             <div class="Pet"> <%--右區塊--%>
                 <asp:Repeater ID="petRepeater" runat="server" Visible="true">
                     <ItemTemplate>
-                        <asp:ImageButton CssClass="ClothButton HeadImage" ID ="petImage" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
+                        <asp:ImageButton CssClass="ClothButton PetImage" ID ="petImage" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
                             OnClientClick='<%# "return setPetImage(\"" + Eval("cloth_id") + "\");" %>'/>
-                        <asp:Label ID="petstatus" runat="server" Text="使用中" Visible="true"></asp:Label>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -86,7 +85,8 @@
                 confirmButton.disabled = false;
                 cancelButton.disabled = false;
 
-                updateImages(imagePath, document.getElementById("NowHead").src, null);
+                // 在此处调用updateImages，传递新的衣物URL和头饰URL
+                updateImages(document.getElementById("NowBody").src, document.getElementById("NowHead").src, imagePath);
 
                 return false;
             }
@@ -95,7 +95,7 @@
                 var nowImage = document.getElementById("NowBody");
                 nowImage.src = imagePath;
 
-                // 設定隱藏字段的值為user所選的衣服ID
+                // 设置隐藏字段的值為user所選的衣服ID
                 document.getElementById('<%= hiddenClothingID.ClientID %>').value = imagePath;
 
                 // 启用确认修改按钮
@@ -105,7 +105,7 @@
                 cancelButton.disabled = false;
 
                 // 在此处调用updateImages，传递新的衣物URL和头饰URL
-                updateImages(imagePath, document.getElementById("NowHead").src);
+                updateImages(imagePath, document.getElementById("NowHead").src, document.getElementById("NowPet").src);
 
                 return false; // 阻止頁面刷新
             }
