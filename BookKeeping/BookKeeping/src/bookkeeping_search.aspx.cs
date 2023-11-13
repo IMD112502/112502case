@@ -47,6 +47,7 @@ namespace _BookKeeping
 
         protected void SearchData(string sql , string year , string month , string day  , string category , string keyword)
         {
+            NotFoundLabel.Visible = false;
 
             MySqlConnection conn = DBConnection();
             
@@ -61,15 +62,23 @@ namespace _BookKeeping
 
 
             MySqlDataReader reader = cmd.ExecuteReader();
-                
 
 
-
-            // 將資料繫結到 GridView 控制項上
+            if (reader.HasRows)
+            {
+                // 將資料繫結到 GridView 控制項上
                 SearchView.DataSource = reader;
                 SearchView.DataBind();
+            }
+            else 
+            {
+                NotFoundLabel.Visible = true;
+                NotFoundLabel.Text = "沒有查詢到結果喔!";
+            }
 
-                reader.Close();
+
+           
+                
 
              
 
