@@ -6,6 +6,8 @@ using System.Web.Script.Serialization;
 using System.Web.UI.HtmlControls;
 using Org.BouncyCastle.Ocsp;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace BookKeeping.src
 {
@@ -27,6 +29,7 @@ namespace BookKeeping.src
         {
             ThirdGamePanel1.Visible = true;
             ThirdGamePanel2.Visible = false;
+            correctcnt.Text = "0"; /*初始化答對題數*/
             Repeater1.DataSource = GetImageData();
             Repeater1.DataBind();
 
@@ -247,19 +250,58 @@ namespace BookKeeping.src
         {
             int paymentAmount = CalculatePaymentAmount();
             int totalAmount = Convert.ToInt32(Request.Form["hiddentotal"].ToString());
+            int corcnt = Convert.ToInt32(correctcnt.Text);
             if (paymentAmount == totalAmount)
             {
+                
+                corcnt++;
+                correctcnt.Text = corcnt.ToString(); 
 
                 ClientScript.RegisterStartupScript(GetType(), "答對了", "alert('答對了！');", true);
+                GameReord();
 
             }
             else
             {
-
                 ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
+                GameReord();
             }
            
         }
 
+        protected void GameReord()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            string user_id = Session["UserID"].ToString();
+            int corcnt = Convert.ToInt32(correctcnt.Text);
+            DateTime overtime = DateTime.Now;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "INSERT INTO `112-112502`.`gamedata` (user_id , time , score ) VALUES (@userid , @time , @score);";
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@userid", user_id);
+                    cmd.Parameters.AddWithValue("@time", overtime);
+                    cmd.Parameters.AddWithValue("@score", corcnt);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+
+                    if (rowsaffected > 0)
+                    {
+                        // 彈出視窗
+                        string script = $"alert('您總共答對 {corcnt} 題'); window.location.href = 'game_menu.aspx';";
+                        ClientScript.RegisterStartupScript(this.GetType(), "ShowCorrectAnswersAlert", script, true);
+                    }
+                }
+            }
+        }
+
+        protected void LeaveGame_Click(object sender, EventArgs e)
+        {
+            GameReord();
+        }
     }
 }

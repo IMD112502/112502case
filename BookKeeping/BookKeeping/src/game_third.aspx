@@ -323,6 +323,8 @@
         <input type="hidden" name="hiddencor" id="hiddencor" value="0"/>
         <input type="hidden" name="hiddenruler" id="hiddenruler" value="0"/>
         <input type="hidden" name="hiddentotal" id="hiddentotal" value="0"/>
+        <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
+        <asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
             
     </form>
 </body>

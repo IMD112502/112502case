@@ -105,12 +105,12 @@ namespace _BookKeeping
                 sql += "and b.cls_name=@category ";
             }
 
-            string keyword = TxtBox.Text.Trim();
+            string keyword = "%"+TxtBox.Text.Trim()+"%";
 
             if (!string.IsNullOrEmpty(keyword))
             {
                 sql += " ";
-                sql += " and (cost=@keyword or mark=@keyword) ";
+                sql += " and (cost like @keyword or mark like @keyword) ";
             }
 
            

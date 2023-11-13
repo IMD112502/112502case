@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,16 +12,24 @@ namespace BookKeeping.src
 {
     public partial class game_second : System.Web.UI.Page
     {
+        private int totalQuestions = 7;
+        private int currentQuestion = 0;
+        //public Dictionary<string, int> questionQuantities;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                correctcnt.Text = "0";
+                GameProgress.Text = currentQuestion.ToString() + "/" + totalQuestions.ToString();
+                // 初始化游戏
                 InitializeGame2();
             }
         }
 
         protected void InitializeGame2()
         {
+            SecondGamePanel.Visible = true;
             // 生成隨機數量（例如，0到3之間的隨機數量）
             Random random = new Random();
 
@@ -66,11 +76,10 @@ namespace BookKeeping.src
             // 計算總金額
             int totalAmount = CalculateTotalAmount(denominationCounts);
 
-            // 在標籤中顯示總金額
-            question.Text = "總共有多少錢？（總金額：" + totalAmount + "元）";
 
             GenerateAnswers(totalAmount);
 
+            UpdateProgressText();
         }
 
 
@@ -151,6 +160,10 @@ namespace BookKeeping.src
                     wrongAnswer1 += changeAmount;
                 else
                     wrongAnswer1 -= changeAmount;
+                    if (wrongAnswer1 <= 0) 
+                    {
+                    wrongAnswer1 += changeAmount * 2;
+                    }
             }
 
             while (wrongAnswer2 == totalAmount || wrongAnswer2 == wrongAnswer1)
@@ -161,6 +174,10 @@ namespace BookKeeping.src
                     wrongAnswer2 += changeAmount;
                 else
                     wrongAnswer2 -= changeAmount;
+                    if (wrongAnswer2 <= 0) 
+                    {
+                        wrongAnswer2 += changeAmount * 2;
+                    }
             }
 
             // 隨機分配答案到按鈕
@@ -192,31 +209,93 @@ namespace BookKeeping.src
             Ans6.Text = answer3.ToString() + "元";
         }
 
+
+
+        private void UpdateProgressText()
+        {
+            int count = int.Parse(GameProgress.Text[0].ToString());
+            count++;
+            GameProgress.Text = count.ToString() + "/" + totalQuestions.ToString();
+
+            // 更新进度条样式
+            double progress = (double)count / totalQuestions * 100;
+            GameProgress.Style["width"] = progress + "%";
+        }
+
         protected void CheckAnswer(object sender, EventArgs e)
         {
             // 获取用户选择的答案
             Button selectedButton = (Button)sender;
             int selectedAnswerIndex = int.Parse(selectedButton.CommandArgument);
             int correctAnswerIndex = int.Parse(randomNum.Text);
-
+            int nextquestion = int.Parse(GameProgress.Text[0].ToString()) + 1;
+            int corcnt = Convert.ToInt32(correctcnt.Text);
             // 检查答案是否正确
             if (selectedAnswerIndex == correctAnswerIndex)
             {
+                corcnt++;
+                correctcnt.Text = corcnt.ToString();
                 ClientScript.RegisterStartupScript(GetType(), "答對了", "alert('答對了！');", true);
-                // 显示答对的动画（你可以自定义动画效果）
-                // 进行下一题
-                InitializeGame2();
+
+                if (nextquestion <= 7)
+                {
+                    InitializeGame2();
+                }
+                else
+                {
+                    GameReord();
+                }
+
             }
             else
             {
                 ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
-                // 显示答错的动画（你可以自定义动画效果）
-                // 游戏结束或者继续进行下一题
-                InitializeGame2();
+
+                if (nextquestion <= 7)
+                {
+                    InitializeGame2();
+                }
+                else
+                {
+                    GameReord();
+                }
             }
         }
 
+        protected void GameReord()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            string user_id = Session["UserID"].ToString();
+            int corcnt = Convert.ToInt32(correctcnt.Text);
+            DateTime overtime = DateTime.Now;
 
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "INSERT INTO `112-112502`.`gamedata` (user_id , time , score ) VALUES (@userid , @time , @score);";
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@userid", user_id);
+                    cmd.Parameters.AddWithValue("@time", overtime);
+                    cmd.Parameters.AddWithValue("@score", corcnt);
+
+                    int rowsaffected = cmd.ExecuteNonQuery();
+
+                    if (rowsaffected > 0)
+                    {
+                        // 彈出視窗
+                        string script = $"alert('您總共答對 {corcnt} 題'); window.location.href = 'game_menu.aspx';";
+                        ClientScript.RegisterStartupScript(this.GetType(), "ShowCorrectAnswersAlert", script, true);
+                    }
+                }
+            }
+        }
+
+        protected void LeaveGame_Click(object sender, EventArgs e)
+        {
+            GameReord();
+        }
     }
 }
 

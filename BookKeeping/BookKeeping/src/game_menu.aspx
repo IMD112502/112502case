@@ -12,6 +12,9 @@
     <form id="form1" runat="server">
         <asp:Label class="GameTitle" ID="Label1" runat="server" Text="Label">小遊戲</asp:Label>
         <div class="GameMain">
+            <asp:ImageButton ID="ImageButton2" runat="server" AlternateText="遊戲1"  PostBackUrl="~/src/game_first.aspx"/>
+            <asp:ImageButton ID="ImageButton3" runat="server"  AlternateText="遊戲2" PostBackUrl="~/src/game_second.aspx" />
+            <asp:ImageButton ID="ImageButton4" runat="server"  AlternateText="遊戲3" PostBackUrl="~/src/game_third.aspx" />
 			<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button1" runat="server" Text="開始遊戲" PostBackUrl="~/src/game_first.aspx" />
             <asp:Button class="ButtonStyle3 ButtonSize1" ID="Button2" runat="server" Text="遊戲介紹" />
         </div>
