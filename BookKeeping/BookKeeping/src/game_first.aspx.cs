@@ -266,9 +266,7 @@ namespace BookKeeping.src
 
                 // 更新进度条样式
                 double progress = (double)count / totalQuestions * 100;
-                GameProgressBar.Style["width"] = progress + "%";
-            
-
+                GameProgress.Style["width"] = progress + "%";
         }
 
         protected void CheckAnswer(object sender, EventArgs e)

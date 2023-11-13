@@ -378,8 +378,9 @@
         
 
         <!-- 進度條 -->
-        <div class="GameProgress" id="GameProgressBar" runat="server" style='<%# Eval("ProgressBarStyle") %>'></div>
-
+        <div class="GameProgress">
+            <div class="GameProgressBar" style='<%# Eval("ProgressBarStyle") %>'></div>
+        </div>                        
 
         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
 		<asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" PostBackUrl="~/src/game_menu.aspx" />

@@ -377,7 +377,7 @@ namespace BookKeeping.src
                 {
                     // 获取当前项的 ImageButton 控件和 Label 控件
                     ImageButton imgButtonClothing = item.FindControl("petImage") as ImageButton;
-                    Label statusLabel = item.FindControl("petstatus") as Label;
+                    //Label statusLabel = item.FindControl("petstatus") as Label;
 
                     // 获取与当前项相关的衣物路径
                     string clothingPath = imgButtonClothing.ImageUrl; // 从图像的 URL 获取 cloth_id
@@ -400,9 +400,9 @@ namespace BookKeeping.src
 
             if (petRepeater.Items.Count == 1)
             {
-                Label statusLabel = petRepeater.Items[0].FindControl("petstatus") as Label;
+                //Label statusLabel = petRepeater.Items[0].FindControl("petstatus") as Label;
                 ImageButton imgButtonClothing = petRepeater.Items[0].FindControl("petImage") as ImageButton;
-                statusLabel.Visible = true;
+                //statusLabel.Visible = true;
                 imgButtonClothing.Enabled = false;
             }
         }

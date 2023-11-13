@@ -44,6 +44,7 @@
                     <ItemTemplate>
                         <asp:ImageButton CssClass="ClothButton PetImage" ID ="petImage" runat="server" ImageUrl='<%# Eval("cloth_id") %>'
                             OnClientClick='<%# "return setPetImage(\"" + Eval("cloth_id") + "\");" %>'/>
+                        <asp:Label ID="petstatus" runat="server" text="使用中" Visible="false"></asp:Label>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
