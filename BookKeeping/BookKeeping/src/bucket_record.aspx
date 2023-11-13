@@ -12,9 +12,8 @@
     <form id="form1" runat="server">
         <div class="BucDiv">
         <div class="Notebook">
-            <div class="NotebookText">
             <asp:Label ID="Label1" runat="server" CssClass="NoteTitle" Text="願望歷史紀錄"></asp:Label><br />
-
+            <div class="NotebookText">
             <asp:GridView class="Gridview3" ID="GridView2" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="d_num" HeaderText="編號" Visible="false"/>

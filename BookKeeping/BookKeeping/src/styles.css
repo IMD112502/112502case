@@ -41,6 +41,15 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.custom-image2 {
+    position: absolute; /*指定絕對位置*/
+    top: 20%;
+    left: 50%;
+    width: 224px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+}
+
 .ButtonStyle,
 .ButtonStyle:focus {
     position: absolute; /*指定絕對位置*/
@@ -1388,6 +1397,24 @@ body {
         font-weight: bold;
         transform: translate(-50%, -50%);
     }
+
+    #NoRecordsLabel {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        font-size: 25px;
+        font-weight: bold;
+        transform: translate(-45%, 0%);
+    }
+
+    #NoDataLabel {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        font-size: 25px;
+        font-weight: bold;
+        transform: translate(-45%, 0%);
+    }
 }
 
 /* 平板和電腦 */
@@ -1506,6 +1533,24 @@ body {
         text-align: center;
         font-weight: bold;
         transform: translate(-50%, -50%);
+    }
+
+    #NoRecordsLabel {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        font-size: 25px;
+        font-weight: bold;
+        transform: translate(-45%, 0%);
+    }
+
+    #NoDataLabel {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        font-size: 25px;
+        font-weight: bold;
+        transform: translate(-45%, 0%);
     }
 }
 /*-------------記帳左結束-------------*/
@@ -1927,9 +1972,8 @@ body {
 
     .task-image { /* 左側圖片 */
         flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
-        object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
-        width: 108px;
-        height: 93px;
+        max-width: 100px; /* 設置最大寬度，根據實際情況調整 */
+        height: auto; /* 保持原始比例 */
     }
 
     .task-main { /* 任務主題 */
@@ -2050,9 +2094,8 @@ body {
 
     .task-image { /* 左側圖片 */
         flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
-        width: 144px; /* 指定圖片的寬度 */
-        height: 148px; /* 指定圖片的高度 */
-        object-fit: cover; /* 調整圖片以填滿指定的寬度和高度 */
+        max-width: 100px; /* 設置最大寬度，根據實際情況調整 */
+        height: auto; /* 保持原始比例 */
     }
 
     .task-main { /* 任務主題 */
@@ -2348,16 +2391,22 @@ body {
 
     .NoteTitle {
         color: #2f004b;
-        font-size: 30px;
+        font-size: 25px;
+        width: 200px;
         font-weight: bold;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, 0%);
     }
 
     .NotebookText {
         position: absolute;
-        height: 320px;
+        height: 300px;
         left: 50%;
-        top: 12%;
+        top: 20%;
         transform: translate(-50%, 0%);
+        overflow-y: scroll; /* 垂直滾動條 */
     }
 
     table.Gridview3 {
@@ -2407,6 +2456,17 @@ body {
         height: 390px;
         transform: translate(-50%, -50%);
         text-align: center;
+    }
+
+    .DreWord { /* 願望功能內容文字 */
+        position: absolute;
+        width: 330px;
+        height: 250px;
+        left: 52%;
+        top: 58%;
+        font-size: 38px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
     }
 
     /*--換頁紐--*/
@@ -2466,14 +2526,19 @@ body {
         font-size: 40px;
         color: #2f004b;
         font-weight: bold;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%, 0%);
     }
 
     .NotebookText {
         position: absolute;
         left: 50%;
-        top: 12%;
-        height: 540px;
+        top: 20%;
+        height: 500px;
         transform: translate(-50%, 0%);
+        overflow-y: scroll; /* 垂直滾動條 */
     }
 
     table.Gridview3 {
@@ -2522,6 +2587,17 @@ body {
         height: 650px;
         transform: translate(-50%, -50%);
         text-align: center;
+    }
+
+    .DreWord { /* 願望功能內容文字 */
+        position: absolute;
+        left: 52%;
+        top: 60%;
+        width: 480px;
+        height: 300px;
+        font-size: 42px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
     }
 
     /*--換頁紐--*/
@@ -2606,22 +2682,32 @@ body {
 
     .TraWord { /* 願望功能內容文字 */
         position: absolute;
-        width: 330px;
+        width: 282px;
         height: 250px;
         left: 52%;
-        top: 58%;
-        font-size: 38px;
+        top: 50%;
+        font-size: 30px;
         font-weight: bold;
         transform: translate(-50%, -50%);
     }
 
     .TraCause {
         position: absolute;
-        width: 330px;
+        width: 280px;
         left: 50%;
         top: 50%;
         font-weight: bold;
-        transform: translate(-50%, -90%);
+        transform: translate(-50%, -50%);
+    }
+
+    .NoCantBuy { /* 沒有要審核的願望 */
+        position: absolute;
+        width: 230px;
+        top: 50%;
+        left: 50%;
+        font-size: 30px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -2636,7 +2722,7 @@ body {
     .TraWord { /* 願望功能內容文字 */
         position: absolute;
         left: 52%;
-        top: 60%;
+        top: 50%;
         width: 480px;
         height: 300px;
         font-size: 42px;
@@ -2646,11 +2732,21 @@ body {
 
     .TraCause {
         position: absolute;
-        width: 480px;
+        width: 400px;
         left: 50%;
         top: 50%;
         font-weight: bold;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -50%);
+    }
+
+    .NoCantBuy { /* 沒有要審核的願望 */
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        left: 50%;
+        font-size: 40px;
+        font-weight: bold;
+        transform: translate(-50%, -50%);
     }
 }
 /*-----------願望垃圾桶結束-----------*/
@@ -2745,14 +2841,14 @@ body {
         font-size: 20px;
     }
 
-    #ErrorMessageLabel {
+    .ErrorMessageLabel {
         position: absolute;
         width: 500px;
         top: 50%;
         left: 50%;
         color: red;
         transform: translate(-50%, 40%);
-        font-size: 16px;
+        font-size: 9px;
     }
 
     .ForgetRevPwText {
@@ -2852,14 +2948,14 @@ body {
         font-size: 25px;
     }
 
-    #ErrorMessageLabel {
+    .ErrorMessageLabel {
         position: absolute;
         width: 500px;
         top: 50%;
         left: 50%;
         color: red;
         transform: translate(-50%, 50%);
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .ForgetRevPwText {
@@ -2917,22 +3013,28 @@ body {
         }
 
     .HeadImage {
+        margin-left: 14px;
+        margin-top: 8px;
         width: 116.736px;
         height: 162.816px;
     }
 
     .ClothImage {
+        margin-left: 12px;
+        margin-top: 8px;
         width: 119.04px;
         height: 138.24px;
     }
 
     .PetImage {
+        margin-left: 10px;
+        margin-top: 8px;
         width: 119.04px;
         height: 119.04px;
     }
 
     .Left {
-        height: 438px;
+        height: 410px;
         position: absolute;
         transform: translate(0%, -50%);
         top: 50%;
@@ -2940,17 +3042,17 @@ body {
     }
 
     .Head {
-        background-color: #BEE3E2;
-        height: 192px;
-        width: 130px;
+        background-color: #BEE3E280;
+        height: 180px;
+        width: 145px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
     }
 
     .Cloth {
-        background-color: #BEE3E2;
-        height: 240px;
-        width: 130px;
+        background-color: #BEE3E280;
+        height: 230px;
+        width: 145px;
         margin-top: 6px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
@@ -2993,9 +3095,9 @@ body {
     }
 
     .Pet {
-        background-color: #BEE3E2;
+        background-color: #BEE3E280;
         height: 360px;
-        width: 130px;
+        width: 145px;
         position: absolute;
         top: 50%;
         left: 100%;
@@ -3041,22 +3143,28 @@ body {
         }
 
     .HeadImage {
+        margin-left: 25px;
+        margin-top: 15px;
         width: 194.56px;
         height: 271.36px;
     }
 
     .ClothImage {
+        margin-left: 23px;
+        margin-top: 15px;
         width: 198.4px;
         height: 230.4px;
     }
 
     .PetImage {
+        margin-left: 20px;
+        margin-top: 15px;
         width: 198.4px;
         height: 198.4px;
     }
 
     .Left {
-        height: 730px;
+        height: 680px;
         position: absolute;
         transform: translate(0%, -50%);
         top: 50%;
@@ -3064,17 +3172,17 @@ body {
     }
 
     .Head {
-        background-color: #BEE3E2;
-        height: 320px;
-        width: 220px;
+        background-color: #BEE3E280;
+        height: 300px;
+        width: 245px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
     }
 
     .Cloth {
-        background-color: #BEE3E2;
-        height: 400px;
-        width: 220px;
+        background-color: #BEE3E280;
+        height: 380px;
+        width: 245px;
         margin-top: 10px;
         border-radius: 15px; /*圓角*/
         overflow-y: scroll; /* 垂直滾動條 */
@@ -3117,9 +3225,9 @@ body {
     }
 
     .Pet {
-        background-color: #BEE3E2;
+        background-color: #BEE3E280;
         height: 600px;
-        width: 220px;
+        width: 245px;
         position: absolute;
         top: 50%;
         left: 100%;

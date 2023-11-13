@@ -27,7 +27,7 @@ namespace BookKeeping.src
             }
         }
 
-        protected void DisplayWindows() 
+        protected void DisplayWindows()
         {
             if (GetArray().Length > 0)
             {
@@ -99,17 +99,17 @@ namespace BookKeeping.src
             Button btn = (Button)sender;
             int index_value = Convert.ToInt32(IndexCount.Text);
             int length = GetArray().Length;
-            if (btn.CommandArgument == "plus") 
+            if (btn.CommandArgument == "plus")
             {
                 index_value++;
             }
-            if (btn.CommandArgument == "minus") 
+            if (btn.CommandArgument == "minus")
             {
                 if (index_value > 0)
                 {
                     index_value--;
                 }
-                else 
+                else
                 {
                     index_value = GetArray().Length - 1;
                 }
@@ -199,19 +199,29 @@ namespace BookKeeping.src
                 {
                     Textbox1.Text = null;
                     ErrorMessagel.Visible = false;
-                    Response.Write("<script>alert('新增成功')</script>");
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
                     DisplayWindows();
                 }
                 else
                 {
                     Textbox1.Text = null;
                     ErrorMessagel.Visible = false;
-                    Response.Write("<script>alert('新增失敗')</script>");
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                     DisplayWindows();
                 }
             }
 
-            if(selectedValue == "n") 
+            if (selectedValue == "n")
             {
                 string reason = Textbox2.Text;
                 if (string.IsNullOrEmpty(reason))
@@ -234,13 +244,23 @@ namespace BookKeeping.src
                 if (rows_affect > 0)
                 {
                     Textbox1.Text = null;
-                    Response.Write("<script>alert('新增成功')</script>");
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
                     DisplayWindows();
                 }
-                else 
+                else
                 {
                     Textbox1.Text = null;
-                    Response.Write("<script>alert('新增失敗')</script>");
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                     DisplayWindows();
                 }
             }

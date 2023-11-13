@@ -318,7 +318,7 @@ namespace BookKeeping.src
                     {
                         // 如果匹配，应用圆角背景
                         imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
-                        imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
+                        imgButtonClothing.Style["background-color"] = "#9CD9C580"; // 将背景颜色设置为蓝色
                         imgButtonClothing.Enabled = false;
                     }
                     else
@@ -355,7 +355,7 @@ namespace BookKeeping.src
                     {
                         // 如果匹配，应用圆角背景
                         imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
-                        imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
+                        imgButtonClothing.Style["background-color"] = "#9CD9C580"; // 将背景颜色设置为蓝色
                         imgButtonClothing.Enabled = false;
                     }
                     else
@@ -393,7 +393,7 @@ namespace BookKeeping.src
                     {
                         // 如果匹配，应用圆角背景
                         imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
-                        imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
+                        imgButtonClothing.Style["background-color"] = "#9CD9C580"; // 将背景颜色设置为蓝色
                         imgButtonClothing.Enabled = false;
                     }
                     else

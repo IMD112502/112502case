@@ -11,12 +11,12 @@ using System.Web.UI.WebControls;
 
 namespace BookKeeping.src
 {
-	public partial class forget_pw : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+    public partial class forget_pw : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-		}
+        }
         protected void ReturnButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
@@ -25,13 +25,38 @@ namespace BookKeeping.src
 
 
         protected void Comfirm_Click(object sender, EventArgs e)
-		{
-            if (Page.IsValid) // 检查页面是否通过验证
+        {
+            if (Page.IsValid)
             {
                 string selectquestion = secretQuestion.SelectedValue;
-			    string selectanswer = secretAnswer.Text.Trim();
-			    string newpwd = newanswer.Text.Trim();
+                string selectanswer = secretAnswer.Text.Trim();
+                string newpwd = newanswer.Text.Trim();
+                string confirmPwd = TextBox1.Text.Trim();
                 string account = enteraccount.Text.Trim();
+
+                if (string.IsNullOrEmpty(newpwd) || string.IsNullOrEmpty(confirmPwd))
+                {
+                    // Display message if new password or confirmation password is empty
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_pw_n.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "請完整填寫密碼", script, true);
+                    return;
+                }
+
+                if (newpwd != confirmPwd)
+                {
+                    // Display message if new password and confirmation password do not match
+                    string script = "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_pw_n_same.png';"; // 设置图像的路径
+                    script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "確認密碼不匹配", script, true);
+                    return;
+                }
 
                 string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
@@ -50,13 +75,11 @@ namespace BookKeeping.src
 
                     if (rowsUpdated > 0)
                     {
-                        // 密码更新成功
-                        // 清空文本框
+                        // Password updated successfully
                         secretAnswer.Text = "";
                         newanswer.Text = "";
                         enteraccount.Text = "";
 
-                        // 显示成功消息
                         string script = "var imageBox = document.createElement('img');";
                         script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
                         script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
@@ -64,31 +87,18 @@ namespace BookKeeping.src
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                         ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
 
-                        // 重定向到登录页面
-                        Response.AddHeader("REFRESH", "0.5;URL=login.aspx"); // 替换为实际的登录页面路径
+                        Response.Redirect("login.aspx"); // Redirect to login page
                     }
                     else
                     {
-                        // 密码更新失败或没有匹配的记录
-                        // 可以显示错误消息
                         string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_pw_n_same.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        script += "imageBox.src = 'images/alert_saveq_n.png';"; // 设置图像的路径
+                        script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
                         script += "document.body.appendChild(imageBox);";
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                        ClientScript.RegisterStartupScript(GetType(), "密碼不一致", script, true);
+                        ClientScript.RegisterStartupScript(GetType(), "安全問題不正確", script, true);
                     }
                 }
-            }
-            else
-            {
-                // 显示错误消息，提示用户填写信息
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_n_whole.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
-                script += "document.body.appendChild(imageBox);";
-                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                ClientScript.RegisterStartupScript(GetType(), "請填寫完整", script, true);
             }
         }
     }

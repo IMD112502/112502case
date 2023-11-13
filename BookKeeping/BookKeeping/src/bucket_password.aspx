@@ -12,11 +12,11 @@
     <form id="form1" runat="server">
         <div class="BucDiv">
         <div class="BMemo MemoStyle2">
-            <div class="TraWord">
+            <div class="DreWord">
                 <label class="BucPwTitle">家長審核密碼</label>
                 <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" TextMode="Password" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
                 <a class="RevForgetPwd" href="forget_bucket_pwd.aspx">忘記密碼</a>
-                <asp:Label ID="ErrorMessageLabel" runat="server" Text="" />
+                <asp:Label ID="ErrorMessageLabel" CssClass="ErrorMessageLabel" runat="server" Text="" />
                 <br />
                 <div class="Qua">
                 <asp:Label ID="question" runat="server" Text="安全問題" Visible="false"></asp:Label>

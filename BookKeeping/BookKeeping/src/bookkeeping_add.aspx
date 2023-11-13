@@ -102,7 +102,7 @@
 				</Columns>
 			</asp:GridView>
 
-
+			<asp:Label ID="NoRecordsLabel" runat="server" Text="無記帳紀錄" ></asp:Label>
 			</div>
 
 			<%--<div class="BookTotal">

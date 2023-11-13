@@ -18,7 +18,7 @@
                     <asp:Label ID="CantBuy" runat="server" Text="不能買"></asp:Label><br />
                     <asp:Label ID="Cause" runat="server" Text="因為"></asp:Label>
                 </div>
-                <asp:Label ID="NoCantBuy" class="NoRev" runat="server" Text=""></asp:Label><br />
+                <asp:Label ID="NoCantBuy" class="NoCantBuy" runat="server" Text=""></asp:Label><br />
             </div>
             <asp:Button  class="TraButton ButtonStyle ButtonSize2" ID="Submit1" Text="知道了" runat="server" OnClick="Submit1_Click"/>
             <asp:Label ID="wish" runat="server"></asp:Label>

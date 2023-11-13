@@ -12,7 +12,7 @@
     <form class="BucForm" id="form1" runat="server">
         <div class="BucDiv">
         <div class="BMemo MemoStyle2">
-            <div class="TraWord">
+            <div class="DreWord">
                 <div class="RevText">
                     <asp:Label ID="label1" runat="server" Text=""></asp:Label>
                     <asp:Label ID="label2" runat="server" Text=""></asp:Label><br />

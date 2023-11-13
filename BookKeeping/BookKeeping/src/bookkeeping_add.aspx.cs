@@ -89,6 +89,9 @@ namespace _BookKeeping
             // 設置 GridView 的數據來源為 DataTable
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
+
+            // 如果 GridView 為空，顯示 NoRecordsLabel
+            NoRecordsLabel.Visible = GridView1.Rows.Count == 0;
         }
 
         protected void MinusMonth_Click(object sender, EventArgs e)
@@ -353,14 +356,5 @@ namespace _BookKeeping
                 }
             }
         }
-
-
-
-
-
-
-
-
-
     }
 }

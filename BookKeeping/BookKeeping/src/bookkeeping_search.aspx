@@ -31,7 +31,7 @@
 						<asp:BoundField DataField="mark" HeaderText="備註"/>
 					</Columns>
 				</asp:GridView>
-				<asp:Label ID="NotFoundLabel" runat="server" Text="" Visible="false"></asp:Label><%--沒有查詢到東西時顯示--%>
+				<asp:Label ID="NoDataLabel" runat="server" Text="查無資料" ></asp:Label>
 			</div>
 		</div>
 

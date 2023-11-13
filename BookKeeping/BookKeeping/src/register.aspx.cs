@@ -79,7 +79,12 @@ namespace _BookKeeping
             if (string.IsNullOrWhiteSpace(userid) || string.IsNullOrWhiteSpace(nickname) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(answer1))
             {
                 // 有一个或多个字段为空，显示错误消息
-                ClientScript.RegisterStartupScript(GetType(), "欄位未填寫", "alert('請填寫所有欄位。');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_n_all.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "請填寫所有欄位", script, true);
                 return; // 阻止注册流程
             }
 
@@ -87,7 +92,12 @@ namespace _BookKeeping
             if (selectedDate == DateTime.MinValue)
             {
                 // 日期没有选择，显示错误消息
-                ClientScript.RegisterStartupScript(GetType(), "生日未選擇", "alert('請選擇生日日期。');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_n_birthday.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "請選擇生日日期", script, true);
                 return; // 阻止注册流程
             }
 
@@ -95,7 +105,12 @@ namespace _BookKeeping
             if (ContainsNonChineseCharacters(userid))
             {
                 // 帐号包含非英文或数字字符，显示错误消息
-                ClientScript.RegisterStartupScript(GetType(), "帳號格式錯誤", "alert('帳號只能包含英文和數字，不可包含中文字符。請重新輸入。');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_id_rule.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "帳號只能含英文及數字", script, true);
                 return; // 阻止注册流程
             }
 
@@ -103,7 +118,12 @@ namespace _BookKeeping
             if (password != confirmPassword)
             {
                 // 密码和确认密码不匹配，显示错误消息
-                ClientScript.RegisterStartupScript(GetType(), "密碼不匹配", "alert('密碼和確認密碼不匹配。請重新輸入。');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_pw_n_same.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "確認密碼不匹配", script, true);
                 return; // 阻止注册流程
             }
 
@@ -111,14 +131,24 @@ namespace _BookKeeping
             if (!ContainsChineseCharacters(answer1))
             {
                 // 答案包含非中文字符，显示错误消息
-                ClientScript.RegisterStartupScript(GetType(), "答案格式錯誤", "alert('答案只能包含中文字符。請重新輸入。');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_ans_rule.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "安全答案只能含中文", script, true);
                 return; // 阻止注册流程
             }
 
             if (IsUsernameAlreadyExists(userid))
             {
                 // 帐号已存在，显示错误消息
-                ClientScript.RegisterStartupScript(GetType(), "帳號已存在", "alert('此帳號名稱已經存在。請輸入不同的帳號名稱。');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_id_repeat.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "此帳號名稱已存在", script, true);
                 return; // 阻止注册流程
             }
 
@@ -199,12 +229,22 @@ namespace _BookKeeping
                 RadioButton2.Checked = false;
                 RegPwd.Text = "";
                 Answer1.Text = "";
-                ClientScript.RegisterStartupScript(GetType(), "註冊成功", "alert('註冊成功！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_5Y.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "註冊成功", script, true);
                 Response.AddHeader("REFRESH", "0.5;URL=login.aspx");
             }
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "註冊失敗", "alert('註冊失敗！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_5N.png';"; // 设置图像的路径
+                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "註冊失敗", script, true);
             }
         }
 
