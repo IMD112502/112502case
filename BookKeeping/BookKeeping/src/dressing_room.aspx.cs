@@ -17,6 +17,7 @@ namespace BookKeeping.src
         protected string user_id;
         protected string currentHead = "";
         protected string currentBody = "";
+        protected string currentPet = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -268,7 +269,7 @@ namespace BookKeeping.src
                 conn.Open();
 
                 // 查询用户的衣物数据
-                string userQuery = "SELECT pet FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%pet%'";
+                string userQuery = "SELECT cloth FROM `112-112502`.achievement_complete WHERE user_id = @user_id and cloth_id like '%pet%'";
                 using (MySqlCommand userCmd = new MySqlCommand(userQuery, conn))
                 {
                     userCmd.Parameters.AddWithValue("@user_id", user_id);
@@ -277,7 +278,7 @@ namespace BookKeeping.src
                         while (userReader.Read())
                         {
                             // 从数据库中读取每行的 "cloth" 数据并添加到列表
-                            string currentPetURL = userReader["pet"].ToString();
+                            string currentPetURL = userReader["cloth"].ToString();
                             clothingUrls.Add(currentPetURL);
                         }
                     }
@@ -318,12 +319,14 @@ namespace BookKeeping.src
                         // 如果匹配，应用圆角背景
                         imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
                         imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
+                        imgButtonClothing.Enabled = false;
                     }
                     else
                     {
                         // 如果不匹配，移除圆角背景
                         imgButtonClothing.Style.Remove("border-radius");
                         imgButtonClothing.Style.Remove("background-color");
+                        imgButtonClothing.Enabled = true;
                     }
                 }
             }
@@ -353,12 +356,14 @@ namespace BookKeeping.src
                         // 如果匹配，应用圆角背景
                         imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
                         imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
+                        imgButtonClothing.Enabled = false;
                     }
                     else
                     {
                         // 如果不匹配，移除圆角背景
                         imgButtonClothing.Style.Remove("border-radius");
                         imgButtonClothing.Style.Remove("background-color");
+                        imgButtonClothing.Enabled = true;
                     }
                 }
             }
@@ -383,17 +388,20 @@ namespace BookKeeping.src
                     string clothingPath = imgButtonClothing.ImageUrl; // 从图像的 URL 获取 cloth_id
 
                     // 检查当前穿着的宠物路径是否与当前项的衣物路径匹配
-                    if (string.Equals(userClothingPaths.PetURL, clothingPath, StringComparison.OrdinalIgnoreCase))
+                    if (!string.IsNullOrEmpty(userClothingPaths.PetURL) &&
+                        string.Equals(userClothingPaths.PetURL, clothingPath, StringComparison.OrdinalIgnoreCase))
                     {
                         // 如果匹配，应用圆角背景
                         imgButtonClothing.Style["border-radius"] = "10px"; // 设置圆角半径
                         imgButtonClothing.Style["background-color"] = "#78eee0"; // 将背景颜色设置为蓝色
+                        imgButtonClothing.Enabled = false;
                     }
                     else
                     {
                         // 如果不匹配，移除圆角背景
                         imgButtonClothing.Style.Remove("border-radius");
                         imgButtonClothing.Style.Remove("background-color");
+                        imgButtonClothing.Enabled = true;
                     }
                 }
             }
