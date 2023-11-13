@@ -97,7 +97,7 @@ namespace BookKeeping.src
             MySqlConnection conn = DBConnection();
 
             //判斷願望類別是否有資料
-            string sql_count = "SELECT count(*) FROM `112-112502`.bookkeeping_data where user_id = @user_id and class_id = \"願望\"";
+            string sql_count = "SELECT count(*) FROM `112-112502`.bookkeeping_data where user_id = @user_id and class_id = '1'";
             MySqlCommand cmd_count = new MySqlCommand(sql_count, conn);
             cmd_count.Parameters.AddWithValue("@user_id", user_id);
              MySqlDataReader reader_count = cmd_count.ExecuteReader(); 
@@ -109,7 +109,11 @@ namespace BookKeeping.src
             if (count>0) 
             {
                 conn.Open ();
-                string sql_wish = "SELECT sum(cost) FROM `112-112502`.bookkeeping_data where user_id = @user_id and class_id = \"願望\";";
+                string sql_wish = @"
+                    SELECT 
+                    COALESCE((SELECT SUM(cost) FROM `112-112502`.bookkeeping_data WHERE user_id = @user_id AND class_id = '1'), 0) -
+                    COALESCE((SELECT SUM(cost) FROM `112-112502`.bookkeeping_data WHERE user_id = @user_id AND class_id = '5'), 0) AS 現有存款";
+
                 MySqlCommand cmd_wish = new MySqlCommand(sql_wish, conn);
                 cmd_wish.Parameters.AddWithValue("@user_id", user_id);
                 MySqlDataReader reader_wish = cmd_wish.ExecuteReader();
