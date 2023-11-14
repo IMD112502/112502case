@@ -284,12 +284,16 @@ namespace BookKeeping.src
 
                     if (rowsaffected > 0)
                     {
-                        // 彈出視窗
-                        string script = $"alert('您總共答對 {corcnt} 題'); window.location.href = 'game_menu.aspx';";
-                        ClientScript.RegisterStartupScript(this.GetType(), "ShowCorrectAnswersAlert", script, true);
+                        // 触发模态框
+                        string script = "$('#resultMessage').text('答對了 " + corcnt + " 題'); $('#resultModal').modal('show');";
+                        ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
                     }
                 }
             }
+        }
+        protected void RestartGame(object sender, EventArgs e)
+        {
+            Response.Redirect("game_second.aspx"); // 跳轉到 game_second.aspx
         }
 
         protected void LeaveGame_Click(object sender, EventArgs e)

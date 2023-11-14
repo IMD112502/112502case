@@ -109,9 +109,8 @@ namespace BookKeeping.src
                 script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
                 script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
                 script += "document.body.appendChild(imageBox);";
-                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/setting.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                 ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
-                Response.AddHeader("REFRESH", "0.1;URL=setting.aspx");
             }
             else
             {

@@ -1947,13 +1947,6 @@ body {
         transform: translate(-50%, 0%);
     }
 
-    .AchButtonGet { /* 成就領取紐 */
-        Height: 27px;
-        Width: 27px;
-        margin-top: -20px;
-        margin-left: 300px;
-    }
-
     .AchContent { /* 成就區塊 */
         position: absolute;
         left: 50%;
@@ -1972,17 +1965,18 @@ body {
 
     .task-image { /* 左側圖片 */
         flex: 1; /* 占用可用空間的一部分，使圖片在左側 */
-        max-width: 100px; /* 設置最大寬度，根據實際情況調整 */
+        max-width: 60px; /* 設置最大寬度，根據實際情況調整 */
         height: auto; /* 保持原始比例 */
     }
 
     .task-main { /* 任務主題 */
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .task-content { /* 任務內容 */
         flex: 2.3; /* 占用可用空間的一部分，使任務內容在中間 */
         padding: 10px; /* 內邊距，增加內容區塊的間距 */
+        font-size: 10px;
     }
 
     .progress { /* 進度條 */
@@ -2007,6 +2001,7 @@ body {
         text-align: center; /* 文字置中 */
         width: 5px;
         height: 50%;
+        font-size: 13px;
     }
 
     .check {
@@ -2067,13 +2062,6 @@ body {
         left: 65%;
         top: 40%;
         transform: translate(-50%, 0%);
-    }
-
-    .AchButtonGet { /* 成就領取紐 */
-        Height: 40px;
-        Width: 40px;
-        margin-top: -20px;
-        margin-left: 300px;
     }
 
     .AchContent { /* 成就區塊 */
@@ -3824,4 +3812,31 @@ body {
 }
 
 /*====================買文具結束=================*/
+
+#resultModal .modal-dialog {
+    margin-top: 25%;
+    transform: translate(0, -50%);
+    max-width: 400px; /* 设置最大宽度 */
+    width: 80%; /* 设置宽度为父容器的百分比 */
+}
+
+#resultModal .modal-content {
+    width: 100%; /* 设置内容区域宽度为100% */
+    background-color: #9CD9C5;
+    border-radius: 15px; /* 圆角半径，根据需要进行调整 */
+    border: 3px solid teal; /* 边框宽度和颜色 */
+}
+
+#resultModal .modal-body {
+    text-align: center; /* 将文字置中 */
+    font-size: 40px;
+    margin-top: 20%;
+    font-weight: bold;
+    transform: translate(0, -20%);
+}
+
+#resultModal .modal-footer {
+    justify-content: center; /* 将按钮置中 */
+    border: none; /* 去除邊框 */
+}
 /*------------------------------------小遊戲結束------------------------------------*/

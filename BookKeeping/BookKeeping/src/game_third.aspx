@@ -4,9 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <!-- 引用你的 CSS 文件 -->
     <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <!-- 引用 Bootstrap 的 CSS 文件 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- 引用 Bootstrap 的 JavaScript 文件（jQuery 需要在 Bootstrap 之前引入） -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>題型三-認識錢幣</title>
+    <title>題型三-買文具</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -326,6 +335,19 @@
         <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
         <asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
             
+        <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="resultMessage"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 ButtonSize2" OnClick="RestartGame" />
+                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 ButtonSize2" PostBackUrl="game_menu.aspx" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>
