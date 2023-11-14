@@ -272,14 +272,15 @@ namespace _BookKeeping
 
         private void ShowResultMessage(int rowsAffected)
         {
-            string script = "var imageBox = document.createElement('img');";
+            string script = "var overlay = document.getElementById('overlay');";
+            script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+            script += "var imageBox = document.createElement('img');";
             script += rowsAffected > 0 ? "imageBox.src = 'images/alert_4Y.png';" : "imageBox.src = 'images/alert_4N.png';";
             script += "imageBox.className = 'custom-image';";
             script += "document.body.appendChild(imageBox);";
+            script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
             script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
             ClientScript.RegisterStartupScript(GetType(), rowsAffected > 0 ? "領取成功" : "領取失敗", script, true);
         }
-
-
     }
 }

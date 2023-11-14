@@ -55,15 +55,15 @@ namespace BookKeeping
                             TextBox1.Text = "";
 
                             // 显示成功消息
-                            string script = "var imageBox = document.createElement('img');";
-                            script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
-                            script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                            string script = "var overlay = document.getElementById('overlay');";
+                            script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                            script += "var imageBox = document.createElement('img');";
+                            script += "imageBox.src = 'images/alert_1Y.png';";
+                            script += "imageBox.className = 'custom-image';";
                             script += "document.body.appendChild(imageBox);";
-                            script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                            script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                            script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/bucket_password.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                             ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
-
-                            // 重定向到登录页面
-                            Response.AddHeader("REFRESH", "0.5;URL=bucket_password.aspx"); // 替换为实际的登录页面路径
                         }
                     }
                 }
@@ -71,21 +71,27 @@ namespace BookKeeping
                 else
                 {
                     // 密码不匹配，显示错误消息
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_pw_n_same.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_pw_n_same.png';";
+                    script += "imageBox.className = 'custom-image2';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                    ClientScript.RegisterStartupScript(GetType(), "密碼不一致", script, true);
+                    ClientScript.RegisterStartupScript(GetType(), "確認密碼不匹配", script, true);
                 }
             }
             else
             {
                 // 显示错误消息，提示用户填写信息
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_n_whole.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_n_whole.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                 ClientScript.RegisterStartupScript(GetType(), "請填寫完整", script, true);
             }

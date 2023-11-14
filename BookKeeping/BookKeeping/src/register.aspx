@@ -57,6 +57,7 @@
                 <asp:Button class="ButtonStyle3 ButtonSize1" ID="Button2" runat="server" OnClick="Button2_Click" OnClientClick="storeDate();" Text="確認" ValidationGroup="register"  />
             </div>
         </div>
+        <div id="overlay"></div>
     </form>
     </div>
 

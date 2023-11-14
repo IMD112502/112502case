@@ -163,10 +163,13 @@ namespace _BookKeeping
                         TextBox1.Text = null;
                         TextBox2.Text = null;
                         ErrorMessageLabel.Text = "";
-                        string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_2Y.png';";
+                        script += "imageBox.className = 'custom-image';";
                         script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                         ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
 
@@ -174,10 +177,13 @@ namespace _BookKeeping
                     }
                     else
                     {
-                        string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_2N.png';";
+                        script += "imageBox.className = 'custom-image';";
                         script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                         ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                     }
@@ -234,19 +240,25 @@ namespace _BookKeeping
 
             if (rowsAffected > 0)
             {
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_3Y.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_3Y.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                 ClientScript.RegisterStartupScript(GetType(), "刪除成功", script, true);
             }
             else
             {
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_3N.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_3N.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                 ClientScript.RegisterStartupScript(GetType(), "刪除失敗", script, true);
             }
@@ -308,19 +320,25 @@ namespace _BookKeeping
 
             if (rowsAffected > 0)
             {
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_1Y.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                 ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
             }
             else
             {
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_1N.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_1N.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                 ClientScript.RegisterStartupScript(GetType(), "修改失敗", script, true);
             }

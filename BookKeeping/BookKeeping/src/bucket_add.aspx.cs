@@ -95,20 +95,25 @@ namespace _BookKeeping
 
                 if (rowsaffected > 0)
                 {
-                    // 在C#中注册JavaScript以显示警报
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2Y.png';";
+                    script += "imageBox.className = 'custom-image';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/bucket_list.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                     ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
                 }
                 else
                 {
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2N.png';";
+                    script += "imageBox.className = 'custom-image';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                     ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                 }
@@ -117,10 +122,13 @@ namespace _BookKeeping
             else
             {
                 WishTextbox.Text = null;
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_dre_full.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_dre_full.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                 ClientScript.RegisterStartupScript(GetType(), "願望已滿", script, true);
             }

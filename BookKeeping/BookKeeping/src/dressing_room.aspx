@@ -59,6 +59,7 @@
             <asp:label ID="gender" runat="server" text="" Visible="false"></asp:label>
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
+        <div id="overlay"></div>
 
         <script type="text/javascript">
             function updateImages(newClothingURL, newHeadwearURL, newPetURL) {

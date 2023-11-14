@@ -15,6 +15,16 @@ body {
     width: 1200px;
 }
 
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    display: none; /* 初始時隱藏 */
+}
+
 ::-webkit-scrollbar {
     width: 8px; /* 滾輪寬度 */
 }
@@ -34,11 +44,12 @@ body {
 
 .custom-image {
     position: absolute; /*指定絕對位置*/
-    top: 20%;
+    top: 30%;
     left: 50%;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     transform: translate(-50%, -50%);
+    imageRendering = 'pixelated'; /* 設置畫質為 pixelated */
 }
 
 .custom-image2 {
@@ -3227,9 +3238,15 @@ body {
 /*------------------------------------更衣室結束------------------------------------*/
 
 /*------------------------------------小遊戲開始------------------------------------*/
-.GameMenuBody {
-    background-image: url('images/game/IMG_6389.png');
-    background-size: 1416px 984px;
+.GameBody {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-image: url('images/game/game_screen.png');
+    background-size: 1119.36px 757.44px;
+    width: 1119.36px;
+    height: 757.44px;
+    transform: translate(-50%, -50%);
 }
 
 /*.GameBody {
@@ -3249,22 +3266,84 @@ body {
     font-size: 70px;
     font-weight: bold;
     position: absolute;
-    top: 20%;
+    top: 13%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .GameMain {
     position: absolute;
-    top: 70%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150px;
-    height: 100px;
+    width: 800px;
+    height: 350px;
     padding: 20px;
     line-height: 50px;
 }
 
+.GameMenuButton {
+    width: 200px;
+    height: 200px;
+}
+    .GameMenuButton:hover {
+        width: 220px;
+        height: 220px;
+    }
+
+#GameIcon1 {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+#GameTit1 {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+#GameIcon2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#GameTit2 {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#GameIcon3 {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+#GameTit3 {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 90%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+#GameIntro {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
 /*====================認識錢幣======================*/
 .GTitle { /*第一關、第二關、......的標題*/
     color: darkcyan;

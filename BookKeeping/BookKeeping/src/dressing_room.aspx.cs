@@ -131,19 +131,25 @@ namespace BookKeeping.src
                         // 更新成功，執行服务器端数据绑定以更新页面上的控件
                         BindUserData();
                         UpdatePage();
-                        string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_1Y.png';";
+                        script += "imageBox.className = 'custom-image';";
                         script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                         ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
                     }
                     else
                     {
-                        string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_1N.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_1N.png';";
+                        script += "imageBox.className = 'custom-image';";
                         script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                         ClientScript.RegisterStartupScript(GetType(), "修改失败", script, true);
                     }

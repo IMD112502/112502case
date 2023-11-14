@@ -46,8 +46,8 @@
                 </asp:Repeater>
             </div>
         </div>
-
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
+        <div id="overlay"></div>
     </form>
 </body>
 </html>

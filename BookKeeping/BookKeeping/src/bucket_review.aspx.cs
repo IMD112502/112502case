@@ -155,7 +155,7 @@ namespace BookKeeping.src
             if (selectedValue == "y")
             {
                 int amount;
-                if (!int.TryParse(Textbox1.Text, out amount))
+                if (!int.TryParse(MoneyTextbox.Text, out amount))
                 {
                     ErrorMessagel.Text = "請輸入有效的金額!";
                     ErrorMessagel.Visible = true;
@@ -197,24 +197,32 @@ namespace BookKeeping.src
 
                 if (rows_affected > 0)
                 {
-                    Textbox1.Text = null;
+                    MoneyTextbox.Text = null;
+                    CauseTextbox.Text = null;
                     ErrorMessagel.Visible = false;
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2Y.png';";
+                    script += "imageBox.className = 'custom-image';";
                     script += "document.body.appendChild(imageBox);";
-                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/bucket_review.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                     ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
                     DisplayWindows();
                 }
                 else
                 {
-                    Textbox1.Text = null;
+                    MoneyTextbox.Text = null;
+                    CauseTextbox.Text = null;
                     ErrorMessagel.Visible = false;
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2N.png';";
+                    script += "imageBox.className = 'custom-image';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                     ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                     DisplayWindows();
@@ -223,7 +231,7 @@ namespace BookKeeping.src
 
             if (selectedValue == "n")
             {
-                string reason = Textbox2.Text;
+                string reason = CauseTextbox.Text;
                 if (string.IsNullOrEmpty(reason))
                 {
                     ErrorMessage2.Text = "請輸入拒絕原因!";
@@ -243,22 +251,30 @@ namespace BookKeeping.src
 
                 if (rows_affect > 0)
                 {
-                    Textbox1.Text = null;
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_2Y.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    MoneyTextbox.Text = null;
+                    CauseTextbox.Text = null;
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2Y.png';";
+                    script += "imageBox.className = 'custom-image';";
                     script += "document.body.appendChild(imageBox);";
-                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/bucket_review.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                     ClientScript.RegisterStartupScript(GetType(), "新增成功", script, true);
                     DisplayWindows();
                 }
                 else
                 {
-                    Textbox1.Text = null;
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_2N.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                    MoneyTextbox.Text = null;
+                    CauseTextbox.Text = null;
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_2N.png';";
+                    script += "imageBox.className = 'custom-image';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                     ClientScript.RegisterStartupScript(GetType(), "新增失敗", script, true);
                     DisplayWindows();

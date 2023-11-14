@@ -97,15 +97,16 @@ namespace BookKeeping
                 // 用户尚未注册审核密码，将用户输入的密码更新到数据库
                 UpdateAuditPasswordForUser(user_id, enteredPassword, ques, Answer);
 
-                string script = "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_5Y.png';"; // 设置图像的路径
-                script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_5Y.png';";
+                script += "imageBox.className = 'custom-image';";
                 script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/bucket_password.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                 ClientScript.RegisterStartupScript(GetType(), "註冊成功", script, true);
-
-                // 密码更新后，将用户重定向回原始页面
-                Response.AddHeader("REFRESH", "0.5;URL=bucket_password.aspx");
             }
         }
 

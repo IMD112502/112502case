@@ -105,13 +105,13 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Label label4;
 
         /// <summary>
-        /// Textbox1 控制項。
+        /// MoneyTextbox 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Textbox1;
+        protected global::System.Web.UI.WebControls.TextBox MoneyTextbox;
 
         /// <summary>
         /// label5 控制項。
@@ -150,13 +150,13 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Label label6;
 
         /// <summary>
-        /// Textbox2 控制項。
+        /// CauseTextbox 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Textbox2;
+        protected global::System.Web.UI.WebControls.TextBox CauseTextbox;
 
         /// <summary>
         /// ErrorMessage2 控制項。

@@ -39,6 +39,7 @@
             <asp:Button class="ButtonStyle ButtonSize2" ID="GoBack" runat="server" Text="返回" PostBackUrl="~/src/setting.aspx"/>
             <asp:Button class="ButtonStyle ButtonSize4" ID="EditOk" runat="server" OnClick="EditOk_Click" Text="確認修改" />
         </div>
+        <div id="overlay" style="border-radius:25px;"></div>
     </form>
 </body>
 </html>

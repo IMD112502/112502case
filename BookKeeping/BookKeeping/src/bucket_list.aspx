@@ -33,6 +33,7 @@
             <asp:ImageButton ID="BucketAdd" runat="server" ImageUrl="images/buc_add_button.png" PostBackUrl="~/src/bucket_add.aspx" />
         </div>
         <asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" /><%----返回鍵--%>
+        <div id="overlay"></div>
     </form>
 </body>
 </html>

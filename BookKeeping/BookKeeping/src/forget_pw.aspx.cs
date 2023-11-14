@@ -37,10 +37,13 @@ namespace BookKeeping.src
                 if (string.IsNullOrEmpty(newpwd) || string.IsNullOrEmpty(confirmPwd))
                 {
                     // Display message if new password or confirmation password is empty
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_pw_n.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_pw_n.png';";
+                    script += "imageBox.className = 'custom-image2';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                     ClientScript.RegisterStartupScript(GetType(), "請完整填寫密碼", script, true);
                     return;
@@ -49,10 +52,13 @@ namespace BookKeeping.src
                 if (newpwd != confirmPwd)
                 {
                     // Display message if new password and confirmation password do not match
-                    string script = "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_pw_n_same.png';"; // 设置图像的路径
-                    script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_pw_n_same.png';";
+                    script += "imageBox.className = 'custom-image2';";
                     script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                     ClientScript.RegisterStartupScript(GetType(), "確認密碼不匹配", script, true);
                     return;
@@ -80,21 +86,25 @@ namespace BookKeeping.src
                         newanswer.Text = "";
                         enteraccount.Text = "";
 
-                        string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_1Y.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image';"; // 添加自定义CSS类
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_1Y.png';";
+                        script += "imageBox.className = 'custom-image';";
                         script += "document.body.appendChild(imageBox);";
-                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/login.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
                         ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
-
-                        Response.Redirect("login.aspx"); // Redirect to login page
                     }
                     else
                     {
-                        string script = "var imageBox = document.createElement('img');";
-                        script += "imageBox.src = 'images/alert_saveq_n.png';"; // 设置图像的路径
-                        script += "imageBox.className = 'custom-image2';"; // 添加自定义CSS类
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_saveq_n.png';";
+                        script += "imageBox.className = 'custom-image2';";
                         script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
                         ClientScript.RegisterStartupScript(GetType(), "安全問題不正確", script, true);
                     }
