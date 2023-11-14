@@ -185,6 +185,7 @@ namespace BookKeeping.src
             else
             {
                 ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
+                GameReord();
             }
         }
         protected void InitializeGame3_2()
