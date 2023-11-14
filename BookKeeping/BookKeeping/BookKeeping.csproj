@@ -139,9 +139,7 @@
     <Content Include="src\forget_bucket_pwd.aspx" />
     <Content Include="src\finishAch.aspx" />
     <Content Include="src\achievement.aspx" />
-    <Content Include="src\avatar.aspx" />
     <Content Include="src\bookkeeping_add.aspx" />
-    <Content Include="src\bookkeeping_edit.aspx" />
     <Content Include="src\bookkeeping_report.aspx" />
     <Content Include="src\bookkeeping_search.aspx" />
     <Content Include="src\bucket_add.aspx" />
@@ -339,26 +337,12 @@
     <Compile Include="src\achievement.aspx.designer.cs">
       <DependentUpon>achievement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\avatar.aspx.cs">
-      <DependentUpon>avatar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\avatar.aspx.designer.cs">
-      <DependentUpon>avatar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="src\bookkeeping_add.aspx.cs">
       <DependentUpon>bookkeeping_add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="src\bookkeeping_add.aspx.designer.cs">
       <DependentUpon>bookkeeping_add.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\bookkeeping_edit.aspx.cs">
-      <DependentUpon>bookkeeping_edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\bookkeeping_edit.aspx.designer.cs">
-      <DependentUpon>bookkeeping_edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\bookkeeping_report.aspx.cs">
       <DependentUpon>bookkeeping_report.aspx</DependentUpon>
