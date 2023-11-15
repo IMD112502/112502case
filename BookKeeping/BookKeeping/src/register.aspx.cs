@@ -91,6 +91,21 @@ namespace _BookKeeping
                 return; // 阻止注册流程
             }
 
+            //檢查是否有選擇性別
+            if (!RadioButton1.Checked && !RadioButton2.Checked)
+            {
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_n_all.png';";
+                script += "imageBox.className = 'custom-image2';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "請選擇性別", script, true);
+                return;
+            }
+
             // 检查生日是否选择
             if (selectedDate == DateTime.MinValue)
             {
@@ -299,7 +314,7 @@ namespace _BookKeeping
             return !Regex.IsMatch(input, pattern);
         }
 
-    protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
            
         }

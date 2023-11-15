@@ -91,42 +91,51 @@ namespace BookKeeping.src
             // 获取用户输入的数据
             UserData modifiedUserData = new UserData
             {
-                Nickname = SetNickname.Text,
-                Birthdate = new DateTime(
-                    int.Parse(TextBox2.Text),
-                    int.Parse(TextBox3.Text),
-                    int.Parse(TextBox4.Text))
-               
+                Nickname = SetNickname.Text
             };
 
-            // 调用保存数据的方法
-            bool updateSuccess = UpdateUserData(modifiedUserData);
+            int year, month, day;
 
-            if (updateSuccess)
+            if (int.TryParse(TextBox2.Text, out year) && int.TryParse(TextBox3.Text, out month) && int.TryParse(TextBox4.Text, out day))
             {
-                // 如果更新成功，你可以进行相应的处理，例如重定向到设置页面或显示成功消息
-                string script = "var overlay = document.getElementById('overlay');";
-                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
-                script += "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_1Y.png';";
-                script += "imageBox.className = 'custom-image';";
-                script += "document.body.appendChild(imageBox);";
-                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
-                script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/setting.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
-                ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
+                // 调用保存数据的方法
+                modifiedUserData.Birthdate = new DateTime(year, month, day);
+
+                // 调用保存数据的方法
+                bool updateSuccess = UpdateUserData(modifiedUserData);
+
+                if (updateSuccess)
+                {
+                    // 如果更新成功，你可以进行相应的处理，例如重定向到设置页面或显示成功消息
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_1Y.png';";
+                    script += "imageBox.className = 'custom-image';";
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/setting.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
+                    ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
+                }
+                else
+                {
+                    // 如果更新失败，显示错误消息给用户
+                    string script = "var overlay = document.getElementById('overlay');";
+                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                    script += "var imageBox = document.createElement('img');";
+                    script += "imageBox.src = 'images/alert_1N.png';";
+                    script += "imageBox.className = 'custom-image';";
+                    script += "document.body.appendChild(imageBox);";
+                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                    ClientScript.RegisterStartupScript(GetType(), "修改失敗", script, true);
+                }
             }
             else
             {
-                // 如果更新失败，显示错误消息给用户
-                string script = "var overlay = document.getElementById('overlay');";
-                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
-                script += "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_1N.png';";
-                script += "imageBox.className = 'custom-image';";
-                script += "document.body.appendChild(imageBox);";
-                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
-                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                ClientScript.RegisterStartupScript(GetType(), "修改失敗", script, true);
+                // 显示错误消息，提示用户输入的生日不是有效的数字
+                string script = "alert('請輸入有效的生日數字');";
+                ClientScript.RegisterStartupScript(GetType(), "生日輸入錯誤", script, true);
             }
         }
 

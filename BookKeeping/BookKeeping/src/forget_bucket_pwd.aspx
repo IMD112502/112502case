@@ -26,7 +26,7 @@
                     <asp:TextBox class="TextBoxStyle" ID="securityAnswer" runat="server" Width="182" Height="20" style ="margin-bottom:10px; padding-left:10px;" placeholder="請輸入答案" ></asp:TextBox>
                     </p>
                     <p>重設審核密碼
-                    <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="145" Height="20" style ="margin-bottom:10px; padding-left:10px;" TextMode="Password" placeholder="請輸入審核密碼" ></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="145" Height="20" style ="margin-bottom:10px; padding-left:10px;" placeholder="請輸入審核密碼" ></asp:TextBox>
                     </p>
                     <p>確認審核密碼
                     <asp:TextBox class="TextBoxStyle" ID="TextBox1" runat="server" Width="145" Height="20" style ="margin-bottom:10px; padding-left:10px;" TextMode="Password" placeholder="請再次輸入審核密碼" ></asp:TextBox>

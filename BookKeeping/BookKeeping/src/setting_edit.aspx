@@ -27,11 +27,11 @@
                 </p>
                 <p>
                     <label>生日 </label>
-                    <asp:TextBox class="SetTextBoxStyle YearTextBox" ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox class="SetTextBoxStyle YearTextBox" ID="TextBox2" runat="server" onkeypress="return validateNumberInput(event)"></asp:TextBox>
                     <label>/</label>
-                    <asp:TextBox class="SetTextBoxStyle MonthDayTextBox" ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox class="SetTextBoxStyle MonthDayTextBox" ID="TextBox3" runat="server" onkeypress="return validateNumberInput(event)"></asp:TextBox>
                     <label>/</label>
-                    <asp:TextBox class="SetTextBoxStyle MonthDayTextBox" ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:TextBox class="SetTextBoxStyle MonthDayTextBox" ID="TextBox4" runat="server" onkeypress="return validateNumberInput(event)"></asp:TextBox>
                 </p>
             </div>
             <asp:Image class="Ava" ID="Avatar" runat="server" ImageUrl="images/avatar/ava_girl.png"/>
@@ -41,5 +41,26 @@
         </div>
         <div id="overlay" style="border-radius:25px;"></div>
     </form>
+
+    <script type="text/javascript">
+    function validateNumberInput(event) {
+        var charCode = (event.which) ? event.which : event.keyCode;
+
+        // 允许退格和删除键
+        if (charCode == 8 || charCode == 46) {
+            return true;
+        }
+
+        // 确保输入的是数字
+        if (charCode < 48 || charCode > 57) {
+            event.preventDefault();
+            return false;
+        }
+
+        return true;
+    }
+    </script>
+
+
 </body>
 </html>

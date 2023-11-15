@@ -28,6 +28,7 @@ namespace BookKeeping
                     // 用户已经注册了审核密码，不需要进行额外操作
                     securityQuestion.Visible = false;
                     securityAnswer.Visible = false;
+                    UserPwd.TextMode = TextBoxMode.Password;
                 }
                 else
                 {
@@ -38,6 +39,11 @@ namespace BookKeeping
                     question.Visible = true;
                     securityQuestion.Visible = true;
                     securityAnswer.Visible = true;
+
+                    // 恢复 ViewState 中的值
+                    UserPwd.Text = ViewState["enteredPassword"] as string;
+                    securityAnswer.Text = ViewState["Answer"] as string;
+                    securityQuestion.SelectedValue = ViewState["ques"] as string;
                 }
             }
         }
@@ -93,6 +99,10 @@ namespace BookKeeping
                     ErrorMessageLabel.Text = "請填寫所有必要信息。"; // 显示错误消息
                     return; // 如果有空字段，不继续执行
                 }
+
+                ViewState["enteredPassword"] = enteredPassword;
+                ViewState["Answer"] = Answer;
+                ViewState["ques"] = ques;
 
                 // 用户尚未注册审核密码，将用户输入的密码更新到数据库
                 UpdateAuditPasswordForUser(user_id, enteredPassword, ques, Answer);
