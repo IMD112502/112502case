@@ -174,27 +174,27 @@ namespace _BookKeeping
 
             string defaultClothing = string.Empty;
             string defaultBody = string.Empty;
-            //string defaultPet = string.Empty;
+            string defaultPet = string.Empty;
             if (RadioButton1.Checked)
             {
                 // 用户选择了男生，设置男性衣服的默认值
                 defaultClothing = "/src/images/cloth/defaulthead_b.png"; // 请根据实际情况设置男性衣服的值
                 defaultBody = "/src/images/cloth/defaultbody_b.png";
-                //defaultPet = "/src/images/cloth/defaultpet.png";
+                defaultPet = "/src/images/cloth/defaultpet.png";
             }
             else if (RadioButton2.Checked)
             {
                 // 用户选择了女生，设置女性衣服的默认值
                 defaultClothing = "/src/images/cloth/defaulthead_g.png"; // 请根据实际情况设置女性衣服的值
                 defaultBody = "/src/images/cloth/defaultbody_g.png";
-                //defaultPet = "/src/images/cloth/defaultpet.png";
+                defaultPet = "/src/images/cloth/defaultpet.png";
             }
 
 
             // 在这里添加将用户信息插入数据库的代码
             MySqlConnection conn = DBConnection();
 
-            string sql = "INSERT INTO `112-112502`.user (user_id, nickname, gender, password, question1, answer1, birthday, cloth, cloth2) VALUES (@user_id, @nickname, @gender, @password, @question1, @answer1, @birthdate, @defaultBody, @defaultClothing)";
+            string sql = "INSERT INTO `112-112502`.user (user_id, nickname, gender, password, question1, answer1, birthday, cloth, cloth2, pet) VALUES (@user_id, @nickname, @gender, @password, @question1, @answer1, @birthdate, @defaultBody, @defaultClothing, @defaultPet)";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             cmd.Parameters.AddWithValue("@user_id", userid);
@@ -206,17 +206,17 @@ namespace _BookKeeping
             cmd.Parameters.AddWithValue("@birthdate", selectedDate);
             cmd.Parameters.AddWithValue("@defaultClothing", defaultClothing);
             cmd.Parameters.AddWithValue("@defaultBody", defaultBody);
-            //cmd.Parameters.AddWithValue("@defaultPet", defaultPet);
+            cmd.Parameters.AddWithValue("@defaultPet", defaultPet);
 
-            //string petsql = "INSERT INTO `112-112502`.achievement_complete (user_id, cloth_id, a_id) VALUES (@user_id, @pet, 'DP')";
-            //MySqlCommand petcmd = new MySqlCommand(petsql, conn);
+            string petsql = "INSERT INTO `112-112502`.achievement_complete (user_id, cloth_id, a_id) VALUES (@user_id, @pet, 'DP')";
+            MySqlCommand petcmd = new MySqlCommand(petsql, conn);
 
-            //petcmd.Parameters.AddWithValue("@user_id", userid);
-            //petcmd.Parameters.AddWithValue("@pet", defaultPet);
+            petcmd.Parameters.AddWithValue("@user_id", userid);
+            petcmd.Parameters.AddWithValue("@pet", defaultPet);
 
-            //int rowsAffetedPet = petcmd.ExecuteNonQuery();
+            int rowsAffetedPet = petcmd.ExecuteNonQuery();
 
-            //petcmd.Parameters.Clear();
+            petcmd.Parameters.Clear();
 
             string SQL = "INSERT INTO `112-112502`.achievement_complete (user_id, cloth_id, a_id) VALUES (@user_id, @cloth_id, 'DB')";
             MySqlCommand sqlcmd = new MySqlCommand(SQL, conn);

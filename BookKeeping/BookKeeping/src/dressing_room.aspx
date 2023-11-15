@@ -126,7 +126,7 @@
                 cancelButton.disabled = false;
 
                 // 在此处调用updateImages，传递新的衣物URL和头饰URL
-                updateImages(document.getElementById("NowBody").src, imagePath);
+                updateImages(document.getElementById("NowBody").src, imagePath, document.getElementById("NowPet").src);
 
                 return false;
             }
