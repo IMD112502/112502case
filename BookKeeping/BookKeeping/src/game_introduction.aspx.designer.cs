@@ -11,7 +11,7 @@ namespace BookKeeping.src
 {
 
 
-    public partial class game_first
+    public partial class game_introduction
     {
 
         /// <summary>
@@ -24,93 +24,57 @@ namespace BookKeeping.src
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// FirstGamePanel 控制項。
+        /// Label1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel FirstGamePanel;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// question1 控制項。
+        /// Button1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label question1;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Image1 控制項。
+        /// Button3 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// Ans1 控制項。
+        /// Button2 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Ans1;
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// Ans2 控制項。
+        /// itd_game1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Ans2;
+        protected global::System.Web.UI.WebControls.Image itd_game1;
 
         /// <summary>
-        /// Ans3 控制項。
+        /// ImageButton1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Ans3;
-
-        /// <summary>
-        /// GameProgress 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GameProgress;
-
-        /// <summary>
-        /// LeaveGame 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LeaveGame;
-
-        /// <summary>
-        /// randomNum 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label randomNum;
-
-        /// <summary>
-        /// correctcnt 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label correctcnt;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
     }
 }

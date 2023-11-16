@@ -3455,25 +3455,28 @@ body {
 /* 進度條 */
 .GameProgress {
     position: absolute;
-    top: 96%;
+    top: 94%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
+    width: 300px;
     height: 30px;
     background-color: #ccc;
     border: 1px solid #333;
+    border-radius: 15px;
 }
 
 .GameProgress-bar {
-    width: 20%; /* 進度條的填充寬度（根據任務完成進度設定） */
+    width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
     height: 100%;
-    background-color: #52BFBC;
+    background-color: teal;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 .GameProgressText {
     position: absolute;
-    top: 96%;
-    left: 59%;
+    top: 93.8%;
+    left: 60%;
     transform: translate(-50%, -50%);
     font-weight: bold;
     font-size: 25px;
@@ -3596,6 +3599,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .GlueQ {
@@ -3606,6 +3610,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .CorQ {
@@ -3616,6 +3621,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .RulerQ {
@@ -3626,6 +3632,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .RedQ {
@@ -3636,6 +3643,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .GreenQ {
@@ -3646,6 +3654,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .BlueQ {
@@ -3656,6 +3665,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .BlackQ {
@@ -3666,6 +3676,7 @@ body {
     display: flex;
     height: 168px;
     align-items: center;
+    font-size: 40px;
 }
 
 .Stationery { /*文具區*/
@@ -3692,6 +3703,11 @@ body {
     display: flex;
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
+}
+
+.draggable-item {
+    width: 10px;
+    height: 150px;
 }
 
 #Trolley { /*購物車*/
@@ -3919,3 +3935,29 @@ body {
     border: none; /* 去除邊框 */
 }
 /*------------------------------------小遊戲結束------------------------------------*/
+/*---------------遊戲介紹---------------------*/
+.GameItdButton {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.GameItdTitle {
+    color: darkcyan;
+    font-size: 70px;
+    font-weight: bold;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#itd_game1 {
+    Height: 650px;
+    Width: 1100px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -30,7 +30,6 @@ namespace BookKeeping.src
         protected void InitializeGame1()
         {
             FirstGamePanel.Visible = true;
-            SecondGamePanel.Visible = false;
 
             currentQuestionIndex = random.Next(faceValues.Count);
 
@@ -77,9 +76,6 @@ namespace BookKeeping.src
             UpdateProgressText();
         }
       
-
-
-
         private void UpdateProgressText()
         {
             int count = int.Parse(GameProgress.Text[0].ToString());
@@ -88,7 +84,7 @@ namespace BookKeeping.src
 
                 // 更新进度条样式
                 double progress = (double)count / totalQuestions * 100;
-                GameProgress.Style["width"] = progress + "%";
+                GameProgress.Style["width"] = GameProgress + "%";
         }
 
         protected void CheckAnswer(object sender, EventArgs e)
