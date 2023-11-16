@@ -390,13 +390,15 @@ namespace _BookKeeping
             using (MySqlConnection connection = DBConnection())
             {
                 // 構建 SQL 查詢
-                string query = "SELECT a.num, a.date, b.cls_name, a.cost, a.mark FROM `112-112502`.bookkeeping_data as a\r\njoin `112-112502`.bookkeeping_class as b on a.class_id = b.cls_id WHERE a.user_id = @user_id ORDER BY " + sortExpression + " " + direction;
+                string query = "SELECT a.num, a.date, b.cls_name, a.cost, a.mark FROM `112-112502`.bookkeeping_data as a\r\njoin `112-112502`.bookkeeping_class as b on a.class_id = b.cls_id WHERE a.user_id = @user_id and month(date) = @month and year(date) = @year ORDER BY " + sortExpression + " " + direction;
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@user_id", user_id);
                     command.Parameters.AddWithValue("@sortExpression", sortExpression);
                     command.Parameters.AddWithValue("@direction", direction);
+                    command.Parameters.AddWithValue("@month", Session["currentMonth"]);
+                    command.Parameters.AddWithValue("@year", DateTime.Now.Year.ToString());
 
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                     {
