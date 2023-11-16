@@ -151,6 +151,14 @@
 
                     ShoppingCart.addEventListener('drop', function (event) {
                         event.preventDefault();
+                        // 檢查是否已達到最大元素數量
+                        var maxItems = 24;
+                        var existingItems = ShoppingCart.getElementsByClassName('draggable-item').length;
+                        if (existingItems >= maxItems) {
+                            // 如果已達到最大元素數量，則不允許添加新元素
+                            console.log('已達到最大元素數量，不允許添加新元素');
+                            return;
+                        }
                         var data = event.dataTransfer.getData('text/plain');
                         var draggedElement = document.getElementById(data);
                         console.log("拖曳的為" + draggedElement.id);
@@ -179,8 +187,23 @@
                             document.getElementById('hiddenruler').value = document.getElementById('RulerLabel').innerText;
                             console.log(itemQuantities[draggedElement.id]);
 
+
                             var clonedElement = draggedElement.cloneNode(true);
                             clonedElement.classList.add('draggable-item');
+                            // 設定元素的初始位置
+                            var initialPositionX = 95; // 起始橫向位置
+                            var initialPositionY = 70; // 起始縱向位置
+                            clonedElement.style.left = initialPositionX + 'px';
+                            clonedElement.style.top = initialPositionY + 'px';
+                            // 計算新元素的位置
+                            var itemsInRow = 8; // 每行元素数量
+                            var newPositionX = (existingItems % itemsInRow) * 70; // 60px 是每個元素的寬度
+                            var newPositionY = Math.floor(existingItems / itemsInRow) * 110; // 130px 是每個元素的高度
+                            // 將初始位置加上新元素位置
+                            var finalPositionX = initialPositionX + newPositionX;
+                            var finalPositionY = initialPositionY + newPositionY;
+                            clonedElement.style.left = finalPositionX + 'px';
+                            clonedElement.style.top = finalPositionY + 'px';
                             clonedElement.addEventListener('click', function () {
                                 clonedElement.parentNode.removeChild(clonedElement);
                                 if (!isNaN(itemQuantities[draggedElement.id])) {
