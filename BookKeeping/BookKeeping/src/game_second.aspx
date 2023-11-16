@@ -57,14 +57,11 @@
                 <asp:Button class="CoinAnsButton" ID="Ans6" runat="server" OnClick="CheckAnswer" CommandArgument="6" />
             </div>
             </asp:Panel>
-
-        
-        
-
+=
         <!-- 進度條 -->
         <div class="GameProgress">
-            <div class="GameProgressBar" style='<%# Eval("ProgressBarStyle") %>'></div>
-        </div>                        
+            <div class="GameProgress-bar" style='<%# Eval("ProgressBarStyle") %>' runat="server" id="GameProgressBar"></div>
+        </div>                     
 
         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
 		<asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />

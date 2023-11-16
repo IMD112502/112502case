@@ -22,6 +22,7 @@ namespace BookKeeping.src
             {
                 correctcnt.Text = "0";
                 GameProgress.Text = currentQuestion.ToString() + "/" + totalQuestions.ToString();
+                GameProgressBar.Attributes["style"] = "0";
                 // 初始化游戏
                 InitializeGame1();
             }
@@ -30,7 +31,6 @@ namespace BookKeeping.src
         protected void InitializeGame1()
         {
             FirstGamePanel.Visible = true;
-            SecondGamePanel.Visible = false;
 
             currentQuestionIndex = random.Next(faceValues.Count);
 
@@ -77,18 +77,16 @@ namespace BookKeeping.src
             UpdateProgressText();
         }
       
-
-
-
         private void UpdateProgressText()
         {
             int count = int.Parse(GameProgress.Text[0].ToString());
-                count++;
-                GameProgress.Text = count.ToString() + "/" + totalQuestions.ToString();
+            count++;
+            GameProgress.Text = count.ToString() + "/" + totalQuestions.ToString();
 
-                // 更新进度条样式
-                double progress = (double)count / totalQuestions * 100;
-                GameProgress.Style["width"] = progress + "%";
+            // 更新进度条样式
+            double progress = (double)count / totalQuestions * 100;
+            string progressBarStyle = $"width: {progress}%;"; // 設置進度條寬度
+            GameProgressBar.Attributes["style"] = progressBarStyle ;
         }
 
         protected void CheckAnswer(object sender, EventArgs e)
