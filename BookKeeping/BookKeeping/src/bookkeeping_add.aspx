@@ -45,10 +45,10 @@
 				</asp:GridView>--%>
 				<asp:GridView class="Gridview" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="num"
 				  OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing"
-				  OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDataBound="GridView1_RowDataBound">
+				  OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowDataBound="GridView1_RowDataBound" AllowSorting="true" OnSorting="GridView1_Sorting">
 
 				<Columns>
-					<asp:TemplateField HeaderText="日期">
+					<asp:TemplateField HeaderText="日期" SortExpression="date">
 						<ItemTemplate>
 							<asp:Label ID="num" runat="server" Text='<%# Eval("num") %>' Visible="false"></asp:Label>
 							<asp:Label ID="date" runat="server" Text='<%# Eval("date", "{0:yyyy-MM-dd}") %>'></asp:Label>
@@ -58,7 +58,7 @@
 						</EditItemTemplate>
 					</asp:TemplateField>
 
-					<asp:TemplateField HeaderText="類別">
+					<asp:TemplateField HeaderText="類別" SortExpression="class_id">
 						<ItemTemplate>
 							<asp:Label ID="class" runat="server" Text='<%# Eval("cls_name") %>'></asp:Label>
 						</ItemTemplate>
@@ -71,7 +71,7 @@
 							</EditItemTemplate>
 					</asp:TemplateField>
 
-					<asp:TemplateField HeaderText="花費">
+					<asp:TemplateField HeaderText="花費" SortExpression="cost">
 						<ItemTemplate>
 							<asp:Label ID="cost" runat="server" Text='<%# Eval("cost") %>'></asp:Label>
 						</ItemTemplate>
@@ -80,7 +80,7 @@
 						</EditItemTemplate>
 					</asp:TemplateField>
 
-					<asp:TemplateField HeaderText="備註">
+					<asp:TemplateField HeaderText="備註" SortExpression="mark">
 						<ItemTemplate>
 							<asp:Label ID="mark" runat="server" Text='<%# Eval("mark") %>'></asp:Label>
 						</ItemTemplate>

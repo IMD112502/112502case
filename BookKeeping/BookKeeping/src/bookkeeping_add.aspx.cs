@@ -374,5 +374,59 @@ namespace _BookKeeping
                 }
             }
         }
+
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            // 獲取排序的方向
+            string direction = GetSortDirection(e.SortExpression);
+
+            // 設置新的排序方向
+            e.SortDirection = direction == "ASC" ? SortDirection.Descending : SortDirection.Ascending;
+
+            // 獲取排序欄位
+            string sortExpression = e.SortExpression;
+
+            // 使用 DBConnection 方法建立 MySQL 連接
+            using (MySqlConnection connection = DBConnection())
+            {
+                // 構建 SQL 查詢
+                string query = "SELECT a.num, a.date, b.cls_name, a.cost, a.mark FROM `112-112502`.bookkeeping_data as a\r\njoin `112-112502`.bookkeeping_class as b on a.class_id = b.cls_id WHERE a.user_id = @user_id ORDER BY " + sortExpression + " " + direction;
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@user_id", user_id);
+                    command.Parameters.AddWithValue("@sortExpression", sortExpression);
+                    command.Parameters.AddWithValue("@direction", direction);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        GridView1.DataSource = dataTable;
+                        GridView1.DataBind();
+                    }
+                }
+            }
+        }
+
+        // 獲取排序的方向
+        private string GetSortDirection(string column)
+        {
+            // 默認為升序
+            string sortDirection = "ASC";
+
+            // 如果排序列和當前排序列相同，則切換排序方向
+            if (ViewState["SortExpression"] != null && ViewState["SortExpression"].ToString() == column)
+            {
+                sortDirection = (ViewState["SortDirection"].ToString() == "ASC") ? "DESC" : "ASC";
+            }
+
+            // 保存當前排序列和方向到 ViewState
+            ViewState["SortExpression"] = column;
+            ViewState["SortDirection"] = sortDirection;
+
+            return sortDirection;
+        }
+
     }
 }
