@@ -22,6 +22,7 @@ namespace BookKeeping.src
             {
                 correctcnt.Text = "0";
                 GameProgress.Text = currentQuestion.ToString() + "/" + totalQuestions.ToString();
+                GameProgressBar.Attributes["style"] = "0";
                 // 初始化游戏
                 InitializeGame2();
             }
@@ -219,7 +220,8 @@ namespace BookKeeping.src
 
             // 更新进度条样式
             double progress = (double)count / totalQuestions * 100;
-            GameProgress.Style["width"] = GameProgress + "%";
+            string progressBarStyle = $"width: {progress}%;"; // 設置進度條寬度
+            GameProgressBar.Attributes["style"] = progressBarStyle;
         }
 
         protected void CheckAnswer(object sender, EventArgs e)

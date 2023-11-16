@@ -3466,11 +3466,13 @@ body {
 }
 
 .GameProgress-bar {
-    width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
+    width: 50%; /* 進度條的填充寬度 (根據任務完成進度設定) */
     height: 100%;
     background-color: teal;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .GameProgressText {

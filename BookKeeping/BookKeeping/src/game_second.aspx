@@ -60,7 +60,7 @@
 =
         <!-- 進度條 -->
         <div class="GameProgress">
-            <div class="GameProgress-bar" style='<%# Eval("ProgressBarStyle") %>'></div>
+            <div class="GameProgress-bar" style='<%# Eval("ProgressBarStyle") %>' runat="server" id="GameProgressBar"></div>
         </div>                     
 
         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
