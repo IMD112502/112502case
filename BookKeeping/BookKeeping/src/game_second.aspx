@@ -19,9 +19,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="GameBackground">
+        <div class="GameBody">
         <asp:Panel ID="SecondGamePanel" runat="server" Visible="false"><%--遊戲二--%>
             <div class="GameLeft2"><%--左半邊題目--%>
-                <asp:Label ID="question2" class="question" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label></br>
+                <asp:Label ID="question2" class="question2" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label></br>
                 <div class="Thousand"><%--$1000--%>
                     <asp:Panel ID="Panel1000" runat="server"></asp:Panel>
                 </div>
@@ -80,6 +82,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
         <div id="overlay"></div>
     </form>

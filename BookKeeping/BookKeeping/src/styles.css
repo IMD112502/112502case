@@ -49,7 +49,7 @@ body {
     width: 200px;
     height: 200px;
     transform: translate(-50%, -50%);
-    imageRendering = 'pixelated'; /* 設置畫質為 pixelated */
+    image-rendering: pixelated; /* 設置畫質為 pixelated */
 }
 
 .custom-image2 {
@@ -59,16 +59,33 @@ body {
     width: 224px;
     height: 150px;
     transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* 設置畫質為 pixelated */
 }
 
-.result-image {
-    position: absolute; /*指定絕對位置*/
-    top: 50%;
-    left: 50%;
-    width: 500px; /* 設置圖片寬度 */
-    height: 500px; /* 設置圖片高度 */
-    border-radius: 10px; /* 可以設置邊框圓角，根據需要調整 */
-    transform: translate(-50%, -50%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .result-image {
+        position: absolute; /*指定絕對位置*/
+        top: 50%;
+        left: 50%;
+        width: 300px; /* 設置圖片寬度 */
+        height: 300px; /* 設置圖片高度 */
+        transform: translate(-50%, -50%);
+        image-rendering: pixelated; /* 設置畫質為 pixelated */
+    }
+}
+
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .result-image {
+        position: absolute; /*指定絕對位置*/
+        top: 50%;
+        left: 50%;
+        width: 500px; /* 設置圖片寬度 */
+        height: 500px; /* 設置圖片高度 */
+        transform: translate(-50%, -50%);
+        image-rendering: pixelated; /* 設置畫質為 pixelated */
+    }
 }
 
 .ButtonStyle,
@@ -2013,8 +2030,7 @@ body {
         width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
         height: 100%;
         background-color: teal;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        border-radius: 15px;
     }
 
     .claim-button { /* 領取按鈕 */
@@ -2129,8 +2145,7 @@ body {
         width: 50%; /* 進度條的填充寬度（根據任務完成進度設定） */
         height: 100%;
         background-color: teal;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
+        border-radius: 15px;
     }
 
     .claim-button { /* 領取按鈕 */
@@ -3248,347 +3263,707 @@ body {
 /*------------------------------------更衣室結束------------------------------------*/
 
 /*------------------------------------小遊戲開始------------------------------------*/
-.GameBody {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-image: url('images/game/game_screen.png');
-    background-size: 1119.36px 757.44px;
-    width: 1119.36px;
-    height: 757.44px;
-    transform: translate(-50%, -50%);
-}
-
-/*.GameBody {
-    background-image: url('images/game/game_screen.png');
-    background-size: 1632.4px 900px;
-    width: 1632.4px;
-    height: 900px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 93vh;
-}*/
-
-.GameTitle {
-    color: darkcyan;
-    font-size: 70px;
-    font-weight: bold;
-    position: absolute;
-    top: 13%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.GameMain {
-    position: absolute;
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-    height: 350px;
-    padding: 20px;
-    line-height: 50px;
-}
-
-.GameMenuButton {
-    width: 200px;
-    height: 200px;
-}
-    .GameMenuButton:hover {
-        width: 220px;
-        height: 220px;
-    }
-
-#GameIcon1 {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-}
-
-#GameTit1 {
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    top: 90%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-}
-
-#GameIcon2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#GameTit2 {
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#GameIcon3 {
-    position: absolute;
-    top: 50%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-}
-
-#GameTit3 {
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    top: 90%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-}
-
-#GameIntro {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
-}
-/*====================認識錢幣======================*/
-.GTitle { /*第一關、第二關、......的標題*/
-    color: darkcyan;
-    font-size: 70px;
-    font-weight: bold;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.GameLeft { /*左半邊(題目)*/
-    background-color: #9CD9C5;
-    Height: 600px;
-    Width: 800px;
-    border-radius: 50px; /*圓角*/
-    position: absolute;
-    top: 50%;
-    left: 38%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    line-height: 190px;
-}
-
-.GameRight {
-    background-color: #9CD9C5;
-    Height: 600px;
-    Width: 450px;
-    border-radius: 50px; /*圓角*/
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-}
-
-#Ans1, #Ans4 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#Ans2, #Ans5 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#Ans3, #Ans6 {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.question {
-    font-size: 50px;
-    color: darkcyan;
-    font-weight: bold;
-}
-
-.CoinAnsButton,
-.CoinAnsButton:focus {
-    position: absolute; /*指定絕對位置*/
-    border: 3px solid teal;
-    border-radius: 4px;
-    background-color: transparent;
-    color: teal;
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition-duration: 0.4s;
-}
-
-    .CoinAnsButton:hover {
-        border: 3px solid #ffffff;
-        box-shadow: 0px 2px 10px 5px teal;
-        color: white;
-        background-color: lightseagreen;
-    }
-
-    .CoinAnsButton:after {
-        content: "";
-        display: block;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .GameBody {
         position: absolute;
-        margin-left: -20px !important;
-        opacity: 0;
-        transition: all 0.8s
+        top: 50%;
+        left: 50%;
+        background-image: url('images/game/game_screen.png');
+        background-size: 654.8256px 441.3474px;
+        width: 654.8256px;
+        height: 441.3474px;
+        transform: translate(-50%, -40%);
     }
 
-    .CoinAnsButton:active:after {
-        padding: 0;
-        margin: 0;
-        opacity: 1;
-        transition: 0s;
+    .GameBackground {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 526.5px;
+        height: 321.75px;
+        background-color: paleturquoise;
+        transform: translate(-50%, -60%);
     }
 
-#LeaveGame {
-    position: absolute;
-    top: 95%;
-    left: 93%;
-    transform: translate(-50%, -50%);
+    .GameTitle {
+        color: darkcyan;
+        font-size: 45.5px;
+        font-weight: bold;
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameMain {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 350px;
+        padding: 20px;
+        line-height: 50px;
+    }
+
+    .GameMenuButton {
+        width: 200px;
+        height: 200px;
+    }
+
+        .GameMenuButton:hover {
+            width: 220px;
+            height: 220px;
+        }
+
+    #GameIcon1 {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameTit1 {
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 90%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameIcon2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameTit2 {
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameIcon3 {
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameTit3 {
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 90%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameIntro {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .GameEnd {
+        width: 150px;
+        height: 40px;
+    }
 }
 
-/* 進度條 */
-.GameProgress {
-    position: absolute;
-    top: 94%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 30px;
-    background-color: #ccc;
-    border: 1px solid #333;
-    border-radius: 15px;
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .GameBody {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-image: url('images/game/game_screen.png');
+        background-size: 1007.424px 678.996px;
+        width: 1007.424px;
+        height: 678.996px;
+        transform: translate(-50%, -40%);
+    }
+
+    .GameBackground {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 810px;
+        height: 495px;
+        background-color: paleturquoise;
+        transform: translate(-50%, -60%);
+    }
+
+    .GameTitle {
+        color: darkcyan;
+        font-size: 70px;
+        font-weight: bold;
+        position: absolute;
+        top: 13%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameMain {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 350px;
+        padding: 20px;
+        line-height: 50px;
+    }
+
+    .GameMenuButton {
+        width: 200px;
+        height: 200px;
+    }
+
+        .GameMenuButton:hover {
+            width: 220px;
+            height: 220px;
+        }
+
+    #GameIcon1 {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameTit1 {
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 90%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameIcon2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameTit2 {
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameIcon3 {
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameTit3 {
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 90%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    #GameIntro {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .GameEnd {
+        width: 150px;
+        height: 40px;
+    }
 }
 
-.GameProgress-bar {
-    width: 50%; /* 進度條的填充寬度 (根據任務完成進度設定) */
-    height: 100%;
-    background-color: teal;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+/*====================認識錢幣======================*/
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .GameLeft { /*左半邊(題目)*/
+        Height: 292.5px;
+        Width: 357.5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%, -69%);
+        text-align: center;
+        line-height: 123.5px;
+    }
+
+    .GameRight {
+        Height: 292.5px;
+        Width: 143px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(75%, -69%);
+    }
+
+    #Ans1, #Ans4 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Ans2, #Ans5 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Ans3, #Ans6 {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .question {
+        font-size: 29.25px;
+        color: darkcyan;
+        font-weight: bold;
+    }
+
+    #Image1 {
+        position: absolute;
+        top: 60%;
+        max-height: 40%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .CoinAnsButton,
+    .CoinAnsButton:focus {
+        position: absolute; /*指定絕對位置*/
+        border: 3px solid teal;
+        border-radius: 4px;
+        background-color: transparent;
+        color: teal;
+        font-size: 32.5px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition-duration: 0.4s;
+        width: 130px;
+        height: 65px;
+    }
+
+        .CoinAnsButton:hover {
+            border: 3px solid #ffffff;
+            box-shadow: 0px 2px 10px 5px teal;
+            color: white;
+            background-color: lightseagreen;
+        }
+
+        .CoinAnsButton:after {
+            content: "";
+            display: block;
+            position: absolute;
+            margin-left: -20px !important;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .CoinAnsButton:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s;
+        }
+
+    #LeaveGame {
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 進度條 */
+    /* 進度條 */
+    .GameProgress {
+        position: absolute;
+        top: 73.8%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 195px;
+        height: 19.5px;
+        background-color: #ccc;
+        border: 2px solid teal;
+        border-radius: 15px;
+    }
+
+    .GameProgress-bar {
+        width: 50%; /* 進度條的填充寬度 (根據任務完成進度設定) */
+        height: 100%;
+        background-color: teal;
+        border-radius: 15px;
+    }
+
+    .GameProgressText {
+        position: absolute;
+        top: 73.6%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        font-size: 16.25px;
+    }
 }
 
-.GameProgressText {
-    position: absolute;
-    top: 93.8%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    font-size: 25px;
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .GameLeft { /*左半邊(題目)*/
+        Height: 450px;
+        Width: 550px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%, -69%);
+        text-align: center;
+        line-height: 190px;
+    }
+
+    .GameRight {
+        Height: 450px;
+        Width: 220px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(75%, -69%);
+    }
+
+    #Ans1, #Ans4 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Ans2, #Ans5 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Ans3, #Ans6 {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .question {
+        font-size: 35px;
+        color: darkcyan;
+        font-weight: bold;
+    }
+
+    #Image1 {
+        position: absolute;
+        top: 60%;
+        max-height: 40%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .CoinAnsButton,
+    .CoinAnsButton:focus {
+        position: absolute; /*指定絕對位置*/
+        border: 3px solid teal;
+        border-radius: 4px;
+        background-color: transparent;
+        color: teal;
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition-duration: 0.4s;
+        width: 200px;
+        height: 100px;
+    }
+
+        .CoinAnsButton:hover {
+            border: 3px solid #ffffff;
+            box-shadow: 0px 2px 10px 5px teal;
+            color: white;
+            background-color: lightseagreen;
+        }
+
+        .CoinAnsButton:after {
+            content: "";
+            display: block;
+            position: absolute;
+            margin-left: -20px !important;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .CoinAnsButton:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s;
+        }
+
+    #LeaveGame {
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 進度條 */
+    /* 進度條 */
+    .GameProgress {
+        position: absolute;
+        top: 73.8%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 30px;
+        background-color: #ccc;
+        border: 2px solid teal;
+        border-radius: 15px;
+    }
+
+    .GameProgress-bar {
+        width: 50%; /* 進度條的填充寬度 (根據任務完成進度設定) */
+        height: 100%;
+        background-color: teal;
+        border-radius: 15px;
+    }
+
+    .GameProgressText {
+        position: absolute;
+        top: 73.6%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        font-size: 25px;
+    }
 }
 /*====================認識錢幣結束===================*/
 
 /*======================金幣加總=======================*/
-.GameLeft2 {
-    background-color: #9CD9C5;
-    Height: 700px;
-    Width: 1000px;
-    border-radius: 50px; /*圓角*/
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    line-height: 190px;
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .GameLeft2 { /*左半邊(題目)*/
+        Height: 292.5px;
+        Width: 357.5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%, -69%);
+        text-align: center;
+        line-height: 61.5px;
+    }
+
+    .GameRight2 {
+        Height: 292.5px;
+        Width: 143px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(75%, -69%);
+    }
+
+    .question2 {
+        font-size: 23px;
+        color: darkcyan;
+        font-weight: bold;
+    }
+
+    .Thousand {
+        width: 380px;
+        height: 50px;
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .FiveHundred {
+        width: 460px;
+        height: 50px;
+        position: absolute;
+        top: 40%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .OneHundred {
+        width: 400px;
+        height: 50px;
+        position: absolute;
+        top: 54%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .Fifty {
+        width: 150px;
+        height: 50px;
+        position: absolute;
+        top: 70%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .Ten {
+        width: 225px;
+        height: 50px;
+        position: absolute;
+        top: 70%;
+        left: 48%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .Five {
+        width: 170px;
+        height: 50px;
+        position: absolute;
+        top: 85%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .One {
+        width: 262.5px;
+        height: 50px;
+        position: absolute;
+        top: 85%;
+        left: 48%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
 }
 
-.GameRight2 {
-    background-color: #9CD9C5;
-    Height: 700px;
-    Width: 350px;
-    border-radius: 50px; /*圓角*/
-    position: absolute;
-    top: 50%;
-    left: 78%;
-    transform: translate(-50%, -50%);
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .GameLeft2 { /*左半邊(題目)*/
+        Height: 450px;
+        Width: 550px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%, -69%);
+        text-align: center;
+        line-height: 95px;
+    }
+
+    .GameRight2 {
+        Height: 450px;
+        Width: 220px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(75%, -69%);
+    }
+
+    .question2 {
+        font-size: 35px;
+        color: darkcyan;
+        font-weight: bold;
+    }
+
+    .Thousand {
+        width: 380px;
+        height: 50px;
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .FiveHundred {
+        width: 460px;
+        height: 50px;
+        position: absolute;
+        top: 40%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .OneHundred {
+        width: 400px;
+        height: 50px;
+        position: absolute;
+        top: 54%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .Fifty {
+        width: 150px;
+        height: 50px;
+        position: absolute;
+        top: 70%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .Ten {
+        width: 225px;
+        height: 50px;
+        position: absolute;
+        top: 70%;
+        left: 48%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .Five {
+        width: 170px;
+        height: 50px;
+        position: absolute;
+        top: 85%;
+        left: 5%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
+
+    .One {
+        width: 262.5px;
+        height: 50px;
+        position: absolute;
+        top: 85%;
+        left: 48%;
+        transform: translate(0%, -50%);
+        text-align: left;
+    }
 }
 
-.Thousand {
-    width: 760px;
-    height: 100px;
-    position: absolute;
-    top: 25%;
-    left: 44%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-.FiveHundred {
-    width: 920px;
-    height: 100px;
-    position: absolute;
-    top: 40%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-.OneHundred {
-    width: 800px;
-    height: 100px;
-    position: absolute;
-    top: 54%;
-    left: 46%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-.Fifty {
-    width: 300px;
-    height: 100px;
-    position: absolute;
-    top: 70%;
-    left: 21%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-.Ten {
-    width: 450px;
-    height: 100px;
-    position: absolute;
-    top: 70%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-.Five {
-    width: 340px;
-    height: 100px;
-    position: absolute;
-    top: 85%;
-    left: 23%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-.One {
-    width: 525px;
-    height: 100px;
-    position: absolute;
-    top: 85%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
 /*======================金幣加總結束===================*/
 
 /*======================買文具===================*/

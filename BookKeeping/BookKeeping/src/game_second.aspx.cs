@@ -90,19 +90,19 @@ namespace BookKeeping.src
             switch (denomination)
             {
                 case 1000:
-                    return 90;
+                    return 45;
                 case 500:
-                    return 85;
+                    return 42;
                 case 100:
-                    return 80;
+                    return 40;
                 case 50:
-                    return 90;
+                    return 45;
                 case 10:
-                    return 80;
+                    return 40;
                 case 5:
-                    return 75;
+                    return 37;
                 default:
-                    return 65;
+                    return 32;
             }
         }
 
@@ -113,19 +113,19 @@ namespace BookKeeping.src
             switch (denomination)
             {
                 case 1000:
-                    return 240;
+                    return 120;
                 case 500:
-                    return 220;
+                    return 110;
                 case 100:
-                    return 190;
+                    return 95;
                 case 50:
-                    return 90;
+                    return 45;
                 case 10:
-                    return 80;
+                    return 40;
                 case 5:
-                    return 75;
+                    return 37;
                 default:
-                    return 65;
+                    return 32;
             }
         }
 

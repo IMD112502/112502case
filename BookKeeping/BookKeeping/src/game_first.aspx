@@ -19,6 +19,8 @@
 </head>
 <body >
     <form id="form1" runat="server">
+        <div class="GameBackground">
+        <div class="GameBody">
         <asp:Panel ID="FirstGamePanel" runat="server" Visible="false"><%--遊戲一--%>
             <div class="GameLeft"><%--左半邊題目--%>
                 <asp:Label ID="question1" class="question" runat="server" Text="">請問下圖中為多少金額？</asp:Label></br>
@@ -38,7 +40,7 @@
         </div>                        
         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
 
-		<asp:Button class="ButtonStyle3 ButtonSize1" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
+		<asp:Button class="ButtonStyle3 GameEnd" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
         <asp:Label ID="randomNum" runat="server" Text="" Visible="false"></asp:Label>
         <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
 
@@ -54,6 +56,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
         <div id="overlay"></div>
     </form>
