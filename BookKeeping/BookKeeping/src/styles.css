@@ -271,6 +271,12 @@ body {
         height: 30px;
     }
 
+    .IntButton { /* 按鈕大小(較寬) */
+        width: 100px;
+        height: 25px;
+        font-size: 15px;
+    }
+
     .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
         width: 120px;
         height: 25px;
@@ -327,6 +333,11 @@ body {
     .ButtonSize5 { /* 按鈕大小(正方) */
         width: 50px;
         height: 50px;
+    }
+
+    .IntButton { /* 按鈕大小(較寬) */
+        width: 150px;
+        height: 35px;
     }
 
     .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
@@ -3288,7 +3299,7 @@ body {
 
     .GameTitle {
         color: darkcyan;
-        font-size: 45.5px;
+        font-size: 29.5px;
         font-weight: bold;
         position: absolute;
         top: 13%;
@@ -3301,20 +3312,20 @@ body {
         top: 43%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 800px;
-        height: 350px;
-        padding: 20px;
-        line-height: 50px;
+        width: 520px;
+        height: 227.5px;
+        padding: 13px;
+        line-height: 32.5px;
     }
 
     .GameMenuButton {
-        width: 200px;
-        height: 200px;
+        width: 130px;
+        height: 130px;
     }
 
         .GameMenuButton:hover {
-            width: 220px;
-            height: 220px;
+            width: 143px;
+            height: 143px;
         }
 
     #GameIcon1 {
@@ -3325,10 +3336,10 @@ body {
     }
 
     #GameTit1 {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
         position: absolute;
-        top: 90%;
+        top: 85%;
         left: 20%;
         transform: translate(-50%, -50%);
     }
@@ -3341,10 +3352,10 @@ body {
     }
 
     #GameTit2 {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
         position: absolute;
-        top: 90%;
+        top: 85%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -3357,10 +3368,10 @@ body {
     }
 
     #GameTit3 {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
         position: absolute;
-        top: 90%;
+        top: 85%;
         left: 80%;
         transform: translate(-50%, -50%);
     }
@@ -3368,6 +3379,7 @@ body {
     #GameIntro {
         position: absolute;
         left: 50%;
+        top: 10%;
         transform: translate(-50%, 0%);
     }
 
@@ -3442,7 +3454,7 @@ body {
         font-size: 30px;
         font-weight: bold;
         position: absolute;
-        top: 90%;
+        top: 85%;
         left: 20%;
         transform: translate(-50%, -50%);
     }
@@ -3458,7 +3470,7 @@ body {
         font-size: 30px;
         font-weight: bold;
         position: absolute;
-        top: 90%;
+        top: 85%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -3474,7 +3486,7 @@ body {
         font-size: 30px;
         font-weight: bold;
         position: absolute;
-        top: 90%;
+        top: 85%;
         left: 80%;
         transform: translate(-50%, -50%);
     }
@@ -3482,6 +3494,7 @@ body {
     #GameIntro {
         position: absolute;
         left: 50%;
+        top: 10%;
         transform: translate(-50%, 0%);
     }
 
@@ -3967,213 +3980,528 @@ body {
 /*======================金幣加總結束===================*/
 
 /*======================買文具===================*/
-.GameLeft3_1 {
-    background-image: url('images/game/game_buylist.png');
-    background-size: 720px 750px;
-    width: 720px;
-    height: 750px;
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .GameBackground3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 650px;
+        height: 442px;
+        border-radius: 30px;
+        background-color: paleturquoise;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameLeft3_1 {
+        background-image: url('images/game/game_buylist.png');
+        background-size: 200px 200px;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 1%;
+        left: 1%;
+    }
+
+    .ListSize {
+        width: 28.6px;
+        height: 54.6px;
+    }
+
+    .SisQ {
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .GlueQ {
+        position: absolute;
+        top: 38%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .CorQ {
+        position: absolute;
+        top: 59%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .RulerQ {
+        position: absolute;
+        top: 78%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .RedQ {
+        position: absolute;
+        top: 20%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .GreenQ {
+        position: absolute;
+        top: 38%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .BlueQ {
+        position: absolute;
+        top: 59%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .BlackQ {
+        position: absolute;
+        top: 78%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 54.6px;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    .Stationery { /*文具區*/
+        background-image: url('images/game/game3_cab.png');
+        background-size: 329.0625px 175.5px;
+        width: 329.0625px;
+        height: 175.5px;
+        position: absolute;
+        top: 26%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        cursor: grab;
+    }
+
+    .PenSize {
+        width: 68.00625px;
+        height: 105.3px;
+    }
+
+        .PenSize:hover {
+            width: 74.806875px;
+            height: 115.83px;
+        }
+
+    .StaSize {
+        width: 70.2px;
+        height: 57.0375px;
+    }
+
+        .StaSize:hover {
+            width: 77.22px;
+            height: 62.74125px;
+        }
+
+    .ShoppingCart {
+        background-color: #9CD9C5;
+        width: 650px;
+        height: 230px;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px; /*圓角*/
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+        flex-wrap: wrap;
+        font-size: 100px;
+    }
+
+    #ShoppingCart .draggable-item { /*購物車內的圖片*/
+        width: auto;
+        height: auto;
+        max-width: 80px;
+        max-height: 110px;
+    }
+
+        #ShoppingCart .draggable-item:hover { /*購物車內的圖片*/
+            max-width: 88px;
+            max-height: 121px;
+        }
+
+    .dragged-image {
+        position: absolute;
+        pointer-events: none; /* 拖曳圖片，但原本的圖片不會消失*/
+    }
+
+    #Trolley { /*購物車圖示*/
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 40%;
+        left: 1%;
+    }
+
+    #Redd {
+        position: absolute;
+        top: 16%;
+        left: 20.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Greenn {
+        position: absolute;
+        top: 16%;
+        left: 40.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Bluee {
+        position: absolute;
+        top: 16%;
+        left: 59.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Blackk {
+        position: absolute;
+        top: 16%;
+        left: 78.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Siss {
+        position: absolute;
+        top: 62%;
+        left: 18%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Gluee {
+        position: absolute;
+        top: 62%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Corr {
+        position: absolute;
+        top: 62%;
+        left: 61%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Rulerr {
+        position: absolute;
+        top: 62%;
+        left: 81%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Correct1 {
+        position: absolute;
+        top: 42%;
+        left: 96%;
+        transform: translate(-100%, -50%);
+    }
+
+    #LeaveGame3 {
+        position: absolute;
+        width: 80px;
+        font-size: 15px;
+        top: 10%;
+        left: 96%;
+        transform: translate(-100%, -50%);
+    }
 }
 
-.SisQ {
-    position: absolute;
-    top: 20%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .GameBackground3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1000px;
+        height: 680px;
+        border-radius: 30px;
+        background-color: paleturquoise;
+        transform: translate(-50%, -50%);
+    }
 
-.GlueQ {
-    position: absolute;
-    top: 38%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .GameLeft3_1 {
+        background-image: url('images/game/game_buylist.png');
+        background-size: 360px 375px;
+        width: 360px;
+        height: 375px;
+        position: absolute;
+        top: 3%;
+        left: 2%;
+    }
 
-.CorQ {
-    position: absolute;
-    top: 59%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .ListSize {
+        width: 44px;
+        height: 84px;
+    }
 
-.RulerQ {
-    position: absolute;
-    top: 78%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .SisQ {
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.RedQ {
-    position: absolute;
-    top: 20%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .GlueQ {
+        position: absolute;
+        top: 38%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.GreenQ {
-    position: absolute;
-    top: 38%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .CorQ {
+        position: absolute;
+        top: 59%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.BlueQ {
-    position: absolute;
-    top: 59%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .RulerQ {
+        position: absolute;
+        top: 78%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.BlackQ {
-    position: absolute;
-    top: 78%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 168px;
-    align-items: center;
-    font-size: 40px;
-}
+    .RedQ {
+        position: absolute;
+        top: 20%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.Stationery { /*文具區*/
-    background-image: url('images/game/game3_cab.png');
-    background-size: 750px 400px;
-    width: 750px;
-    height: 400px;
-    position: absolute;
-    top: 30%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    cursor: grab;
-}
+    .GreenQ {
+        position: absolute;
+        top: 38%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.ShoppingCart {
-    background-color: #9CD9C5;
-    width: 680px;
-    height: 355px;
-    position: absolute;
-    top: 72%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    border-radius: 50px; /*圓角*/
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    flex-wrap: wrap;
-}
+    .BlueQ {
+        position: absolute;
+        top: 59%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-#ShoppingCart .draggable-item { /*購物車內的圖片*/
-    width: auto;
-    height: auto;
-    max-width: 80px;
-    max-height: 110px;
-}
+    .BlackQ {
+        position: absolute;
+        top: 78%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 84px;
+        align-items: center;
+        font-size: 20px;
+    }
 
-.dragged-image {
-    position: absolute;
-    pointer-events: none; /* 拖曳圖片，但原本的圖片不會消失*/
-}
+    .Stationery { /*文具區*/
+        background-image: url('images/game/game3_cab.png');
+        background-size: 562.5px 300px;
+        width: 562.5px;
+        height: 300px;
+        position: absolute;
+        top: 35%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+        cursor: grab;
+    }
 
-#Trolley { /*購物車圖示*/
-    width: 130px;
-    height: 130px;
-    position: absolute;
-    top: 75%;
-    left: 49%;
-}
+    .PenSize {
+        width: 116.25px;
+        height: 180px;
+    }
 
-#Redd {
-    position: absolute;
-    top: 16%;
-    left: 20.5%;
-    transform: translate(-50%, -50%);
-}
+        .PenSize:hover {
+            width: 127.875px;
+            height: 198px;
+        }
 
-#Greenn {
-    position: absolute;
-    top: 16%;
-    left: 40.5%;
-    transform: translate(-50%, -50%);
-}
+    .StaSize {
+        width: 120px;
+        height: 97.5px;
+    }
 
-#Bluee {
-    position: absolute;
-    top: 16%;
-    left: 59.5%;
-    transform: translate(-50%, -50%);
-}
+        .StaSize:hover {
+            width: 132px;
+            height: 107.25px;
+        }
 
-#Blackk {
-    position: absolute;
-    top: 16%;
-    left: 78.5%;
-    transform: translate(-50%, -50%);
-}
+    .ShoppingCart {
+        background-color: #9CD9C5;
+        width: 680px;
+        height: 250px;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50px; /*圓角*/
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+        flex-wrap: wrap;
+        font-size: 100px;
+    }
 
-#Siss {
-    position: absolute;
-    top: 62%;
-    left: 18%;
-    transform: translate(-50%, -50%);
-}
+    #ShoppingCart .draggable-item { /*購物車內的圖片*/
+        width: auto;
+        height: auto;
+        max-width: 80px;
+        max-height: 110px;
+    }
 
-#Gluee {
-    position: absolute;
-    top: 62%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-}
+        #ShoppingCart .draggable-item:hover { /*購物車內的圖片*/
+            max-width: 88px;
+            max-height: 121px;
+        }
 
-#Corr {
-    position: absolute;
-    top: 62%;
-    left: 61%;
-    transform: translate(-50%, -50%);
-}
+    .dragged-image {
+        position: absolute;
+        pointer-events: none; /* 拖曳圖片，但原本的圖片不會消失*/
+    }
 
-#Rulerr {
-    position: absolute;
-    top: 62%;
-    left: 81%;
-    transform: translate(-50%, -50%);
-}
+    #Trolley { /*購物車圖示*/
+        width: 130px;
+        height: 130px;
+        position: absolute;
+        top: 75%;
+        left: 10%;
+    }
 
-#Correct1 {
-    position: absolute;
-    top: 84%;
-    left: 90%;
-    transform: translate(-50%, -50%);
+    #Redd {
+        position: absolute;
+        top: 16%;
+        left: 20.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Greenn {
+        position: absolute;
+        top: 16%;
+        left: 40.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Bluee {
+        position: absolute;
+        top: 16%;
+        left: 59.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Blackk {
+        position: absolute;
+        top: 16%;
+        left: 78.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Siss {
+        position: absolute;
+        top: 62%;
+        left: 18%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Gluee {
+        position: absolute;
+        top: 62%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Corr {
+        position: absolute;
+        top: 62%;
+        left: 61%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Rulerr {
+        position: absolute;
+        top: 62%;
+        left: 81%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Correct1 {
+        position: absolute;
+        top: 84%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+    }
+
+    #LeaveGame3 {
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        width: 150px;
+        height: 40px;
+        transform: translate(-50%, -50%);
+    }
 }
 /*=====================================================================*/
 #Clerk {
@@ -4326,28 +4654,60 @@ body {
 }
 /*------------------------------------小遊戲結束------------------------------------*/
 /*---------------遊戲介紹---------------------*/
-.GameItdButton {
-    position: absolute;
-    top: 22%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    .GameItdButton {
+        position: absolute;
+        top: 18%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameItdTitle {
+        color: darkcyan;
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game1 {
+        Height: 195px;
+        Width: 325px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
-.GameItdTitle {
-    color: darkcyan;
-    font-size: 70px;
-    font-weight: bold;
-    position: absolute;
-    top: 13%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    .GameItdButton {
+        position: absolute;
+        top: 18%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-#itd_game1 {
-    Height: 650px;
-    Width: 1100px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .GameItdTitle {
+        color: darkcyan;
+        font-size: 50px;
+        font-weight: bold;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game1 {
+        Height: 300px;
+        Width: 500px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
