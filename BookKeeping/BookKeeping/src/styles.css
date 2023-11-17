@@ -4674,10 +4674,28 @@ body {
     }
 
     #itd_game1 {
-        Height: 195px;
-        Width: 325px;
+        Height: 520px;
+        Width: 850px;
         position: absolute;
-        top: 45%;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game2 {
+        Height: 520px;
+        Width: 850px;
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game31 {
+        Height: 520px;
+        Width: 850px;
+        position: absolute;
+        top: 57%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -4703,10 +4721,28 @@ body {
     }
 
     #itd_game1 {
-        Height: 300px;
-        Width: 500px;
+        Height: 330px;
+        Width: 600px;
         position: absolute;
-        top: 45%;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game2 {
+        Height: 330px;
+        Width: 600px;
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game31 {
+        Height: 330px;
+        Width: 600px;
+        position: absolute;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
     }

@@ -14,12 +14,14 @@
         <div class="GameBody">
         <asp:Label class="GameItdTitle" ID="Label1" runat="server" Text="Label">遊戲介紹</asp:Label>
         <div class="GameItdButton">
-            <asp:Button class="ButtonStyle3 IntButton" ID="Button1" runat="server" Text="認識錢幣" />
-            <asp:Button class="ButtonStyle3 IntButton" ID="Button3" runat="server" Text="算算多少錢" />
-            <asp:Button class="ButtonStyle3 IntButton" ID="Button2" runat="server" Text="買文具" />
+            <asp:Button class="ButtonStyle3 IntButton" ID="Button1" runat="server" Text="認識錢幣" OnClick="Button1_Click" />
+            <asp:Button class="ButtonStyle3 IntButton" ID="Button2" runat="server" Text="算算多少錢" OnClick="Button2_Click" />
+            <asp:Button class="ButtonStyle3 IntButton" ID="Button3" runat="server" Text="買文具" OnClick="Button3_Click" />
         </div>
         <div>
-            <asp:Image ID="itd_game1" runat="server" ImageUrl="images/game/itd_game1.png"/>
+            <asp:Image ID="itd_game1" runat="server" ImageUrl="images/game/itd_game1.png" Visible="false"/>
+            <asp:Image ID="itd_game2" runat="server" ImageUrl="images/game/itd_game2.png" Visible="false"/>
+            <asp:Image ID="itd_game31" runat="server" ImageUrl="images/game/itd_game31.png" Visible="false"/>
         </div>
         </div>
         </div>
