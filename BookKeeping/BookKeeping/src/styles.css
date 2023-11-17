@@ -61,6 +61,16 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.result-image {
+    position: absolute; /*指定絕對位置*/
+    top: 50%;
+    left: 50%;
+    width: 500px; /* 設置圖片寬度 */
+    height: 500px; /* 設置圖片高度 */
+    border-radius: 10px; /* 可以設置邊框圓角，根據需要調整 */
+    transform: translate(-50%, -50%);
+}
+
 .ButtonStyle,
 .ButtonStyle:focus {
     position: absolute; /*指定絕對位置*/

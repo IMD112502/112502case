@@ -179,12 +179,22 @@ namespace BookKeeping.src
 
             if (cnt == 8)
             {
-                ClientScript.RegisterStartupScript(GetType(), "答對了", "alert('答對了！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/game/correct.png';";
+                script += "imageBox.className = 'result-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                ClientScript.RegisterStartupScript(GetType(), "答對了'", script, true);
                 InitializeGame3_2();
             }
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/game/wrong.png';";
+                script += "imageBox.className = 'result-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                ClientScript.RegisterStartupScript(GetType(), "答錯了'", script, true);
                 GameReord();
             }
         }
@@ -256,15 +266,25 @@ namespace BookKeeping.src
             {
                 
                 corcnt++;
-                correctcnt.Text = corcnt.ToString(); 
+                correctcnt.Text = corcnt.ToString();
 
-                ClientScript.RegisterStartupScript(GetType(), "答對了", "alert('答對了！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/game/correct.png';";
+                script += "imageBox.className = 'result-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                ClientScript.RegisterStartupScript(GetType(), "答對了'", script, true);
                 GameReord();
 
             }
             else
             {
-                ClientScript.RegisterStartupScript(GetType(), "答錯了", "alert('答錯了！');", true);
+                string script = "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/game/wrong.png';";
+                script += "imageBox.className = 'result-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                ClientScript.RegisterStartupScript(GetType(), "答錯了'", script, true);
                 GameReord();
             }
            

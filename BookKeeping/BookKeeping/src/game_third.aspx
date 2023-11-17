@@ -89,7 +89,7 @@
             </div>
 
             <div class="ShoppingCart" id="ShoppingCart">
-                <asp:Label ID="ShoppingCartText" runat="server" Text="Label" Style="font-size: 100px;">購物車</asp:Label>
+                <asp:Label ID="ShoppingCartText" runat="server" Text="Label" Style="font-size: 100px; color: #16bebe;">購物車</asp:Label>
             </div><%--購物車--%>
 
             <asp:Image ID="Trolley" runat="server" ImageUrl="images/game/game_trolley.png"/>
