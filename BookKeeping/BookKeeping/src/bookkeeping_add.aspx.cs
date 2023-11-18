@@ -144,8 +144,16 @@ namespace _BookKeeping
             {
                 if (int.TryParse(costInput, out int cost))
                 {
-
                     string mark = TextBox2.Text;
+
+                    // 檢查備註欄位的字數
+                    if (mark.Length > 10)
+                    {
+                        ErrorMessageLabel.Visible = true;
+                        ErrorMessageLabel.Text = "備註欄位最多只能輸入10個字!";
+                        return; // 停止執行，不執行後續的程式碼
+                    }
+
                     string category = Request.Form["radio"].ToString();
 
                     string sql = "INSERT INTO `112-112502`.bookkeeping_data(user_id, date, class_id, cost, mark) VALUES (@name, @date, @category, @cost, @mark)";
@@ -298,6 +306,21 @@ namespace _BookKeeping
             string category = ((DropDownList)row.FindControl("txtclass")).SelectedValue;
             string costStr = ((TextBox)row.FindControl("txtcost")).Text;
             string mark = ((TextBox)row.FindControl("txtmark")).Text;
+
+            // 檢查備註欄位的字數
+            if (mark.Length > 10)
+            {
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';";
+                script += "var imageBox = document.createElement('img');";
+                //script += "imageBox.src = 'images/alert_1N.png';";
+                script += "imageBox.className = 'custom-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                ClientScript.RegisterStartupScript(GetType(), "備註欄位最多只能輸入10個字!", script, true);
+                return; // 停止執行，不執行後續的程式碼
+            }
 
             // 將字串轉換為日期型別
             DateTime date = DateTime.Parse(dateStr);

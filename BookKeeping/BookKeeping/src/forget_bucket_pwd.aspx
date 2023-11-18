@@ -18,8 +18,8 @@
                     <p>安全問題
                     <asp:DropDownList class="DropDownStyle" ID="securityQuestion" runat="server" Width="195" Height="30" style ="margin-bottom:10px; padding-left:10px;">
                         <asp:ListItem Text="請選擇問題" Value="" />
-                        <asp:ListItem Text="請問您的出生地在哪?" Value="1" />
-                        <asp:ListItem Text="請問你住在哪裡" Value="2" />
+                        <asp:ListItem Text="請問您最喜歡的顏色是" Value="1" />
+                        <asp:ListItem Text="請問您最喜歡的食物是" Value="2" />
                     </asp:DropDownList>
                     </p>
                     <p>回答問題
