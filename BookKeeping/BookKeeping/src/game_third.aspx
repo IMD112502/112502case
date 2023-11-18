@@ -256,7 +256,7 @@
                 <asp:Button class="ButtonStyle3" ID="Correct2" runat="server" Text="完成"  OnClick="Check3_2_Click"/>
 
                 <div class="Checkout" id="Checkout">
-                    <asp:Label ID="Label9" runat="server" Text="Label" Style="font-size: 80px; ">結帳區</asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="Label" Style="color: #301305;">結帳區</asp:Label>
                 </div>
             </div>
             

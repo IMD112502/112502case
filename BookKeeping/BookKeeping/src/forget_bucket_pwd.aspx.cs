@@ -91,7 +91,7 @@ namespace BookKeeping
                                         script += "overlay.style.display = 'block';"; // 顯示背景遮罩
                                         script += "var imageBox = document.createElement('img');";
                                         script += "imageBox.src = 'images/alert_pw_n_same.png';";
-                                        script += "imageBox.className = 'custom-image';";
+                                        script += "imageBox.className = 'custom-image2';";
                                         script += "document.body.appendChild(imageBox);";
                                         script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                                         script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
@@ -105,7 +105,7 @@ namespace BookKeeping
                                     script += "overlay.style.display = 'block';"; // 顯示背景遮罩
                                     script += "var imageBox = document.createElement('img');";
                                     script += "imageBox.src = 'images/alert_saveq_n.png';";
-                                    script += "imageBox.className = 'custom-image';";
+                                    script += "imageBox.className = 'custom-image2';";
                                     script += "document.body.appendChild(imageBox);";
                                     script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                                     script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像

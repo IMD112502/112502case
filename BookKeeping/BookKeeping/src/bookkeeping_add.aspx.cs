@@ -147,10 +147,17 @@ namespace _BookKeeping
                     string mark = TextBox2.Text;
 
                     // 檢查備註欄位的字數
-                    if (mark.Length > 10)
+                    if (mark.Length > 8)
                     {
-                        ErrorMessageLabel.Visible = true;
-                        ErrorMessageLabel.Text = "備註欄位最多只能輸入10個字!";
+                        string script = "var overlay = document.getElementById('overlay');";
+                        script += "overlay.style.display = 'block';";
+                        script += "var imageBox = document.createElement('img');";
+                        script += "imageBox.src = 'images/alert_eight_word.png';";
+                        script += "imageBox.className = 'custom-image2';";
+                        script += "document.body.appendChild(imageBox);";
+                        script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);";
+                        script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                        ClientScript.RegisterStartupScript(GetType(), "備註欄位最多只能輸入8個字!", script, true);
                         return; // 停止執行，不執行後續的程式碼
                     }
 
@@ -308,17 +315,17 @@ namespace _BookKeeping
             string mark = ((TextBox)row.FindControl("txtmark")).Text;
 
             // 檢查備註欄位的字數
-            if (mark.Length > 10)
+            if (mark.Length > 8)
             {
                 string script = "var overlay = document.getElementById('overlay');";
                 script += "overlay.style.display = 'block';";
                 script += "var imageBox = document.createElement('img');";
-                //script += "imageBox.src = 'images/alert_1N.png';";
-                script += "imageBox.className = 'custom-image';";
+                script += "imageBox.src = 'images/alert_eight_word.png';";
+                script += "imageBox.className = 'custom-image2';";
                 script += "document.body.appendChild(imageBox);";
                 script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);";
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
-                ClientScript.RegisterStartupScript(GetType(), "備註欄位最多只能輸入10個字!", script, true);
+                ClientScript.RegisterStartupScript(GetType(), "備註欄位最多只能輸入8個字!", script, true);
                 return; // 停止執行，不執行後續的程式碼
             }
 

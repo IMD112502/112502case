@@ -4504,130 +4504,258 @@ body {
     }
 }
 /*=====================================================================*/
-#Clerk {
-    Height: 588px;
-    Width: 493.5px;
-    position: absolute;
-    top: 55%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-}
+/* 手機 */
+@media only screen and (max-width: 1023px) {
+    #Clerk {
+        Height: 382.2px;
+        Width: 320.775px;
+        position: absolute;
+        top: 55%;
+        left: 26%;
+        transform: translate(-50%, -50%);
+    }
 
-#TotalMoney {
-    font-size: 50px;
-    font-weight: bold;
-    position: absolute;
-    top: 6%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    #TotalMoney {
+        font-size: 32.5px;
+        font-weight: bold;
+        position: absolute;
+        top: 6%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-#TotalMoney2 {
-    color: darkred;
-}
+    #TotalMoney2 {
+        color: darkred;
+    }
 
-.Checkout { /*結帳區*/
-    Height: 230px;
-    Width: 450px;
-    position: absolute;
-    top: 79.5%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px; /*圓角*/
-    border: 10px dashed darkcyan; /*虛線外框*/
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-}
+    .Checkout { /*結帳區*/
+        Height: 149.5px;
+        Width: 292.5px;
+        position: absolute;
+        top: 79.5%;
+        left: 26%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px; /*圓角*/
+        border: 10px dashed #301305; /*虛線外框*/
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+        font-size: 60px;
+    }
 
-#Correct2 {
-    width: 70px;
-    height: 40px;
-    position: absolute;
-    top: 95%;
-    left: 56%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    font-weight: bold;
-}
+    #Correct2 {
+        width: 45.5px;
+        height: 30px;
+        position: absolute;
+        top: 95%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        font-size: 15px;
+        font-weight: bold;
+    }
 
-.Wallet {
-    background-image: url('images/game/game_wallet.png');
-    background-size: 465.85px 372.4px;
-    Height: 372.4px;
-    Width: 465.85px;
-    position: absolute;
-    top: 50%;
-    left: 74%;
-    transform: translate(-50%, -50%);
-    cursor: grab; /*小手手鼠標*/
-}
+    .Wallet {
+        background-image: url('images/game/game_wallet.png');
+        background-size: 302.8025px 242.06px;
+        Height: 242.06px;
+        Width: 302.8025px;
+        position: absolute;
+        top: 50%;
+        left: 74%;
+        transform: translate(-50%, -50%);
+        cursor: grab; /*小手手鼠標*/
+    }
 
-#Thousand {
-    Height: 65px;
-    Width: 160px;
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    #Thousand {
+        Height: 42.25px;
+        Width: 104px;
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-#FiveHundred {
-    Height: 60px;
-    Width: 140px;
-    position: absolute;
-    top: 60%;
-    left: 32%;
-    transform: translate(-50%, -50%);
-}
+    #FiveHundred {
+        Height: 39px;
+        Width: 91px;
+        position: absolute;
+        top: 60%;
+        left: 32%;
+        transform: translate(-50%, -50%);
+    }
 
-#Hundred {
-    Height: 55.25px;
-    Width: 135px;
-    position: absolute;
-    top: 60%;
-    left: 68%;
-    transform: translate(-50%, -50%);
-}
+    #Hundred {
+        Height: 35.9125px;
+        Width: 87.75px;
+        position: absolute;
+        top: 60%;
+        left: 68%;
+        transform: translate(-50%, -50%);
+    }
 
-#Fifty {
-    Height: 70px;
-    Width: 70px;
-    position: absolute;
-    top: 80%;
-    left: 28%;
-    transform: translate(-50%, -50%);
-}
+    #Fifty {
+        Height: 45.5px;
+        Width: 45.5px;
+        position: absolute;
+        top: 80%;
+        left: 28%;
+        transform: translate(-50%, -50%);
+    }
 
-#Ten {
-    Height: 60px;
-    Width: 60px;
-    position: absolute;
-    top: 80%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-}
+    #Ten {
+        Height: 39px;
+        Width: 39px;
+        position: absolute;
+        top: 80%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+    }
 
-#Five {
-    Height: 50px;
-    Width: 50px;
-    position: absolute;
-    top: 80%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-}
+    #Five {
+        Height: 32.5px;
+        Width: 32.5px;
+        position: absolute;
+        top: 80%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+    }
 
-#One {
-    Height: 45px;
-    Width: 45px;
-    position: absolute;
-    top: 80%;
-    left: 73%;
-    transform: translate(-50%, -50%);
+    #One {
+        Height: 29.25px;
+        Width: 29.25px;
+        position: absolute;
+        top: 80%;
+        left: 73%;
+        transform: translate(-50%, -50%);
+    }
 }
+/* 平板和電腦 */
+@media only screen and (min-width: 1024px) {
+    #Clerk {
+        Height: 588px;
+        Width: 493.5px;
+        position: absolute;
+        top: 55%;
+        left: 26%;
+        transform: translate(-50%, -50%);
+    }
 
+    #TotalMoney {
+        font-size: 50px;
+        font-weight: bold;
+        position: absolute;
+        top: 6%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #TotalMoney2 {
+        color: darkred;
+    }
+
+    .Checkout { /*結帳區*/
+        Height: 230px;
+        Width: 450px;
+        position: absolute;
+        top: 79.5%;
+        left: 26%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px; /*圓角*/
+        border: 10px dashed #301305; /*虛線外框*/
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center; /* 垂直居中 */
+        font-size: 80px;
+    }
+
+    #Correct2 {
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        top: 95%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .Wallet {
+        background-image: url('images/game/game_wallet.png');
+        background-size: 465.85px 372.4px;
+        Height: 372.4px;
+        Width: 465.85px;
+        position: absolute;
+        top: 50%;
+        left: 74%;
+        transform: translate(-50%, -50%);
+        cursor: grab; /*小手手鼠標*/
+    }
+
+    #Thousand {
+        Height: 65px;
+        Width: 160px;
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #FiveHundred {
+        Height: 60px;
+        Width: 140px;
+        position: absolute;
+        top: 60%;
+        left: 32%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Hundred {
+        Height: 55.25px;
+        Width: 135px;
+        position: absolute;
+        top: 60%;
+        left: 68%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Fifty {
+        Height: 70px;
+        Width: 70px;
+        position: absolute;
+        top: 80%;
+        left: 28%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Ten {
+        Height: 60px;
+        Width: 60px;
+        position: absolute;
+        top: 80%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+    }
+
+    #Five {
+        Height: 50px;
+        Width: 50px;
+        position: absolute;
+        top: 80%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+    }
+
+    #One {
+        Height: 45px;
+        Width: 45px;
+        position: absolute;
+        top: 80%;
+        left: 73%;
+        transform: translate(-50%, -50%);
+    }
+}
 /*====================買文具結束=================*/
-
+/* ----------------遊戲結束視窗------------------ */
 #resultModal .modal-dialog {
     margin-top: 20%;
     transform: translate(0, -50%);
@@ -4654,6 +4782,7 @@ body {
     justify-content: center; /* 将按钮置中 */
     border: none; /* 去除邊框 */
 }
+/* --------------遊戲結束視窗結束---------------- */
 /*------------------------------------小遊戲結束------------------------------------*/
 /*---------------遊戲介紹---------------------*/
 /* 手機 */
