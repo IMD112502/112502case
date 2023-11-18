@@ -57,7 +57,7 @@
 
                     <div class="GreenQ" draggable="true" id='<%# Eval("GreenRandomNumber") %>'>
                         <asp:Image ID="Image14" class="ListSize" runat="server" ImageUrl="images/game/game3_green.png" />
-                        <asp:Label ID="Green" runat="server" Text='x<%# Eval("GreenRandomNumber") %>' Visible="false"></asp:Label>
+                        <asp:Label ID="Green" runat="server" Text='<%# Eval("GreenRandomNumber") %>' Visible="false"></asp:Label>
                         <span>X<%# Eval("GreenRandomNumber") %></span>
                     </div>
 
