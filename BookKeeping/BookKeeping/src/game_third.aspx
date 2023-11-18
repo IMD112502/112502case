@@ -252,8 +252,8 @@
   <asp:Panel ID="ThirdGamePanel2" runat="server" ><%--遊戲三之二--%>
             <div class="GameLeft3_2">
                  <p id="TotalMoney">一共是<span id="TotalMoney2">&nbsp;&nbsp;&nbsp;&nbsp;</span>元</p> <%--結帳金額--%>
-                <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk2.png"/>
-                <asp:Button class="ButtonStyle3 ButtonSize2" ID="Correct2" runat="server" Text="完成"  OnClick="Check3_2_Click"/>
+                <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk.png"/>
+                <asp:Button class="ButtonStyle3" ID="Correct2" runat="server" Text="完成"  OnClick="Check3_2_Click"/>
 
                 <div class="Checkout" id="Checkout">
                     <asp:Label ID="Label9" runat="server" Text="Label" Style="font-size: 80px; ">結帳區</asp:Label>
@@ -364,7 +364,7 @@
             <asp:Label ID="TotalAmountLabel" runat="server" Text="0" Style="font-size: 24px;" ></asp:Label><%--紀錄目前結帳區的金額--%>
        </asp:Panel>
 
-        <asp:Button class="ButtonStyle3" ID="LeaveGame3" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
+        <asp:Button class="ButtonStyle" ID="LeaveGame3" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
 
         <input type="hidden" name="hiddenred" id="hiddenred" value="0"/>
         <input type="hidden" name="hiddengreen" id="hiddengreen" value="0"/>
@@ -376,7 +376,7 @@
         <input type="hidden" name="hiddenruler" id="hiddenruler" value="0"/>
         <input type="hidden" name="hiddentotal" id="hiddentotal" value="0"/>
         <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
- 
+        </div>
         <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -390,8 +390,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div id="overlay"></div>
     </form>
 </body>
 </html>

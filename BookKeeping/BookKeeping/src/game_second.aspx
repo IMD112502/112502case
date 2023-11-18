@@ -69,7 +69,8 @@
 		<asp:Button class="ButtonStyle3 GameEnd" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
         <asp:Label ID="randomNum" runat="server" Text="" Visible="false"></asp:Label>
         <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
-
+        </div>
+        </div>
         <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -83,9 +84,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        <div id="overlay"></div>
     </form>
 </body>
 </html>

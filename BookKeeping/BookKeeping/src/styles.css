@@ -4489,15 +4489,15 @@ body {
 
     #Correct1 {
         position: absolute;
-        top: 84%;
-        left: 90%;
+        top: 86%;
+        left: 95%;
         transform: translate(-50%, -50%);
     }
 
     #LeaveGame3 {
         position: absolute;
-        bottom: 0%;
-        right: 0%;
+        top: 95%;
+        left: 90%;
         width: 150px;
         height: 40px;
         transform: translate(-50%, -50%);
@@ -4505,11 +4505,11 @@ body {
 }
 /*=====================================================================*/
 #Clerk {
-    Height: 780px;
-    Width: 554.4px;
+    Height: 588px;
+    Width: 493.5px;
     position: absolute;
-    top: 50%;
-    left: 20%;
+    top: 55%;
+    left: 26%;
     transform: translate(-50%, -50%);
 }
 
@@ -4517,8 +4517,8 @@ body {
     font-size: 50px;
     font-weight: bold;
     position: absolute;
-    top: 20%;
-    left: 25%;
+    top: 6%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -4530,8 +4530,8 @@ body {
     Height: 230px;
     Width: 450px;
     position: absolute;
-    top: 76.5%;
-    left: 19%;
+    top: 79.5%;
+    left: 26%;
     transform: translate(-50%, -50%);
     border-radius: 20px; /*圓角*/
     border: 10px dashed darkcyan; /*虛線外框*/
@@ -4541,29 +4541,31 @@ body {
 }
 
 #Correct2 {
+    width: 70px;
+    height: 40px;
     position: absolute;
-    top: 87%;
-    left: 35%;
+    top: 95%;
+    left: 56%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .Wallet {
     background-image: url('images/game/game_wallet.png');
-    background-size: 931.7px 744.8px;
-    Height: 744.8px;
-    Width: 931.7px;
+    background-size: 465.85px 372.4px;
+    Height: 372.4px;
+    Width: 465.85px;
     position: absolute;
     top: 50%;
-    left: 65%;
+    left: 74%;
     transform: translate(-50%, -50%);
     cursor: grab; /*小手手鼠標*/
 }
 
 #Thousand {
-    Height: 130px;
-    Width: 320px;
+    Height: 65px;
+    Width: 160px;
     position: absolute;
     top: 38%;
     left: 50%;
@@ -4571,8 +4573,8 @@ body {
 }
 
 #FiveHundred {
-    Height: 120px;
-    Width: 280px;
+    Height: 60px;
+    Width: 140px;
     position: absolute;
     top: 60%;
     left: 32%;
@@ -4580,8 +4582,8 @@ body {
 }
 
 #Hundred {
-    Height: 115px;
-    Width: 270px;
+    Height: 55.25px;
+    Width: 135px;
     position: absolute;
     top: 60%;
     left: 68%;
@@ -4589,8 +4591,8 @@ body {
 }
 
 #Fifty {
-    Height: 140px;
-    Width: 140px;
+    Height: 70px;
+    Width: 70px;
     position: absolute;
     top: 80%;
     left: 28%;
@@ -4598,8 +4600,8 @@ body {
 }
 
 #Ten {
-    Height: 120px;
-    Width: 120px;
+    Height: 60px;
+    Width: 60px;
     position: absolute;
     top: 80%;
     left: 45%;
@@ -4607,8 +4609,8 @@ body {
 }
 
 #Five {
-    Height: 100px;
-    Width: 100px;
+    Height: 50px;
+    Width: 50px;
     position: absolute;
     top: 80%;
     left: 60%;
@@ -4616,8 +4618,8 @@ body {
 }
 
 #One {
-    Height: 90px;
-    Width: 90px;
+    Height: 45px;
+    Width: 45px;
     position: absolute;
     top: 80%;
     left: 73%;
@@ -4627,7 +4629,7 @@ body {
 /*====================買文具結束=================*/
 
 #resultModal .modal-dialog {
-    margin-top: 25%;
+    margin-top: 20%;
     transform: translate(0, -50%);
     max-width: 400px; /* 设置最大宽度 */
     width: 80%; /* 设置宽度为父容器的百分比 */
