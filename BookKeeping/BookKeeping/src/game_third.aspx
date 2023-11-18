@@ -404,7 +404,7 @@
 
 
             </script>
-            <asp:Label ID="TotalAmountLabel" runat="server" Text="0" Style="font-size: 24px;" ></asp:Label><%--紀錄目前結帳區的金額--%>
+           <div hidden="hidden"> <asp:Label ID="TotalAmountLabel" runat="server" Text="0" Style="font-size: 24px;" ></asp:Label><%--紀錄目前結帳區的金額--%></div>
        </asp:Panel>
 
         <asp:Button class="ButtonStyle" ID="LeaveGame3" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
