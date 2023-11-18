@@ -87,6 +87,33 @@ namespace BookKeeping.src
         protected global::System.Web.UI.WebControls.Image itd_game31;
 
         /// <summary>
+        /// itd_game32 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image itd_game32;
+
+        /// <summary>
+        /// GameLast 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GameLast;
+
+        /// <summary>
+        /// GameNext 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GameNext;
+
+        /// <summary>
         /// ImageButton1 控制項。
         /// </summary>
         /// <remarks>

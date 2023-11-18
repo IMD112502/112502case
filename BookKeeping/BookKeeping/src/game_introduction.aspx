@@ -22,6 +22,9 @@
             <asp:Image ID="itd_game1" runat="server" ImageUrl="images/game/itd_game1.png" Visible="false"/>
             <asp:Image ID="itd_game2" runat="server" ImageUrl="images/game/itd_game2.png" Visible="false"/>
             <asp:Image ID="itd_game31" runat="server" ImageUrl="images/game/itd_game31.png" Visible="false"/>
+            <asp:Image ID="itd_game32" runat="server" ImageUrl="images/game/itd_game32.png" Visible="false"/>
+            <asp:Button class="ButtonStyle3 LastNextSize GameLast" ID="GameLast" runat="server" Text="<" Visible="false" OnClick="GameLast_Click"/>
+            <asp:Button class="ButtonStyle3 LastNextSize GameNext" ID="GameNext" runat="server" Text=">" Visible="false" OnClick="GameNext_Click"/>
         </div>
         </div>
         </div>

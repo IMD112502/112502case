@@ -4830,6 +4830,27 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    #itd_game32 {
+        Height: 330px;
+        Width: 600px;
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameLast {
+        top: 57%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameNext {
+        top: 57%;
+        left: 85%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 /* 平板和電腦 */
@@ -4875,6 +4896,27 @@ body {
         position: absolute;
         top: 46%;
         left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #itd_game32 {
+        Height: 330px;
+        Width: 600px;
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameLast {
+        top: 57%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+    }
+
+    .GameNext {
+        top: 57%;
+        left: 85%;
         transform: translate(-50%, -50%);
     }
 }
