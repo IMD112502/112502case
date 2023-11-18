@@ -23,7 +23,7 @@
         <div class="GameBody">
         <asp:Panel ID="SecondGamePanel" runat="server" Visible="false"><%--遊戲二--%>
             <div class="GameLeft2"><%--左半邊題目--%>
-                <asp:Label ID="question2" class="question2" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label></br>
+                <asp:Label ID="question2" class="question2" runat="server" Text="Label">請問下圖中總共有多少錢？</asp:Label>
                 <div class="Thousand"><%--$1000--%>
                     <asp:Panel ID="Panel1000" runat="server"></asp:Panel>
                 </div>
@@ -59,7 +59,6 @@
                 <asp:Button class="CoinAnsButton" ID="Ans6" runat="server" OnClick="CheckAnswer" CommandArgument="6" />
             </div>
             </asp:Panel>
-=
         <!-- 進度條 -->
         <div class="GameProgress">
             <div class="GameProgress-bar" style='<%# Eval("ProgressBarStyle") %>' runat="server" id="GameProgressBar"></div>
@@ -68,7 +67,11 @@
         <asp:Label ID="GameProgress" class="GameProgressText" runat="server" Text='<%# Eval("ProgressText") %>' ></asp:Label>
 		<asp:Button class="ButtonStyle3 GameEnd" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
         <asp:Label ID="randomNum" runat="server" Text="" Visible="false"></asp:Label>
-        <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
+        <div class="CorrectcntText">
+            <asp:Label ID="Label2" runat="server" Text="已答對"></asp:Label>
+            <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
+            <asp:Label ID="Label1" runat="server" Text="題"></asp:Label>
+        </div>
         </div>
         </div>
         <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -78,8 +81,8 @@
                         <p id="resultMessage"></p>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 ButtonSize2" OnClick="RestartGame" />
-                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 ButtonSize2" PostBackUrl="game_menu.aspx" />
+                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 JumpButton" OnClick="RestartGame" />
+                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 JumpButton" PostBackUrl="game_menu.aspx" />
                     </div>
                 </div>
             </div>

@@ -2681,6 +2681,62 @@ body {
         position: absolute;
         left: 0px;
     }
+
+    /* 下拉選單 */
+    #customSelect {
+        position: absolute;
+        width: 250px;
+        left: 50%;
+        top: 50%;
+        font-size: 20px;
+        transform: translate(-50%, -50%);
+    }
+
+    #WishTextbox {
+        width: 100%;
+        padding: 8px;
+        width: 250px; /* 修改寬度 */
+        height: 30px; /* 修改高度 */
+        font-size: 25px;
+    }
+
+    #arrowIcon {
+        position: absolute;
+        top: 50%;
+        right: -5px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+        #arrowIcon:hover {
+            transform: translateY(-50%) scale(1.2); /* 在 hover 時放大 1.2 倍 */
+        }
+
+    #customOptions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 150px; /* 設定最大高度，超過高度將出現滾動條 */
+        overflow-y: auto; /* 啟用垂直滾動條 */
+        background-color: #ffffff8f; /* 設定底色 */
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 10px 10px; /* 加入底部圓角 */
+        display: none;
+    }
+
+    .option {
+        padding: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* 添加過渡效果 */
+    }
+
+        .option:hover {
+            background-color: #BEE3E280; /* 在 hover 時變更底色 */
+            font-size: 22px;
+        }
+    /* 下拉選單尾 */
 }
 
 /* 平板和電腦 */
@@ -2702,6 +2758,61 @@ body {
         position: absolute;
         left: 0px;
     }
+
+    /* 下拉選單 */
+    #customSelect {
+        position: absolute;
+        width: 300px;
+        left: 50%;
+        top: 50%;
+        font-size: 20px;
+        transform: translate(-50%, -50%);
+    }
+
+    #WishTextbox {
+        width: 100%;
+        padding: 8px;
+        width: 300px; /* 修改寬度 */
+        height: 40px; /* 修改高度 */
+        font-size: 25px;
+    }
+
+    #arrowIcon {
+        position: absolute;
+        top: 50%;
+        right: -5px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+        #arrowIcon:hover {
+            transform: translateY(-50%) scale(1.2); /* 在 hover 時放大 1.2 倍 */
+        }
+
+    #customOptions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 150px; /* 設定最大高度，超過高度將出現滾動條 */
+        overflow-y: auto; /* 啟用垂直滾動條 */
+        background-color: #ffffff8f; /* 設定底色 */
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 10px 10px; /* 加入底部圓角 */
+        display: none;
+    }
+
+    .option {
+        padding: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* 添加過渡效果 */
+    }
+
+        .option:hover {
+            background-color: #BEE3E280; /* 在 hover 時變更底色 */
+            font-size: 22px;
+        }
+    /* 下拉選單尾 */
 }
 /*------------願望新增結束------------*/
 
@@ -3384,8 +3495,17 @@ body {
     }
 
     .GameEnd {
-        width: 150px;
+        width: 100px;
         height: 40px;
+    }
+
+    .CorrectcntText {
+        position: absolute;
+        left: 66%;
+        top: 77%;
+        width: 170px;
+        font-size: 30px;
+        font-weight: bolder;
     }
 }
 
@@ -3502,6 +3622,15 @@ body {
         width: 150px;
         height: 40px;
     }
+
+    .CorrectcntText {
+        position: absolute;
+        left: 70%;
+        top: 80%;
+        width: 220px;
+        font-size: 40px;
+        font-weight: bolder;
+    }
 }
 
 /*====================認識錢幣======================*/
@@ -3606,7 +3735,7 @@ body {
     #LeaveGame {
         position: absolute;
         bottom: 0%;
-        right: 0%;
+        right: 1%;
         transform: translate(-50%, -50%);
     }
 
@@ -3742,7 +3871,7 @@ body {
     #LeaveGame {
         position: absolute;
         bottom: 0%;
-        right: 0%;
+        right: 1%;
         transform: translate(-50%, -50%);
     }
 
@@ -4165,7 +4294,7 @@ body {
         width: 60px;
         height: 60px;
         position: absolute;
-        top: 40%;
+        top: 42%;
         left: 1%;
     }
 
@@ -4427,8 +4556,8 @@ body {
         width: 130px;
         height: 130px;
         position: absolute;
-        top: 75%;
-        left: 10%;
+        top: 79%;
+        left: 5%;
     }
 
     #Redd {
@@ -4782,6 +4911,12 @@ body {
     justify-content: center; /* 将按钮置中 */
     border: none; /* 去除邊框 */
 }
+
+.JumpButton {
+    margin-bottom: 30px;
+    width: 100px;
+    height: 50px;
+}
 /* --------------遊戲結束視窗結束---------------- */
 /*------------------------------------小遊戲結束------------------------------------*/
 /*---------------遊戲介紹---------------------*/
@@ -4805,35 +4940,35 @@ body {
     }
 
     #itd_game1 {
-        Height: 520px;
-        Width: 850px;
+        Height: 214.5px;
+        Width: 390px;
         position: absolute;
-        top: 57%;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     #itd_game2 {
-        Height: 520px;
-        Width: 850px;
+        Height: 214.5px;
+        Width: 390px;
         position: absolute;
-        top: 57%;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     #itd_game31 {
-        Height: 520px;
-        Width: 850px;
+        Height: 214.5px;
+        Width: 351px;
         position: absolute;
-        top: 57%;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     #itd_game32 {
-        Height: 330px;
-        Width: 600px;
+        Height: 214.5px;
+        Width: 351px;
         position: absolute;
         top: 46%;
         left: 50%;
@@ -4841,13 +4976,15 @@ body {
     }
 
     .GameLast {
-        top: 57%;
+        font-size: 30px;
+        top: 40%;
         left: 15%;
         transform: translate(-50%, -50%);
     }
 
     .GameNext {
-        top: 57%;
+        font-size: 30px;
+        top: 40%;
         left: 85%;
         transform: translate(-50%, -50%);
     }
@@ -4892,7 +5029,7 @@ body {
 
     #itd_game31 {
         Height: 330px;
-        Width: 600px;
+        Width: 540px;
         position: absolute;
         top: 46%;
         left: 50%;
@@ -4901,7 +5038,7 @@ body {
 
     #itd_game32 {
         Height: 330px;
-        Width: 600px;
+        Width: 540px;
         position: absolute;
         top: 46%;
         left: 50%;
@@ -4909,13 +5046,15 @@ body {
     }
 
     .GameLast {
-        top: 57%;
+        font-size: 40px;
+        top: 40%;
         left: 15%;
         transform: translate(-50%, -50%);
     }
 
     .GameNext {
-        top: 57%;
+        font-size: 40px;
+        top: 40%;
         left: 85%;
         transform: translate(-50%, -50%);
     }

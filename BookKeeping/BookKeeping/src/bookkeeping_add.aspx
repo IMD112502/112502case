@@ -193,7 +193,7 @@
 
 	<script>
         var currentDate = new Date('<%= DateTime.Now.ToString("yyyy-MM-dd") %>');
-        currentDate.setDate(currentDate.getDate() + 1);  // 增加一天，確保明天也可以選擇
+        currentDate.setDate(currentDate.getDate()); 
         var maxDate = currentDate.toISOString().split('T')[0];
         document.getElementById("Start").max = maxDate;
     </script>

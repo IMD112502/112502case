@@ -42,7 +42,11 @@
 
 		<asp:Button class="ButtonStyle3 GameEnd" ID="LeaveGame" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
         <asp:Label ID="randomNum" runat="server" Text="" Visible="false"></asp:Label>
-        <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
+        <div class="CorrectcntText">
+            <asp:Label ID="Label2" runat="server" Text="已答對"></asp:Label>
+            <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
+            <asp:Label ID="Label1" runat="server" Text="題"></asp:Label>
+        </div>
         </div>
         </div>
         <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -52,8 +56,8 @@
                         <p id="resultMessage"></p>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 ButtonSize2" OnClick="RestartGame" />
-                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 ButtonSize2" PostBackUrl="game_menu.aspx" />
+                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 JumpButton" OnClick="RestartGame" />
+                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 JumpButton" PostBackUrl="game_menu.aspx" />
                     </div>
                 </div>
             </div>
