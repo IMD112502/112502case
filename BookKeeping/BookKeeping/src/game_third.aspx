@@ -287,9 +287,8 @@
 
                     draggableElements.forEach(function (draggable) {
                         draggable.addEventListener('dragstart', function (event) {
-                            var draggedElement = event.target.cloneNode(true);
-                            draggedElement.classList.add('dragged-image');
-                            document.body.appendChild(draggedElement);
+                            var draggedElement = event.target;
+                            event.dataTransfer.setDragImage(draggedElement, 0, 0);
                             event.dataTransfer.setData('text/plain', draggedElement.id);
                         });
 
@@ -307,6 +306,14 @@
 
                     Checkout.addEventListener('drop', function (event) {
                         event.preventDefault();
+                        // 檢查是否已達到最大元素數量
+                        var maxItems = 20;
+                        var existingItems = Checkout.getElementsByClassName('draggable-item').length;
+                        if (existingItems >= maxItems) {
+                            // 如果已達到最大元素數量，則不允許添加新元素
+                            console.log('已達到最大元素數量，不允許添加新元素');
+                            return;
+                        }
                         var data = event.dataTransfer.getData('text/plain');
                         var draggedElement = document.getElementById(data);
 
@@ -315,6 +322,41 @@
 
                             var clonedElement = draggedElement.cloneNode(true);
                             clonedElement.classList.add('draggable-item');
+
+                            var initialPositionX2, initialPositionY2, initialPositionX3, initialPositionY3;
+                            // 根據 data-type 屬性區分不同類型的元素
+                            // 根據元素的 id 區分不同類型的元素
+                            if (draggedElement.id === 'Thousand' || draggedElement.id === 'FiveHundred' || draggedElement.id === 'Hundred') {
+                                initialPositionX2 = 88;
+                                initialPositionY2 = 50;
+                            } else {
+                                initialPositionX3 = 50; // 起始橫向位置，這裡使用相同的橫向位置
+                                initialPositionY3 = 130; // 不同類型的圖片使用不同的縱向位置
+                            }
+
+                            if (draggedElement.id === 'Thousand' || draggedElement.id === 'FiveHundred' || draggedElement.id === 'Hundred') {
+                                clonedElement.style.left = initialPositionX2 + 'px';
+                                clonedElement.style.top = initialPositionY2 + 'px';
+                            } else {
+                                clonedElement.style.left = initialPositionX3 + 'px';
+                                clonedElement.style.top = initialPositionY3 + 'px';
+                            }
+                            // 計算新元素的位置
+                            var itemsInRow = 6; // 每行元素数量
+                            var newPositionX2 = (existingItems % itemsInRow) * 50; // 每個元素的寬度
+                            var newPositionY2 = Math.floor(existingItems / itemsInRow) * 50; // 每個元素的高度
+                            var newPositionX3 = (existingItems % itemsInRow) * 50; // 每個元素的寬度
+                            var newPositionY3 = Math.floor(existingItems / itemsInRow) * 50; // 每個元素的高度
+                            // 將初始位置加上新元素位置2
+                            var finalPositionX2 = initialPositionX2 + newPositionX2;
+                            var finalPositionY2 = initialPositionY2 + newPositionY2;
+                            clonedElement.style.left = finalPositionX2 + 'px';
+                            clonedElement.style.top = finalPositionY2 + 'px';
+                            // 將初始位置加上新元素位置3
+                            var finalPositionX3 = initialPositionX3 + newPositionX3;
+                            var finalPositionY3 = initialPositionY3 + newPositionY3;
+                            clonedElement.style.left = finalPositionX3 + 'px';
+                            clonedElement.style.top = finalPositionY3 + 'px';
                             clonedElement.addEventListener('click', function () {
                                 clonedElement.parentNode.removeChild(clonedElement);
                                 totalAmountInCheckout -= moneyValue;
