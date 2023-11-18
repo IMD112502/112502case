@@ -239,7 +239,7 @@
                
             </script>
 
-        <asp:Label ID="RedLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+       <div hidden="hidden"> <asp:Label ID="RedLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
         <asp:Label ID="GreenLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
         <asp:Label ID="BlueLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
         <asp:Label ID="BlackLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
@@ -247,6 +247,7 @@
         <asp:Label ID="GlueLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
         <asp:Label ID="CorLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
         <asp:Label ID="RulerLabel" runat="server" Text="0" Style="font-size: 16px;"></asp:Label>
+           </div>
    </asp:Panel>
 
   <asp:Panel ID="ThirdGamePanel2" runat="server" ><%--遊戲三之二--%>
@@ -417,7 +418,7 @@
         <input type="hidden" name="hiddencor" id="hiddencor" value="0"/>
         <input type="hidden" name="hiddenruler" id="hiddenruler" value="0"/>
         <input type="hidden" name="hiddentotal" id="hiddentotal" value="0"/>
-        <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
+        <div hidden="hidden"><asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%></div>
         </div>
         <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
