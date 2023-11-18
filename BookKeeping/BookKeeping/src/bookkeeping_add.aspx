@@ -167,14 +167,7 @@
 			<br />
 			<div class="BooAddText">
 				<asp:Label ID="Label4" runat="server" Text="日期"></asp:Label>
-				<input type="date" id="Start" name="date" value="<%= DateTime.Now.ToString("yyyy-MM-dd") %>"
-					min="2022-01-01" max="" />
-				<script>
-                    var tomorrow = new Date()
-                    tomorrow.setDate(tomorrow.getDate());
-                    var tomorrowDate = tomorrow.toISOString().split('T')[0];
-                    document.getElementById("Start").max = tomorrowDate;
-                </script>
+				<input type="date" id="Start" name="date" value="<%= DateTime.Now.ToString("yyyy-MM-dd") %>" />
 				<br />
 				<br />
 				<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
@@ -197,5 +190,12 @@
 		<asp:ImageButton class="Back" ID="ImageButton1" runat="server" ImageUrl="images/back.png" PostBackUrl="~/src/main.aspx" />
 		<div id="overlay"></div>
 	</form>
+
+	<script>
+        var currentDate = new Date('<%= DateTime.Now.ToString("yyyy-MM-dd") %>');
+        currentDate.setDate(currentDate.getDate() + 1);  // 增加一天，確保明天也可以選擇
+        var maxDate = currentDate.toISOString().split('T')[0];
+        document.getElementById("Start").max = maxDate;
+    </script>
 </body>
 </html>

@@ -123,7 +123,7 @@ namespace _BookKeeping
             }
 
             // 检查帐号只包含英文和数字
-            if (ContainsNonChineseCharacters(userid))
+            if (ContainsNonChineseCharacters(userid) || userid.Contains(" "))
             {
                 // 帐号包含非英文或数字字符，显示错误消息
                 string script = "var overlay = document.getElementById('overlay');";
