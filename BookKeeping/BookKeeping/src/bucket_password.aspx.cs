@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 
 namespace BookKeeping
@@ -100,6 +101,18 @@ namespace BookKeeping
                     return; // 如果有空字段，不继续执行
                 }
 
+                if (ContainsChineseCharacters(enteredPassword))
+                {
+                    ErrorMessageLabel.Text = "密碼只能是英文或數字";
+                    return;
+                }
+
+                if (!ContainsChineseCharacters(Answer))
+                {
+                    ErrorMessageLabel.Text = "回答答案只能是中文";
+                    return;
+                }
+
                 ViewState["enteredPassword"] = enteredPassword;
                 ViewState["Answer"] = Answer;
                 ViewState["ques"] = ques;
@@ -167,6 +180,13 @@ namespace BookKeeping
                 }
 
             }
+        }
+
+        private bool ContainsChineseCharacters(string input)
+        {
+            // 使用正則表達式檢查輸入是否包含中文字符
+            string pattern = @"[\u4e00-\u9fa5]";
+            return Regex.IsMatch(input, pattern);
         }
 
     }

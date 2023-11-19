@@ -22,8 +22,8 @@
                 <asp:Label ID="question" runat="server" Text="安全問題" Visible="false"></asp:Label>
                 <asp:DropDownList ID="securityQuestion" runat="server" Visible="false" CssClass="DropDownStyle" Width="170" Height="40" style ="margin-bottom:10px;">
                     <asp:ListItem Text="請選擇問題" Value="" />
-                    <asp:ListItem Text="請問您最喜歡的顏色是" Value="1" />
-                    <asp:ListItem Text="請問您最喜歡的食物是" Value="2" />
+                    <asp:ListItem Text="請問您最喜歡的書籍" Value="1" />
+                    <asp:ListItem Text="請問您最喜歡的電影" Value="2" />
                 </asp:DropDownList>
                 <asp:TextBox class="TextBoxStyle" ID="securityAnswer" runat="server" Width="90" Height="30" style ="margin-bottom:10px;" placeholder="請輸入答案"></asp:TextBox>
                 </div>

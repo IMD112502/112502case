@@ -195,7 +195,9 @@
         var currentDate = new Date('<%= DateTime.Now.ToString("yyyy-MM-dd") %>');
         currentDate.setDate(currentDate.getDate()); 
         var maxDate = currentDate.toISOString().split('T')[0];
-        document.getElementById("Start").max = maxDate;
+		document.getElementById("Start").max = maxDate;
+		var minDate = "2023-01-01";
+		document.getElementById("Start").min = minDate;
     </script>
 </body>
 </html>
