@@ -12,7 +12,7 @@ namespace BookKeeping.src
 {
     public partial class game_second : System.Web.UI.Page
     {
-        private int totalQuestions = 7;
+        private int totalQuestions = 5;
         private int currentQuestion = 0;
         //public Dictionary<string, int> questionQuantities;
 
@@ -244,7 +244,7 @@ namespace BookKeeping.src
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
                 ClientScript.RegisterStartupScript(GetType(), "答對了'", script, true);
 
-                if (nextquestion <= 7)
+                if (nextquestion <= totalQuestions)
                 {
                     InitializeGame2();
                 }
@@ -263,7 +263,7 @@ namespace BookKeeping.src
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
                 ClientScript.RegisterStartupScript(GetType(), "答錯了'", script, true);
 
-                if (nextquestion <= 7)
+                if (nextquestion <= totalQuestions)
                 {
                     InitializeGame2();
                 }

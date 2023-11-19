@@ -13,7 +13,7 @@ namespace BookKeeping.src
         private List<int> faceValues = new List<int> { 1, 5, 10, 50, 100, 500, 1000 };
         private Random random = new Random();
         private int currentQuestionIndex = 0;
-        private int totalQuestions = 7;
+        private int totalQuestions = 5;
         private int currentQuestion = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace BookKeeping.src
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
                 ClientScript.RegisterStartupScript(GetType(), "答對了'", script, true);
 
-                if (nextquestion <= 7)
+                if (nextquestion <= totalQuestions)
                 {
                     InitializeGame1();
                 }
@@ -128,7 +128,7 @@ namespace BookKeeping.src
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
                 ClientScript.RegisterStartupScript(GetType(), "答錯了'", script, true);
 
-                if (nextquestion <= 7)
+                if (nextquestion <= totalQuestions)
                 {
                     InitializeGame1();
                 }

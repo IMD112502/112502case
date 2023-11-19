@@ -313,8 +313,17 @@ namespace BookKeeping.src
                     if (rowsaffected > 0)
                     {
                         // 触发模态框
-                        string script = "$('#resultMessage').text('答對了 " + corcnt + " 題'); $('#resultModal').modal('show');";
-                        ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
+                        if (corcnt > 0)
+                        {
+                            string script = "$('#resultMessage').text('恭喜過關'); $('#resultModal').modal('show');";
+                            ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
+                        }
+                        else 
+                        {
+                            string script = "$('#resultMessage').text('通關失敗'); $('#resultModal').modal('show');";
+                            ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
+                        }
+                        
                     }
                 }
             }
