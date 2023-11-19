@@ -24,7 +24,7 @@
                 </p>
                 <p>
                    生日
-                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:5px; padding-left:10px; width:250px; height:20px;" value="<%= BirthDate.ToString("yyyy-MM-dd") %>" oninput="validateDate()"/>
+                    <input type="date" id="BirthDate" name="BirthDate" class="TextBoxStyle" style="margin-bottom:5px; padding-left:10px; width:250px; height:20px;" value="<%= BirthDate.ToString("yyyy-MM-dd") %>"/>
                 </p>
                 
                 <p>帳號
@@ -98,15 +98,11 @@
             }
         }
 
-        function validateDate() {
-            var inputDate = document.getElementById("BirthDate").value;
-            var today = new Date().toISOString().split("T")[0];
-
-            if (inputDate > today) {
-                alert("請選擇今天或之前的日期");
-                document.getElementById("BirthDate").value = today;
-            }
-        }
+        var currentDate = new Date('<%= DateTime.Now.ToString("yyyy-MM-dd") %>');
+        currentDate.setDate(currentDate.getDate());
+        var maxDate = currentDate.toISOString().split('T')[0];
+        document.getElementById("BirthDate").max = maxDate;
+   
     </script>
 </body>
 </html>
