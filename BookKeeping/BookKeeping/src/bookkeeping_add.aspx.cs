@@ -320,7 +320,7 @@ namespace _BookKeeping
                 string script = "var overlay = document.getElementById('overlay');";
                 script += "overlay.style.display = 'block';";
                 script += "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_eight_word.png';";
+                script += "imageBox.src = 'images/alert_money_rule.png';";
                 script += "imageBox.className = 'custom-image2';";
                 script += "document.body.appendChild(imageBox);";
                 script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);";
