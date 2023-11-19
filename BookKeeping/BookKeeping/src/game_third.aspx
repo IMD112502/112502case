@@ -255,6 +255,7 @@
                  <p id="TotalMoney">一共是<span id="TotalMoney2">&nbsp;&nbsp;&nbsp;&nbsp;</span>元</p> <%--結帳金額--%>
                 <asp:Image ID="Clerk" runat="server" ImageUrl="images/game/game_clerk.png"/>
                 <asp:Button class="ButtonStyle3" ID="Correct2" runat="server" Text="完成"  OnClick="Check3_2_Click"/>
+                <%--<asp:Button class="ButtonStyle3" ID="GameReset2" runat="server" Text="重置"  OnClick="Check3_2_Click"/>--%>
 
                 <div class="Checkout" id="Checkout">
                     <asp:Label ID="Label9" runat="server" Text="Label" Style="color: #301305;">結帳區</asp:Label>
@@ -307,8 +308,7 @@
 
                     Checkout.addEventListener('drop', function (event) {
                         event.preventDefault();
-                        // 檢查是否已達到最大元素數量
-                        var maxItems = 20;
+                        var maxItems = 24;
                         var existingItems = Checkout.getElementsByClassName('draggable-item').length;
                         if (existingItems >= maxItems) {
                             // 如果已達到最大元素數量，則不允許添加新元素
@@ -324,40 +324,20 @@
                             var clonedElement = draggedElement.cloneNode(true);
                             clonedElement.classList.add('draggable-item');
 
-                            var initialPositionX2, initialPositionY2, initialPositionX3, initialPositionY3;
-                            // 根據 data-type 屬性區分不同類型的元素
-                            // 根據元素的 id 區分不同類型的元素
-                            if (draggedElement.id === 'Thousand' || draggedElement.id === 'FiveHundred' || draggedElement.id === 'Hundred') {
-                                initialPositionX2 = 88;
-                                initialPositionY2 = 50;
-                            } else {
-                                initialPositionX3 = 50; // 起始橫向位置，這裡使用相同的橫向位置
-                                initialPositionY3 = 130; // 不同類型的圖片使用不同的縱向位置
-                            }
-
-                            if (draggedElement.id === 'Thousand' || draggedElement.id === 'FiveHundred' || draggedElement.id === 'Hundred') {
-                                clonedElement.style.left = initialPositionX2 + 'px';
-                                clonedElement.style.top = initialPositionY2 + 'px';
-                            } else {
-                                clonedElement.style.left = initialPositionX3 + 'px';
-                                clonedElement.style.top = initialPositionY3 + 'px';
-                            }
+                            // 設定元素的初始位置
+                            var initialPositionX = 80; // 起始橫向位置
+                            var initialPositionY = 70; // 起始縱向位置
+                            clonedElement.style.left = initialPositionX + 'px';
+                            clonedElement.style.top = initialPositionY + 'px';
                             // 計算新元素的位置
-                            var itemsInRow = 6; // 每行元素数量
-                            var newPositionX2 = (existingItems % itemsInRow) * 50; // 每個元素的寬度
-                            var newPositionY2 = Math.floor(existingItems / itemsInRow) * 50; // 每個元素的高度
-                            var newPositionX3 = (existingItems % itemsInRow) * 50; // 每個元素的寬度
-                            var newPositionY3 = Math.floor(existingItems / itemsInRow) * 50; // 每個元素的高度
-                            // 將初始位置加上新元素位置2
-                            var finalPositionX2 = initialPositionX2 + newPositionX2;
-                            var finalPositionY2 = initialPositionY2 + newPositionY2;
-                            clonedElement.style.left = finalPositionX2 + 'px';
-                            clonedElement.style.top = finalPositionY2 + 'px';
-                            // 將初始位置加上新元素位置3
-                            var finalPositionX3 = initialPositionX3 + newPositionX3;
-                            var finalPositionY3 = initialPositionY3 + newPositionY3;
-                            clonedElement.style.left = finalPositionX3 + 'px';
-                            clonedElement.style.top = finalPositionY3 + 'px';
+                            var itemsInRow = 5; // 每行元素数量
+                            var newPositionX = (existingItems % itemsInRow) * 68; // 每個元素的寬度
+                            var newPositionY = Math.floor(existingItems / itemsInRow) * 50; // 每個元素的高度
+                            // 將初始位置加上新元素位置
+                            var finalPositionX = initialPositionX + newPositionX;
+                            var finalPositionY = initialPositionY + newPositionY;
+                            clonedElement.style.left = finalPositionX + 'px';
+                            clonedElement.style.top = finalPositionY + 'px';
                             clonedElement.addEventListener('click', function () {
                                 clonedElement.parentNode.removeChild(clonedElement);
                                 totalAmountInCheckout -= moneyValue;
@@ -404,7 +384,7 @@
 
 
             </script>
-           <div hidden="hidden"> <asp:Label ID="TotalAmountLabel" runat="server" Text="0" Style="font-size: 24px;" ></asp:Label><%--紀錄目前結帳區的金額--%></div>
+            <asp:Label ID="TotalAmountLabel" runat="server" Text="0" Style="font-size: 24px;" ></asp:Label><%--紀錄目前結帳區的金額--%>
        </asp:Panel>
 
         <asp:Button class="ButtonStyle" ID="LeaveGame3" runat="server" Text="結束遊戲" OnClick="LeaveGame_Click" />
@@ -418,7 +398,7 @@
         <input type="hidden" name="hiddencor" id="hiddencor" value="0"/>
         <input type="hidden" name="hiddenruler" id="hiddenruler" value="0"/>
         <input type="hidden" name="hiddentotal" id="hiddentotal" value="0"/>
-        <div hidden="hidden"><asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%></div>
+        <asp:Label ID="correctcnt" runat="server" Text="0"></asp:Label><%--紀錄答對題數--%>
         </div>
         <div id="resultModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
@@ -427,8 +407,8 @@
                         <p id="resultMessage"></p>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 JumpButton" OnClick="RestartGame" />
-                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 JumpButton" PostBackUrl="game_menu.aspx" />
+                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 ButtonSize2" OnClick="RestartGame" />
+                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 ButtonSize2" PostBackUrl="game_menu.aspx" />
                     </div>
                 </div>
             </div>
