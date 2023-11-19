@@ -144,7 +144,7 @@ namespace _BookKeeping
                 string script = "var overlay = document.getElementById('overlay');";
                 script += "overlay.style.display = 'block';"; // 顯示背景遮罩
                 script += "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_id_rule.png';";
+                script += "imageBox.src = 'images/alert_pw_rule.png';";
                 script += "imageBox.className = 'custom-image2';";
                 script += "document.body.appendChild(imageBox);";
                 script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
@@ -159,7 +159,7 @@ namespace _BookKeeping
                 string script = "var overlay = document.getElementById('overlay');";
                 script += "overlay.style.display = 'block';"; // 顯示背景遮罩
                 script += "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_id_rule.png';";
+                script += "imageBox.src = 'images/alert_cpw_rule.png';";
                 script += "imageBox.className = 'custom-image2';";
                 script += "document.body.appendChild(imageBox);";
                 script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
