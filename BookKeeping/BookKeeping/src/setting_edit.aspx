@@ -27,11 +27,7 @@
                 </p>
                 <p>
                     <label>生日 </label>
-                    <asp:TextBox class="SetTextBoxStyle YearTextBox" ID="TextBox2" runat="server" onkeypress="return validateNumberInput(event)"></asp:TextBox>
-                    <label>/</label>
-                    <asp:TextBox class="SetTextBoxStyle MonthDayTextBox" ID="TextBox3" runat="server" onkeypress="return validateNumberInput(event)"></asp:TextBox>
-                    <label>/</label>
-                    <asp:TextBox class="SetTextBoxStyle MonthDayTextBox" ID="TextBox4" runat="server" onkeypress="return validateNumberInput(event)"></asp:TextBox>
+                    <asp:Label ID="Birthday" runat="server"></asp:Label>
                 </p>
             </div>
             <asp:Image class="Ava" ID="Avatar" runat="server" ImageUrl="images/avatar/ava_girl.png"/>

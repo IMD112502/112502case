@@ -49,7 +49,7 @@ namespace BookKeeping.src
                                     account.Text = reader["user_id"].ToString();
 
                                     DateTime birthdayDate = (DateTime)reader["birthday"];
-                                    birthdate.Text = birthdayDate.ToShortDateString();
+                                    birthdate.Text = birthdayDate.ToString("yyyy/MM/dd");
 
                                     if (reader["gender"].ToString() == "男生")
                                     {

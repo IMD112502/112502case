@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.Types;
 using System.Web.SessionState;
+using System.Text.RegularExpressions;
 
 namespace _BookKeeping
 {
@@ -314,6 +315,20 @@ namespace _BookKeeping
             string costStr = ((TextBox)row.FindControl("txtcost")).Text;
             string mark = ((TextBox)row.FindControl("txtmark")).Text;
 
+            if (!IsNumeric(costStr))
+            {
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';";
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_eight_word.png';";
+                script += "imageBox.className = 'custom-image2';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);";
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);";
+                ClientScript.RegisterStartupScript(GetType(), "金額欄位只能是數字", script, true);
+                return; // 停止執行，不執行後續的程式碼
+            }
+
             // 檢查備註欄位的字數
             if (mark.Length > 8)
             {
@@ -458,6 +473,13 @@ namespace _BookKeeping
             ViewState["SortDirection"] = sortDirection;
 
             return sortDirection;
+        }
+
+        private bool IsNumeric(string input)
+        {
+            // 使用正則表達式檢查輸入是否為數字
+            string pattern = @"^\d+$";
+            return Regex.IsMatch(input, pattern);
         }
 
     }

@@ -27,10 +27,6 @@ namespace BookKeeping.src
                 if (userData != null)
                 {
                     SetNickname.Text = userData.Nickname;
-                    TextBox2.Text = userData.Birthdate.Year.ToString(); // 假设 Birthdate 是 DateTime 类型
-                    TextBox3.Text = userData.Birthdate.Month.ToString();
-                    TextBox4.Text = userData.Birthdate.Day.ToString();
-
                 }
             }
         }
@@ -61,6 +57,8 @@ namespace BookKeeping.src
                             gender.Text = reader["gender"].ToString();
                             account.Text = reader["user_id"].ToString();
                             user.Birthdate = Convert.ToDateTime(reader["birthday"]);
+
+                            Birthday.Text = user.Birthdate.ToString("yyyy/MM/dd");
 
                             if (reader["gender"].ToString() == "男生")
                             {
@@ -94,49 +92,36 @@ namespace BookKeeping.src
                 Nickname = SetNickname.Text
             };
 
-            int year, month, day;
+            // 调用保存数据的方法
+            bool updateSuccess = UpdateUserData(modifiedUserData);
 
-            if (int.TryParse(TextBox2.Text, out year) && int.TryParse(TextBox3.Text, out month) && int.TryParse(TextBox4.Text, out day))
+            if (updateSuccess)
             {
-                // 调用保存数据的方法
-                modifiedUserData.Birthdate = new DateTime(year, month, day);
-
-                // 调用保存数据的方法
-                bool updateSuccess = UpdateUserData(modifiedUserData);
-
-                if (updateSuccess)
-                {
-                    // 如果更新成功，你可以进行相应的处理，例如重定向到设置页面或显示成功消息
-                    string script = "var overlay = document.getElementById('overlay');";
-                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
-                    script += "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_1Y.png';";
-                    script += "imageBox.className = 'custom-image';";
-                    script += "document.body.appendChild(imageBox);";
-                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
-                    script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/setting.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
-                    ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
-                }
-                else
-                {
-                    // 如果更新失败，显示错误消息给用户
-                    string script = "var overlay = document.getElementById('overlay');";
-                    script += "overlay.style.display = 'block';"; // 顯示背景遮罩
-                    script += "var imageBox = document.createElement('img');";
-                    script += "imageBox.src = 'images/alert_1N.png';";
-                    script += "imageBox.className = 'custom-image';";
-                    script += "document.body.appendChild(imageBox);";
-                    script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
-                    script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                    ClientScript.RegisterStartupScript(GetType(), "修改失敗", script, true);
-                }
+                // 如果更新成功，你可以进行相应的处理，例如重定向到设置页面或显示成功消息
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_1Y.png';";
+                script += "imageBox.className = 'custom-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                script += "setTimeout(function() { imageBox.style.display = 'none'; window.location.href = '" + ResolveUrl("~/src/setting.aspx") + "'; }, 2000);"; // 显示图像一段时间后跳转
+                ClientScript.RegisterStartupScript(GetType(), "修改成功", script, true);
             }
             else
             {
-                // 显示错误消息，提示用户输入的生日不是有效的数字
-                string script = "alert('請輸入有效的生日數字');";
-                ClientScript.RegisterStartupScript(GetType(), "生日輸入錯誤", script, true);
+                // 如果更新失败，显示错误消息给用户
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_1N.png';";
+                script += "imageBox.className = 'custom-image';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "修改失敗", script, true);
             }
+            
         }
 
         public bool UpdateUserData(UserData modifiedUserData)
@@ -150,14 +135,12 @@ namespace BookKeeping.src
 
                 // 创建 SQL 命令，更新用户数据
                 string query = "UPDATE `112-112502`.user " +
-                               "SET nickname = @Nickname, " +
-                               "    birthday = @Birthdate " +
+                               "SET nickname = @Nickname " +
                                "WHERE user_id = @Account";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@Nickname", modifiedUserData.Nickname);
-                    cmd.Parameters.AddWithValue("@Birthdate", modifiedUserData.Birthdate.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@Account", account.Text);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
