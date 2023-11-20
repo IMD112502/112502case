@@ -1524,7 +1524,7 @@ body {
         left: 50%;
         top: 25%;
         transform: translate(-50%, 0%);
-        height: 320px; /* 設定高度，使其出現滾動條 */
+        height: 380px; /* 設定高度，使其出現滾動條 */
         width: 400px;
         overflow-y: scroll; /* 垂直滾動條 */
     }
@@ -1769,10 +1769,70 @@ body {
     .AddButton {
         position: absolute;
         left: 50%;
-        top: 135%;
+        top: 190%;
         width: 500px;
         transform: translate(-50%, -50%);
     }
+
+    #Mark {
+        position: absolute;
+        top: 120%;
+        left: 33%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 下拉選單 */
+    #customSelect2 {
+        position: absolute;
+        width: 140px;
+        left: 50%;
+        top: 120%;
+        font-size: 20px;
+        transform: translate(-40%, -50%);
+    }
+
+    #AddTextbox {
+        width: 100%;
+        padding: 5px;
+    }
+
+    #arrowIcon2 {
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+        #arrowIcon2:hover {
+            transform: translateY(-50%) scale(1.2); /* 在 hover 時放大 1.2 倍 */
+        }
+
+    #customOptions2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 150px; /* 設定最大高度，超過高度將出現滾動條 */
+        overflow-y: auto; /* 啟用垂直滾動條 */
+        background-color: #ffffff8f; /* 設定底色 */
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 10px 10px; /* 加入底部圓角 */
+        display: none;
+    }
+
+    .option2 {
+        padding: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* 添加過渡效果 */
+    }
+
+        .option2:hover {
+            background-color: #BEE3E280; /* 在 hover 時變更底色 */
+            font-size: 22px;
+        }
+    /* 下拉選單尾 */
 }
 
 /* 平板和電腦 */
@@ -1936,10 +1996,70 @@ body {
     .AddButton {
         position: absolute;
         left: 50%;
-        top: 150%;
+        top: 190%;
         width: 500px;
         transform: translate(-50%, -50%);
     }
+
+    #Mark {
+        position: absolute;
+        top: 120%;
+        left: 33%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* 下拉選單 */
+    #customSelect2 {
+        position: absolute;
+        width: 150px;
+        left: 50%;
+        top: 120%;
+        font-size: 20px;
+        transform: translate(-40%, -50%);
+    }
+
+    #AddTextbox {
+        width: 100%;
+        padding: 5px;
+    }
+
+    #arrowIcon2 {
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+        #arrowIcon2:hover {
+            transform: translateY(-50%) scale(1.2); /* 在 hover 時放大 1.2 倍 */
+        }
+
+    #customOptions2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        max-height: 150px; /* 設定最大高度，超過高度將出現滾動條 */
+        overflow-y: auto; /* 啟用垂直滾動條 */
+        background-color: #ffffff8f; /* 設定底色 */
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 10px 10px; /* 加入底部圓角 */
+        display: none;
+    }
+
+    .option2 {
+        padding: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* 添加過渡效果 */
+    }
+
+        .option2:hover {
+            background-color: #BEE3E280; /* 在 hover 時變更底色 */
+            font-size: 22px;
+        }
+    /* 下拉選單尾 */
 }
 /*-------------記帳右結束--------------*/
 /*--------------------------------記帳結束------------------------------------*/

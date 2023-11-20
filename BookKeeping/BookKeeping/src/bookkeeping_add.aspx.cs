@@ -145,7 +145,7 @@ namespace _BookKeeping
             {
                 if (int.TryParse(costInput, out int cost))
                 {
-                    string mark = TextBox2.Text;
+                    string mark = AddTextbox.Text;
 
                     // 檢查備註欄位的字數
                     if (mark.Length > 8)
@@ -177,7 +177,7 @@ namespace _BookKeeping
                     if (rows_affect > 0)
                     {
                         TextBox1.Text = null;
-                        TextBox2.Text = null;
+                        AddTextbox.Text = null;
                         ErrorMessageLabel.Text = "";
                         string script = "var overlay = document.getElementById('overlay');";
                         script += "overlay.style.display = 'block';"; // 顯示背景遮罩

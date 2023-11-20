@@ -7,6 +7,7 @@
 <head runat="server">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>記帳新增</title>
 </head>
 
@@ -122,7 +123,7 @@
 				<br />
 				<div class="RadioButtons">
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="1" checked="checked" />
+						<input type="radio" name="radio" value="1" data-options='["零用錢", "媽媽給我的", "爸爸給我的"]' checked="checked" />
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_dre.png'); background-size: contain;">
@@ -132,7 +133,7 @@
 						</span>
 					</label>
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="2" />
+						<input type="radio" name="radio" value="2" data-options='["早餐", "午餐", "晚餐", "點心"]' />
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_eat.png'); background-size: contain;">
@@ -142,7 +143,7 @@
 						</span>
 					</label>
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="3"/>
+						<input type="radio" name="radio" value="3" data-options='["買玩具", "買書", "遊樂園"]' />
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_play.png'); background-size: contain;">
@@ -152,7 +153,7 @@
 						</span>
 					</label>
 					<label class="SortRadio">
-						<input type="radio" name="radio" value="4"/>
+						<input type="radio" name="radio" value="4" data-options='["交通費", "買文具"]' />
 						<span class="RadioBtn">
 							<i>v</i>
 							<div class="SortIcon" style="background:url('images/c_other.png'); background-size: contain;">
@@ -171,17 +172,20 @@
 				<br />
 				<br />
 				<asp:Label ID="Label5" runat="server" Text="金額"></asp:Label>
-				<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox1" runat="server"></asp:TextBox>
+				<asp:TextBox class="TextBoxStyle" type="text" PlaceHolder="請輸入金額" ID="TextBox1" runat="server"></asp:TextBox>
 				<br />
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<asp:Label ID="ErrorMessageLabel" runat="server" CssClass="ErrorMessage" Visible="false" style ="color:red"></asp:Label>
 				<br />
-				<asp:Label ID="Label6" runat="server" Text="備註"></asp:Label>
-				<asp:TextBox class="TextBoxStyle" type="text" ID="TextBox2" runat="server"></asp:TextBox>
-
 				<div class="AddButton">
 				<input class="ButtonStyle3 ButtonSize1" type="reset" value="重新輸入" />
 				<asp:Button class="ButtonStyle3 ButtonSize1" ID="Button3" runat="server" Text="確定新增" OnClick="Submit_Click" />
+				</div>
+				<asp:Label ID="Mark" runat="server" Text="備註"></asp:Label>
+				<div id="customSelect2">
+				  <asp:TextBox class="TextBoxStyle" type="text" ID="AddTextbox" PlaceHolder="請輸入備註" runat="server" ></asp:TextBox>
+				  <div id="arrowIcon2">▼</div>
+				  <div id="customOptions2"></div>
 				</div>
 			</div>
 		</div>
@@ -191,6 +195,70 @@
 		<div id="overlay"></div>
 	</form>
 
+	<script>
+        // 模擬選項
+        const options2 = ["零用錢", "媽媽給我的", "爸爸給我的"];
+
+        // 取得元素
+        const radioButtons = document.querySelectorAll('.SortRadio input[name="radio"]');
+        const AddTextbox = document.getElementById('AddTextbox');
+        const customOptions2 = document.getElementById('customOptions2');
+
+        // 監聽RadioButton選擇事件
+        radioButtons.forEach(radioButton => {
+            radioButton.addEventListener('change', () => {
+                const selectedOptions = JSON.parse(radioButton.getAttribute('data-options'));
+                updateDropdownOptions(selectedOptions);
+            });
+        });
+
+        // 更新下拉式選單的內容
+        function updateDropdownOptions(options) {
+            // 清空舊的選項
+            customOptions2.innerHTML = '';
+
+            // 建立新的選項
+            options.forEach(optionText => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option2');
+                optionElement.textContent = optionText;
+                optionElement.addEventListener('click', () => {
+                    AddTextbox.value = optionText;
+                    customOptions2.style.display = 'none';
+                });
+                customOptions2.appendChild(optionElement);
+            });
+        }
+
+        // 建立下拉式選單
+        options2.forEach(optionText2 => {
+            const optionElement = document.createElement('div');
+            optionElement.classList.add('option2');
+            optionElement.textContent = optionText2;
+            optionElement.addEventListener('click', () => {
+                AddTextbox.value = optionText2;
+                customOptions2.style.display = 'none';
+            });
+            customOptions2.appendChild(optionElement);
+        });
+
+        // 監聽點擊箭頭事件
+        arrowIcon2.addEventListener('click', () => {
+            customOptions2.style.display = (customOptions2.style.display === 'none') ? 'block' : 'none';
+        });
+
+        // 監聽點擊頁面其他區域的事件，以隱藏選項
+        document.addEventListener('click', event => {
+            if (!event.target.closest('#customSelect2')) {
+                customOptions2.style.display = 'none';
+            }
+        });
+
+        // 阻止點擊選項時冒泡至 document 造成 document click 事件觸發
+        customOptions2.addEventListener('click', event => {
+            event.stopPropagation();
+        });
+    </script>
 	<script>
         var currentDate = new Date('<%= DateTime.Now.ToString("yyyy-MM-dd") %>');
         currentDate.setDate(currentDate.getDate()); 
