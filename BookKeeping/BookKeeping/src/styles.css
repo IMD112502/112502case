@@ -278,7 +278,7 @@ body {
     }
 
     .TextBoxStyle, #Start { /* 輸入欄樣式 (+記帳日期) */
-        width: 120px;
+        width: 140px;
         height: 25px;
         font-size: 16px;
         border-radius: 5px;
@@ -1068,8 +1068,9 @@ body {
     .LogForgetPwd {
         position: absolute;
         top: 120%;
-        left: 80%;
-        transform: translate(-50%, -50%);
+        left: 95%;
+        width: 80px;
+        transform: translate(-100%, -50%);
     }
 
     #state {
@@ -1144,9 +1145,10 @@ body {
 
     .LogForgetPwd {
         position: absolute;
+        width: 100px;
         top: 120%;
-        left: 80%;
-        transform: translate(-50%, -50%);
+        left: 95%;
+        transform: translate(-100%, -50%);
     }
 
     #state {
@@ -2213,7 +2215,7 @@ body {
     }
 
     .ContentFlex {
-        font-size: 24px;
+        font-size: 20px;
         width: 150px;
         height: 150px;
         font-weight: bold;
@@ -2324,7 +2326,7 @@ body {
     }
 
     .ContentFlex {
-        font-size: 32px;
+        font-size: 28px;
         width: 200px;
         height: 200px;
         font-weight: bold;
@@ -2907,7 +2909,7 @@ body {
         left: 50%;
         font-size: 30px;
         font-weight: bold;
-        transform: translate(-50%, -80%);
+        transform: translate(-50%, -50%);
     }
 
     .BucPwTitle {
@@ -2925,7 +2927,7 @@ body {
     }
 
     .RevText {
-        font-size: 28px;
+        font-size: 25px;
         position: absolute; /*指定絕對位置*/
         left: 50%;
         top: 30%;
@@ -3024,7 +3026,7 @@ body {
         left: 50%;
         font-size: 40px;
         font-weight: bold;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -50%);
     }
 
     .BucPwTitle {
@@ -3038,6 +3040,15 @@ body {
         top: 50%;
         width: 220px;
         transform: translate(-50%, -60%);
+    }
+
+    .RevText {
+        font-size: 38px;
+        position: absolute; /*指定絕對位置*/
+        left: 50%;
+        top: 30%;
+        width: 650px;
+        transform: translate(-50%, -80%);
     }
 
     .RevTextbox { /* 輸入金額或原因 */

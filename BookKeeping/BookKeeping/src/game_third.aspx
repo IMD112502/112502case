@@ -407,8 +407,8 @@
                         <p id="resultMessage"></p>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 ButtonSize2" OnClick="RestartGame" />
-                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 ButtonSize2" PostBackUrl="game_menu.aspx" />
+                        <asp:Button runat="server" text="再玩一次" class="ButtonStyle3 JumpButton" OnClick="RestartGame" />
+                        <asp:Button runat="server" text="結束遊戲" class="ButtonStyle3 JumpButton" PostBackUrl="game_menu.aspx" />
                     </div>
                 </div>
             </div>
