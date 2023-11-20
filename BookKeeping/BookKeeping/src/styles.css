@@ -1769,7 +1769,7 @@ body {
     .AddButton {
         position: absolute;
         left: 50%;
-        top: 190%;
+        top: 175%;
         width: 500px;
         transform: translate(-50%, -50%);
     }
@@ -1788,7 +1788,7 @@ body {
         left: 50%;
         top: 120%;
         font-size: 20px;
-        transform: translate(-40%, -50%);
+        transform: translate(-42%, -50%);
     }
 
     #AddTextbox {
@@ -1813,7 +1813,7 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        max-height: 150px; /* 設定最大高度，超過高度將出現滾動條 */
+        max-height: 100px; /* 設定最大高度，超過高度將出現滾動條 */
         overflow-y: auto; /* 啟用垂直滾動條 */
         background-color: #ffffff8f; /* 設定底色 */
         border: 1px solid #ccc;
