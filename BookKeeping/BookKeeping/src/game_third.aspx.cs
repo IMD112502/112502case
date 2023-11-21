@@ -296,36 +296,53 @@ namespace BookKeeping.src
             string user_id = Session["UserID"].ToString();
             int corcnt = Convert.ToInt32(correctcnt.Text);
             DateTime overtime = DateTime.Now;
+            string sql = "INSERT INTO `112-112502`.`gamedata` (user_id , time , score ) VALUES (@userid , @time , @score);";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
-
-                string sql = "INSERT INTO `112-112502`.`gamedata` (user_id , time , score ) VALUES (@userid , @time , @score);";
-                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@userid", user_id);
-                    cmd.Parameters.AddWithValue("@time", overtime);
-                    cmd.Parameters.AddWithValue("@score", corcnt);
+                    connection.Open();
 
-                    int rowsaffected = cmd.ExecuteNonQuery();
-
-                    if (rowsaffected > 0)
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        // 触发模态框
-                        if (corcnt > 0)
+                        cmd.Parameters.AddWithValue("@userid", user_id);
+                        cmd.Parameters.AddWithValue("@time", overtime);
+                        cmd.Parameters.AddWithValue("@score", corcnt);
+
+                        int rowsaffected = cmd.ExecuteNonQuery();
+
+                        if (rowsaffected > 0)
                         {
-                            string script = "$('#resultMessage').text('恭喜過關'); $('#resultModal').modal('show');";
-                            ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
+                            // 触发模态框
+                            if (corcnt > 0)
+                            {
+                                string script = "$('#resultMessage').text('恭喜過關'); $('#resultModal').modal('show');";
+                                ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
+                            }
+                            else
+                            {
+                                string script = "$('#resultMessage').text('通關失敗'); $('#resultModal').modal('show');";
+                                ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
+                            }
+
                         }
-                        else 
-                        {
-                            string script = "$('#resultMessage').text('通關失敗'); $('#resultModal').modal('show');";
-                            ClientScript.RegisterStartupScript(this.GetType(), "ShowResultModal", script, true);
-                        }
-                        
                     }
                 }
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+               
             }
         }
 

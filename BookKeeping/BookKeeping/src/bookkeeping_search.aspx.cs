@@ -33,34 +33,45 @@ namespace _BookKeeping
             }
         }
 
-        protected MySqlConnection DBConnection()
-        {
-            string connectionStrings = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
-            MySqlConnection connection = new MySqlConnection(connectionStrings);
-            connection.Open();
-            return connection;
-        }
-
         protected void SearchData(string sql, string year, string month, string day, string category, string keyword)
         {
-            MySqlConnection conn = DBConnection();
+            string connectionStrings = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            using (MySqlConnection conn = new MySqlConnection(connectionStrings))
+            {
+                try
+                {
+                    conn.Open();
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@year", year);
-            cmd.Parameters.AddWithValue("@month", month);
-            cmd.Parameters.AddWithValue("@day", day);
-            cmd.Parameters.AddWithValue("@category", category);
-            cmd.Parameters.AddWithValue("@keyword", keyword);
-            cmd.Parameters.AddWithValue("@user_id", user_id);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            // 將資料繫結到 GridView 控制項上
-            SearchView.DataSource = reader;
-            SearchView.DataBind();
-
-            reader.Close();
-
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@year", year);
+                        cmd.Parameters.AddWithValue("@month", month);
+                        cmd.Parameters.AddWithValue("@day", day);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.Parameters.AddWithValue("@keyword", keyword);
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // 將資料繫結到 GridView 控制項上
+                            SearchView.DataSource = reader;
+                            SearchView.DataBind();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
+            }
             if (SearchView.Rows.Count == 0)
             {
                 // 若 GridView 中沒有資料，顯示查無資料的提示
@@ -71,8 +82,6 @@ namespace _BookKeeping
                 // 若有資料，隱藏提示
                 NoDataLabel.Visible = false;
             }
-
-            conn.Close();
         }
 
         protected void Search_Click(object sender, EventArgs e)
@@ -103,7 +112,7 @@ namespace _BookKeeping
                 sql += "and b.cls_name=@category ";
             }
 
-            string keyword = "%"+TxtBox.Text.Trim()+"%";
+            string keyword = "%" + TxtBox.Text.Trim() + "%";
 
             if (!string.IsNullOrEmpty(keyword))
             {
@@ -135,7 +144,7 @@ namespace _BookKeeping
             }
 
             //判斷月份的天數
-            if (month != 0) 
+            if (month != 0)
             {
                 if (month == 2 && isLeapYear)
                 {
@@ -149,11 +158,11 @@ namespace _BookKeeping
                 {
                     i = 30;
                 }
-                else 
+                else
                 {
                     i = 31;
                 }
-                for (int j = 1; j <= i; j++) 
+                for (int j = 1; j <= i; j++)
                 {
                     DayList.Items.Add(new ListItem(j.ToString(), j.ToString()));
                 }
@@ -204,7 +213,7 @@ namespace _BookKeeping
                     DayList.Items.Add(new ListItem(j.ToString(), j.ToString()));
                 }
             }
-           
+
         }
     }
 }

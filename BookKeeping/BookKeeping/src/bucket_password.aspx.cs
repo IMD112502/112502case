@@ -51,17 +51,35 @@ namespace BookKeeping
 
         private bool CheckUserHasAuditPassword(string user_id)
         {
+            int count = 0;
+            string sql = "SELECT COUNT(*) FROM `112-112502`.user WHERE user_id = @user_id AND YNpassword IS NOT NULL";
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
 
-                string sql = "SELECT COUNT(*) FROM `112-112502`.user WHERE user_id = @user_id AND YNpassword IS NOT NULL";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@user_id", user_id);
-
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        count = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
 
                 // 如果 count 大于 0，表示用户已经注册了审核密码
                 return count > 0;
@@ -136,50 +154,83 @@ namespace BookKeeping
         private void UpdateAuditPasswordForUser(string user_id, string newPassword, string ques, string Answer)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            string sql = "UPDATE `112-112502`.user SET YNpassword = @newPassword, question2 = @question, answer2 = @answer WHERE user_id = @user_id";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
 
-                string sql = "UPDATE `112-112502`.user SET YNpassword = @newPassword, question2 = @question, answer2 = @answer WHERE user_id = @user_id";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@newPassword", newPassword);
-                cmd.Parameters.AddWithValue("@user_id", user_id);
-                cmd.Parameters.AddWithValue("@question", ques);
-                cmd.Parameters.AddWithValue("@answer", Answer);
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@newPassword", newPassword);
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        cmd.Parameters.AddWithValue("@question", ques);
+                        cmd.Parameters.AddWithValue("@answer", Answer);
 
-                cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
+
+
             }
         }
 
 
         private string GetPasswordForUser(string user_id)
         {
+            string password = null;
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            string sql = "SELECT YNpassword FROM `112-112502`.user where user_id = @user_id";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                conn.Open();
-
-                string sql = "SELECT YNpassword FROM `112-112502`.user where user_id = @user_id";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@user_id", user_id);
-
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                try
                 {
-                    if (reader.Read())
+                    conn.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        // 從資料庫中獲取密碼並返回
-                        return reader["YNpassword"].ToString();
-                    }
-                    else
-                    {
-                        // 如果未找到用戶，可以返回 null 或其他適當的值
-                        return null;
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // 從資料庫中獲取密碼並返回
+                                password = reader["YNpassword"].ToString();
+                            }
+                        }
                     }
                 }
-
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
             }
+            return password;
         }
 
         private bool ContainsChineseCharacters(string input)

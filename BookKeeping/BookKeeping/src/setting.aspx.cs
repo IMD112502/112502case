@@ -26,42 +26,56 @@ namespace BookKeeping.src
                 {
                     // 使用用户 ID 查询数据库以获取用户数据
                     string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+
+                    // 创建 SQL 查询
+                    string query = "SELECT nickname, gender, user_id, birthday FROM `112-112502`.user WHERE user_id = @UserID";
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        connection.Open();
-
-                        // 创建 SQL 查询
-                        string query = "SELECT nickname, gender, user_id, birthday FROM `112-112502`.user WHERE user_id = @UserID";
-
-                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        try
                         {
-                            cmd.Parameters.AddWithValue("@UserID", userID);
+                            connection.Open();
 
-                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            using (MySqlCommand cmd = new MySqlCommand(query, connection))
                             {
-                                
-
-                                if (reader.Read())
+                                cmd.Parameters.AddWithValue("@UserID", userID);
+                                using (MySqlDataReader reader = cmd.ExecuteReader())
                                 {
-                                    // 从数据库中获取用户数据并填充到 Label 中
-                                    nickname.Text = reader["nickname"].ToString();
-                                    gender.Text = reader["gender"].ToString();
-                                    account.Text = reader["user_id"].ToString();
-
-                                    DateTime birthdayDate = (DateTime)reader["birthday"];
-                                    birthdate.Text = birthdayDate.ToString("yyyy/MM/dd");
-
-                                    if (reader["gender"].ToString() == "男生")
+                                    if (reader.Read())
                                     {
-                                        Ava.ImageUrl = "images/avatar/ava_boy.png";
-                                    }
-                                    else
-                                    {
-                                        Ava.ImageUrl = "images/avatar/ava_girl.png";
+                                        // 从数据库中获取用户数据并填充到 Label 中
+                                        nickname.Text = reader["nickname"].ToString();
+                                        gender.Text = reader["gender"].ToString();
+                                        account.Text = reader["user_id"].ToString();
+
+                                        DateTime birthdayDate = (DateTime)reader["birthday"];
+                                        birthdate.Text = birthdayDate.ToString("yyyy/MM/dd");
+
+                                        if (reader["gender"].ToString() == "男生")
+                                        {
+                                            Ava.ImageUrl = "images/avatar/ava_boy.png";
+                                        }
+                                        else
+                                        {
+                                            Ava.ImageUrl = "images/avatar/ava_girl.png";
+                                        }
                                     }
                                 }
                             }
                         }
+                        catch (Exception ex)
+                        {
+                            /// 將資料庫錯誤訊息顯示在頁面上
+                            string errorMessage = $"資料庫錯誤：{ex.Message}";
+                            ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                        }
+                        finally
+                        {
+                            if (connection.State == System.Data.ConnectionState.Open)
+                            {
+                                connection.Close();
+                            }
+                        }
+                       
                     }
                 }
             }

@@ -12,38 +12,49 @@ namespace BookKeeping.src
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             if (!IsPostBack)
             {
-                using (MySqlConnection conn = DBConnection())
+                user_id = Session["UserID"] as string;
+                string connectionStrings = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+                using (MySqlConnection conn = new MySqlConnection(connectionStrings))
                 {
-                    user_id = Session["UserID"] as string;
-                    conn.Open();
-                    BucketRecord(conn);
+                    try
+                    {
+                        conn.Open();
+                        BucketRecord(conn);
+                    }
+                    catch (Exception ex)
+                    {
+                        /// 將資料庫錯誤訊息顯示在頁面上
+                        string errorMessage = $"資料庫錯誤：{ex.Message}";
+                        ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                    }
+                    finally
+                    {
+                        if (conn.State == System.Data.ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }
+                    }
+
                 }
             }
         }
 
-
         protected void BucketRecord(MySqlConnection connection)
         {
             string sql = "SELECT d_num, d_name, pass_amount, exchange_time, exchange_state FROM `112-112502`.bucket_list WHERE user_id = @user_id and exchange_state in ('D', 'R', 'Y');";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            cmd.Parameters.AddWithValue("@user_id", user_id);
 
-            using (MySqlDataReader reader = cmd.ExecuteReader())
+            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
             {
-                GridView2.DataSource = reader;
-                GridView2.DataBind();
+                cmd.Parameters.AddWithValue("@user_id", user_id);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    GridView2.DataSource = reader;
+                    GridView2.DataBind();
+                }
             }
-        }
-
-
-        protected MySqlConnection DBConnection()
-        {
-            string connection = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
-            MySqlConnection conn = new MySqlConnection(connection);
-            return conn;
         }
 
         protected string GetExchangeStatus(object exchangeState)
@@ -52,7 +63,7 @@ namespace BookKeeping.src
             {
                 return "已兌換";
             }
-            else if(exchangeState != null && exchangeState.ToString() == "D")
+            else if (exchangeState != null && exchangeState.ToString() == "D")
             {
                 return "刪除";
             }

@@ -38,39 +38,54 @@ namespace BookKeeping.src
             // 从配置文件中获取数据库连接字符串
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
 
+            // 创建 SQL 查询，根据用户ID检索用户数据
+            string query = "SELECT nickname, gender, user_id, birthday FROM `112-112502`.user WHERE user_id = @UserId";
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
-
-                // 创建 SQL 查询，根据用户ID检索用户数据
-                string query = "SELECT nickname, gender, user_id, birthday FROM `112-112502`.user WHERE user_id = @UserId";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@UserId", userId);
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    connection.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        cmd.Parameters.AddWithValue("@UserId", userId);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            user.Nickname = reader["nickname"].ToString();
-                            gender.Text = reader["gender"].ToString();
-                            account.Text = reader["user_id"].ToString();
-                            user.Birthdate = Convert.ToDateTime(reader["birthday"]);
-
-                            Birthday.Text = user.Birthdate.ToString("yyyy/MM/dd");
-
-                            if (reader["gender"].ToString() == "男生")
+                            if (reader.Read())
                             {
-                                Avatar.ImageUrl = "images/avatar/ava_boy.png";
-                            }
-                            else
-                            {
-                                Avatar.ImageUrl = "images/avatar/ava_girl.png";
+                                user.Nickname = reader["nickname"].ToString();
+                                gender.Text = reader["gender"].ToString();
+                                account.Text = reader["user_id"].ToString();
+                                user.Birthdate = Convert.ToDateTime(reader["birthday"]);
+
+                                Birthday.Text = user.Birthdate.ToString("yyyy/MM/dd");
+
+                                if (reader["gender"].ToString() == "男生")
+                                {
+                                    Avatar.ImageUrl = "images/avatar/ava_boy.png";
+                                }
+                                else
+                                {
+                                    Avatar.ImageUrl = "images/avatar/ava_girl.png";
+                                }
                             }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+               
             }
 
             return user;
@@ -126,27 +141,44 @@ namespace BookKeeping.src
 
         public bool UpdateUserData(UserData modifiedUserData)
         {
-            // 从配置文件中获取数据库连接字符串
-            string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            int rowsAffected = 0;
+           // 从配置文件中获取数据库连接字符串
+           string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            // 创建 SQL 命令，更新用户数据
+            string query = "UPDATE `112-112502`.user " +
+                           "SET nickname = @Nickname " +
+                           "WHERE user_id = @Account";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
-
-                // 创建 SQL 命令，更新用户数据
-                string query = "UPDATE `112-112502`.user " +
-                               "SET nickname = @Nickname " +
-                               "WHERE user_id = @Account";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@Nickname", modifiedUserData.Nickname);
-                    cmd.Parameters.AddWithValue("@Account", account.Text);
+                    connection.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@Nickname", modifiedUserData.Nickname);
+                        cmd.Parameters.AddWithValue("@Account", account.Text);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0; // 返回是否更新成功
+                        rowsAffected = cmd.ExecuteNonQuery();
+                        
+                    }
                 }
+                catch (Exception ex)
+                {
+                    /// 將資料庫錯誤訊息顯示在頁面上
+                    string errorMessage = $"資料庫錯誤：{ex.Message}";
+                    ClientScript.RegisterStartupScript(GetType(), "DatabaseError", $"alert('{errorMessage}');", true);
+                }
+                finally
+                {
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+                
             }
+            return rowsAffected > 0; // 返回是否更新成功
         }
 
 
