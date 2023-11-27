@@ -15,7 +15,7 @@
         <div class="ForgetPwdText">
             <div class="RegTextBlock">
             <p style="margin-left:30px;">帳號
-            <asp:TextBox class="TextBoxStyle" ID="enteraccount" runat="server" style="padding-left:10px;" Width="250px" Height="20px" placeholder="輸入帳號"></asp:TextBox>
+            <asp:TextBox class="TextBoxStyle" ID="enteraccount" runat="server" style="padding-left:10px;" Width="250px" Height="20px" placeholder="請輸入帳號"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvEnterAccount" runat="server" class="ForgetPwError" ControlToValidate="enteraccount" InitialValue="" ErrorMessage="請填寫帳號" ForeColor="Red" />
             </p>
 
@@ -33,7 +33,7 @@
             </p>
                 
             <p>重設密碼
-            <asp:TextBox class="TextBoxStyle" ID="newanswer" runat="server" style="padding-left:10px;" Width="250px" Height="20px" placeholder="請輸入新密碼"></asp:TextBox>
+            <asp:TextBox class="TextBoxStyle" ID="newanswer" runat="server" style="padding-left:10px;" Width="250px" Height="20px" placeholder="請輸入6~10位英文或數字新密碼"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvNewAnswer" runat="server" class="ForgetPwError" ControlToValidate="newanswer" InitialValue="" ErrorMessage="請填寫新密碼" ForeColor="Red" />
             </p>
 

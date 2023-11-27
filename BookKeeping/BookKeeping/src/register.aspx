@@ -28,10 +28,10 @@
                 </p>
                 
                 <p>帳號
-                    <asp:TextBox class="TextBoxStyle" ID="RegAcc" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px; padding-left:10px;" PlaceHolder="請輸入帳號" ValidationGroup="register"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="RegAcc" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px; padding-left:10px;" PlaceHolder="請輸入帳號(限英文或數字)" ValidationGroup="register"></asp:TextBox>
                 </p>
                 <p>密碼
-                    <asp:TextBox class="TextBoxStyle" ID="RegPwd" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px; padding-left:10px;" PlaceHolder="請輸入密碼" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="RegPwd" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px; padding-left:10px;" PlaceHolder="請輸入6~10位密碼(限英文或數字)" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
                 </p>
 
                 <asp:HiddenField ID="HiddenAccount" runat="server" />
@@ -49,7 +49,7 @@
                     </asp:DropDownList>
                 </p>
                 <p>回答問題
-                    <asp:TextBox class="TextBoxStyle" ID="Answer1" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px;  padding-left:10px;" placeholder="請輸入答案"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="Answer1" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px;  padding-left:10px;" placeholder="請輸入答案(限中文)"></asp:TextBox>
                 </p>
             </div>       
             <div class="RegButton">

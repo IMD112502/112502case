@@ -14,7 +14,7 @@
         <div class="BMemo MemoStyle2">
             <div class="DreWord">
                 <label class="BucPwTitle">家長審核密碼</label>
-                <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" placeholder="請輸入密碼" Font-Size="13"></asp:TextBox>
+                <asp:TextBox class="TextBoxStyle" ID="UserPwd" runat="server" Width="250" Height="35" placeholder="請輸入4~6位密碼" Font-Size="13"></asp:TextBox>
                 <a class="RevForgetPwd" href="forget_bucket_pwd.aspx">忘記密碼</a>
                 <asp:Label ID="ErrorMessageLabel" CssClass="ErrorMessageLabel" runat="server" Text="" />
                 <br />

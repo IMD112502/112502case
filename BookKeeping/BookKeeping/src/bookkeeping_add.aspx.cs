@@ -31,14 +31,22 @@ namespace _BookKeeping
                     // 如果使用者未登入，可以執行相應的處理，例如導向到登入頁面
                     Response.Redirect("login.aspx");
                 }
-                string connectionStrings = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+                MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+                builder.Server = "140.131.114.242";
+                builder.UserID = "IMD112502";
+                builder.Password = "@Ntubimd06202741";
+                builder.Database = "112-112502";
+                builder.AllowUserVariables = true;
+                builder.ConnectionTimeout = 10;
+
+                string connectionString = builder.ConnectionString;
                 currentMonth = DateTime.Now.Month; // 紀錄顯示的月份
-                using (MySqlConnection conn = new MySqlConnection(connectionStrings))
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     try
                     {
                         conn.Open();
-
+            
                         SearchSelectMonth(conn, currentMonth);
                     }
                     catch (Exception ex)
