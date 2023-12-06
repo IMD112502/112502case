@@ -54,7 +54,7 @@
 							<asp:Label ID="date" runat="server" Text='<%# Eval("date", "{0:yyyy-MM-dd}") %>'></asp:Label>
 						</ItemTemplate>
 						<EditItemTemplate>
-							<asp:TextBox ID="txtdate" runat="server" Text='<%# Bind("date", "{0:yyyy-MM-dd}") %>' Width="75px"></asp:TextBox>
+							<input type="date" id="txtdate" name="txtdate" min="2023-01-01" max="<%= DateTime.Now.ToString("yyyy-MM-dd") %>" value="<%# Eval("date", "{0:yyyy-MM-dd}") %>" />
 						</EditItemTemplate>
 					</asp:TemplateField>
 

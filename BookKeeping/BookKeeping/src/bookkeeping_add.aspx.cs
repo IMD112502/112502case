@@ -462,7 +462,8 @@ namespace _BookKeeping
             string num = GridView1.DataKeys[e.RowIndex]["num"].ToString();
 
             // 取得編輯後的資料
-            string dateStr = ((TextBox)row.FindControl("txtdate")).Text;
+            DateTime datetime = DateTime.Parse(Request.Form["txtdate"]);
+            DateTime date = datetime.Date;
             string category = ((DropDownList)row.FindControl("txtclass")).SelectedValue;
             string costStr = ((TextBox)row.FindControl("txtcost")).Text;
             string mark = ((TextBox)row.FindControl("txtmark")).Text;
@@ -495,9 +496,6 @@ namespace _BookKeeping
                 ClientScript.RegisterStartupScript(GetType(), "備註欄位最多只能輸入8個字!", script, true);
                 return; // 停止執行，不執行後續的程式碼
             }
-
-            // 將字串轉換為日期型別
-            DateTime date = DateTime.Parse(dateStr);
 
             // 將字串轉換為整數型別
             int cost = int.Parse(costStr);
