@@ -75,7 +75,7 @@
 				<asp:ListItem Text="兌換願望" Value="兌換願望" />
 			</asp:DropDownList>
 			<asp:Label ID="Label10" runat="server" Text="關鍵字"></asp:Label>
-			<asp:TextBox class="TextBoxStyle" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
+			<asp:TextBox class="TextBoxStyle MainWord" ID="TxtBox" type="text" runat="server" placeholder="請輸入關鍵字"></asp:TextBox>
 			<br />
 			<br />
 			<br />

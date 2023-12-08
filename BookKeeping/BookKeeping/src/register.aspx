@@ -49,7 +49,7 @@
                     </asp:DropDownList>
                 </p>
                 <p>回答問題
-                    <asp:TextBox class="TextBoxStyle" ID="Answer1" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px;  padding-left:10px;" placeholder="請輸入答案(限中文)"></asp:TextBox>
+                    <asp:TextBox class="TextBoxStyle" ID="Answer1" runat="server" Width="250px" Height="20px" style ="margin-bottom:5px;  padding-left:10px;" placeholder="請輸入答案"></asp:TextBox>
                 </p>
             </div>       
             <div class="RegButton">
