@@ -122,7 +122,7 @@ namespace _BookKeeping
                             DataRow task2 = dt.NewRow();
                             task2["TaskID"] = j.ToString();
                             task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + clothIndex.ToString() + ".png");
-                            task2["TaskName"] = "許願次數達" + cnt.ToString() + "次";
+                            task2["TaskName"] = "兌換願望次數達" + cnt.ToString() + "次";
                             task2["ImageURLField"] = ResolveUrl("~/src/images/checked.png");
                             dt.Rows.Add(task2);
                         }

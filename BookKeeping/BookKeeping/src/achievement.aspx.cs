@@ -138,8 +138,8 @@ namespace _BookKeeping
                             DataRow task2 = dt.NewRow();
                             task2["TaskID"] = j.ToString();
                             task2["ImageUrl"] = ResolveUrl("~/src/images/cloth/head_" + gender + clothIndex.ToString() + ".png");
-                            task2["TaskName"] = "許願次數達" + cnt.ToString() + "次";
-                            task2["TaskDescription"] = $"您已許願 {wishingCount} 次";
+                            task2["TaskName"] = "兌換願望次數達" + cnt.ToString() + "次";
+                            task2["TaskDescription"] = $"您已兌換 {wishingCount} 次";
                             task2["ProgressBarStyle"] = $"width: {(wishingCount >= cnt ? 100 : (wishingCount * 100 / cnt))}%";
                             task2["IsTaskCompleted"] = (wishingCount >= cnt);
                             dt.Rows.Add(task2);
@@ -202,7 +202,7 @@ namespace _BookKeeping
         private int GetWishingCount(MySqlConnection connection)
         {
             // 執行 SQL 查詢以獲取許願次數
-            string query = "SELECT COUNT(*) FROM `112-112502`.bucket_list WHERE user_id = @user_id";
+            string query = "SELECT COUNT(*) FROM `112-112502`.bucket_list WHERE user_id = @user_id and exchange_state = 'Y'";
             string user_id = Session["UserID"].ToString();
             using (MySqlCommand command = new MySqlCommand(query, connection))
             {
