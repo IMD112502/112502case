@@ -8,7 +8,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>記帳圖表</title>
+	<title>記帳統計</title>
 </head>
 
 <body class="BookBody">
