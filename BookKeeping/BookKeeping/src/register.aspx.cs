@@ -135,12 +135,12 @@ namespace _BookKeeping
                 string script = "var overlay = document.getElementById('overlay');";
                 script += "overlay.style.display = 'block';"; // 顯示背景遮罩
                 script += "var imageBox = document.createElement('img');";
-                script += "imageBox.src = 'images/alert_pw_rule.png';";
+                script += "imageBox.src = 'images/alert_reg_pw.png';";
                 script += "imageBox.className = 'custom-image2';";
                 script += "document.body.appendChild(imageBox);";
                 script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
                 script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
-                ClientScript.RegisterStartupScript(GetType(), "密碼只能含英文及數字", script, true);
+                ClientScript.RegisterStartupScript(GetType(), "密碼只能為6~10位", script, true);
                 return; // 阻止注册流程
             }
 
