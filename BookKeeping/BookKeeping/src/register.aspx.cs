@@ -130,6 +130,20 @@ namespace _BookKeeping
                 return; // 阻止注册流程
             }
 
+            if(password.Length < 6 ||password.Length > 10)
+            {
+                string script = "var overlay = document.getElementById('overlay');";
+                script += "overlay.style.display = 'block';"; // 顯示背景遮罩
+                script += "var imageBox = document.createElement('img');";
+                script += "imageBox.src = 'images/alert_pw_rule.png';";
+                script += "imageBox.className = 'custom-image2';";
+                script += "document.body.appendChild(imageBox);";
+                script += "setTimeout(function() { overlay.style.display = 'none'; }, 2000);"; // 隱藏背景遮罩
+                script += "setTimeout(function() { imageBox.style.display = 'none'; }, 2000);"; // 自动隐藏图像
+                ClientScript.RegisterStartupScript(GetType(), "密碼只能含英文及數字", script, true);
+                return; // 阻止注册流程
+            }
+
             if (ContainsNonChineseCharacters(password) || password.Contains(" "))
             {
                 // 帐号包含非英文或数字字符，显示错误消息
